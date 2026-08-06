@@ -1,11 +1,5 @@
 # Chương 2. HỆ THỐNG QUY TRÌNH NGHIỆP VỤ FPT TELECOM
 
-> 📂 **File nguồn DrawIO:** [kien_truc.drawio](kien_truc.drawio) — 12 trang, mở bằng DrawIO Desktop hoặc <https://app.diagrams.net>
->
-> 🖼️ **File ảnh PNG:** đặt trong thư mục [images/kien_truc/](images/kien_truc/) — 12 file PNG tương ứng 12 sơ đồ.
-
----
-
 ## 2.1. Kiến trúc quy trình nghiệp vụ của FPT Telecom
 
 Để đảm bảo hoạt động hiệu quả trong việc cung cấp dịch vụ viễn thông và Internet đến khách hàng, FPT Telecom xây dựng hệ thống quy trình nghiệp vụ chặt chẽ, bao gồm các hoạt động từ tiếp nhận nhu cầu, vận hành kỹ thuật đến chăm sóc sau bán hàng. Mô hình quản lý này giúp công ty tối ưu hóa trải nghiệm khách hàng, duy trì lợi thế cạnh tranh và phát triển bền vững. Các quy trình của FPT Telecom được phân thành ba nhóm chính: **Quản lý (Management)**, **Cốt lõi (Core)** và **Hỗ trợ (Support)**.
