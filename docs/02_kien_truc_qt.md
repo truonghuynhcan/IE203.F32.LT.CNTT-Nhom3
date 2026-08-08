@@ -31,7 +31,7 @@
 
 _Hình 2.1. Kiến trúc nghiệp vụ FPT Telecom — phân nhóm Quản lý / Cốt lõi / Hỗ trợ_
 
-![Kiến trúc tổng quan](/assets/diagrams/kien_truc/kien-truc-tong-quan.png)
+![Kiến trúc tổng quan](../assets/diagrams/kien_truc/kien-truc-tong-quan.png)
 
 ---
 
@@ -39,7 +39,7 @@ _Hình 2.1. Kiến trúc nghiệp vụ FPT Telecom — phân nhóm Quản lý / 
 
 ### 2.3.1. Quy trình hoạch định chiến lược kinh doanh
 
-![Quy trình hoạch định chiến lược kinh doanh](/assets/diagrams/kien_truc/management/hoach-dinh-chien-luoc.png)
+![Quy trình hoạch định chiến lược kinh doanh](../assets/diagrams/kien_truc/management/hoach-dinh-chien-luoc.png)
 
 **Mô tả luồng:**
 
@@ -51,7 +51,7 @@ _Hình 2.1. Kiến trúc nghiệp vụ FPT Telecom — phân nhóm Quản lý / 
 
 ### 2.3.2. Quy trình quản lý và mở rộng hạ tầng
 
-![Quy trình quản lý và mở rộng hạ tầng](/assets/diagrams/kien_truc/management/quan-ly-va-mo-rong-ha-tang.png)
+![Quy trình quản lý và mở rộng hạ tầng](../assets/diagrams/kien_truc/management/quan-ly-va-mo-rong-ha-tang.png)
 
 **Mô tả luồng:**
 
@@ -62,7 +62,7 @@ _Hình 2.1. Kiến trúc nghiệp vụ FPT Telecom — phân nhóm Quản lý / 
 
 ### 2.3.3. Quy trình đo lường chất lượng dịch vụ (NPS/KPI)
 
-![Quy trình đo lường chất lượng dịch vụ](/assets/diagrams/kien_truc/management/do-luong-chat-luong-dich-vu.png)
+![Quy trình đo lường chất lượng dịch vụ](../assets/diagrams/kien_truc/management/do-luong-chat-luong-dich-vu.png)
 
 **Mô tả luồng:**
 
@@ -77,7 +77,7 @@ _Hình 2.1. Kiến trúc nghiệp vụ FPT Telecom — phân nhóm Quản lý / 
 
 ### 2.4.1. Quy trình tiếp nhận yêu cầu
 
-![Quy trình tiếp nhận yêu cầu](/assets/diagrams/kien_truc/core/tiep-nhan-yeu-cau.png)
+![Quy trình tiếp nhận yêu cầu](../assets/diagrams/kien_truc/core/tiep-nhan-yeu-cau.png)
 
 **Mô tả luồng:**
 
@@ -88,7 +88,7 @@ _Hình 2.1. Kiến trúc nghiệp vụ FPT Telecom — phân nhóm Quản lý / 
 
 ### 2.4.2. Quy trình khảo sát hạ tầng
 
-![Quy trình khảo sát hạ tầng](/assets/diagrams/kien_truc/core/khao-sat-ha-tang.png)
+![Quy trình khảo sát hạ tầng](../assets/diagrams/kien_truc/core/khao-sat-ha-tang.png)
 
 **Mô tả luồng:**
 
@@ -100,7 +100,7 @@ _Hình 2.1. Kiến trúc nghiệp vụ FPT Telecom — phân nhóm Quản lý / 
 
 ### 2.4.3. Quy trình tạo và phân bổ Work Order
 
-![Quy trình tạo và phân bổ Work Order](/assets/diagrams/kien_truc/core/work-order.png)
+![Quy trình tạo và phân bổ Work Order](../assets/diagrams/kien_truc/core/work-order.png)
 
 **Mô tả luồng:**
 
@@ -112,7 +112,7 @@ _Hình 2.1. Kiến trúc nghiệp vụ FPT Telecom — phân nhóm Quản lý / 
 
 ### 2.4.4. Quy trình thi công lắp đặt
 
-![Quy trình thi công lắp đặt](/assets/diagrams/kien_truc/core/thi-cong.png)
+![Quy trình thi công lắp đặt](../assets/diagrams/kien_truc/core/thi-cong.png)
 
 **Mô tả luồng:**
 
@@ -127,7 +127,7 @@ _Hình 2.1. Kiến trúc nghiệp vụ FPT Telecom — phân nhóm Quản lý / 
 
 ### 2.4.5. Quy trình kích hoạt và hậu mãi
 
-![Quy trình kích hoạt và hậu mãi](/assets/diagrams/kien_truc/core/kich-hoat-va-hau-mai.png)
+![Quy trình kích hoạt và hậu mãi](../assets/diagrams/kien_truc/core/kich-hoat-va-hau-mai.png)
 
 **Mô tả luồng:**
 
@@ -144,7 +144,7 @@ _Hình 2.1. Kiến trúc nghiệp vụ FPT Telecom — phân nhóm Quản lý / 
 
 ### 2.5.1. Quy trình quản lý kho và vật tư
 
-![Quy trình quản lý kho và vật tư](/assets/diagrams/kien_truc/support/kho-va-vat-tu.png)
+![Quy trình quản lý kho và vật tư](../assets/diagrams/kien_truc/support/kho-va-vat-tu.png)
 
 **Mô tả luồng:**
 
@@ -156,7 +156,7 @@ _Hình 2.1. Kiến trúc nghiệp vụ FPT Telecom — phân nhóm Quản lý / 
 
 ### 2.5.2. Quy trình tài chính - kế toán
 
-![Quy trình tài chính - kế toán](/assets/diagrams/kien_truc/support/tai-chinh-ke-toan.png)
+![Quy trình tài chính - kế toán](../assets/diagrams/kien_truc/support/tai-chinh-ke-toan.png)
 
 **Mô tả luồng:**
 
@@ -169,7 +169,7 @@ _Hình 2.1. Kiến trúc nghiệp vụ FPT Telecom — phân nhóm Quản lý / 
 
 ### 2.5.3. Quy trình Công nghệ Thông tin (CRM/BPMS)
 
-![Quy trình Công nghệ Thông tin](/assets/diagrams/kien_truc/support/cong-nghe-thong-tin.png)
+![Quy trình Công nghệ Thông tin](../assets/diagrams/kien_truc/support/cong-nghe-thong-tin.png)
 
 **Mô tả luồng:**
 
