@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="7EPRS3D1KxY8QMG4XFCH">
+    <mxGraphModel dx="763" dy="605" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uNOnmONXxIghn74e88Ej-1" parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Di chuyển đến địa điểm lắp đặt" vertex="1">
+          <mxGeometry height="80" width="120" x="10" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="uNOnmONXxIghn74e88Ej-2" parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Di chuyển đến địa điểm lắp đặt" vertex="1">
+          <mxGeometry height="80" width="180" x="140" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="uNOnmONXxIghn74e88Ej-3" parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Kéo cáp quang" vertex="1">
+          <mxGeometry height="80" width="180" x="330" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="uNOnmONXxIghn74e88Ej-4" parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Hàn nối cáp quang với Modem/ONT" vertex="1">
+          <mxGeometry height="80" width="155" x="520" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="uNOnmONXxIghn74e88Ej-7" parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Lắp đặt Modem/ONT" vertex="1">
+          <mxGeometry height="80" width="155" x="685" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="uNOnmONXxIghn74e88Ej-8" parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;fillColor=#fad7ac;strokeColor=#b46504;" value="Cấu hình Wi-Fi &amp;amp; kiểm tra tín hiệu" vertex="1">
+          <mxGeometry height="80" width="155" x="10" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="uNOnmONXxIghn74e88Ej-9" parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;fillColor=#fad9d5;strokeColor=#ae4132;" value="Nghiệm thu hệ thống" vertex="1">
+          <mxGeometry height="80" width="155" x="175" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="uNOnmONXxIghn74e88Ej-10" parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;fillColor=#b0e3e6;strokeColor=#0e8088;" value="Thu phí lắp đặt &amp;amp; khách hàng ký xác nhận" vertex="1">
+          <mxGeometry height="80" width="155" x="348" y="440" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
