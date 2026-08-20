@@ -77,8 +77,7 @@ cho khách hàng và kết thúc. Đối với trường hợp đủ điều ki�
 tiếp tục qua các bước hoàn thiện hồ sơ, ký hợp đồng, tạo đơn lắp đặt và
 phân công đội kỹ thuật khu vực.
 
-![](media/image1.png){width="6.495833333333334in"
-height="3.5347222222222223in"}
+![Sơ đồ quy trình](./docs/quy_trinh_dang_ky_lap_dat_internet_fpt.png)
 
 ***Hình 3.1. Quy trình đăng ký và tiếp nhận yêu cầu lắp đặt Internet
 FPT***
@@ -263,56 +262,28 @@ Telecom. Việc phân loại được thực hiện theo ba nhóm:
   bỏ hoặc giảm thiểu.
 
   ---------------------------------------------------------------------------
-   **STT**  **Hoạt động**                       **Người thực     **Loại giá
-                                                   hiện**           trị**
-  --------- -------------------------------- ------------------ -------------
-      1     Phát sinh nhu cầu sử dụng dịch       Khách hàng          VA
-            vụ                                                  
-
-      2     Lựa chọn kênh đăng ký                Khách hàng          BVA
-
-      3     Cung cấp thông tin đăng ký           Khách hàng          VA
-
-      4     Tiếp nhận và ghi nhận thông tin        Sales             BVA
-
-      5     Tư vấn gói cước                        Sales             VA
-
-      6     Lập hợp đồng và dự kiến lịch lắp       Sales             BVA
-            đặt                                                 
-
-      7     Chuyển yêu cầu sang bộ phận kỹ         Sales             BVA
-            thuật                                               
-
-      8     Tiếp nhận yêu cầu kiểm tra           Technical           BVA
-
-      9     Kiểm tra hạ tầng cáp quang           Technical           VA
-
-     10     Kiểm tra số lượng Port               Technical           VA
-
-     11     Đánh giá điều kiện cung cấp dịch     Technical           VA
-            vụ                                                  
-
-     12     Thông báo kết quả không đủ điều   Technical/Sales        BVA
-            kiện                                                
-
-     13     Tư vấn lại và hoàn thiện thông         Sales             VA
-            tin                                                 
-
-     14     Cung cấp giấy tờ cần thiết           Khách hàng          BVA
-
-     15     Xác nhận lịch lắp đặt                  Sales             BVA
-
-     16     Ký hợp đồng điện tử hoặc hợp         Khách hàng          VA
-            đồng giấy                                           
-
-     17     Tiếp nhận hợp đồng trên BPMS/CRM      BPMS/CRM           BVA
-
-     18     Tạo Work Order                        BPMS/CRM           BVA
-
-     19     Phân công đội kỹ thuật khu vực        BPMS/CRM           BVA
-
-     20     Lưu và theo dõi trạng thái đơn        BPMS/CRM           BVA
-            hàng                                                
+| STT | Hoạt động | Người thực hiện | Loại giá trị |
+|---:|---|---|---|
+| 1 | Phát sinh nhu cầu sử dụng dịch vụ | Khách hàng | VA |
+| 2 | Lựa chọn kênh đăng ký | Khách hàng | BVA |
+| 3 | Cung cấp thông tin đăng ký | Khách hàng | VA |
+| 4 | Tiếp nhận và ghi nhận thông tin | Sales | BVA |
+| 5 | Tư vấn gói cước | Sales | VA |
+| 6 | Lập hợp đồng và dự kiến lịch lắp đặt | Sales | BVA |
+| 7 | Chuyển yêu cầu sang bộ phận kỹ thuật | Sales | BVA |
+| 8 | Tiếp nhận yêu cầu kiểm tra | Technical | BVA |
+| 9 | Kiểm tra hạ tầng cáp quang | Technical | VA |
+| 10 | Kiểm tra số lượng Port | Technical | VA |
+| 11 | Đánh giá điều kiện cung cấp dịch vụ | Technical | VA |
+| 12 | Thông báo kết quả không đủ điều kiện | Technical/Sales | BVA |
+| 13 | Tư vấn lại và hoàn thiện thông tin | Sales | VA |
+| 14 | Cung cấp giấy tờ cần thiết | Khách hàng | BVA |
+| 15 | Xác nhận lịch lắp đặt | Sales | BVA |
+| 16 | Ký hợp đồng điện tử hoặc hợp đồng giấy | Khách hàng | VA |
+| 17 | Tiếp nhận hợp đồng trên BPMS/CRM | BPMS/CRM | BVA |
+| 18 | Tạo Work Order | BPMS/CRM | BVA |
+| 19 | Phân công đội kỹ thuật khu vực | BPMS/CRM | BVA |
+| 20 | Lưu và theo dõi trạng thái đơn hàng | BPMS/CRM | BVA |
   ---------------------------------------------------------------------------
 
 ***Bảng 3.2. Phân tích giá trị gia tăng quy trình đăng ký và tiếp nhận
@@ -351,37 +322,16 @@ xử lý lặp lại giữa các bộ phận.
 Dựa trên quy trình BPMN, các dạng lãng phí chủ yếu có khả năng phát sinh
 trong quá trình xử lý yêu cầu gồm thời gian chờ, chuyển giao thông tin,
 xử lý lại và nhập liệu lặp lại.
-
-  -----------------------------------------------------------------------
-   **Loại lãng  **Ví dụ trong quy trình**
-      phí**     
-  ------------- ---------------------------------------------------------
-      Hold      Khách hàng chờ Sales liên hệ sau khi gửi yêu cầu trên
-                Website; Sales chờ bộ phận Technical kiểm tra hạ tầng;
-                khách hàng chờ hoàn thiện hồ sơ và ký hợp đồng; yêu cầu
-                chờ được phân công sau khi Work Order được tạo.
-
-      Move      Yêu cầu được chuyển từ Customer sang Sales, từ Sales sang
-                Technical, sau đó kết quả quay lại Sales và tiếp tục
-                chuyển vào BPMS/CRM. Việc chuyển giao nhiều lần có thể
-                làm tăng thời gian xử lý nếu thông tin chưa được đồng bộ.
-
-     Over-do    Sales phải xác nhận lại những thông tin khách hàng đã
-                cung cấp; khách hàng phải bổ sung hoặc cung cấp lại giấy
-                tờ do hồ sơ chưa đầy đủ; một số thông tin có thể phải
-                kiểm tra nhiều lần trước khi tạo Work Order.
-
-  Nhập liệu lặp Thông tin khách hàng từ Website hoặc hồ sơ đăng ký có thể
-       lại      phải nhập lại vào hệ thống quản lý nếu dữ liệu giữa các
-                kênh chưa được đồng bộ hoàn toàn.
-
-  Chờ phản hồi  Sales phải chờ kết quả kiểm tra hạ tầng và Port từ
-                Technical trước khi tiếp tục hoàn thiện hồ sơ.
-
-    Xử lý lại   Khi thông tin khách hàng, địa chỉ lắp đặt hoặc giấy tờ
-                chưa đầy đủ, Sales phải liên hệ lại và thực hiện lại một
-                phần công việc đã xử lý trước đó.
-  -----------------------------------------------------------------------
+-----------------------------------------------------------------------------
+  | Loại lãng phí | Ví dụ trong quy trình |
+|---|---|
+| **Hold** | Khách hàng chờ Sales liên hệ sau khi gửi yêu cầu trên Website; Sales chờ bộ phận Technical kiểm tra hạ tầng; khách hàng chờ hoàn thiện hồ sơ và ký hợp đồng; yêu cầu chờ được phân công sau khi Work Order được tạo. |
+| **Move** | Yêu cầu được chuyển từ Customer sang Sales, từ Sales sang Technical, sau đó kết quả quay lại Sales và tiếp tục chuyển vào BPMS/CRM. Việc chuyển giao nhiều lần có thể làm tăng thời gian xử lý nếu thông tin chưa được đồng bộ. |
+| **Over-do** | Sales phải xác nhận lại những thông tin khách hàng đã cung cấp; khách hàng phải bổ sung hoặc cung cấp lại giấy tờ do hồ sơ chưa đầy đủ; một số thông tin có thể phải kiểm tra nhiều lần trước khi tạo Work Order. |
+| **Nhập liệu lặp lại** | Thông tin khách hàng từ Website hoặc hồ sơ đăng ký có thể phải nhập lại vào hệ thống quản lý nếu dữ liệu giữa các kênh chưa được đồng bộ hoàn toàn. |
+| **Chờ phản hồi** | Sales phải chờ kết quả kiểm tra hạ tầng và Port từ Technical trước khi tiếp tục hoàn thiện hồ sơ. |
+| **Xử lý lại** | Khi thông tin khách hàng, địa chỉ lắp đặt hoặc giấy tờ chưa đầy đủ, Sales phải liên hệ lại và thực hiện lại một phần công việc đã xử lý trước đó. |
+-----------------------------------------------------------------------
 
 ***Bảng 3.3. Phân tích lãng phí quy trình đăng ký và tiếp nhận yêu cầu
 lắp đặt Internet FPT Telecom***
@@ -428,52 +378,24 @@ phản ánh sự khác biệt giữa trường hợp hồ sơ đầy đủ, hạ
 trường hợp yêu cầu cần thêm thời gian kiểm tra hoặc bổ sung thông tin.
 
   ---------------------------------------------------------------------------
-   **STT**  **Hoạt động**             **Tác nhân**  **Thời gian  **Thời gian
-                                                     ngắn nhất     dài nhất
-                                                      (phút)**     (phút)**
-  --------- ------------------------ -------------- ------------ ------------
-      1     Cung cấp thông tin đăng     Customer         5            10
-            ký                                                   
-
-      2     Tiếp nhận và ghi nhận        Sales           5            10
-            thông tin                                            
-
-      3     Tư vấn gói cước              Sales           10           20
-
-      4     Lập hợp đồng và dự kiến      Sales           10           20
-            lịch                                                 
-
-      5     Tiếp nhận yêu cầu kiểm     Technical         5            10
-            tra                                                  
-
-      6     Kiểm tra hạ tầng cáp       Technical         15           30
-            quang                                                
-
-      7     Kiểm tra số lượng Port     Technical         5            10
-
-      8     Đánh giá điều kiện cung    Technical         5            10
-            cấp dịch vụ                                          
-
-      9     Tư vấn lại và hoàn thiện     Sales           10           20
-            thông tin                                            
-
-     10     Cung cấp giấy tờ cần        Customer         5            15
-            thiết                                                
-
-     11     Xác nhận lịch lắp đặt        Sales           5            10
-
-     12     Ký hợp đồng                 Customer         5            10
-
-     13     Tiếp nhận hợp đồng trên     BPMS/CRM         2            5
-            BPMS/CRM                                             
-
-     14     Tạo Work Order              BPMS/CRM         2            5
-
-     15     Phân công đội kỹ thuật      BPMS/CRM         3            10
-            khu vực                                              
-
-     16     Lưu và cập nhật trạng       BPMS/CRM         2            5
-            thái                                                 
+ | STT | Hoạt động | Tác nhân | Thời gian ngắn nhất (phút) | Thời gian dài nhất (phút) |
+|---:|---|---|---:|---:|
+| 1 | Cung cấp thông tin đăng ký | Customer | 5 | 10 |
+| 2 | Tiếp nhận và ghi nhận thông tin | Sales | 5 | 10 |
+| 3 | Tư vấn gói cước | Sales | 10 | 20 |
+| 4 | Lập hợp đồng và dự kiến lịch | Sales | 10 | 20 |
+| 5 | Tiếp nhận yêu cầu kiểm tra | Technical | 5 | 10 |
+| 6 | Kiểm tra hạ tầng cáp quang | Technical | 15 | 30 |
+| 7 | Kiểm tra số lượng Port | Technical | 5 | 10 |
+| 8 | Đánh giá điều kiện cung cấp dịch vụ | Technical | 5 | 10 |
+| 9 | Tư vấn lại và hoàn thiện thông tin | Sales | 10 | 20 |
+| 10 | Cung cấp giấy tờ cần thiết | Customer | 5 | 15 |
+| 11 | Xác nhận lịch lắp đặt | Sales | 5 | 10 |
+| 12 | Ký hợp đồng | Customer | 5 | 10 |
+| 13 | Tiếp nhận hợp đồng trên BPMS/CRM | BPMS/CRM | 2 | 5 |
+| 14 | Tạo Work Order | BPMS/CRM | 2 | 5 |
+| 15 | Phân công đội kỹ thuật khu vực | BPMS/CRM | 3 | 10 |
+| 16 | Lưu và cập nhật trạng thái | BPMS/CRM | 2 | 5 |
   ---------------------------------------------------------------------------
 
 ***Bảng 3.4. Thời gian xử lý các hoạt động trong quy trình***
@@ -534,16 +456,13 @@ Tương đương khoảng: **12 giờ 20 phút**
 Như vậy, thời gian chu kỳ của một yêu cầu đăng ký đủ điều kiện triển
 khai dao động từ khoảng 3 giờ 34 phút đến 12 giờ 20 phút**.**
 
-  -----------------------------------------------------------------------
-  **Chỉ tiêu**            **Thời gian ngắn nhất**  **Thời gian dài nhất**
-  ----------------------- ------------------------ ----------------------
-  Thời gian xử lý                 94 phút                 200 phút
-
-  Thời gian chờ                   120 phút                540 phút
-
-  Tổng thời gian chu kỳ           214 phút                740 phút
-
-  Quy đổi                      3 giờ 34 phút           12 giờ 20 phút
+-----------------------------------------------------------------------
+  | Chỉ tiêu | Thời gian ngắn nhất | Thời gian dài nhất |
+|---|---:|---:|
+| Thời gian xử lý | 94 phút | 200 phút |
+| Thời gian chờ | 120 phút | 540 phút |
+| Tổng thời gian chu kỳ | 214 phút | 740 phút |
+| Quy đổi | 3 giờ 34 phút | 12 giờ 20 phút |
   -----------------------------------------------------------------------
 
 ***Bảng 3.5. Tổng thời gian chu kỳ của quy trình***
@@ -563,16 +482,12 @@ trọng tương đối lớn. Đây là cơ sở để xác định thời gian 
 phận là một trong những điểm cần ưu tiên cải tiến.
 
   -----------------------------------------------------------------------
-  **Chỉ tiêu**               **Trường hợp ngắn    **Trường hợp dài nhất**
-                                  nhất**          
-  ----------------------- ----------------------- -----------------------
-  Thời gian xử lý                 94 phút                200 phút
-
-  Tổng thời gian chu kỳ          214 phút                740 phút
-
-  Thời gian chờ                  120 phút                540 phút
-
-  Hiệu suất thời gian           **43,93%**              **27,03%**
+ | Chỉ tiêu | Trường hợp ngắn nhất | Trường hợp dài nhất |
+|---|---:|---:|
+| Thời gian xử lý | 94 phút | 200 phút |
+| Tổng thời gian chu kỳ | 214 phút | 740 phút |
+| Thời gian chờ | 120 phút | 540 phút |
+| **Hiệu suất thời gian** | **43,93%** | **27,03%** |
   -----------------------------------------------------------------------
 
 ***Bảng 3.6. Hiệu suất thời gian của quy trình***
@@ -583,17 +498,13 @@ phận là một trong những điểm cần ưu tiên cải tiến.
 được tổng hợp theo từng nhóm.
 
   -----------------------------------------------------------------------
-  **Tác nhân**            **Thời gian ngắn nhất** **Thời gian dài nhất**
-  ----------------------- ----------------------- -----------------------
-  Customer                        20 phút                 50 phút
-
-  Sales                           40 phút                 80 phút
-
-  Technical                       30 phút                 60 phút
-
-  BPMS/CRM                        9 phút                  25 phút
-
-  **Tổng cộng**                 **99 phút**            **215 phút**
+  | Tác nhân | Thời gian ngắn nhất | Thời gian dài nhất |
+|---|---:|---:|
+| Customer | 20 phút | 50 phút |
+| Sales | 40 phút | 80 phút |
+| Technical | 30 phút | 60 phút |
+| BPMS/CRM | 9 phút | 25 phút |
+| **Tổng cộng** | **99 phút** | **215 phút** |
   -----------------------------------------------------------------------
 
 Trong đó, **Sales** là tác nhân có thời gian tham gia lớn nhất do đảm
@@ -615,13 +526,11 @@ tham gia xử lý yêu cầu. Để phục vụ mục đích định lượng tr
 chi phí lao động giả định được quy đổi theo giờ như sau:
 
   -----------------------------------------------------------------------
-             **Tác nhân**                **Chi phí lao động giả định**
-  ----------------------------------- -----------------------------------
-                 Sales                          50.000 VNĐ/giờ
-
-               Technical                        60.000 VNĐ/giờ
-
-               BPMS/CRM                         55.000 VNĐ/giờ
+  | Tác nhân | Chi phí lao động giả định |
+|---|---:|
+| Sales | 50.000 VNĐ/giờ |
+| Technical | 60.000 VNĐ/giờ |
+| BPMS/CRM | 55.000 VNĐ/giờ |
   -----------------------------------------------------------------------
 
 Các mức trên chỉ được sử dụng để minh họa phương pháp tính trong phạm vi
@@ -665,17 +574,12 @@ Tổng chi phí nhân sự trong trường hợp dài nhất:
 **66.667 + 60.000 + 22.917 = 149.584 VNĐ**
 
   --------------------------------------------------------------------------
-  **Tác nhân**    **Thời gian   **Chi phí ngắn  **Thời gian   **Chi phí dài
-                  ngắn nhất**       nhất**       dài nhất**       nhất**
-  -------------- -------------- -------------- -------------- --------------
-  Sales             40 phút       33.333 VNĐ      80 phút       66.667 VNĐ
-
-  Technical         30 phút       30.000 VNĐ      60 phút       60.000 VNĐ
-
-  BPMS/CRM           9 phút       8.250 VNĐ       25 phút       22.917 VNĐ
-
-  **Tổng cộng**   **79 phút**   **71.583 VNĐ**  **165 phút**    **149.584
-                                                                  VNĐ**
+  | Tác nhân | Thời gian ngắn nhất | Chi phí ngắn nhất | Thời gian dài nhất | Chi phí dài nhất |
+|---|---:|---:|---:|---:|
+| Sales | 40 phút | 33.333 VNĐ | 80 phút | 66.667 VNĐ |
+| Technical | 30 phút | 30.000 VNĐ | 60 phút | 60.000 VNĐ |
+| BPMS/CRM | 9 phút | 8.250 VNĐ | 25 phút | 22.917 VNĐ |
+| **Tổng cộng** | **79 phút** | **71.583 VNĐ** | **165 phút** | **149.584 VNĐ** |
   --------------------------------------------------------------------------
 
 ***Bảng 3.7. Chi phí xử lý yêu cầu đăng ký dịch vụ***
