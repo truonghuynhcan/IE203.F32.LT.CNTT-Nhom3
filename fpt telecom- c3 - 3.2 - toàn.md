@@ -171,25 +171,25 @@ Phân tích giá trị gia tăng được chia thành ba nhóm:
 
 #### Bảng phân loại VA/BVA/NVA
 
-| Hoạt động | Phân loại | Giải thích |
-|---|---|---|
-| Tiếp nhận nhu cầu khách hàng | **BVA** | Cần thiết để khởi tạo quy trình nhưng chưa trực tiếp tạo ra kết nối Internet. |
-| Tư vấn và lựa chọn gói cước | **VA** | Giúp khách hàng lựa chọn dịch vụ phù hợp với nhu cầu sử dụng. |
-| Kiểm tra hạ tầng và port | **BVA** | Không trực tiếp tạo ra kết nối nhưng cần thiết để xác định khả năng triển khai. |
-| Ký hợp đồng | **BVA** | Tạo cơ sở pháp lý cho việc cung cấp dịch vụ. |
-| Tạo Work Order | **BVA** | Cần thiết để điều phối và kiểm soát đơn lắp đặt. |
-| Chuẩn bị thiết bị | **BVA** | Cần thiết để bảo đảm đủ nguồn lực cho thi công. |
-| Hẹn khách hàng | **BVA** | Cần thiết để phối hợp thời gian giữa khách hàng và kỹ thuật viên. |
-| Di chuyển đến địa điểm | **NVA tiềm năng** | Không trực tiếp tạo thêm giá trị cho dịch vụ đối với khách hàng; tuy nhiên hiện tại cần thiết để thực hiện thi công tại hiện trường. |
-| Kéo cáp quang | **VA** | Trực tiếp tạo ra đường truyền vật lý phục vụ kết nối Internet. |
-| Hàn nối cáp | **VA** | Trực tiếp hoàn thiện kết nối vật lý của đường truyền. |
-| Lắp modem/ONT | **VA** | Tạo điều kiện để khách hàng sử dụng dịch vụ Internet. |
-| Cấu hình Wi-Fi | **VA** | Trực tiếp tạo khả năng sử dụng mạng Wi-Fi. |
-| Kiểm tra tín hiệu | **BVA** | Bảo đảm chất lượng dịch vụ trước khi bàn giao. |
-| Nghiệm thu | **BVA** | Xác nhận dịch vụ đã được hoàn thành và đáp ứng yêu cầu. |
-| Kích hoạt dịch vụ | **VA** | Hoàn thiện khả năng sử dụng dịch vụ của khách hàng. |
-| Gửi SMS/Email xác nhận | **BVA** | Cung cấp thông tin xác nhận trạng thái dịch vụ. |
-| Khảo sát mức độ hài lòng | **BVA** | Phục vụ đo lường và cải thiện chất lượng dịch vụ. |
+| STT | Bước công việc (Step) | Tác nhân thực hiện | Phân loại |
+|---:|---|---|---|
+| 1 | Tiếp nhận nhu cầu khách hàng | Sales | **BVA** |
+| 2 | Tư vấn và lựa chọn gói cước | Sales + Khách hàng | **VA** |
+| 3 | Kiểm tra hạ tầng và port | Bộ phận kỹ thuật khảo sát | **BVA** |
+| 4 | Ký hợp đồng | Sales + Khách hàng | **BVA** |
+| 5 | Tạo Work Order và phân công đội kỹ thuật | CRM/BPMS | **BVA** |
+| 6 | Chuẩn bị và xuất thiết bị, vật tư | Kho & Vật tư | **BVA** |
+| 7 | Liên hệ và hẹn khách hàng | Kỹ thuật viên lắp đặt | **BVA** |
+| 8 | Di chuyển đến địa điểm lắp đặt | Kỹ thuật viên lắp đặt | **NVA tiềm năng** |
+| 9 | Kéo cáp quang | Kỹ thuật viên lắp đặt | **VA** |
+| 10 | Hàn nối cáp | Kỹ thuật viên lắp đặt | **VA** |
+| 11 | Lắp đặt modem/ONT | Kỹ thuật viên lắp đặt | **VA** |
+| 12 | Cấu hình Wi-Fi | Kỹ thuật viên lắp đặt | **VA** |
+| 13 | Kiểm tra tín hiệu Internet/Wi-Fi | Kỹ thuật viên lắp đặt | **BVA** |
+| 14 | Nghiệm thu và ký xác nhận hoàn thành | Khách hàng + Kỹ thuật viên lắp đặt | **BVA** |
+| 15 | Kích hoạt dịch vụ | CRM/BPMS | **VA** |
+| 16 | Gửi SMS/Email xác nhận | CRM/BPMS | **BVA** |
+| 17 | Khảo sát mức độ hài lòng và hỗ trợ sau bán hàng | CSKH/Tổng đài | **BVA** |
 
 #### Nhận xét
 
