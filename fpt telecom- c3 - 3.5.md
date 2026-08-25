@@ -22,7 +22,7 @@ Quy trình Quản lý kho và xuất vật tư tại FPT Telecom là quy trình 
 * **Bước 2: Kiểm tra tồn kho khả dụng**  
   Thủ kho tiếp nhận yêu cầu trên WMS và kiểm tra số lượng tồn kho thực tế. Tại đây phát sinh điểm quyết định:
   * **Nhánh 1 – Tồn kho đủ:** Đáp ứng yêu cầu và số lượng tồn kho vẫn trên ngưỡng Safety Stock → tiến hành chuẩn bị và xuất kho.
-  * **Nhánh 2 – Tồn kho thiếu:** Lập phiếu đề xuất mua sắm. Bộ phận Mua hàng liên hệ NCC để đặt bổ sung hoặc điều chuyển từ kho tổng. Khi hàng về, thực hiện QC Incoming, nhập kho WMS rồi tiến hành xuất.
+  * **Nhánh 2 – Tồn kho thiếu:** Lập phiếu đề xuất mua sắm. Bộ phận Mua hàng liên hệ Nhà cung cấp để đặt bổ sung hoặc điều chuyển từ kho tổng. Khi hàng về, thực hiện QC Incoming, nhập kho WMS rồi tiến hành xuất.
 
 * **Bước 3: Chuẩn bị và soát mã thiết bị**  
   Thủ kho lấy thiết bị và thực hiện:
@@ -51,7 +51,7 @@ Quy trình Quản lý kho và xuất vật tư tại FPT Telecom là quy trình 
 | **2** | **Hệ thống WMS / ERP** | Lưu trữ và quản lý dữ liệu tồn kho theo thời gian thực; ghi nhận giao dịch xuất/nhập; đồng bộ hạch toán sang ERP. |
 | **3** | **Thủ kho / NV Kho & Vật tư** | Tiếp nhận yêu cầu; kiểm tra tồn kho; chuẩn bị, soát mã và xuất thiết bị; tiếp nhận vật tư thu hồi/trả lại; cập nhật WMS. |
 | **4** | **Kỹ thuật viên thi công** | Tiếp nhận và ký nhận vật tư; sử dụng thiết bị trong quá trình thi công; hoàn trả vật tư thừa/hỏng sau thi công. |
-| **5** | **Bộ phận mua hàng & cung ứng** | Xử lý đề xuất mua sắm khi kho thiếu hụt; liên hệ NCC đặt hàng; theo dõi tiến độ giao hàng. |
+| **5** | **Bộ phận mua hàng & cung ứng** | Xử lý đề xuất mua sắm khi kho thiếu hụt; liên hệ Nhà cung cấp đặt hàng; theo dõi tiến độ giao hàng. |
 | **6** | **Nhà cung cấp** | Cung cấp Modem/ONT, Router Wi-Fi, cáp quang và phụ kiện viễn thông theo đơn đặt hàng của FPT Telecom. |
 | **7** | **Bộ phận kế toán kho** | Đối soát chứng từ xuất nhập kho; hạch toán giá thành vật tư theo từng Work Order; lập báo cáo tồn kho định kỳ. |
 
@@ -71,7 +71,7 @@ Quy trình Quản lý kho và xuất vật tư tại FPT Telecom là quy trình 
 | Kết quả | Mô tả |
 | :--- | :--- |
 | **Thành công - xuất kho đủ & đúng hàng** | Tồn kho đủ thiết bị được xuất kho đúng loại, đủ số lượng, KTV nhận hàng và hoàn tất lắp đặt cho khách hàng trong ngày, quyết toán vật tư thành công. |
-| **Chờ bổ sung - đặt hàng khẩn cấp** | Tồn kho dưới mức an toàn kích hoạt quy trình đặt hàng bổ sung từ NCC hoặc điều chuyển kho. Work Order bị trì hoãn và cần thông báo lại lịch hẹn cho khách hàng. |
+| **Chờ bổ sung - đặt hàng khẩn cấp** | Tồn kho dưới mức an toàn kích hoạt quy trình đặt hàng bổ sung từ Nhà cung cấp hoặc điều chuyển kho. Work Order bị trì hoãn và cần thông báo lại lịch hẹn cho khách hàng. |
 | **Thu hồi & đổi trả thiết bị** | Thiết bị phát hiện lỗi tại hiện trường hoặc vật tư thừa sau thi công được hoàn trả kho, phân loại và xử lý (bảo hành/thanh lý). |
 | **Hủy Work Order do thiết bị không tương thích** | Trường hợp thiếu thiết bị chuyên dụng cho hạ tầng GPON/XGS-PON đặc thù Work Order bị tạm hoãn và chờ phê duyệt đặt hàng chuyên biệt từ Ban Kỹ thuật. |
 
@@ -106,7 +106,7 @@ Sơ đồ BPMN dưới đây mô tả toàn bộ luồng quy trình Quản lý k
 | Làn trách nhiệm (Swimlane) | Hoạt động / Luồng xử lý |
 | :--- | :--- |
 | **Kho & Vật tư** | XOR Gateway: Tồn kho thiếu → Lập Phiếu đề xuất mua sắm |
-| **Bộ phận Mua hàng** | Nhận đề xuất → Liên hệ NCC/Kho tổng → Đặt hàng hoặc điều chuyển vật tư bổ sung |
+| **Bộ phận Mua hàng** | Nhận đề xuất → Liên hệ Nhà cung cấp/Kho tổng → Đặt hàng hoặc điều chuyển vật tư bổ sung |
 | **Nhà cung cấp** | Giao hàng đến FPT Telecom |
 | **Kho & Vật tư** | Tiếp nhận hàng → Kiểm tra chất lượng đầu vào |
 | **Kho & Vật tư** | XOR Gateway: Đạt chất lượng? |
@@ -141,30 +141,32 @@ Bảng dưới đây phân loại toàn bộ các hoạt động trong quy trìn
 - **BVA (Business Value-Added):** Bắt buộc theo yêu cầu nội bộ hoặc quy định, nhưng khách hàng không trực tiếp nhận ra giá trị.
 - **NVA (Non-Value-Added):** Không tạo ra giá trị, cần được giảm thiểu hoặc loại bỏ.
 
-| STT | Hoạt động | Người thực hiện | Loại giá trị |
-| :---: | :--- | :--- | :---: |
-| 1 | Nhận Work Order từ hệ thống CRM | Hệ thống BPMS | BVA |
-| 2 | Tạo yêu cầu xuất vật tư tự động | Hệ thống BPMS/WMS | BVA |
-| 3 | Tiếp nhận yêu cầu xuất trên WMS | Thủ kho | BVA |
-| 4 | Kiểm tra tồn kho khả dụng | Thủ kho | BVA |
-| 5 | Lập phiếu đề xuất mua sắm (khi tồn kho thiếu) | Thủ kho | NVA |
-| 6 | Đặt hàng NCC hoặc điều chuyển kho tổng | Bộ phận Mua hàng | NVA |
-| 7 | Chờ NCC giao hàng | — | NVA |
-| 8 | Tiếp nhận hàng và kiểm tra chất lượng đầu vào (QC) | Thủ kho | BVA |
-| 9 | Nhập kho trên WMS sau khi đạt QC | Thủ kho | BVA |
-| 10 | Trả hàng lại NCC (khi không đạt QC) | Thủ kho | NVA |
-| 11 | Lấy thiết bị ra kho | Thủ kho | VA |
-| 12 | Quét mã Serial Number / địa chỉ MAC / QR Code | Thủ kho | VA |
-| 13 | Kiểm tra ngoại quan thiết bị | Thủ kho | VA |
-| 14 | Chuẩn bị vật tư tiêu hao theo định mức | Thủ kho | VA |
-| 15 | In Phiếu xuất kho | Thủ kho | BVA |
-| 16 | Kiểm đếm vật tư & ký xác nhận Phiếu xuất kho | Kỹ thuật viên | VA |
-| 17 | Thực hiện thi công lắp đặt tại nhà khách hàng | Kỹ thuật viên | VA |
-| 18 | Hoàn trả vật tư thừa về kho sau thi công | Kỹ thuật viên | NVA |
-| 19 | Kiểm đếm & phân loại vật tư hoàn trả | Thủ kho | BVA |
-| 20 | Nhập trả vật tư / thiết bị trên WMS | Thủ kho | BVA |
-| 21 | Đồng bộ dữ liệu WMS → ERP | Hệ thống WMS/ERP | BVA |
-| 22 | Đóng Work Order trên BPMS | Hệ thống BPMS | BVA |
+| STT | Hoạt động | Người thực hiện | Phân loại | Lập luận theo tiêu chuẩn phân loại |
+| :---: | :--- | :--- | :---: | :--- |
+| 1 | Nhận Work Order từ hệ thống CRM | Hệ thống BPMS | **BVA** | Bước khởi tạo nội bộ tự động, cần thiết cho điều phối hệ thống nhưng khách hàng không nhận ra trực tiếp. |
+| 2 | Tạo yêu cầu xuất vật tư tự động | Hệ thống BPMS/WMS | **BVA** | Điều phối công việc nội bộ giữa các hệ thống; không tạo giá trị trực tiếp nhưng bắt buộc để kích hoạt quy trình. |
+| 3 | Tiếp nhận yêu cầu xuất trên WMS | Thủ kho | **BVA** | Bước xác nhận và tiếp nhận nhiệm vụ; cần thiết cho kiểm soát quy trình nội bộ. |
+| 4 | Kiểm tra tồn kho khả dụng | Thủ kho | **BVA** | Đảm bảo tính chính xác của xuất kho; tránh thiếu hàng gây gián đoạn Work Order — bắt buộc về mặt vận hành. |
+| 5 | Lập phiếu đề xuất mua sắm (khi tồn kho thiếu) | Thủ kho | **NVA** | Phát sinh do tồn kho không được dự báo đủ; nếu Safety Stock được duy trì tốt, bước này không cần xảy ra. |
+| 6 | Đặt hàng Nhà cung cấp hoặc điều chuyển kho tổng | Bộ phận Mua hàng | **NVA** | Hành động khắc phục hậu quả do lập kế hoạch tồn kho kém — không tạo giá trị, tốn thời gian và chi phí. |
+| 7 | Chờ Nhà cung cấp giao hàng | — | **NVA** | Thời gian chờ thuần túy (1–5 ngày), không có hoạt động nào được thực hiện, gây trễ Work Order trực tiếp. |
+| 8 | Tiếp nhận hàng và kiểm tra chất lượng đầu vào (QC) | Thủ kho | **BVA** | Bắt buộc để đảm bảo chất lượng thiết bị trước khi nhập kho; kiểm soát rủi ro về sau cho khách hàng. |
+| 9 | Nhập kho trên WMS sau khi đạt QC | Thủ kho | **BVA** | Cập nhật dữ liệu tồn kho chính xác; cần thiết cho hạch toán và quản lý tài sản nội bộ. |
+| 10 | Trả hàng lại Nhà cung cấp (khi không đạt QC) | Thủ kho | **NVA** | Hoạt động sửa lỗi do Nhà cung cấp giao hàng kém chất lượng; không tạo giá trị, gây lãng phí thời gian và nguồn lực. |
+| 11 | Lấy thiết bị ra kho | Thủ kho | **VA** | Trực tiếp chuẩn bị thiết bị cho khách hàng sử dụng; khách hàng nhận giá trị khi thiết bị đến tay đúng loại. |
+| 12 | Quét mã Serial Number / địa chỉ MAC / QR Code | Thủ kho | **VA** | Gắn định danh thiết bị với thuê bao khách hàng; nền tảng cho bảo hành và truy xuất tài sản. |
+| 13 | Kiểm tra ngoại quan thiết bị | Thủ kho | **VA** | Đảm bảo thiết bị không bị hỏng hóc trước khi trao tay KTV; khách hàng nhận thiết bị trong tình trạng tốt. |
+| 14 | Chuẩn bị vật tư tiêu hao theo định mức | Thủ kho | **VA** | Đảm bảo đủ phụ kiện để KTV hoàn tất thi công trong một lượt, tránh phải quay lại lấy thêm. |
+| 15 | In Phiếu xuất kho | Thủ kho | **BVA** | Chứng từ nội bộ để xác nhận trách nhiệm bàn giao; cần thiết cho kế toán kho và kiểm toán. |
+| 16 | Kiểm đếm vật tư & ký xác nhận Phiếu xuất kho | Kỹ thuật viên | **VA** | Khách hàng được đảm bảo rằng KTV nhận đủ thiết bị đúng chủng loại trước khi thi công. |
+| 17 | Thực hiện thi công lắp đặt tại nhà khách hàng | Kỹ thuật viên | **VA** | Hoạt động cốt lõi tạo ra sản phẩm dịch vụ Internet cho khách hàng; khách hàng trực tiếp nhận giá trị. |
+| 18 | Hoàn trả vật tư thừa về kho sau thi công | Kỹ thuật viên | **NVA** | Thao tác vận chuyển ngược chiều không tạo giá trị; cần được giảm thiểu bằng cách xuất đúng định mức ngay từ đầu. |
+| 19 | Kiểm đếm & phân loại vật tư hoàn trả | Thủ kho | **BVA** | Bắt buộc để cập nhật tồn kho chính xác và phân loại tài sản (dùng lại / bảo hành / thanh lý). |
+| 20 | Nhập trả vật tư / thiết bị trên WMS | Thủ kho | **BVA** | Cập nhật số liệu tồn kho real-time; cần thiết cho hạch toán kế toán và quản lý tài sản. |
+| 21 | Đồng bộ dữ liệu WMS → ERP | Hệ thống WMS/ERP | **BVA** | Đảm bảo số liệu tài chính chính xác; bắt buộc theo quy trình hạch toán nội bộ doanh nghiệp. |
+| 22 | Đóng Work Order trên BPMS | Hệ thống BPMS | **BVA** | Kết thúc vòng đời Work Order; cần thiết cho báo cáo và đánh giá hiệu suất vận hành nội bộ. |
+
+_Bảng 3.5.1: Phân loại giá trị gia tăng quy trình Quản lý kho và xuất vật tư_
 
 **Tổng hợp phân loại:**
 
@@ -175,9 +177,10 @@ Bảng dưới đây phân loại toàn bộ các hoạt động trong quy trìn
 | **NVA** | 4 | 18,2% |
 | **Tổng** | **22** | **100%** |
 
-> **Nhận xét:** Tỉ lệ NVA chiếm 18,2% — chủ yếu phát sinh ở kịch bản tồn kho thiếu (mua sắm qua NCC) và thời gian hoàn trả vật tư thừa. Đây là các điểm cần ưu tiên tối ưu hóa nhằm nâng cao hiệu quả quy trình.
+> **Nhận xét:** Tỉ lệ NVA chiếm 18,2% — chủ yếu phát sinh ở kịch bản tồn kho thiếu (mua sắm qua Nhà cung cấp) và thời gian hoàn trả vật tư thừa. Đây là các điểm cần ưu tiên tối ưu hóa nhằm nâng cao hiệu quả quy trình.
 
 ---
+
 
 #### **3.5.3.2. Phân tích lãng phí**
 
@@ -185,13 +188,13 @@ Dựa trên 7 loại lãng phí (7 Wastes) theo phương pháp Lean, bảng dư�
 
 | Loại lãng phí | Biểu hiện trong quy trình FPT Telecom |
 | :--- | :--- |
-| **Hold (Chờ đợi)** | ① Chờ NCC giao hàng khi tồn kho dưới Safety Stock (1–5 ngày làm việc); ② Chờ kỹ thuật viên xác nhận thiết bị lỗi và liên hệ kho; ③ Chờ hệ thống BPMS đẩy Work Order sang WMS vào giờ cao điểm. |
-| **Move (Vận chuyển không cần thiết)** | ① Vận chuyển thiết bị từ kho trung tâm ra kho điểm khi phải điều chuyển nội bộ; ② Kỹ thuật viên phải quay lại kho để đổi thiết bị lỗi thay vì được giao thay thế trực tiếp tại công trình. |
-| **Over-do (Xử lý thừa / Làm quá mức)** | ① Nhập liệu Serial/MAC thủ công song song với quét QR tự động trên WMS — thực hiện dữ liệu trùng lặp; ② Kiểm tra ngoại quan thiết bị nhiều lần (tại kho và tại công trình); ③ In Phiếu xuất kho giấy khi hệ thống WMS đã có chữ ký điện tử của KTV. |
-| **Defects (Lỗi / Làm lại)** | ① Xuất nhầm model Modem/ONT không phù hợp hạ tầng GPON/XGS-PON → KTV phải quay lại kho đổi; ② QC đầu vào từ NCC không đạt → trả hàng và đặt lại, gây trễ Work Order; ③ Ghi sai Serial Number trên WMS → phải tra cứu và đính chính sau. |
-| **Over-production (Sản xuất/Xử lý thừa)** | ① Tạo đề xuất mua sắm khi tồn kho thực tế vẫn còn hàng nhưng WMS chưa cập nhật real-time; ② In dư Phiếu xuất kho giấy nhiều bản. |
-| **Inventory (Lưu kho thừa)** | ① Tồn kho Modem/ONT vượt ngưỡng Safety Stock do dự báo nhu cầu chưa chính xác, gây đọng vốn; ② Thiết bị thu hồi từ khách hàng tồn lâu ở khu hàng lỗi chờ phân loại (dùng lại / bảo hành / thanh lý). |
-| **Motion (Thao tác thừa)** | ① Thủ kho phải tra cứu thủ công danh sách tồn kho trên giấy thay vì xem dashboard real-time trên WMS; ② Nhân viên Mua hàng phải liên hệ NCC qua điện thoại/email thủ công thay vì thông qua cổng đặt hàng tích hợp. |
+| **Hold (Chờ đợi)** | 1 Chờ Nhà cung cấp giao hàng khi tồn kho dưới Safety Stock (1–5 ngày làm việc); 2 Chờ kỹ thuật viên xác nhận thiết bị lỗi và liên hệ kho; 3 Chờ hệ thống BPMS đẩy Work Order sang WMS vào giờ cao điểm. |
+| **Move (Vận chuyển không cần thiết)** | 1 Vận chuyển thiết bị từ kho trung tâm ra kho điểm khi phải điều chuyển nội bộ; 2 Kỹ thuật viên phải quay lại kho để đổi thiết bị lỗi thay vì được giao thay thế trực tiếp tại công trình. |
+| **Over-do (Xử lý thừa / Làm quá mức)** | 1 Nhập liệu Serial/MAC thủ công song song với quét QR tự động trên WMS — thực hiện dữ liệu trùng lặp; 2 Kiểm tra ngoại quan thiết bị nhiều lần (tại kho và tại công trình); 3 In Phiếu xuất kho giấy khi hệ thống WMS đã có chữ ký điện tử của KTV. |
+| **Defects (Lỗi / Làm lại)** | 1 Xuất nhầm model Modem/ONT không phù hợp hạ tầng GPON/XGS-PON → KTV phải quay lại kho đổi; 2 QC đầu vào từ Nhà cung cấp không đạt → trả hàng và đặt lại, gây trễ Work Order; 3 Ghi sai Serial Number trên WMS → phải tra cứu và đính chính sau. |
+| **Over-production (Sản xuất/Xử lý thừa)** | 1 Tạo đề xuất mua sắm khi tồn kho thực tế vẫn còn hàng nhưng WMS chưa cập nhật real-time; 2 In dư Phiếu xuất kho giấy nhiều bản. |
+| **Inventory (Lưu kho thừa)** | 1 Tồn kho Modem/ONT vượt ngưỡng Safety Stock do dự báo nhu cầu chưa chính xác, gây đọng vốn; 2 Thiết bị thu hồi từ khách hàng tồn lâu ở khu hàng lỗi chờ phân loại (dùng lại / bảo hành / thanh lý). |
+| **Motion (Thao tác thừa)** | 1 Thủ kho phải tra cứu thủ công danh sách tồn kho trên giấy thay vì xem dashboard real-time trên WMS; 2 Nhân viên Mua hàng phải liên hệ Nhà cung cấp qua điện thoại/email thủ công thay vì thông qua cổng đặt hàng tích hợp. |
 
 > **Nhận xét:** Lãng phí **Hold** và **Defects** có mức độ tác động cao nhất vì ảnh hưởng trực tiếp đến thời gian hoàn thành Work Order và SLA lắp đặt 24–48 giờ của FPT Telecom.
 
@@ -203,8 +206,8 @@ Dựa trên 7 loại lãng phí (7 Wastes) theo phương pháp Lean, bảng dư�
 | :--- | :---: | :--- | :--- |
 | **Kỹ thuật viên thi công (KTV)** | Rất cao | Nhận đúng thiết bị, đủ số lượng, kịp thời để hoàn thành Work Order đúng hẹn. | Trễ lịch lắp đặt, phải di chuyển đổi thiết bị, ảnh hưởng KPI cá nhân. |
 | **Thủ kho / NV Kho & Vật tư** | Rất cao | Thực hiện xuất/nhập chính xác, cập nhật WMS real-time; kiểm soát tồn kho an toàn. | Sai lệch tồn kho, thiếu hàng đột ngột, áp lực xử lý đổi trả lớn. |
-| **Bộ phận Mua hàng & Cung ứng** | Cao | Đảm bảo chuỗi cung ứng thông suốt; đặt hàng NCC đúng số lượng và thời hạn. | Tồn kho gián đoạn, phải xử lý đơn khẩn cấp với chi phí cao hơn. |
-| **Nhà cung cấp (NCC)** | Trung bình đến cao | Cung cấp Modem/ONT, Router Wi-Fi đúng chất lượng và đúng hạn giao. | Bị trả hàng khi QC không đạt, mất uy tín và hợp đồng dài hạn. |
+| **Bộ phận Mua hàng & Cung ứng** | Cao | Đảm bảo chuỗi cung ứng thông suốt; đặt hàng Nhà cung cấp đúng số lượng và thời hạn. | Tồn kho gián đoạn, phải xử lý đơn khẩn cấp với chi phí cao hơn. |
+| **Nhà cung cấp** | Trung bình đến cao | Cung cấp Modem/ONT, Router Wi-Fi đúng chất lượng và đúng hạn giao. | Bị trả hàng khi QC không đạt, mất uy tín và hợp đồng dài hạn. |
 | **Ban Kỹ thuật FPT Telecom** | Cao | Phê duyệt thiết bị chuyên dụng GPON/XGS-PON; đảm bảo tương thích hạ tầng. | Work Order bị hoãn khi thiếu thiết bị đặc thù, ảnh hưởng SLA toàn hệ thống. |
 | **Hệ thống BPMS/WMS/ERP** | Rất cao | Tự động hóa luồng Work Order; quản lý tồn kho real-time; đồng bộ hạch toán. | Dữ liệu tồn kho sai lệch; không đóng được Work Order; mất khả năng truy xuất tài sản. |
 | **Khách hàng cuối (Người dùng Internet)** | Trung bình (gián tiếp) | Được lắp đặt đúng hẹn, thiết bị hoạt động ổn định ngay từ đầu. | Không hài lòng, khiếu nại, hủy hợp đồng nếu lắp đặt trễ hoặc thiết bị lỗi. |
@@ -240,7 +243,7 @@ $$\text{Dài nhất: } 3+5+10+15+15+10+15+5+15+120+15+5 = 233 \text{ phút}$$
 
 **Thời gian chu kỳ (Cycle Time — VA + BVA + NVA):**
 
-Có **20%** trường hợp tồn kho thiếu → phải qua quy trình NCC (thời gian chờ NVA: 480 phút best-case / 2.400 phút worst-case):
+Có **20%** trường hợp tồn kho thiếu → phải qua quy trình Nhà cung cấp (thời gian chờ NVA: 480 phút best-case / 2.400 phút worst-case):
 
 $$\text{CT ngắn nhất} = 98 + 10_{\text{(NVA hoàn trả)}} + 0{,}20 \times (15 + 30 + 480 + 15 + 10) = 108 + 110 = 218 \text{ phút}$$
 $$\text{CT dài nhất} = 233 + 30_{\text{(NVA hoàn trả)}} + 0{,}20 \times (30 + 60 + 2.400 + 30 + 20) = 263 + 508 = 771 \text{ phút}$$
@@ -257,7 +260,7 @@ $$\text{PT dài nhất} = 233 + 0{,}20 \times (30 + 20) = 233 + 10 = 243 \text{ 
 | **Best-case** | 103 phút | 218 phút | **47,2%** |
 | **Worst-case** | 243 phút | 771 phút | **31,5%** |
 
-> **Nhận xét:** Hiệu suất thời gian thấp (31,5% – 47,2%) chủ yếu do thời gian chờ NCC giao hàng trong kịch bản tồn kho thiếu chiếm tỉ trọng lớn trong Cycle Time. Cải thiện việc dự báo nhu cầu và duy trì Safety Stock sẽ giúp tăng hiệu suất đáng kể.
+> **Nhận xét:** Hiệu suất thời gian thấp (31,5% – 47,2%) chủ yếu do thời gian chờ Nhà cung cấp giao hàng trong kịch bản tồn kho thiếu chiếm tỉ trọng lớn trong Cycle Time. Cải thiện việc dự báo nhu cầu và duy trì Safety Stock sẽ giúp tăng hiệu suất đáng kể.
 
 ---
 
@@ -307,5 +310,5 @@ $$\text{PT dài nhất} = 233 + 0{,}20 \times (30 + 20) = 233 + 10 = 243 \text{ 
 | **Best-case** | 84.007 VNĐ | 101.145 VNĐ | **83,1%** |
 | **Worst-case** | 185.635 VNĐ | 229.381 VNĐ | **80,9%** |
 
-> **Nhận xét:** Hiệu suất chi phí đạt khoảng **81–83%**, cho thấy phần lớn chi phí nhân công được sử dụng cho các hoạt động có giá trị (VA + BVA). Chi phí lãng phí (NVA ~17–19%) tập trung ở thời gian chờ NCC và thao tác hoàn trả vật tư sau thi công — đây là 2 điểm có thể cải thiện trong giai đoạn tái thiết kế quy trình (To-be process).
+> **Nhận xét:** Hiệu suất chi phí đạt khoảng **81–83%**, cho thấy phần lớn chi phí nhân công được sử dụng cho các hoạt động có giá trị (VA + BVA). Chi phí lãng phí (NVA ~17–19%) tập trung ở thời gian chờ Nhà cung cấp và thao tác hoàn trả vật tư sau thi công — đây là 2 điểm có thể cải thiện trong giai đoạn tái thiết kế quy trình (To-be process).
 
