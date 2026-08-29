@@ -638,10 +638,3 @@ Trọng tâm cải tiến là giảm thời gian chờ, giảm di chuyển khôn
 
 Theo bộ số liệu giả định tham chiếu, Lead Time có thể giảm 41,9%, Wait Time giảm 69,0% và Cost/Order giảm khoảng 15,2%.
 Các kết quả này là mục tiêu thiết kế/ước tính, không phải số liệu nội bộ đã được xác minh của FPT Telecom. Nhóm cần thay thế bằng dữ liệu khảo sát hoặc dữ liệu vận hành thực tế nếu có.
-
----
-
-### Nguồn và phạm vi dữ liệu
-* `fpt_telecom_3_2_toan_review.md`: nguồn chính cho cấu trúc quy trình, actor, 11 bước, Gateway và Issue Register.
-* `Tổng Quan Quy trình lắp đặt mạng Wi-Fi của FPT Telecom`: nguồn đối chiếu cho vai trò bộ phận, các checkpoint và hoạt động CRM/BPMS.
-* Các số liệu thời gian, chi phí và KPI mục tiêu trong mục 3.2.4 và 3.2.7 là giả định tham chiếu phục vụ phân tích, không được trình bày như dữ liệu nội bộ đã xác minh của FPT Telecom.
