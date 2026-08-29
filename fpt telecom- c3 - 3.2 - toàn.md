@@ -80,7 +80,7 @@ Trong đó, bước 3 - Kiểm tra khả năng cung cấp dịch vụ là điể
 ### 3.2.2. Mô hình hóa quy trình hiện tại (Sơ đồ BPMN - As-is)
 
 #### 3.2.2.1. Sơ đồ BPMN
-![Sơ đồ BPMN As-is](./docs/so_do_bpmn_as_is.svg)
+![Sơ đồ BPMN As-is](./docs/so_do_bpmn_as_is.png)
 > **Hình 3.2. Sơ đồ BPMN As-is của quy trình thi công và lắp đặt mạng Wi-Fi**
 
 #### 3.2.2.2. Các tác nhân/Swimlane trong BPMN
@@ -412,6 +412,7 @@ Các nguyên tắc chính:
 * Tự động khảo sát CSAT sau bán hàng.
 
 #### 3.2.6.2. Sơ đồ BPMN To-Be
+![Sơ đồ BPPM To be](./docs/so_do_bpmn_to_be.png)
 > **Hình 3.3. Sơ đồ BPMN To-Be của quy trình thi công và lắp đặt mạng Wi-Fi**
 
 ```mermaid
