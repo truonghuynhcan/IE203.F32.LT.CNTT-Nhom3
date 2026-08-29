@@ -488,6 +488,7 @@ flowchart LR
   X4 -- "Không" --> N7
   X4 -- "Có" --> G --> R5 --> R6 --> H --> I --> C1 --> C2 --> J
   K1 --> K2
+```
 ### 3.2.6.3. So sánh luồng As-is và To-Be
 
 | Nội dung | As-is | To-Be đề xuất |
