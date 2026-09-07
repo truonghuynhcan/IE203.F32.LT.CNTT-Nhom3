@@ -33,14 +33,20 @@ Hệ thống quy trình của FPT Telecom được phân định rõ ràng thàn
 
 ### 2. Nhóm quy trình cốt lõi (Core Processes)
 
-**Đặc điểm:** Là chuỗi hoạt động quan trọng nhất, trực tiếp tạo ra giá trị gia tăng và liên quan trực tiếp đến hành trình trải nghiệm dịch vụ lắp đặt Internet của khách hàng.
+**Đặc điểm:** Là chuỗi hoạt động quan trọng nhất, trực tiếp tạo ra giá trị gia tăng xuyên suốt hành trình trải nghiệm dịch vụ lắp đặt Internet của khách hàng từ lúc phát sinh nhu cầu đến khi sử dụng và chăm sóc sau bán hàng:
 
-- **Quy trình tiếp nhận yêu cầu và ký hợp đồng:**
-  - _Nội dung:_ Tiếp nhận nhu cầu đăng ký dịch vụ của khách hàng đa kênh (Website, Hotline, ứng dụng Hi FPT, Quầy giao dịch hoặc nhân viên Kinh doanh/Sales); tư vấn gói cước phù hợp và tiến hành ký kết hợp đồng (điện tử/giấy).
-- **Quy trình khảo sát hạ tầng và điều phối (Work Order):**
-  - _Nội dung:_ Kỹ thuật viên kiểm tra thực tế hạ tầng cáp quang, khoảng cách kéo dây và số lượng Port còn trống tại tủ cáp/hộp phối quang; hệ thống **BPMS/CRM** tự động khởi tạo Work Order (Lệnh thi công) và phân bổ công việc cho đội kỹ thuật phụ trách địa bàn.
-- **Quy trình thi công lắp đặt và kích hoạt dịch vụ:**
-  - _Nội dung:_ Kỹ thuật viên triển khai kéo cáp quang, hàn nối sợi quang, lắp đặt thiết bị (Modem/ONT, Router Wi-Fi), cấu hình mạng Wi-Fi, kiểm tra suy hao tín hiệu; tiến hành nghiệm thu bàn giao cùng khách hàng và kích hoạt tài khoản Internet trên hệ thống.
+- **Quy trình tiếp nhận yêu cầu:**
+  - _Nội dung:_ Tiếp nhận thông tin đăng ký dịch vụ của khách hàng qua đa kênh (Website fpt.vn, ứng dụng Hi FPT, Tổng đài 19006600, Quầy giao dịch hoặc nhân viên Sales D2D); ghi nhận thông tin địa chỉ lắp đặt và nhu cầu sử dụng lên hệ thống CRM/Mobisale.
+- **Quy trình khảo sát hạ tầng:**
+  - _Nội dung:_ Bộ phận Kỹ thuật kiểm tra bản đồ mạng GIS và hiện trường để đánh giá cự ly kéo cáp từ hộp ODF/DP đến nhà khách hàng và số lượng cổng kết nối (Port) còn trống khả dụng. Đây là điểm kiểm soát Go/No-Go xác định tính khả thi trước khi ký kết thương mại.
+- **Quy trình tư vấn và ký hợp đồng:**
+  - _Nội dung:_ Nhân viên kinh doanh tư vấn chi tiết gói cước, thiết bị (Modem ONT, Router Mesh Wi-Fi 6), thu thập ảnh định danh (eKYC) và tiến hành ký kết Hợp đồng điện tử (E-Contract) xác thực mã OTP qua SMS.
+- **Quy trình tạo và phân bổ Work Order:**
+  - _Nội dung:_ Sau khi hợp đồng ký kết thành công, hệ thống BPMS tự động tạo lệnh thi công (Work Order), phân bổ ca làm việc và tự động gán cho Kỹ thuật viên (TNC) phụ trách tuyến theo thuật toán tối ưu vị trí địa lý.
+- **Quy trình thi công lắp đặt:**
+  - _Nội dung:_ Kỹ thuật viên nhận vật tư thiết bị từ kho, di chuyển đến địa chỉ khách hàng, kéo rải cáp quang, hàn nối sợi quang, lắp đặt thiết bị Modem/ONT, cấu hình mạng Wi-Fi, kiểm tra suy hao quang và tiến hành nghiệm thu tốc độ (Speedtest) cùng khách hàng.
+- **Quy trình kích hoạt và hậu mãi:**
+  - _Nội dung:_ Hệ thống BPMS tự động gửi lệnh Provisioning kích hoạt tài khoản Internet trên mạng lõi (Radius/AAA), gửi thông tin xác nhận qua SMS/Email. Sau 24–48h, bộ phận CSKH thực hiện khảo sát mức độ hài lòng (NPS) và hỗ trợ kỹ thuật sau bán hàng.
 
 ---
 
