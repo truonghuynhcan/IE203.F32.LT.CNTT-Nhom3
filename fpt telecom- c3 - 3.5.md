@@ -90,26 +90,7 @@ Quy trình Quản lý kho và xuất vật tư tại FPT Telecom là quy trình 
 
 Sơ đồ tổ chức quản lý kho và chuỗi cung ứng tại Chi nhánh FPT Telecom được thiết lập nhằm bảo đảm nguyên tắc kiểm soát độc lập giữa khâu bảo quản hiện vật (Kho), mua sắm (Mua hàng), kiểm soát chi phí (Kế toán) và phê duyệt chủ trương (Ban Giám đốc):
 
-```
-                      +-----------------------------+
-                      |    BAN GIÁM ĐỐC CHI NHÁNH   |
-                      |  (Phê duyệt hạn mức mua sắm)|
-                      +--------------+--------------+
-                                     |
-         +---------------------------+---------------------------+
-         |                           |                           |
-+--------+--------+         +--------+--------+         +--------+--------+
-| BỘ PHẬN MUA HÀNG|         | BỘ PHẬN KHO &   |         | PHÒNG KẾ TOÁN   |
-|  & CUNG ỨNG     |         |   VẬT TƯ        |         |     KHO         |
-| (Đặt hàng Nhà CC)|         | (Thủ kho chính) |         | (Đối soát ERP)  |
-+--------+--------+         +--------+--------+         +-----------------+
-         |                           |
-         |                  +--------+--------+
-         +----------------->| ĐỘI KỸ THUẬT    |
-           (Cung ứng hàng)  | VIÊN THI CÔNG   |
-                            | (Nhận & hoàn trả|
-                            +-----------------+
-```
+![Sơ đồ tổ chức bộ máy Quản lý Kho & Chuỗi cung ứng FPT Telecom](./assets/diagrams/quan_ly_kho/quanlykho.jpg)
 
 **Ma trận phân công trách nhiệm (RACI Matrix):**  
 *(R – Responsible: Người trực tiếp thực hiện; A – Accountable: Người chịu trách nhiệm phê duyệt cuối cùng; C – Consulted: Người được tham vấn; I – Informed: Người được thông báo)*
@@ -209,7 +190,7 @@ Dưới đây là 6 biểu mẫu nghiệp vụ thực tế được sử dụng 
 | 2 | VT-CAP-1FO | Cuộn cáp Drop wire 1.000m | 2 cuộn | 5 cuộn | 10 cuộn | 1.800.000 | 18.000.000 |
 | 3 | VT-FAST-SC | Fast Connector SC/APC (hộp 100) | 3 hộp | 10 hộp | 20 hộp | 350.000 | 7.000.000 |
 | **Tổng** | | | | | | | **90.000.000 VNĐ** |
-*(Đề xuất vượt 50 triệu VNĐ $\rightarrow$$$ Cần chữ ký phê duyệt của Ban Giám đốc Chi nhánh)*
+*(Đề xuất vượt 50 triệu VNĐ $\rightarrow$ Cần chữ ký phê duyệt của Ban Giám đốc Chi nhánh)*
 
 **Biểu mẫu 4: Biên bản kiểm tra chất lượng hàng nhập kho (QC Incoming Report)**  
 * *Mã hiệu:* BM-KHO-04 | *Đơn vị giao hàng:* Nhà cung cấp | *Đơn vị kiểm tra:* Bộ phận Kho & QC  
@@ -325,7 +306,7 @@ Kịch bản điều phối phiên Workshop kéo dài 180 phút được thiết
   * *Kết quả đầu ra:* Toàn bộ người tham dự đồng thuận với phạm vi khảo sát.
 
 * **Giai đoạn 2: Vẽ luồng quy trình chính - Happy Path (08:50 – 09:40 | 50 phút)**  
-  * *Hoạt động:* Facilitator sử dụng bảng trắng kỹ thuật số (Miro/Mural) mời Thủ kho và KTV từng bước dán giấy ghi chú (Sticky Notes) mô tả trình tự từ: Nhận thông tin $\rightarrow$$$ Kiểm kho $\rightarrow$$$ Lấy hàng $\rightarrow$$$ Quét Serial/MAC $\rightarrow$$$ Bàn giao $\rightarrow$$$ Quyết toán.  
+  * *Hoạt động:* Facilitator sử dụng bảng trắng kỹ thuật số (Miro/Mural) mời Thủ kho và KTV từng bước dán giấy ghi chú (Sticky Notes) mô tả trình tự từ: Nhận thông tin $\rightarrow$ Kiểm kho $\rightarrow$ Lấy hàng $\rightarrow$ Quét Serial/MAC $\rightarrow$ Bàn giao $\rightarrow$ Quyết toán.  
   * *Thư ký (Scribe):* Sắp xếp các bước thành chuỗi tuần tự; ghi nhận ý kiến phản hồi về thời gian trung bình của từng bước.  
   * *Kết quả đầu ra:* Bản thảo luồng quy trình tiêu chuẩn khi mọi điều kiện đều thuận lợi (Tồn kho đủ, thiết bị chuẩn).
 
@@ -457,16 +438,7 @@ Mô hình quy trình đáp ứng chuẩn mực phân tầng độ phức tạp n
 
 Sơ đồ BPMN dưới đây thể hiện toàn diện 4 phân làn trách nhiệm (Swimlanes), 20 hoạt động nghiệp vụ và **đúng 7 cổng điều kiện (Gateways = 7)** được đánh số từ **GW1 đến GW7** khớp chuẩn xác với mô tả nghiệp vụ:
 
-<div align="center">
-  <img src="assets/diagrams/quan_ly_kho/warehouse%20management.png" alt="Hình 3.5.2 - Sơ đồ BPMN As-is: Quy trình Quản lý kho và xuất vật tư tại FPT Telecom" width="100%" style="max-width: 100%; height: auto;" />
-  <br>
-  <em>Hình 3.5.2 – Sơ đồ BPMN As-is: Quy trình Quản lý kho và xuất vật tư tại FPT Telecom (Độ phức tạp: 20 Hoạt động, 7 Cổng điều kiện GW1 – GW7)</em>
-</div>
-
-> [!TIP]
-> **File thiết kế nguồn Draw.io:** Toàn bộ sơ đồ BPMN trên được thiết kế chuẩn vector và lưu trữ trực tiếp tại file:  
-> 📁 **[warehouse_management.drawio](file:///p:/CITD/HK3/H%E1%BB%87%20th%E1%BB%91ng%20qu%E1%BA%A3n%20tr%E1%BB%8B%20quy%20tr%C3%ACnh%20nghi%E1%BB%87p%20v%E1%BB%A5/Github%20m%C3%B4n%20h%E1%BB%8Dc/DoAn2/assets/diagrams/quan_ly_kho/warehouse_management.drawio)**  
-> Sinh viên và giảng viên có thể mở, phóng to, thu nhỏ và chỉnh sửa trực tiếp bằng phần mềm **Diagrams.net (Draw.io)** hoặc Extension Draw.io trên VS Code.
+![Sơ đồ BPMN 2.0 As-is: Quy trình Quản lý kho và xuất vật tư tại FPT Telecom](./assets/diagrams/quan_ly_kho/SoDo.jpg)
 
 ---
 
@@ -576,20 +548,32 @@ Bảng thời gian xử lý của từng hoạt động trong **luồng chính (
 
 **Thời gian xử lý (Process Time — VA + BVA):**
 
-$$\text{Ngắn nhất: } 1+2+3+5+5+3+5+2+5+60+5+2 = 98 \text{ phút}$$
-$$\text{Dài nhất: } 3+5+10+15+15+10+15+5+15+120+15+5 = 233 \text{ phút}$$
+$$
+\begin{aligned}
+\text{Ngắn nhất: } & 1+2+3+5+5+3+5+2+5+60+5+2 = 98 \text{ phút} \\
+\text{Dài nhất: } & 3+5+10+15+15+10+15+5+15+120+15+5 = 233 \text{ phút}
+\end{aligned}
+$$
 
 **Thời gian chu kỳ (Cycle Time — VA + BVA + NVA):**
 
 Có **20%** trường hợp tồn kho thiếu → phải qua quy trình Nhà cung cấp (thời gian chờ NVA: 480 phút best-case / 2.400 phút worst-case):
 
-$$\text{CT ngắn nhất} = 98 + 10_{\text{(NVA hoàn trả)}} + 0{,}20 \times (15 + 30 + 480 + 15 + 10) = 108 + 110 = 218 \text{ phút}$$
-$$\text{CT dài nhất} = 233 + 30_{\text{(NVA hoàn trả)}} + 0{,}20 \times (30 + 60 + 2.400 + 30 + 20) = 263 + 508 = 771 \text{ phút}$$
+$$
+\begin{aligned}
+\text{CT ngắn nhất} &= 98 + 10_{\text{(NVA hoàn trả)}} + 0{,}20 \times (15 + 30 + 480 + 15 + 10) = 108 + 110 = 218 \text{ phút} \\
+\text{CT dài nhất} &= 233 + 30_{\text{(NVA hoàn trả)}} + 0{,}20 \times (30 + 60 + 2.400 + 30 + 20) = 263 + 508 = 771 \text{ phút}
+\end{aligned}
+$$
 
 **Thời gian xử lý thực tế (bao gồm xác suất luồng phụ):**
 
-$$\text{PT ngắn nhất} = 98 + 0{,}20 \times (15 + 10) = 98 + 5 = 103 \text{ phút}$$
-$$\text{PT dài nhất} = 233 + 0{,}20 \times (30 + 20) = 233 + 10 = 243 \text{ phút}$$
+$$
+\begin{aligned}
+\text{PT ngắn nhất} &= 98 + 0{,}20 \times (15 + 10) = 98 + 5 = 103 \text{ phút} \\
+\text{PT dài nhất} &= 233 + 0{,}20 \times (30 + 20) = 233 + 10 = 243 \text{ phút}
+\end{aligned}
+$$
 
 **Hiệu suất thời gian (Time Efficiency):**
 
