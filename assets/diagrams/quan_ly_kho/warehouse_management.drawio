@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-09-07T13:30:00.000Z" agent="Antigravity BPM 2.0" version="21.0.0" type="device">
+  <diagram id="BPMN-Warehouse-7GW-Standard" name="Quy trình Quản lý kho và xuất vật tư (7 Cổng điều kiện - Chuẩn BPMN 2.0)">
+    <mxGraphModel dx="2400" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3400" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ================= POOL 1: FPT TELECOM ================= -->
+        <mxCell id="pool_fpt" value="FPT TELECOM (Quy trình Quản lý kho và xuất vật tư)" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=35;horizontal=0;horizontalFlip=0;fillColor=#f8f9fa;strokeColor=#343a40;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="3260" height="940" as="geometry" />
+        </mxCell>
+
+        <!-- LANE 1: HE THONG BPMS / ERP -->
+        <mxCell id="lane_bpms" value="Hệ thống BPMS / ERP" style="swimlane;html=1;startSize=30;horizontal=0;fillColor=#ffffff;strokeColor=#ced4da;fontStyle=1;fontSize=12;" vertex="1" parent="pool_fpt">
+          <mxGeometry x="35" y="0" width="3225" height="190" as="geometry" />
+        </mxCell>
+
+        <!-- LANE 2: BO PHAN KHO & VAT TU -->
+        <mxCell id="lane_kho" value="Bộ phận Kho &amp; Vật tư (Thủ kho)" style="swimlane;html=1;startSize=30;horizontal=0;fillColor=#ffffff;strokeColor=#ced4da;fontStyle=1;fontSize=12;" vertex="1" parent="pool_fpt">
+          <mxGeometry x="35" y="190" width="3225" height="310" as="geometry" />
+        </mxCell>
+
+        <!-- LANE 3: KY THUAT VIEN THI CONG -->
+        <mxCell id="lane_ktv" value="Kỹ thuật viên thi công (KTV)" style="swimlane;html=1;startSize=30;horizontal=0;fillColor=#ffffff;strokeColor=#ced4da;fontStyle=1;fontSize=12;" vertex="1" parent="pool_fpt">
+          <mxGeometry x="35" y="500" width="3225" height="230" as="geometry" />
+        </mxCell>
+
+        <!-- LANE 4: BO PHAN MUA HANG & CUNG UNG -->
+        <mxCell id="lane_muahang" value="Bộ phận Mua hàng &amp; Cung ứng" style="swimlane;html=1;startSize=30;horizontal=0;fillColor=#ffffff;strokeColor=#ced4da;fontStyle=1;fontSize=12;" vertex="1" parent="pool_fpt">
+          <mxGeometry x="35" y="730" width="3225" height="210" as="geometry" />
+        </mxCell>
+
+        <!-- ================= POOL 2: NHA CUNG CAP ================= -->
+        <mxCell id="pool_ncc" value="NHÀ CUNG CẤP THIẾT BỊ VIỄN THÔNG (Bên ngoài)" style="swimlane;html=1;startSize=35;horizontal=0;fillColor=#e9ecef;strokeColor=#adb5bd;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1020" width="3260" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- ================= LANE 1 ELEMENTS ================= -->
+        <mxCell id="start_evt" value="Nhận Work Order&#xa;từ CRM" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d4edda;strokeColor=#28a745;strokeWidth=1.5;fontStyle=1;fontSize=10;" vertex="1" parent="lane_bpms">
+          <mxGeometry x="40" y="70" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_bpms_req" value="[Service Task]&#xa;Tạo yêu cầu xuất vật tư&#xa;và đẩy sang WMS" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_bpms">
+          <mxGeometry x="130" y="60" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_bpms_sync" value="[Service Task]&#xa;Đồng bộ số liệu WMS&#xa;sang Kế toán ERP" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_bpms">
+          <mxGeometry x="2900" y="60" width="130" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_bpms_close" value="[Service Task]&#xa;Đóng Work Order&#xa;trên BPMS" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_bpms">
+          <mxGeometry x="3070" y="60" width="120" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="end_evt" value="Hoàn tất&#xa;quy trình" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8d7da;strokeColor=#dc3545;strokeWidth=3.5;fontStyle=1;fontSize=10;" vertex="1" parent="lane_bpms">
+          <mxGeometry x="3230" y="70" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ================= LANE 2 ELEMENTS ================= -->
+        <mxCell id="task_kho_receive" value="[User Task]&#xa;Tiếp nhận yêu cầu xuất&#xa;trên phần mềm WMS" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_kho">
+          <mxGeometry x="130" y="45" width="140" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- GW1: TON KHO DU? -->
+        <mxCell id="gw1" value="X&#xa;[GW1]&#xa;Tồn kho đủ?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=10;" vertex="1" parent="lane_kho">
+          <mxGeometry x="320" y="37" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Thieu hang -> Tao de xuat mua sam -->
+        <mxCell id="task_kho_procure_req" value="[User Task]&#xa;Lập Phiếu đề xuất&#xa;mua sắm bổ sung" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_kho">
+          <mxGeometry x="450" y="165" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- GW2: GIA TRI DE XUAT > 50TR -->
+        <mxCell id="gw2" value="X&#xa;[GW2]&#xa;&gt; 50tr VNĐ?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=10;" vertex="1" parent="lane_kho">
+          <mxGeometry x="640" y="155" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_bgd_approve" value="[User Task]&#xa;Ban Giám đốc duyệt&#xa;ngân sách mua sắm" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="lane_kho">
+          <mxGeometry x="780" y="215" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- QC & GW5 -->
+        <mxCell id="task_kho_qc" value="[Manual Task - Loop]&#xa;Tiếp nhận hàng &amp;&#xa;kiểm định chất lượng QC" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_kho">
+          <mxGeometry x="1270" y="165" width="150" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- GW5: QC DAT CHUAN -->
+        <mxCell id="gw5" value="X&#xa;[GW5]&#xa;QC đạt chuẩn?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=10;" vertex="1" parent="lane_kho">
+          <mxGeometry x="1470" y="157" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_kho_reject" value="[User Task]&#xa;Lập biên bản từ chối,&#xa;trả Nhà cung cấp" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#f8d7da;strokeColor=#dc3545;fontSize=10;" vertex="1" parent="lane_kho">
+          <mxGeometry x="1445" y="245" width="130" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_kho_inward" value="[User Task]&#xa;Nhập kho WMS &amp;&#xa;cập nhật thẻ kho" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#d4edda;strokeColor=#28a745;fontSize=11;" vertex="1" parent="lane_kho">
+          <mxGeometry x="1600" y="165" width="130" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- MERGE NODE (Tồn kho đã sẵn sàng) -->
+        <mxCell id="merge_stock" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="lane_kho">
+          <mxGeometry x="1645" y="57" width="40" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- GW3: PHAN LOAI CHUAN THIET BI -->
+        <mxCell id="gw3" value="X&#xa;[GW3]&#xa;Chuẩn thiết bị?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=10;" vertex="1" parent="lane_kho">
+          <mxGeometry x="1740" y="37" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_kho_pick_gpon" value="[Manual Task]&#xa;Lấy Modem ONT&#xa;chuẩn GPON thông thường" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="lane_kho">
+          <mxGeometry x="1870" y="20" width="140" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_kho_pick_xgpon" value="[Manual Task]&#xa;Lấy Modem chuyên dụng&#xa;chuẩn XGS-PON / Wi-Fi 6" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="lane_kho">
+          <mxGeometry x="1870" y="85" width="140" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_kho_scan" value="[User Task - Multi Instance]&#xa;Quét mã Serial / MAC&#xa;và kiểm tra ngoại quan" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_kho">
+          <mxGeometry x="2060" y="47" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_kho_print" value="[User Task]&#xa;In Phiếu xuất kho&#xa;kiêm bàn giao thiết bị" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_kho">
+          <mxGeometry x="2240" y="47" width="130" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_kho_handover" value="[User Task]&#xa;Bàn giao thiết bị &amp; cáp&#xa;cho KTV ca trực" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_kho">
+          <mxGeometry x="2410" y="47" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_kho_swap" value="[User Task]&#xa;Xuất đổi Modem mới&#xa;từ kho dự phòng" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="lane_kho">
+          <mxGeometry x="2700" y="165" width="140" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_kho_return" value="[User Task]&#xa;Nhập trả cáp/vật tư thừa&#xa;vào thẻ kho WMS" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_kho">
+          <mxGeometry x="2900" y="165" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ================= LANE 3 ELEMENTS ================= -->
+        <mxCell id="task_ktv_check" value="[Manual Task]&#xa;KTV kiểm đếm số lượng,&#xa;ký xác nhận nhận hàng" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_ktv">
+          <mxGeometry x="2410" y="45" width="150" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_ktv_install" value="[Manual Task - Multi Instance]&#xa;Thi công kéo cáp, hàn quang&#xa;&amp; lắp đặt Modem Wi-Fi" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_ktv">
+          <mxGeometry x="2600" y="45" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- GW6: THIET BI LOI? -->
+        <mxCell id="gw6" value="X&#xa;[GW6]&#xa;Thiết bị lỗi?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=10;" vertex="1" parent="lane_ktv">
+          <mxGeometry x="2800" y="35" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_ktv_accept" value="[Manual Task]&#xa;Nghiệm thu dịch vụ&#xa;cùng khách hàng" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="lane_ktv">
+          <mxGeometry x="2920" y="45" width="130" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- GW7: CO VAT TU THUA? -->
+        <mxCell id="gw7" value="X&#xa;[GW7]&#xa;Vật tư thừa?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=10;" vertex="1" parent="lane_ktv">
+          <mxGeometry x="3090" y="35" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_ktv_bring_back" value="[Manual Task]&#xa;Mang cuộn cáp thừa&#xa;về kho quyết toán" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="lane_ktv">
+          <mxGeometry x="3070" y="145" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ================= LANE 4 ELEMENTS ================= -->
+        <mxCell id="task_muahang_po" value="[Send Task]&#xa;Lập đơn đặt hàng (PO)&#xa;gửi Nhà cung cấp" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="lane_muahang">
+          <mxGeometry x="840" y="65" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- GW4: EVENT DRIVEN GATEWAY -->
+        <mxCell id="gw4" value="O&#xa;[GW4]&#xa;Chờ giao hàng" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=10;" vertex="1" parent="lane_muahang">
+          <mxGeometry x="1030" y="55" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Intermediate Catch Events (Double Circle) -->
+        <mxCell id="evt_msg_receive" value="[Message Event]&#xa;Nhà cung cấp&#xa;giao hàng đến kho" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#28a745;strokeWidth=2;fontSize=10;" vertex="1" parent="lane_muahang">
+          <mxGeometry x="1150" y="50" width="90" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="evt_timer_timeout" value="[Timer Event 48h]&#xa;Quá hạn giao&#xa;&gt; 48 giờ" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#dc3545;strokeWidth=2;fontSize=10;" vertex="1" parent="lane_muahang">
+          <mxGeometry x="1150" y="125" width="90" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_muahang_escalate" value="[User Task]&#xa;Báo động trễ hạn SLA&#xa;&amp; điều chuyển gấp" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#f8d7da;strokeColor=#dc3545;fontSize=10;" vertex="1" parent="lane_muahang">
+          <mxGeometry x="1270" y="125" width="130" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ================= POOL NCC ELEMENTS ================= -->
+        <mxCell id="task_ncc_process" value="[External Task]&#xa;Tiếp nhận đơn PO &amp;&#xa;chuẩn bị lô hàng thiết bị" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#e9ecef;strokeColor=#adb5bd;fontSize=11;" vertex="1" parent="pool_ncc">
+          <mxGeometry x="840" y="50" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="task_ncc_deliver" value="[External Task]&#xa;Vận chuyển hàng&#xa;đến kho FPT Telecom" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;fillColor=#e9ecef;strokeColor=#adb5bd;fontSize=11;" vertex="1" parent="pool_ncc">
+          <mxGeometry x="1125" y="50" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ================= SEQUENCE FLOWS (ORTHOGONAL, ROUNDED) ================= -->
+        <mxCell id="f1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="start_evt" target="task_bpms_req" />
+        <mxCell id="f2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_bpms_req" target="task_kho_receive" />
+        <mxCell id="f3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_kho_receive" target="gw1" />
+
+        <!-- GW1 -> Merge (ĐỦ HÀNG - HAPPY PATH) -->
+        <mxCell id="f4" value="Đủ tồn kho an toàn" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#28a745;strokeWidth=2.2;endArrow=block;endFill=1;" edge="1" parent="1" source="gw1" target="merge_stock" />
+
+        <!-- GW1 -> THIẾU HÀNG -->
+        <mxCell id="f5" value="Thiếu" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#dc3545;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="gw1" target="task_kho_procure_req" />
+        <mxCell id="f6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#dc3545;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_kho_procure_req" target="gw2" />
+
+        <!-- GW2: >50tr vs <=50tr -->
+        <mxCell id="f7" value="&gt; 50 triệu" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#dc3545;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="gw2" target="task_bgd_approve" />
+        <mxCell id="f8" value="&lt;= 50 triệu" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#28a745;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="gw2" target="task_muahang_po" />
+        <mxCell id="f9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_bgd_approve" target="task_muahang_po" />
+
+        <!-- Giao tiếp Nhà cung cấp (Message Flows - Nét đứt) -->
+        <mxCell id="m1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;dashed=1;strokeColor=#0056b3;strokeWidth=2;endArrow=oval;endFill=1;" edge="1" parent="1" source="task_muahang_po" target="task_ncc_process" />
+        <mxCell id="fncc" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6c757d;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_ncc_process" target="task_ncc_deliver" />
+        <mxCell id="m2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;dashed=1;strokeColor=#0056b3;strokeWidth=2;endArrow=oval;endFill=1;" edge="1" parent="1" source="task_ncc_deliver" target="evt_msg_receive" />
+
+        <!-- Chờ giao hàng GW4 -->
+        <mxCell id="f10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_muahang_po" target="gw4" />
+        <mxCell id="f11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#28a745;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="gw4" target="evt_msg_receive" />
+        <mxCell id="f12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#dc3545;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="gw4" target="evt_timer_timeout" />
+        <mxCell id="f13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#dc3545;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="evt_timer_timeout" target="task_muahang_escalate" />
+
+        <!-- Nhận hàng -> QC (GW5) -->
+        <mxCell id="f14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#28a745;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="evt_msg_receive" target="task_kho_qc" />
+        <mxCell id="f15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_kho_qc" target="gw5" />
+        <mxCell id="f16" value="Đạt chuẩn" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#28a745;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="gw5" target="task_kho_inward" />
+        <mxCell id="f17" value="Lỗi QC" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#dc3545;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="gw5" target="task_kho_reject" />
+
+        <!-- Nhập kho xong -> Merge stock -->
+        <mxCell id="f18" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#28a745;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_kho_inward" target="merge_stock" />
+
+        <!-- Tồn kho sẵn sàng -> GW3 Phân loại -->
+        <mxCell id="f19" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="merge_stock" target="gw3" />
+        <mxCell id="f20" value="GPON" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#004085;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="gw3" target="task_kho_pick_gpon" />
+        <mxCell id="f21" value="XGS-PON" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#004085;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="gw3" target="task_kho_pick_xgpon" />
+
+        <!-- Quét mã & In phiếu -->
+        <mxCell id="f22" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_kho_pick_gpon" target="task_kho_scan" />
+        <mxCell id="f23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_kho_pick_xgpon" target="task_kho_scan" />
+        <mxCell id="f24" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_kho_scan" target="task_kho_print" />
+        <mxCell id="f25" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_kho_print" target="task_kho_handover" />
+        <mxCell id="f26" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_kho_handover" target="task_ktv_check" />
+
+        <!-- KTV thi công & GW6 -->
+        <mxCell id="f27" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_ktv_check" target="task_ktv_install" />
+        <mxCell id="f28" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_ktv_install" target="gw6" />
+        <mxCell id="f29" value="Bình thường" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#28a745;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="gw6" target="task_ktv_accept" />
+        <mxCell id="f30" value="Lỗi kỹ thuật" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#dc3545;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="gw6" target="task_kho_swap" />
+        <mxCell id="f31" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#28a745;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_kho_swap" target="task_ktv_accept" />
+
+        <!-- Nghiệm thu & GW7 -->
+        <mxCell id="f32" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_ktv_accept" target="gw7" />
+        <mxCell id="f33" value="Có thừa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#28a745;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="gw7" target="task_ktv_bring_back" />
+        <mxCell id="f34" value="Không thừa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="gw7" target="task_bpms_sync" />
+        <mxCell id="f35" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_ktv_bring_back" target="task_kho_return" />
+        <mxCell id="f36" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_kho_return" target="task_bpms_sync" />
+
+        <!-- Hoàn tất -->
+        <mxCell id="f37" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_bpms_sync" target="task_bpms_close" />
+        <mxCell id="f38" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#343a40;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="task_bpms_close" target="end_evt" />
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
