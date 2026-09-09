@@ -77,7 +77,7 @@ Các điểm quyết định chính của quy trình gồm:
 
 ## 3.6.2. Mô hình BPMN As-is
 
-![alt text](HoachDinhChienLuoc.png)
+![Sơ đồ quy trình](./assets/diagrams/hoach_dinh/HoachDinhChienLuoc.png)
 
 ### 3.6.2.1. Các Swimlane
 
@@ -191,7 +191,7 @@ Hướng cải tiến trọng tâm là giảm thời gian chờ, chuẩn hóa ti
 
 ### 3.6.3.4. Phân tích nguyên nhân bằng Fishbone
 
-![alt text](fishbone-1.png)
+![Mô hình Fishbone](./assets/diagrams/hoach_dinh/fishbone-1.png)
 
 Vấn đề trọng tâm:
 
