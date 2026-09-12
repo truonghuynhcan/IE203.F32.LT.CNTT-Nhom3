@@ -75,6 +75,94 @@ Quy trình có thể kết thúc không thành công hoặc phải xử lý lạ
 
 Trong đó, bước 3 - Kiểm tra khả năng cung cấp dịch vụ là điểm quyết định Go/No-Go. Nếu không đủ điều kiện thì thông báo khách hàng và kết thúc quy trình; nếu đủ điều kiện thì tiếp tục sang bước tiếp theo.
 
+#### **3.2.1.6. Phỏng vấn (Interview-based Discovery)**
+
+Phương pháp phỏng vấn được sử dụng nhằm thu thập thông tin từ các đối tượng có liên quan trực tiếp đến quy trình thi công và lắp đặt mạng Wi-Fi. Nội dung phỏng vấn tập trung vào việc xác định các bước thực hiện, trách nhiệm của từng bộ phận, các điểm chờ, các lỗi phát sinh, hoạt động tạo giá trị và cơ hội cải tiến quy trình.
+
+Các nhóm đối tượng được lựa chọn để phỏng vấn gồm:
+
+- Nhân viên kinh doanh (Sales);
+- Nhân viên khảo sát kỹ thuật;
+- Nhân viên kho/vật tư;
+- Kỹ thuật viên lắp đặt;
+- Nhân viên quản trị CRM/BPMS;
+- Nhân viên chăm sóc khách hàng (CSKH);
+- Nhân viên kế toán;
+- Quản lý bộ phận kỹ thuật hoặc quản lý chi nhánh.
+
+##### **a) Danh sách 10 câu hỏi định tính**
+
+- **Nhóm câu hỏi có cấu trúc (Structured Qualitative Questions):**  
+  *(Sử dụng thang đo Likert 5 mức độ hoặc phương án lựa chọn cố định)*
+
+| **Mã** | **Đối tượng phỏng vấn** | **Nội dung câu hỏi có cấu trúc** | **Thang đo / Phương án lựa chọn** |
+|---|---|---|---|
+| **TC-QL01** | Nhân viên kinh doanh | Anh/Chị đánh giá mức độ thuận tiện của việc tiếp nhận yêu cầu lắp đặt mạng Wi-Fi từ khách hàng hiện nay như thế nào? | 1. Rất bất tiện; 2. Bất tiện; 3. Bình thường; 4. Thuận tiện; 5. Rất thuận tiện |
+| **TC-QL02** | Nhân viên khảo sát kỹ thuật | Anh/Chị đánh giá mức độ đầy đủ và chính xác của thông tin về địa chỉ, hạ tầng và nhu cầu khách hàng trước khi khảo sát như thế nào? | 1. Rất thiếu và không chính xác; 2. Thiếu; 3. Đáp ứng một phần; 4. Đầy đủ; 5. Rất đầy đủ và chính xác |
+| **TC-QL03** | Nhân viên kho/vật tư | Quy trình chuẩn bị và cấp phát modem, router, dây mạng và phụ kiện hiện nay có đáp ứng tốt kế hoạch lắp đặt không? | 1. Hoàn toàn không đáp ứng; 2. Đáp ứng kém; 3. Đáp ứng trung bình; 4. Đáp ứng tốt; 5. Đáp ứng rất tốt |
+| **TC-QL04** | Kỹ thuật viên lắp đặt | Anh/Chị đánh giá mức độ thuận tiện của việc nhận lệnh lắp đặt, lịch hẹn và thông tin khách hàng trên hệ thống hiện nay như thế nào? | 1. Rất khó khăn; 2. Khó khăn; 3. Bình thường; 4. Thuận tiện; 5. Rất thuận tiện |
+| **TC-QL05** | Nhân viên CSKH / Quản lý kỹ thuật | Theo Anh/Chị, mức độ phối hợp giữa Sales, kho, kỹ thuật và CSKH trong quá trình lắp đặt hiện nay đạt mức nào? | 1. Rất kém; 2. Kém; 3. Trung bình; 4. Tốt; 5. Rất tốt |
+
+- **Nhóm câu hỏi không có cấu trúc (Unstructured Qualitative Questions):**  
+  *(Câu hỏi mở nhằm khai thác nguyên nhân, khó khăn và đề xuất cải tiến)*
+
+| **Mã** | **Đối tượng phỏng vấn** | **Nội dung câu hỏi mở** | **Mục tiêu thu thập thông tin** |
+|---|---|---|---|
+| **TC-QL06** | Nhân viên kinh doanh | Trong quá trình tiếp nhận và tư vấn khách hàng, những khó khăn nào thường khiến việc tạo yêu cầu lắp đặt bị chậm hoặc phải bổ sung thông tin nhiều lần? | Xác định các vấn đề về thiếu thông tin khách hàng, sai địa chỉ, thiếu giấy tờ hoặc nhập liệu lặp lại |
+| **TC-QL07** | Nhân viên khảo sát kỹ thuật | Những nguyên nhân nào thường khiến việc kiểm tra hạ tầng, cổng kết nối hoặc điều kiện lắp đặt không thể hoàn thành ngay từ lần đầu? | Xác định các vấn đề liên quan đến dữ liệu hạ tầng, thiếu cổng, địa hình và thông tin khảo sát |
+| **TC-QL08** | Nhân viên kho/vật tư và kỹ thuật viên | Những tình huống nào thường xảy ra khi thiết bị hoặc vật tư được chuẩn bị không đầy đủ trước ngày lắp đặt? | Xác định nguyên nhân gây chậm lịch, phát sinh chuyến đi bổ sung hoặc phải quay lại công trình |
+| **TC-QL09** | Kỹ thuật viên lắp đặt | Trong quá trình thi công tại nhà khách hàng, bước nào thường gây nhiều khó khăn hoặc phát sinh làm lại nhất? Vì sao? | Xác định nguyên nhân của lỗi thi công, tín hiệu Wi-Fi không đạt, thiếu vật tư hoặc điều kiện thi công không phù hợp |
+| **TC-QL10** | Nhân viên CSKH / Quản lý kỹ thuật | Theo Anh/Chị, khách hàng thường không hài lòng ở những điểm nào trong quá trình đăng ký, chờ lắp đặt, nghiệm thu và kích hoạt dịch vụ? | Xác định các điểm gây ảnh hưởng đến trải nghiệm khách hàng và đề xuất hướng cải tiến quy trình |
+
+##### **b) Danh sách 10 câu hỏi định lượng**
+
+- **Nhóm câu hỏi có cấu trúc (Structured Quantitative Questions):**  
+  *(Thu thập số liệu cụ thể với đơn vị đo lường rõ ràng)*
+
+| **Mã** | **Đối tượng phỏng vấn** | **Nội dung câu hỏi định lượng có cấu trúc** | **Đơn vị đo lường** |
+|---|---|---|---|
+| **TC-QT01** | Nhân viên kinh doanh | Trung bình một ngày, bộ phận kinh doanh tiếp nhận bao nhiêu yêu cầu đăng ký lắp đặt mạng Wi-Fi? | Yêu cầu / người / ngày |
+| **TC-QT02** | Nhân viên khảo sát kỹ thuật | Thời gian trung bình để kiểm tra khả năng cung cấp dịch vụ và tình trạng cổng kết nối cho một địa chỉ là bao lâu? | Phút / yêu cầu |
+| **TC-QT03** | Nhân viên kho/vật tư | Tỷ lệ đơn lắp đặt được chuẩn bị đầy đủ thiết bị và vật tư ngay từ lần đầu là bao nhiêu phần trăm? | Tỷ lệ phần trăm (%) |
+| **TC-QT04** | Kỹ thuật viên lắp đặt | Thời gian trung bình từ khi nhận lệnh lắp đặt đến khi hoàn thành thi công một đơn hàng là bao nhiêu phút? | Phút / đơn hàng |
+| **TC-QT05** | Nhân viên CSKH / Quản lý kỹ thuật | Tỷ lệ đơn lắp đặt hoàn thành đúng lịch hẹn với khách hàng hiện nay là bao nhiêu phần trăm? | Tỷ lệ phần trăm (%) |
+
+- **Nhóm câu hỏi không có cấu trúc (Unstructured Quantitative Questions):**  
+  *(Câu hỏi mở nhằm thu thập khoảng giá trị, mức độ biến động và chi phí phát sinh)*
+
+| **Mã** | **Đối tượng phỏng vấn** | **Nội dung câu hỏi định lượng mở** | **Dữ liệu định lượng kỳ vọng thu thập** |
+|---|---|---|---|
+| **TC-QT06** | Nhân viên kinh doanh / CSKH | Khi thông tin khách hàng hoặc địa chỉ lắp đặt bị thiếu, trung bình mất thêm bao nhiêu thời gian để liên hệ và bổ sung thông tin? | Khoảng thời gian bổ sung thông tin theo phút hoặc giờ |
+| **TC-QT07** | Nhân viên khảo sát kỹ thuật | Trong một tháng, có khoảng bao nhiêu trường hợp phải khảo sát lại hoặc kiểm tra hạ tầng lần thứ hai do thông tin ban đầu chưa chính xác? | Số trường hợp / tháng và tỷ lệ phần trăm (%) |
+| **TC-QT08** | Nhân viên kho/vật tư | Trong một tháng, có khoảng bao nhiêu đơn lắp đặt phải bổ sung thiết bị, dây mạng hoặc phụ kiện sau khi kỹ thuật viên đã đến địa điểm? | Số đơn hàng / tháng; số lần phát sinh / đơn |
+| **TC-QT09** | Kỹ thuật viên lắp đặt | Khi phát sinh lỗi tín hiệu, thiếu vật tư hoặc khách hàng chưa thể nghiệm thu, thời gian xử lý bổ sung trung bình dao động từ bao nhiêu phút đến bao nhiêu giờ? | Khoảng thời gian xử lý theo phút/giờ |
+| **TC-QT10** | Nhân viên CSKH / Quản lý chi nhánh | Ước tính tổng chi phí phát sinh mỗi tháng do đổi lịch, di chuyển lại, thi công lại hoặc xử lý khiếu nại sau lắp đặt là khoảng bao nhiêu? | Chi phí phát sinh theo VNĐ/tháng |
+
+##### **c) Mục đích sử dụng kết quả phỏng vấn**
+
+Kết quả phỏng vấn dự kiến được sử dụng làm cơ sở cho các nội dung phân tích tiếp theo:
+
+| **Nội dung phân tích** | **Thông tin thu thập từ phỏng vấn** |
+|---|---|
+| **Phân tích VA/BVA/NVA** | Xác định hoạt động tạo giá trị, hoạt động cần thiết cho doanh nghiệp và hoạt động không tạo giá trị |
+| **Phân tích 7 loại lãng phí** | Xác định thời gian chờ, di chuyển dư thừa, tồn kho vật tư, thao tác lặp lại và lỗi phải làm lại |
+| **Issue Register** | Xác định và kiểm chứng các vấn đề IR-01 đến IR-09 trong quy trình As-is |
+| **Phân tích định lượng** | Thu thập thời gian xử lý, thời gian chờ, tỷ lệ hoàn thành đúng hạn, tỷ lệ làm lại và chi phí phát sinh |
+| **Thiết kế quy trình To-Be** | Xác định nhu cầu tích hợp CRM/BPMS, kiểm tra hạ tầng tự động, quản lý vật tư bằng QR/Barcode, ứng dụng dành cho kỹ thuật viên và nghiệm thu điện tử |
+
+##### **d) Liên kết câu hỏi phỏng vấn với các vấn đề của quy trình**
+
+| **Mã câu hỏi** | **Vấn đề có thể phát hiện** | **Nội dung phân tích liên quan** |
+|---|---|---|
+| **TC-QL01, TC-QL06** | Tiếp nhận yêu cầu chậm, thông tin khách hàng không đầy đủ | BVA, Waiting, Overprocessing, IR-01 |
+| **TC-QL02, TC-QL07** | Dữ liệu hạ tầng không chính xác, phải khảo sát lại | Defect/Rework, Waiting, IR-02 |
+| **TC-QL03, TC-QT08** | Thiếu thiết bị hoặc vật tư khi triển khai | Inventory, Waiting, Transportation, IR-03 |
+| **TC-QL04, TC-QT04** | Kỹ thuật viên nhận lệnh chậm hoặc thiếu thông tin | Waiting, Overprocessing, IR-04 |
+| **TC-QL05, TC-QL10** | Phối hợp giữa các bộ phận chưa hiệu quả, khách hàng không hài lòng | Waiting, Defect/Rework, Customer Experience, IR-05 |
+| **TC-QT01, TC-QT02** | Khối lượng yêu cầu và thời gian xử lý ban đầu cao | Processing Time, Capacity, Workload |
+| **TC-QT03, TC-QT07** | Tỷ lệ chuẩn bị vật tư không đạt, phát sinh khảo sát lại | Quality, Rework, Inventory |
+| **TC-QT05, TC-QT09** | Không hoàn thành đúng lịch, phát sinh xử lý bổ sung | On-time Rate, Rework, Lead Time |
+| **TC-QT10** | Chi phí phát sinh do đổi lịch, di chuyển lại và khiếu nại | Cost per Order, Transportation, Cost of Poor Quality |
 ---
 
 ### 3.2.2. Mô hình hóa quy trình hiện tại (Sơ đồ BPMN - As-is)
