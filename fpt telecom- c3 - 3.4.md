@@ -2,7 +2,20 @@
 
 ## **3.4. QUY TRÌNH LẮP ĐẶT MẠNG WI-FI TẠI CÔNG TY CỔ PHẦN VIỄN THÔNG FPT (FPT TELECOM)**
 
-### **3.4.1. Mô tả quy trình**
+### **3.4.1. Khám phá quy trình (Process Discovery)**
+
+Khám phá quy trình (Process Discovery) là giai đoạn nền tảng trong vòng đời Quản trị Quy trình Nghiệp vụ (BPM Lifecycle). Mục đích của giai đoạn này là thu thập hiện trạng vận hành thực tế, làm rõ ranh giới các bước công việc, xác định các tác nhân liên quan và nhận diện các điểm nghẽn, rủi ro tiềm ẩn. Nhóm áp dụng kết hợp **3 phương pháp khám phá quy trình chuẩn mực** theo giáo trình môn học IE203 (Chương 4 – Process Discovery) bao gồm:
+1. **Phương pháp dựa trên bằng chứng (Evidence-based Discovery)**: Thu thập tài liệu quy định, quy chuẩn kỹ thuật, nhật ký hệ thống CRM/BPMS và các biểu mẫu nghiệp vụ thực tế tại FPT Telecom.
+2. **Phương pháp phỏng vấn (Interview-based Discovery)**: Phỏng vấn trực tiếp các bên liên quan từ cấp quản trị đến kỹ thuật viên hiện trường và khách hàng để thu thập dữ liệu định tính và định lượng.
+3. **Phương pháp hội thảo chuyên sâu (Workshop-based Discovery)**: Tổ chức buổi làm việc tập trung giữa các bộ phận để giải quyết xung đột góc nhìn và chuẩn hóa bức tranh toàn cảnh As-Is.
+
+---
+
+#### **3.4.1.1. Phương pháp dựa trên bằng chứng (Evidence-based Discovery)**
+
+Phương pháp dựa trên bằng chứng được thực hiện thông qua việc rà soát hồ sơ quy trình vận hành tiêu chuẩn (SOP), các văn bản chỉ đạo của Ban Điều hành FPT Telecom, dữ liệu log từ hệ thống FPT CRM / Mobisale / BPMS và các mẫu chứng từ đang lưu hành.
+
+##### **a) Mô tả chuỗi hoạt động As-Is dựa trên văn bản quy chuẩn**
 
 Quy trình lắp đặt mạng Wi-Fi (Internet cáp quang băng rộng FTTH) tại FPT Telecom là quy trình nghiệp vụ cốt lõi (Core Process), liên kết trực tiếp từ nhu cầu đăng ký dịch vụ của khách hàng đến kết quả bàn giao kết nối Internet, thu phí và khảo sát chăm sóc sau bán hàng.
 
@@ -56,7 +69,147 @@ _Hình 3.1: Sơ đồ chuỗi hoạt động tổng quan quy trình lắp đặt
   - **Mục tiêu:** Đo lường chỉ số hài lòng (NPS) và quản lý chất lượng dịch vụ.
   - **Thực hiện:** Trong vòng 24 - 48 giờ sau khi nghiệm thu, hệ thống CSKH tự động gửi tin nhắn khảo sát hoặc điện thoại viên liên hệ ghi nhận đánh giá (thang điểm 1-10). Đóng ca làm việc hoàn tất.
 
-### **3.4.2. Phân tích quy trình**
+##### **b) Danh mục tài liệu và biểu mẫu nghiệp vụ thu thập (Evidence Artifacts)**
+
+Nhóm đã thu thập và đối chiếu các biểu mẫu nghiệp vụ thực tế đang vận hành tại FPT Telecom:
+
+* **Biểu mẫu 1: Phiếu ghi nhận đăng ký dịch vụ (CRM Lead Ticket)**  
+  * *Mã hiệu:* BM-FPT-KD01 | *Kênh tiếp nhận:* Website / D2D / Hotline  
+  * *Nội dung thu thập:* Mã Lead ID, Thời gian đăng ký, Họ tên khách hàng, Số điện thoại, Địa chỉ lắp đặt chi tiết (Số nhà, Đường, Phường/Xã, Quận/Huyện, Tọa độ GPS), Gói cước yêu cầu (Giga 150Mbps / Sky 1Gbps / F-Game), Hình thức thanh toán dự kiến (Trả trước 6 tháng / 12 tháng / Trả sau).
+
+* **Biểu mẫu 2: Phiếu thẩm định khảo sát hạ tầng (GIS Technical Survey Report)**  
+  * *Mã hiệu:* BM-FPT-KT02 | *Hệ thống:* GIS Network Management  
+  * *Nội dung:* Mã Ticket ID, Mã hộp ODF/Tập điểm quang gần nhất, Cự ly dây cáp thực tế (Mét), Tổng số Port thiết kế, Số Port đang sử dụng, Số Port trống khả dụng, Kết luận khảo sát: [Đủ điều kiện] / [Không đủ điều kiện - Lý do: Hết port / Vượt khoảng cách 300m / Chướng ngại vật], Chữ ký số KTV khảo sát.
+
+* **Biểu mẫu 3: Hợp đồng điện tử dịch vụ viễn thông (FPT E-Contract)**  
+  * *Mã hiệu:* HD-FTTH-2026 | *Nền tảng:* FPT E-Contract & eKYC  
+  * *Nội dung:* Số hợp đồng, Thông tin chủ thể thuê bao (CCCD, Họ tên, Ngày sinh), Địa chỉ đặt thiết bị, Thông số gói cước & thiết bị đi kèm (Modem Wi-Fi 6 ONT, Thiết bị Mesh phụ), Mã OTP xác thực giao dịch qua SMS, Chữ ký điện tử của khách hàng và Đại diện FPT Telecom.
+
+* **Biểu mẫu 4: Lệnh công tác thi công lắp đặt (Work Order)**  
+  * *Mã hiệu:* WO-TNC-2026-X | *Hệ thống:* FPT BPMS / Dispatching Engine  
+  * *Nội dung:* Mã Work Order, Khung giờ hẹn khách, Kỹ thuật viên phụ trách (Mã NV, Họ tên, SĐT), Địa chỉ thi công, Tọa độ hộp cáp ODF, Thiết bị xuất kho tương ứng (Serial/MAC), Ghi chú thi công từ Sales.
+
+* **Biểu mẫu 5: Phiếu xuất kho vật tư thiết bị mạng (WMS Material Dispatch)**  
+  * *Mã hiệu:* PXK-TNC-05 | *Đơn vị cấp phát:* Kho kỹ thuật Chi nhánh FPT  
+  * *Nội dung:* Ngày xuất, Người nhận (KTV TNC), Danh mục: Modem Wi-Fi 6 GPON ONT (Mã barcode, Serial, MAC), Cuộn cáp quang thuê bao 1FO (Số mét bàn giao), Đầu kết nối nhanh Fast Connector (Số lượng cái), Dây kẹp treo cáp, Ống co nhiệt.
+
+* **Biểu mẫu 6: Biên bản nghiệm thu kỹ thuật và bàn giao dịch vụ điện tử**  
+  * *Mã hiệu:* BBNT-FTTH-06 | *Ứng dụng:* FoxPro / MyFPT TNC App  
+  * *Nội dung:* Mã thuê bao (Account PPPoE), Giá trị đo công suất quang suy hao tại đầu ONT (Chuẩn: $-18 \text{ dBm} \div -24 \text{ dBm}$), Kết quả đo tốc độ Download/Upload thực tế qua Speedtest, Tên mạng Wi-Fi (SSID 2.4GHz & 5GHz), Chữ ký xác nhận nghiệm thu điện tử của khách hàng tại chỗ.
+
+---
+
+#### **3.4.1.2. Phương pháp phỏng vấn (Interview-based Discovery)**
+
+Phương pháp phỏng vấn trực tiếp được nhóm triển khai nhằm khai thác sâu các khía cạnh vận hành thực tế tại hiện trường, làm rõ trải nghiệm của khách hàng, nhận diện các khó khăn của kỹ thuật viên và kiểm chứng các tham số định lượng (thời gian, chi phí, tỷ lệ lỗi). 
+
+Bộ câu hỏi phỏng vấn được thiết kế phân tầng cho **7 nhóm tác nhân chủ chốt** (Khách hàng, Nhân viên Sales, Kỹ thuật Khảo sát, Quản trị hệ thống BPMS, Thủ kho, Kỹ thuật viên TNC, và Nhân viên CSKH), bao gồm **10 câu hỏi định tính** và **10 câu hỏi định lượng**, cân đối chuẩn mực giữa **dạng câu hỏi có cấu trúc (Structured)** và **không có cấu trúc (Unstructured)** theo đúng tiêu chí Rubric đánh giá của môn học.
+
+##### **a) Danh sách 10 câu hỏi định tính**
+
+* **Nhóm câu hỏi có cấu trúc (Structured Qualitative Questions):** *(Sử dụng thang đo Likert 5 mức độ hoặc các phương án lựa chọn cố định nhằm lượng hóa mức độ đồng thuận)*
+
+| STT | Đối tượng phỏng vấn | Nội dung câu hỏi có cấu trúc | Thang đo / Phương án lựa chọn |
+| :---: | :--- | :--- | :--- |
+| **Q1** | Khách hàng | Anh/Chị đánh giá mức độ rõ ràng, minh bạch của thông tin gói cước và chính sách khuyến mãi do nhân viên Sales tư vấn như thế nào? | 1. Rất mập mờ; 2. Chưa rõ ràng; 3. Bình thường; 4. Khá rõ ràng; 5. Rất minh bạch, dễ hiểu. |
+| **Q2** | Kỹ thuật viên (TNC) | Anh/Chị đánh giá mức độ tiện dụng và độ ổn định của ứng dụng di động nội bộ (FoxPro/MyFPT TNC) khi nhận lệnh thi công và cập nhật trạng thái ngoài hiện trường? | 1. Rất khó dùng/thường lỗi; 2. Khó dùng; 3. Dùng được; 4. Dễ dùng, ổn định; 5. Rất trực quan và mượt mà. |
+| **Q3** | Kỹ thuật viên Khảo sát | Mức độ tin cậy và khớp thực tế giữa dữ liệu sơ đồ hạ tầng trên phần mềm bản đồ số GIS với hiện trạng cổng ODF tại cột điện đạt mức nào? | 1. Sai lệch rất lớn (>20%); 2. Thường sai lệch; 3. Khớp một phần; 4. Khá chuẩn xác; 5. Khớp hoàn toàn 100%. |
+| **Q4** | Khách hàng | Trải nghiệm xác thực ký kết Hợp đồng điện tử (E-Contract) qua mã OTP SMS và thanh toán trực tuyến của Anh/Chị như thế nào? | [A] Rất nhanh chóng và tiện lợi; [B] Hơi phức tạp do không quen công nghệ; [C] Thích ký hợp đồng giấy truyền thống hơn; [D] Gặp lỗi hệ thống khi nhận mã OTP. |
+| **Q5** | Thủ kho thiết bị | Hoạt động xuất cấp Modem ONT và vật tư cho KTV vào đầu ca sáng hiện nay được thực hiện chủ yếu qua hình thức nào? | [A] Quét mã vạch tự động trên phần mềm kho WMS; [B] Vừa quét mã vừa ghi sổ tay đối chiếu; [C] Ký nhận trên giấy tờ thủ công; [D] KTV tự lấy thiết bị rồi bổ sung chứng từ sau. |
+
+* **Nhóm câu hỏi không có cấu trúc (Unstructured Qualitative Questions):** *(Câu hỏi mở để đối tượng tự do phản ánh góc nhìn, đào sâu nguyên nhân gốc rễ và cơ hội cải tiến)*
+
+| STT | Đối tượng phỏng vấn | Nội dung câu hỏi mở (Không có cấu trúc) | Mục tiêu thu thập thông tin |
+| :---: | :--- | :--- | :--- |
+| **Q6** | Kỹ thuật viên (TNC) | Trong thực tế kéo cáp và lắp đặt tại nhà khách hàng, những yếu tố trở ngại lớn nhất khiến ca thi công bị vượt quá khung giờ cam kết (SLA) là gì? | Xác định điểm nghẽn hiện trường (nhà kín khó luồn dây, thời tiết xấu, khách hẹn dời giờ...). |
+| **Q7** | Kỹ thuật viên Khảo sát | Vì sao vẫn còn xảy ra trường hợp hệ thống GIS ghi nhận còn Port khả dụng nhưng khi KTV ra hiện trường thi công thì hộp ODF thực tế đã hết cổng cắm? | Tìm nguyên nhân gốc rễ của vấn đề ISS-01 (độ trễ khóa Port, KTV tuyến trước không cập nhật...). |
+| **Q8** | Nhân viên Kinh doanh | Anh/Chị gặp những khó khăn gì trong việc theo dõi tiến độ thi công của KTV để kịp thời thông tin, trấn an khách hàng khi xảy ra chậm trễ? | Đánh giá tính liên thông dữ liệu giữa Sales và Đội Kỹ thuật qua hệ thống BPMS. |
+| **Q9** | Quản trị hệ thống BPMS / IT | Những nguyên nhân kỹ thuật nào dẫn đến việc hệ thống kích hoạt thuê bao tự động (Provisioning AAA) bị nghẽn lệnh vào các khung giờ cao điểm cuối ngày? | Khám phá nguyên nhân gốc rễ của vấn đề ISS-03 và hạn chế tích hợp API giữa CRM và AAA. |
+| **Q10** | Trưởng phòng Kỹ thuật | Theo Anh/Chị, việc nâng cấp thuật toán điều phối thông minh (Smart Dispatching) theo vị trí địa lý sẽ mang lại cải tiến đột phá nào cho năng suất thi công? | Định hình giải pháp cải tiến To-Be và lộ trình tối ưu hóa nguồn lực. |
+
+---
+
+##### **b) Danh sách 10 câu hỏi định lượng**
+
+* **Nhóm câu hỏi có cấu trúc (Structured Quantitative Questions):** *(Yêu cầu người trả lời cung cấp số liệu đo lường cụ thể với đơn vị tính rõ ràng)*
+
+| STT | Đối tượng phỏng vấn | Nội dung câu hỏi định lượng có cấu trúc | Đơn vị đo lường |
+| :---: | :--- | :--- | :---: |
+| **Q11** | Kỹ thuật viên (TNC) | Thời gian trung bình để thực hiện trọn vẹn thao tác kỹ thuật hiện trường (rải cáp, bấm Fast Connector, cài đặt Wi-Fi và đo suy hao quang) cho 01 ca tiêu chuẩn là bao nhiêu phút? | Phút / ca |
+| **Q12** | Kỹ thuật viên Khảo sát | Thời gian trung bình để bộ phận Kỹ thuật kiểm tra trên bản đồ GIS và trả kết quả tính khả thi hạ tầng cho 01 yêu cầu đăng ký là bao lâu? | Phút / hồ sơ |
+| **Q13** | Kỹ thuật viên (TNC) | Trong 100 mối hàn nối cáp quang hoặc bấm đầu Fast Connector tại hiện trường, trung bình có bao nhiêu trường hợp suy hao vượt chuẩn phải cắt bấm lại? | Tỷ lệ phần trăm (%) |
+| **Q14** | Nhân viên Sales & Kỹ thuật | Trong tổng số các yêu cầu đăng ký mới trong tháng, tỷ lệ hồ sơ bị từ chối do không đủ điều kiện hạ tầng (hết port ODF hoặc khoảng cách kéo cáp > 300m) là bao nhiêu? | Tỷ lệ phần trăm (%) |
+| **Q15** | Kỹ thuật viên (TNC) | Trung bình trong một ngày làm việc tiêu chuẩn (ca 8 tiếng), một Kỹ thuật viên TNC hoàn thành được bao nhiêu ca lắp đặt mạng thành công? | Ca hoàn tất / ngày / KTV |
+
+* **Nhóm câu hỏi không có cấu trúc (Unstructured Quantitative Questions):** *(Khảo sát khoảng biến thiên, dữ liệu phân bổ xác suất và ước lượng thiệt hại tài chính)*
+
+| STT | Đối tượng phỏng vấn | Nội dung câu hỏi mở định lượng (Không có cấu trúc) | Dữ liệu định lượng kỳ vọng thu thập |
+| :---: | :--- | :--- | :--- |
+| **Q16** | Kỹ thuật viên (TNC) | Trong trường hợp khách hàng vắng nhà hoặc yêu cầu dời lịch hẹn đột xuất, thời gian KTV phải chờ đợi tại chỗ hoặc hoãn ca dao động trong khoảng bao lâu? | Khoảng thời gian (phút) Best-case đến Worst-case. |
+| **Q17** | Kỹ thuật viên (TNC) | Chiều dài đoạn dây cáp quang bị cắt dôi dư hoặc hao hụt dã chiến trong quá trình kéo từ cột điện vào nhà khách hàng bình quân dao động khoảng bao nhiêu mét? | Số mét cáp quang hao hụt bình quân trên mỗi ca. |
+| **Q18** | Quản trị hệ thống BPMS | Vào các khung giờ cao điểm (17h00 – 19h00), thời gian phản hồi của lệnh kích hoạt mạng lõi AAA Server bị kéo dài từ bao nhiêu phút lên bao nhiêu phút? | Khoảng thời gian nghẽn lệnh (phút). |
+| **Q19** | Kế toán & Vận hành | Ước tính chi phí thiệt hại tài chính trực tiếp (xăng xe, công thợ, lãng phí ca làm việc) cho FPT khi phát sinh 01 ca khảo sát ảo (đến nơi mới phát hiện hết Port) là bao nhiêu? | Giá trị chi phí ước tính (VNĐ / ca). |
+| **Q20** | Ban Giám đốc Chi nhánh | Sau khi số hóa quy trình và tích hợp thuật toán điều phối thông minh, Chi nhánh kỳ vọng cắt giảm tổng thời gian chu kỳ toàn quy trình (Cycle Time) khoảng bao nhiêu phần trăm? | Tỷ lệ cắt giảm thời gian kỳ vọng (%). |
+
+---
+
+##### **c) Bảng Ma trận đối chiếu (Mapping Matrix) giữa Kết quả phỏng vấn và Mô hình Định lượng**
+
+Các dữ liệu thu thập được từ bộ câu hỏi phỏng vấn định tính và định lượng được sử dụng trực tiếp để thiết lập và kiểm chứng các tham số trong mô hình phân tích thời gian chu kỳ, chi phí vận hành và bảng Issue Register của quy trình 3.4:
+
+| STT | Tham số / Chỉ số trong Mô hình 3.4 | Giá trị định lượng áp dụng trong bài | Căn cứ câu hỏi phỏng vấn | Ý nghĩa nghiệp vụ và cơ sở đối chiếu |
+| :---: | :--- | :---: | :---: | :--- |
+| 1 | **Xác suất Khảo sát hạ tầng khả thi ($p_1$)** | **90%** (0.90) | **Q14, Q7** | Xác định nhánh rẽ thành công (Go) tại Exclusive Gateway GW1 trong sơ đồ BPMN. |
+| 2 | **Xác suất Khảo sát hạ tầng không đạt ($p_2$)** | **10%** (0.10) | **Q14, Q3** | Xác định nhánh rẽ dừng quy trình (No-Go) khi hộp ODF hết port hoặc ngoài cự ly 300m. |
+| 3 | **Thời gian thi công kéo cáp & cấu hình ($T_8$)** | **60 phút** | **Q11, Q15** | Hoạt động VA trọng yếu nhất; được xác nhận bởi KTV thi công (1 KTV làm 4-5 ca/ngày). |
+| 4 | **Tỷ lệ làm lại đầu nối quang ($r$)** | **$r = 5\%$** | **Q13** | Cơ sở tính hệ số vòng lặp làm lại: $T_{8(\text{hiệu chỉnh})} = \frac{60}{1 - 0.05} \approx 63.16$ phút. |
+| 5 | **Thời gian khảo sát Port & tuyến cáp ($T_2$)** | Chu kỳ: **30 phút**<br>Xử lý: **20 phút** | **Q12, Q3** | Đo lường độ trễ từ lúc nhận ticket GIS đến lúc KTV thẩm định xong tính khả thi. |
+| 6 | **Thời gian di chuyển & Chờ khách ($T_7$)** | **35 phút** | **Q16, Q6** | Cơ sở định lượng hoạt động lãng phí NVA (10p di chuyển thực + 25p chờ xác nhận lịch hẹn). |
+| 7 | **Tổn thất tài chính do sai lệch Port (ISS-01)** | **~30.000 VNĐ / ca** | **Q19, Q7** | Chi phí công KTV và nhiên liệu di chuyển vô ích cho 8% số ca khảo sát sai trên GIS. |
+| 8 | **Độ trễ kích hoạt mạng lõi giờ cao điểm (ISS-03)** | Tăng từ **10 phút lên 30 phút** | **Q18, Q9** | Căn cứ nhận diện điểm nghẽn hệ thống AAA Server trong Bảng Issue Register và Pareto. |
+| 9 | **Tỷ lệ hao hụt vật tư cáp dã chiến (ISS-04)** | **~3%** tổng chiều dài cáp | **Q17, Q5** | Căn cứ định lượng lãng phí Over-production và sai số quyết toán vật tư cuối tháng. |
+| 10 | **Mục tiêu cải tiến thời gian chu kỳ (To-Be)** | Rút ngắn từ **3.58h xuống < 2h** | **Q20, Q10** | Mục tiêu định lượng làm tiền đề cho việc xây dựng kiến trúc To-Be tối ưu hóa. |
+
+---
+
+#### **3.4.1.3. Phương pháp hội thảo chuyên sâu (Workshop-based Discovery)**
+
+Nhằm giải quyết triệt để các xung đột quan điểm giữa các bộ phận (ví dụ: Sales phản ánh Kỹ thuật khảo sát chậm làm mất khách, Kỹ thuật phản ánh Sales ký hợp đồng khi chưa rõ hạ tầng cáp, Kho phàn nàn KTV đến lĩnh vật tư dồn dập), một phiên Workshop đã được tổ chức với sự tham gia của các bên liên quan.
+
+##### **a) Biểu mẫu tổ chức cuộc họp (Meeting Agenda & Setup Form)**
+
+* **Tên cuộc họp:** Hội thảo Khám phá và Chuẩn hóa Quy trình Lắp đặt Mạng Wi-Fi FTTH (Process Discovery Workshop)
+* **Thời gian tổ chức:** 08:30 – 12:00, Ngày 15 tháng 08 năm 2026
+* **Địa điểm:** Phòng họp Lotus, Trung tâm Kỹ thuật FPT Telecom Chi nhánh & Trực tuyến qua Microsoft Teams.
+* **Thành phần tham gia theo ma trận vai trò (RACI Role Setup):**
+
+| Vai trò trong Workshop | Chức danh đại diện | Trách nhiệm chính trong phiên làm việc |
+| :--- | :--- | :--- |
+| **Facilitator (Người điều phối)** | Chuyên viên Phân tích Quy trình (Lead BA) | Định hướng thảo luận, giữ vững phạm vi BPMN, khơi gợi các ngoại lệ và trung lập hóa các tranh luận. |
+| **Process Owner (Chủ quy trình)** | Trưởng phòng Quản lý Vận hành Dịch vụ | Xác nhận mục tiêu chiến lược, thời gian cam kết SLA và chuẩn đầu ra toàn chuỗi quy trình. |
+| **Đại diện Khối Kinh doanh** | Trưởng nhóm Sales D2D & Trưởng VPGD | Làm rõ cách thức tiếp nhận Lead, tư vấn gói cước và rào cản ký E-Contract. |
+| **Đại diện Đội Kỹ thuật Khảo sát** | Trưởng nhóm Giám sát mạng cáp GIS | Làm rõ tiêu chuẩn cự ly cáp (<= 300m), quy định số Port an toàn trên hộp ODF. |
+| **Đại diện Kỹ thuật viên Hiện trường** | Nhóm trưởng Kỹ thuật TNC | Trình bày thực tế thi công, lỗi bấm Fast Connector dã chiến và tình trạng khách vắng nhà. |
+| **Đại diện Bộ phận Kho vật tư** | Quản lý Kho chi nhánh | Phản ánh quy trình quét mã Serial/MAC và đối soát vật tư cáp thu hồi. |
+| **Đại diện Vận hành Hệ thống** | Kỹ sư Trưởng hệ thống BPMS / CRM | Giải trình cơ chế phân bổ Work Order và độ trễ giao tiếp API với AAA Radius Server. |
+| **Scribe (Thư ký ghi biên bản)** | Thành viên nhóm phân tích (BA) | Ghi chép chi tiết biên bản, tổng hợp danh mục vấn đề phát sinh và vẽ phác thảo luồng BPMN. |
+
+##### **b) Kịch bản điều phối và các kết quả thống nhất quan trọng**
+
+* **Giai đoạn 1 – Thống nhất ranh giới quy trình (Boundary Setting):** 
+  - *Điểm bắt đầu:* Phát sinh nhu cầu đăng ký dịch vụ của khách hàng qua website/hotline/sales.
+  - *Điểm kết thúc:* Kích hoạt thành công trên hệ thống mạng lõi AAA và thực hiện cuộc gọi/tin nhắn khảo sát NPS sau 24h–48h.
+* **Giai đoạn 2 – Giải quyết xung đột giữa Sales và Kỹ thuật về điểm kiểm soát Khảo sát (Go/No-Go):**
+  - *Xung đột:* Sales muốn ký hợp đồng ngay khi khách có nhu cầu để chốt doanh số; Kỹ thuật yêu cầu phải khảo sát trước vì nếu ký mà không kéo được cáp thì khách hàng rất bức xúc và tốn chi phí hủy hợp đồng.
+  - *Đồng thuận tại Workshop:* Bắt buộc giữ Gateway khảo sát hạ tầng (Bước 3) ngay sau khi tiếp nhận. Tuy nhiên, để hỗ trợ Sales, hệ thống CRM/Mobisale phải cung cấp tính năng tra cứu nhanh sơ bộ (Quick Check GIS) trong vòng 3 phút; các ca giáp ranh mới điều phối KTV khảo sát hiện trường.
+* **Giai đoạn 3 – Thống nhất luồng thi công và nghiệm thu điện tử:**
+  - Chấm dứt việc ký biên bản giấy; 100% ca lắp đặt nghiệm thu qua chữ ký số trên app của KTV và kiểm tra tốc độ thực tế qua Speedtest trước sự chứng kiến của khách hàng.
+* **Giai đoạn 4 – Chốt danh mục vấn đề ưu tiên (Issue Register):**
+  - Thống nhất 4 vấn đề nghiêm trọng nhất cần giải quyết: Lệch dữ liệu Port GIS (ISS-01), Khách vắng nhà (ISS-02), Nghẽn server AAA kích hoạt giờ cao điểm (ISS-03), và Thao tác ghi chép vật tư thủ công (ISS-04).
+
+---
+
+### **3.4.2. Mô hình hóa quy trình (BPMN 2.0 As-Is Model)**
 
 #### **3.4.2.1. Các tác nhân tham gia quy trình (Roles & Swimlanes)**
 
