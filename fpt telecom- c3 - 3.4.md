@@ -595,7 +595,7 @@ Trong thực tế viễn thông, chi phí để hoàn thành 01 hợp đồng l�
 
 | Hạng mục chi phí | Khối lượng định mức / đơn | Đơn giá tham chiếu | Thành tiền (VNĐ/đơn) | Ghi chú nghiệp vụ |
 | :--- | :---: | :---: | :---: | :--- |
-| **Nhân công trực tiếp** | Toàn bộ các bộ phận | Theo bảng đo thời gian | **208.300 VNĐ** | Tính theo thời gian tham gia thực tế |
+| **Nhân công trực tiếp** | Toàn bộ các bộ phận | Theo Bảng 3.4 | **238.365 VNĐ** | Kế thừa trực tiếp từ Bảng 3.4 (chi phí nhân sự theo Swimlanes) |
 | **Modem Wi-Fi 6 GPON ONT** | 01 bộ thiết bị | 550.000 VNĐ/bộ | **550.000 VNĐ** | Thiết bị chính trang bị cho khách hàng |
 | **Router Mesh Wi-Fi 6 phụ** | 01 bộ thiết bị | 450.000 VNĐ/bộ | **450.000 VNĐ** | Thiết bị mở rộng vùng phủ sóng |
 | **Dây cáp quang thuê bao 1FO** | 30 mét dây | 3.000 VNĐ/mét | **90.000 VNĐ** | Cáp quang dã chiến ngoài trời |
@@ -603,7 +603,7 @@ Trong thực tế viễn thông, chi phí để hoàn thành 01 hợp đồng l�
 | **Chi phí nhiên liệu di chuyển** | 25 km / ca (2 chiều) | 4.000 VNĐ/km | **100.000 VNĐ** | Xăng xe KTV di chuyển hiện trường |
 | **Chi phí phân bổ hệ thống IT** | 01 lượt đơn hàng | 120.000 VNĐ/đơn | **120.000 VNĐ** | Bản quyền, máy chủ CRM/BPMS/AAA |
 | **Chi phí rủi ro làm lại (Rework)** | Tỷ lệ lỗi 12% | 200.000 VNĐ/lần | **24.000 VNĐ** | Kỳ vọng: $12\% \times 200.000\text{ VNĐ}$ |
-| **TỔNG CHI PHÍ TOÀN DIỆN AS-IS** | | | **1.592.300 VNĐ** | Chi phí cấu thành toàn diện cho 01 đơn |
+| **TỔNG CHI PHÍ TOÀN DIỆN AS-IS** | | | **1.622.365 VNĐ** | Chi phí cấu thành toàn diện cho 01 đơn |
 
 _Bảng 3.5: Bảng tổng hợp chi phí toàn diện cho một đơn hàng lắp đặt As-Is_
 
@@ -618,7 +618,7 @@ _Bảng 3.5: Bảng tổng hợp chi phí toàn diện cho một đơn hàng l�
 | **Wait Time** | **355** | Phút (5h55p) | Tổng thời gian đơn hàng nằm chờ giữa các công đoạn |
 | **Waiting Ratio** | **57.3%** | Phần trăm (%) | Tỷ lệ thời gian chết không tạo giá trị trong tổng Lead Time |
 | **Cycle Time Efficiency (CTE)** | **77.27%** | Phần trăm (%) | Tỷ lệ thời gian xử lý thực tế trên thời gian chu kỳ luồng |
-| **Tổng chi phí / Đơn hàng** | **1.592.300** | VNĐ / đơn | Chi phí toàn diện cấu thành một ca hoàn tất |
+| **Tổng chi phí / Đơn hàng** | **1.622.365** | VNĐ / đơn | Chi phí toàn diện cấu thành một ca hoàn tất |
 | **Tỷ lệ hoàn thành đúng hẹn (On-time Rate)**| **78%** | Phần trăm (%) | Tỷ lệ ca lắp đặt đúng khung giờ cam kết với khách hàng |
 | **Tỷ lệ làm lại (Rework Rate)** | **12%** | Phần trăm (%) | Tỷ lệ ca phát sinh lỗi kỹ thuật, sai Port hoặc hẹn lại |
 | **Chỉ số hài lòng khách hàng (CSAT)** | **88%** | Phần trăm (%) | Điểm số hài lòng trung bình ghi nhận sau lắp đặt |
@@ -864,13 +864,13 @@ Chuyển đổi toàn diện quy trình thi công lắp đặt mạng Wi-Fi từ
 
 #### **3.4.9.2. Tác động đến chi phí vận hành (Cost Reduction)**
 
-* **Chi phí toàn diện trên 01 đơn hàng:** Giảm từ **1.592.300 VNĐ xuống còn 1.350.000 VNĐ** (tiết kiệm **15.22%**, tương đương giảm **242.300 VNĐ trên mỗi đơn hàng**).
+* **Chi phí toàn diện trên 01 đơn hàng:** Giảm từ **1.622.365 VNĐ xuống còn 1.350.000 VNĐ** (tiết kiệm **16.79%**, tương đương giảm **272.365 VNĐ trên mỗi đơn hàng**).
 * **Nguồn tiết kiệm chi phí chủ yếu đến từ:**
   - Giảm chi phí nhiên liệu di chuyển nhờ thuật toán Smart Routing (tiết kiệm ~35.000 VNĐ/ca).
   - Giảm chi phí rủi ro làm lại (Rework) nhờ checklist chuẩn và máy đo chuyên dụng (tiết kiệm ~16.000 VNĐ/đơn).
   - Triệt tiêu chi phí in ấn giấy tờ hợp đồng và biên bản nghiệm thu (tiết kiệm ~15.000 VNĐ/đơn).
   - Giảm thiểu hao hụt vật tư cáp quang dã chiến nhờ quản lý Barcode (tiết kiệm ~20.000 VNĐ/đơn).
-  - Tối ưu hóa năng suất lao động của đội ngũ Sales, Kỹ thuật và Kế toán (tiết kiệm ~156.300 VNĐ chi phí nhân công gián tiếp/đơn).
+  - Tối ưu hóa năng suất lao động của đội ngũ Sales, Kỹ thuật và Kế toán (tiết kiệm ~186.365 VNĐ chi phí nhân công gián tiếp/đơn).
 
 ---
 
@@ -888,7 +888,7 @@ Chuyển đổi toàn diện quy trình thi công lắp đặt mạng Wi-Fi từ
 | **Cycle Time** | 265 phút | **250 phút** | **-5.7%** | Tinh giản các thao tác xử lý dư thừa |
 | **Wait Time** | 355 phút | **110 phút** | **-69.0%** | Triệt tiêu thời gian chết và chờ đợi |
 | **Waiting Ratio** | 57.3% | **30.6%** | **-26.7%** | Cải thiện vượt bậc hiệu quả tinh gọn |
-| **Chi phí / Đơn hàng** | 1.592.300 VNĐ | **1.350.000 VNĐ** | **-15.2%** | Tiết kiệm hàng trăm triệu đồng/tháng/chi nhánh |
+| **Chi phí / Đơn hàng** | 1.622.365 VNĐ | **1.350.000 VNĐ** | **-16.8%** | Tiết kiệm hàng trăm triệu đồng/tháng/chi nhánh |
 | **Tỷ lệ đúng hẹn (On-time)** | 78% | **96%** | **+18.0%** | Nâng cao uy tín cam kết thương hiệu FPT |
 | **Tỷ lệ làm lại (Rework)** | 12% | **4%** | **-8.0%** | Chuẩn hóa chất lượng kỹ thuật đường truyền |
 | **Chỉ số hài lòng (CSAT)** | 88% | **95%** | **+7.0%** | Khách hàng có trải nghiệm công nghệ vượt trội |
