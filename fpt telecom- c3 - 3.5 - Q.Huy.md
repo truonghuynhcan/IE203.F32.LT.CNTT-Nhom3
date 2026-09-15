@@ -1,10 +1,8 @@
-# **CHƯƠNG 3: MÔ HÌNH HÓA VÀ PHÂN TÍCH QUY TRÌNH NGHIỆP VỤ**
-
-## **3.4. QUY TRÌNH LẮP ĐẶT MẠNG WI-FI TẠI CÔNG TY CỔ PHẦN VIỄN THÔNG FPT (FPT TELECOM)**
+## **3.5. QUY TRÌNH CỐT LÕI 2: LẮP ĐẶT MẠNG WI-FI TẠI FPT TELECOM**
 
 ---
 
-### **3.4.1. Khám phá quy trình (Process Discovery)**
+### **3.5.1. Khám phá quy trình (Process Discovery)**
 
 Khám phá quy trình (Process Discovery) là giai đoạn nền tảng trong vòng đời Quản trị Quy trình Nghiệp vụ (BPM Lifecycle). Mục đích của giai đoạn này là thu thập hiện trạng vận hành thực tế, làm rõ ranh giới các bước công việc, xác định các tác nhân liên quan và nhận diện các điểm nghẽn, rủi ro tiềm ẩn. Nhóm áp dụng kết hợp **3 phương pháp khám phá quy trình chuẩn mực** theo giáo trình môn học IE203 (Chương 4 – Process Discovery) bao gồm:
 1. **Phương pháp dựa trên bằng chứng (Evidence-based Discovery)**: Rà soát tài liệu quy trình vận hành tiêu chuẩn (SOP), quy chuẩn kỹ thuật cáp quang FTTH, dữ liệu log từ hệ thống CRM / Mobisale / BPMS và các mẫu chứng từ đang lưu hành thực tế tại FPT Telecom.
@@ -13,7 +11,7 @@ Khám phá quy trình (Process Discovery) là giai đoạn nền tảng trong v�
 
 ---
 
-#### **3.4.1.1. Phương pháp dựa trên bằng chứng (Evidence-based Discovery)**
+#### **3.5.1.1. Phương pháp dựa trên bằng chứng (Evidence-based Discovery)**
 
 Phương pháp dựa trên bằng chứng được thực hiện thông qua việc rà soát hồ sơ quy trình vận hành tiêu chuẩn (SOP), các văn bản chỉ đạo của Ban Điều hành FPT Telecom, dữ liệu log từ hệ thống FPT CRM / Mobisale / BPMS và các mẫu chứng từ đang lưu hành.
 
@@ -105,7 +103,7 @@ Nhóm đã thu thập và đối chiếu các biểu mẫu nghiệp vụ thực 
 
 ---
 
-#### **3.4.1.2. Phương pháp phỏng vấn (Interview-based Discovery)**
+#### **3.5.1.2. Phương pháp phỏng vấn (Interview-based Discovery)**
 
 Phương pháp phỏng vấn trực tiếp được nhóm triển khai nhằm khai thác sâu các khía cạnh vận hành thực tế tại hiện trường, làm rõ trải nghiệm của khách hàng, nhận diện các khó khăn của kỹ thuật viên và kiểm chứng các tham số định lượng (thời gian, chi phí, tỷ lệ lỗi). 
 
@@ -192,7 +190,7 @@ Các dữ liệu thu thập được từ bộ câu hỏi phỏng vấn định 
 
 ---
 
-#### **3.4.1.3. Phương pháp hội thảo chuyên sâu (Workshop-based Discovery)**
+#### **3.5.1.3. Phương pháp hội thảo chuyên sâu (Workshop-based Discovery)**
 
 Nhằm giải quyết triệt để các xung đột quan điểm giữa các bộ phận (ví dụ: Sales phản ánh Kỹ thuật khảo sát chậm làm mất khách, Kỹ thuật phản ánh Sales ký hợp đồng khi chưa rõ hạ tầng cáp, Kho phàn nàn KTV đến lĩnh vật tư dồn dập), một phiên Workshop đã được tổ chức với sự tham gia của các bên liên quan.
 
@@ -230,9 +228,9 @@ Nhằm giải quyết triệt để các xung đột quan điểm giữa các b�
 
 ---
 
-### **3.4.2. Mô hình hóa quy trình (BPMN 2.0 As-Is Model)**
+### **3.5.2. Mô hình hóa quy trình (BPMN 2.0 As-Is Model)**
 
-#### **3.4.2.1. Các tác nhân tham gia quy trình (Roles & Swimlanes)**
+#### **3.5.2.1. Các tác nhân tham gia quy trình (Roles & Swimlanes)**
 
 Mô hình quy trình được tổ chức theo chuẩn BPMN 2.0 gồm 2 Pool chính: **Khách hàng** (Pool đối tác bên ngoài) và **FPT Telecom** (Pool nội bộ tổ chức). Trong Pool FPT Telecom, trách nhiệm được phân chia thành **7 Lane chức năng** (tổng cộng 8 tác nhân tham gia tương ứng):
 
@@ -249,7 +247,7 @@ Mô hình quy trình được tổ chức theo chuẩn BPMN 2.0 gồm 2 Pool ch�
 
 ---
 
-#### **3.4.2.2. Khách hàng của quy trình**
+#### **3.5.2.2. Khách hàng của quy trình**
 
 - **Khách hàng bên ngoài:** Các cá nhân, hộ gia đình và doanh nghiệp có nhu cầu hòa mạng Internet băng rộng. Họ là người thụ hưởng trực tiếp kết quả cốt lõi của dịch vụ và trả tiền cho giá trị sử dụng.
 - **Khách hàng nội bộ:**
@@ -259,14 +257,14 @@ Mô hình quy trình được tổ chức theo chuẩn BPMN 2.0 gồm 2 Pool ch�
 
 ---
 
-#### **3.4.2.3. Giá trị mà quy trình mang lại**
+#### **3.5.2.3. Giá trị mà quy trình mang lại**
 
 - **Đối với Khách hàng:** Thủ tục đăng ký nhanh gọn, ký hợp đồng và thanh toán trực tuyến minh bạch, thời gian chờ lắp đặt được rút ngắn tối đa, chất lượng kết nối Wi-Fi ổn định và được nghiệm thu tốc độ thực tế tại chỗ.
 - **Đối với FPT Telecom:** Tự động hóa phân công công việc qua BPMS giúp giảm thiểu thao tác thủ công; điểm kiểm soát khảo sát hạ tầng (Go/No-Go) ngay từ đầu giúp loại bỏ rủi ro chi phí triển khai ảo; chuẩn hóa chất lượng kỹ thuật đường truyền cáp quang và nâng cao năng lực cạnh tranh thương hiệu.
 
 ---
 
-#### **3.4.2.4. Kịch bản thành công và Kịch bản thất bại / Xử lý ngoại lệ**
+#### **3.5.2.4. Kịch bản thành công và Kịch bản thất bại / Xử lý ngoại lệ**
 
 ##### **a) Kịch bản thành công tiêu chuẩn (13 mốc kiểm soát)**
 Quy trình được xem là hoàn tất thành công khi thỏa mãn chuỗi 13 mốc kiểm soát chất lượng:
@@ -305,7 +303,7 @@ Trong thực tế vận hành As-Is, quy trình có thể phát sinh 8 tình hu�
 
 ---
 
-#### **3.4.2.5. Mô hình hóa quy trình chi tiết bằng BPMN 2.0 (AS-IS Model)**
+#### **3.5.2.5. Mô hình hóa quy trình chi tiết bằng BPMN 2.0 (AS-IS Model)**
 
 ![Sơ đồ BPMN 2.0 quy trình lắp đặt mạng Wi-Fi tại FPT Telecom theo chuẩn Pools & Lanes](./assets/diagrams/lap_dat_mang/hinh-3-2-bpmn-quy-trinh-lap-dat-mang.png)
 
@@ -319,7 +317,7 @@ Quy trình As-Is được tổ chức xuyên suốt qua **4 giai đoạn vận h
 
 ---
 
-#### **3.4.2.6. Đặc tả chi tiết các phần tử trong mô hình BPMN 2.0**
+#### **3.5.2.6. Đặc tả chi tiết các phần tử trong mô hình BPMN 2.0**
 
 | STT | Thành phần BPMN | Loại ký hiệu | Nhãn phần tử (Label) | Diễn giải chức năng nghiệp vụ |
 | :---: | :--- | :--- | :--- | :--- |
@@ -347,9 +345,9 @@ Quy trình As-Is được tổ chức xuyên suốt qua **4 giai đoạn vận h
 
 ---
 
-### **3.4.3. Phân tích định tính quy trình**
+### **3.5.3. Phân tích định tính quy trình**
 
-#### **3.4.3.1. Phân tích giá trị gia tăng (Value-Added Analysis)**
+#### **3.5.3.1. Phân tích giá trị gia tăng (Value-Added Analysis)**
 
 Phân tích giá trị gia tăng được thực hiện theo tiêu chuẩn môn học, chia hoạt động thành **3 nhóm**:
 * **VA (Value Added - Giá trị gia tăng):** Hoạt động trực tiếp tạo ra sự biến đổi vật lý/thông tin của sản phẩm dịch vụ mà khách hàng nhận thấy, mong muốn và sẵn sàng chi trả.
@@ -386,7 +384,7 @@ _Bảng 3.1: Bảng phân loại giá trị gia tăng quy trình lắp đặt m�
 
 ---
 
-#### **3.4.3.2. Phân tích 7 loại lãng phí (Lean Waste Analysis)**
+#### **3.5.3.2. Phân tích 7 loại lãng phí (Lean Waste Analysis)**
 
 Áp dụng mô hình Quản trị Tinh gọn (Lean Management), 7 loại lãng phí trong quy trình thi công lắp đặt mạng Wi-Fi được nhận diện và phân nhóm cụ thể:
 
@@ -406,7 +404,7 @@ _Bảng 3.1: Bảng phân loại giá trị gia tăng quy trình lắp đặt m�
 
 ---
 
-#### **3.4.3.3. Phân tích các bên liên quan (Stakeholder Analysis)**
+#### **3.5.3.3. Phân tích các bên liên quan (Stakeholder Analysis)**
 
 | Bên liên quan | Vai trò trong quy trình | Mức độ ảnh hưởng | Mối quan tâm / Kỳ vọng chính | Rủi ro tiềm ẩn nếu quy trình kém | Chiến lược quản lý & Phối hợp |
 | :--- | :--- | :---: | :--- | :--- | :--- |
@@ -421,7 +419,7 @@ _Bảng 3.1: Bảng phân loại giá trị gia tăng quy trình lắp đặt m�
 
 ---
 
-#### **3.4.3.4. Bảng theo dõi vấn đề toàn diện (Issue Register)**
+#### **3.5.3.4. Bảng theo dõi vấn đề toàn diện (Issue Register)**
 
 Dựa trên kết quả khám phá bằng chứng, phỏng vấn phân tầng và hội thảo chuyên sâu, nhóm đã tổng hợp và chuẩn hóa **9 vấn đề nghiệp vụ trọng yếu (ISS-01 đến ISS-09)** trong quy trình As-Is:
 
@@ -439,7 +437,7 @@ Dựa trên kết quả khám phá bằng chứng, phỏng vấn phân tầng v�
 
 ---
 
-#### **3.4.3.5. Biểu đồ Pareto nhận diện vấn đề ưu tiên**
+#### **3.5.3.5. Biểu đồ Pareto nhận diện vấn đề ưu tiên**
 
 ![Biểu đồ Pareto nhận diện 80% nguyên nhân phát sinh điểm nghẽn trong quy trình](./assets/diagrams/lap_dat_mang/hinh-3-3-bieu-do-pareto.png)
 
@@ -454,7 +452,7 @@ Do đó, chiến lược tối ưu hóa quy trình To-Be phải tập trung ngu�
 
 ---
 
-#### **3.4.3.6. Phân tích nguyên nhân gốc rễ (Root-Cause Analysis - 5 Whys & Fishbone)**
+#### **3.5.3.6. Phân tích nguyên nhân gốc rễ (Root-Cause Analysis - 5 Whys & Fishbone)**
 
 ![Sơ đồ xương cá 6M phân tích các nhóm nguyên nhân gây chậm trễ quy trình](./assets/diagrams/lap_dat_mang/hinh-3-4-so-do-xuong-ca-6m.png)
 
@@ -476,9 +474,9 @@ _Hình 3.4: Sơ đồ xương cá 6M phân tích các nhóm nguyên nhân gây c
 
 ---
 
-### **3.4.4. Phân tích định lượng quy trình**
+### **3.5.4. Phân tích định lượng quy trình**
 
-#### **3.4.4.1. Phân tích định lượng thời gian (Time Analysis)**
+#### **3.5.4.1. Phân tích định lượng thời gian (Time Analysis)**
 
 Nhóm tiến hành phân tích định lượng thời gian dưới hai góc nhìn bổ trợ cho nhau: **Phân tích dòng thời gian chu kỳ (Flow Analysis)** và **Phân tích thời gian chờ vĩ mô (Macro Lead Time & Waiting Ratio)**.
 
@@ -567,7 +565,7 @@ _Bảng 3.3: Bảng đo thời gian xử lý và thời gian chờ toàn quy tr�
 
 ---
 
-#### **3.4.4.2. Phân tích định lượng chi phí (Cost Analysis)**
+#### **3.5.4.2. Phân tích định lượng chi phí (Cost Analysis)**
 
 Nhóm xây dựng mô hình định lượng chi phí toàn diện gồm 2 cấu phần: **Chi phí nhân công trực tiếp theo thời gian** và **Tổng chi phí vận hành toàn diện trên 01 đơn hàng**.
 
@@ -609,7 +607,7 @@ _Bảng 3.5: Bảng tổng hợp chi phí toàn diện cho một đơn hàng l�
 
 ---
 
-#### **3.4.4.3. Bảng tổng hợp các chỉ số hiệu suất vận hành As-Is (Baseline KPIs)**
+#### **3.5.4.3. Bảng tổng hợp các chỉ số hiệu suất vận hành As-Is (Baseline KPIs)**
 
 | Chỉ số KPI | Giá trị Baseline As-Is | Đơn vị tính | Ý nghĩa nghiệp vụ |
 | :--- | :---: | :---: | :--- |
@@ -625,7 +623,7 @@ _Bảng 3.5: Bảng tổng hợp chi phí toàn diện cho một đơn hàng l�
 
 ---
 
-### **3.4.5. Kết luận phân tích quy trình As-is**
+### **3.5.5. Kết luận phân tích quy trình As-is**
 
 Quy trình thi công và lắp đặt mạng Wi-Fi hiện tại của FPT Telecom đã hình thành được bộ khung vận hành tương đối bài bản, có sự chuyên môn hóa rõ rệt giữa các phòng ban, có ứng dụng công nghệ trong việc phân bổ Work Order và có bước kiểm soát hạ tầng Go/No-Go nhằm tránh rủi ro triển khai.
 
@@ -639,9 +637,9 @@ Những hạn chế trên là động lực bắt buộc FPT Telecom phải tái
 
 ---
 
-### **3.4.6. Mô hình hóa quy trình tương lai (BPMN 2.0 To-Be Model)**
+### **3.5.6. Mô hình hóa quy trình tương lai (BPMN 2.0 To-Be Model)**
 
-#### **3.4.6.1. Mục tiêu và nguyên tắc tái thiết kế quy trình To-Be**
+#### **3.5.6.1. Mục tiêu và nguyên tắc tái thiết kế quy trình To-Be**
 
 Mô hình To-Be được thiết kế dựa trên nguyên lý Quản trị Tinh gọn (Lean) kết hợp tự động hóa quy trình nghiệp vụ (Business Process Automation - BPA), hướng tới các mục tiêu:
 - **Tự động kiểm tra hạ tầng bằng API Real-time:** Tích hợp API kiểm tra Port và cự ly cáp tự động ngay khi khách hàng nhập địa chỉ trên Website/App, trả kết quả trong 3 giây.
@@ -654,7 +652,7 @@ Mô hình To-Be được thiết kế dựa trên nguyên lý Quản trị Tinh 
 
 ---
 
-#### **3.4.6.2. Sơ đồ quy trình To-Be (BPMN 2.0 To-Be Diagram)**
+#### **3.5.6.2. Sơ đồ quy trình To-Be (BPMN 2.0 To-Be Diagram)**
 
 ![Sơ đồ BPMN 2.0 To-Be quy trình lắp đặt mạng Wi-Fi](./assets/diagrams/lap_dat_mang/hinh-3-7-bpmn-to-be.png)
 
@@ -737,7 +735,7 @@ flowchart LR
 
 ---
 
-#### **3.4.6.3. Bảng so sánh và phân tích thay đổi toàn diện As-Is vs To-Be**
+#### **3.5.6.3. Bảng so sánh và phân tích thay đổi toàn diện As-Is vs To-Be**
 
 | Hạng mục nghiệp vụ | Quy trình hiện tại (As-Is) | Quy trình tương lai (To-Be) | Hiệu quả cải tiến đạt được |
 | :--- | :--- | :--- | :---: |
@@ -756,9 +754,9 @@ flowchart LR
 
 ---
 
-### **3.4.7. Đề xuất giải pháp cải tiến quy trình (Process Improvement Solutions)**
+### **3.5.7. Đề xuất giải pháp cải tiến quy trình (Process Improvement Solutions)**
 
-#### **3.4.7.1. Ma trận giải pháp cải tiến theo Issue Register**
+#### **3.5.7.1. Ma trận giải pháp cải tiến theo Issue Register**
 
 | Mã vấn đề | Vấn đề As-Is | Giải pháp cải tiến cụ thể | Công nghệ / Phương pháp ứng dụng | Lợi ích định lượng kỳ vọng |
 | :---: | :--- | :--- | :--- | :--- |
@@ -774,7 +772,7 @@ flowchart LR
 
 ---
 
-#### **3.4.7.2. Phân loại ưu tiên giải pháp (Prioritization Matrix)**
+#### **3.5.7.2. Phân loại ưu tiên giải pháp (Prioritization Matrix)**
 
 * **Nhóm Ưu tiên 1 (Tác động cốt lõi - Triển khai ngay):**
   - Tích hợp API kiểm tra Port và hạ tầng tự động trên CRM.
@@ -793,13 +791,13 @@ flowchart LR
 
 ---
 
-### **3.4.8. Kế hoạch chuyển đổi & Lộ trình thực thi (Implementation Plan)**
+### **3.5.8. Kế hoạch chuyển đổi & Lộ trình thực thi (Implementation Plan)**
 
-#### **3.4.8.1. Mục tiêu chuyển đổi số**
+#### **3.5.8.1. Mục tiêu chuyển đổi số**
 
 Chuyển đổi toàn diện quy trình thi công lắp đặt mạng Wi-Fi từ mô hình thủ công, phân tán sang mô hình vận hành số hóa khép kín, định hướng dữ liệu (Data-driven) và lấy trải nghiệm khách hàng làm trọng tâm.
 
-#### **3.4.8.2. Lộ trình thực thi 5 giai đoạn (Implementation Roadmap)**
+#### **3.5.8.2. Lộ trình thực thi 5 giai đoạn (Implementation Roadmap)**
 
 | Giai đoạn | Khung thời gian | Mục tiêu trọng tâm | Nhiệm vụ kỹ thuật chính | Kết quả đầu ra (Deliverables) |
 | :---: | :---: | :--- | :--- | :--- |
@@ -811,7 +809,7 @@ Chuyển đổi toàn diện quy trình thi công lắp đặt mạng Wi-Fi từ
 
 ---
 
-#### **3.4.8.3. Kế hoạch hành động 10 bước triển khai cụ thể**
+#### **3.5.8.3. Kế hoạch hành động 10 bước triển khai cụ thể**
 
 1. Thành lập Ban Chỉ đạo Dự án Chuyển đổi Quy trình (đại diện Kinh doanh, Kỹ thuật, IT, Kho, Kế toán).
 2. Hoàn thiện việc chuẩn hóa mã định danh (QR Code) cho toàn bộ các hộp cáp ODF trên bản đồ GIS.
@@ -826,7 +824,7 @@ Chuyển đổi toàn diện quy trình thi công lắp đặt mạng Wi-Fi từ
 
 ---
 
-#### **3.4.8.4. Quản trị thay đổi & Kế hoạch đào tạo (Change Management & Training)**
+#### **3.5.8.4. Quản trị thay đổi & Kế hoạch đào tạo (Change Management & Training)**
 
 | Nhóm đối tượng | Nội dung đào tạo nghiệp vụ | Hình thức đào tạo | Đánh giá hoàn thành |
 | :--- | :--- | :--- | :--- |
@@ -839,7 +837,7 @@ Chuyển đổi toàn diện quy trình thi công lắp đặt mạng Wi-Fi từ
 
 ---
 
-#### **3.4.8.5. Quản trị rủi ro triển khai và giải pháp giảm thiểu (Risk Management Matrix)**
+#### **3.5.8.5. Quản trị rủi ro triển khai và giải pháp giảm thiểu (Risk Management Matrix)**
 
 | Rủi ro tiềm ẩn | Mức độ | Tác động vận hành | Biện pháp phòng ngừa & Giảm thiểu (Mitigation & Fallback) |
 | :--- | :---: | :--- | :--- |
@@ -851,9 +849,9 @@ Chuyển đổi toàn diện quy trình thi công lắp đặt mạng Wi-Fi từ
 
 ---
 
-### **3.4.9. Đánh giá tác động của chuyển đổi (Impact Assessment & KPI Targets)**
+### **3.5.9. Đánh giá tác động của chuyển đổi (Impact Assessment & KPI Targets)**
 
-#### **3.4.9.1. Tác động đến thời gian (Lead Time & Waiting Ratio)**
+#### **3.5.9.1. Tác động đến thời gian (Lead Time & Waiting Ratio)**
 
 * **Tổng thời gian đáp ứng (Lead Time):** Giảm từ **620 phút xuống còn 360 phút** (giảm **41.94%**), giúp khách hàng được phục vụ và có mạng sử dụng chỉ trong vòng chưa đầy 6 giờ kể từ khi đăng ký.
 * **Thời gian xử lý thực (Cycle Time):** Tối ưu từ **265 phút xuống còn 250 phút** (giảm **5.66%**).
@@ -862,7 +860,7 @@ Chuyển đổi toàn diện quy trình thi công lắp đặt mạng Wi-Fi từ
 
 ---
 
-#### **3.4.9.2. Tác động đến chi phí vận hành (Cost Reduction)**
+#### **3.5.9.2. Tác động đến chi phí vận hành (Cost Reduction)**
 
 * **Chi phí toàn diện trên 01 đơn hàng:** Giảm từ **1.622.365 VNĐ xuống còn 1.350.000 VNĐ** (tiết kiệm **16.79%**, tương đương giảm **272.365 VNĐ trên mỗi đơn hàng**).
 * **Nguồn tiết kiệm chi phí chủ yếu đến từ:**
@@ -874,7 +872,7 @@ Chuyển đổi toàn diện quy trình thi công lắp đặt mạng Wi-Fi từ
 
 ---
 
-#### **3.4.9.3. Tác động đến chất lượng dịch vụ và Khách hàng**
+#### **3.5.9.3. Tác động đến chất lượng dịch vụ và Khách hàng**
 
 * **Tỷ lệ hoàn thành đúng hẹn (On-time Delivery Rate):** Tăng vọt từ **78% lên 96%** (+18 điểm phần trăm), giải quyết dứt điểm tình trạng dời lịch hẹn gây phiền hà cho khách hàng.
 * **Tỷ lệ làm lại (Rework Rate):** Giảm mạnh từ **12% xuống còn 4%** (-8 điểm phần trăm), bảo đảm đường truyền cáp quang đạt suy hao chuẩn ngay từ lần hàn nối đầu tiên.
@@ -895,7 +893,7 @@ Chuyển đổi toàn diện quy trình thi công lắp đặt mạng Wi-Fi từ
 
 ---
 
-### **3.4.10. Kết luận toàn chương (Conclusion)**
+### **3.5.10. Kết luận toàn chương (Conclusion)**
 
 Quy trình thi công và lắp đặt mạng Wi-Fi tại Công ty Cổ phần Viễn thông FPT (FPT Telecom) là mạch máu cốt lõi chuyển hóa nhu cầu khách hàng thành doanh thu và giá trị thương hiệu. 
 
