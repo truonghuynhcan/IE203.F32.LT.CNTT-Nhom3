@@ -1,12 +1,12 @@
-## **3.5. Quy trình hỗ trợ: Quản lý kho và xuất vật tư**
+## **3.6. Quy trình hỗ trợ 1: Quản lý kho và xuất vật tư**
 
-### **3.5.1. Phương pháp thực hiện (Khám phá quy trình - Process Discovery)**
+### **3.6.1. Phương pháp thực hiện (Khám phá quy trình - Process Discovery)**
 
 Khám phá quy trình (Process Discovery) là giai đoạn nền tảng trong vòng đời BPM nhằm thu thập dữ liệu hiện trạng, làm rõ các bước công việc thực tế, nhận diện các bên liên quan và phát hiện những điểm nghẽn trong vận hành. Nhóm áp dụng kết hợp **3 phương pháp khám phá quy trình chuẩn mực** theo bài giảng môn học (Chương 4 – Process Discovery) bao gồm: **(1) Phương pháp dựa trên bằng chứng (Evidence-based Discovery)**, **(2) Phương pháp phỏng vấn (Interview-based Discovery)**, và **(3) Phương pháp hội thảo chuyên sâu (Workshop-based Discovery)**.
 
 ---
 
-#### **3.5.1.1. Dựa trên bằng chứng (Evidence-based Discovery)**
+#### **3.6.1.1. Dựa trên bằng chứng (Evidence-based Discovery)**
 
 Phương pháp dựa trên bằng chứng tập trung thu thập, kiểm tra và phân tích các tài liệu, hồ sơ vận hành thực tế đã ban hành và lưu trữ tại FPT Telecom để phản ánh trung thực quy trình As-Is mà không bị ảnh hưởng bởi thiên kiến chủ quan.
 
@@ -218,7 +218,7 @@ Dưới đây là 6 biểu mẫu nghiệp vụ thực tế được sử dụng 
 
 ---
 
-#### **3.5.1.2. Phỏng vấn (Interview-based Discovery)**
+#### **3.6.1.2. Phỏng vấn (Interview-based Discovery)**
 
 Phương pháp phỏng vấn trực tiếp được thực hiện với các bên liên quan nhằm khai thác sâu các khía cạnh vận hành thực tế, trải nghiệm người dùng hệ thống, và các ngoại lệ thường phát sinh trong quá trình xuất nhập kho. Bộ câu hỏi được chia thành **10 câu hỏi định tính** và **10 câu hỏi định lượng**, cân đối giữa **dạng câu hỏi có cấu trúc (Structured)** và **không có cấu trúc (Unstructured)**.
 
@@ -270,7 +270,7 @@ Phương pháp phỏng vấn trực tiếp được thực hiện với các bê
 
 ---
 
-#### **3.5.1.3. Workshop (Hội thảo khám phá quy trình - Workshop-based Discovery)**
+#### **3.6.1.3. Workshop (Hội thảo khám phá quy trình - Workshop-based Discovery)**
 
 Phương pháp Workshop được tổ chức nhằm tập hợp toàn bộ các bên liên quan chủ chốt vào một phiên làm việc tập trung để cùng nhau thảo luận, giải quyết các xung đột quan điểm (ví dụ: KTV cho rằng kho xuất chậm, Thủ kho cho rằng KTV đến dồn dập vào một thời điểm), và thống nhất một bức tranh toàn cảnh chính xác về quy trình hiện tại.
 
@@ -326,7 +326,7 @@ Kịch bản điều phối phiên Workshop kéo dài 180 phút được thiết
 
 ---
 
-### **3.5.2. Mô hình hóa quy trình hiện tại (Sơ đồ BPMN - As-is)**
+### **3.6.2. Mô hình hóa quy trình hiện tại (Sơ đồ BPMN - As-is)**
 
 Dựa trên kết quả thu thập được từ 3 phương pháp khám phá quy trình và tuân thủ chặt chẽ các quy chuẩn mô hình hóa theo cẩm nang **Mota.docx**, sơ đồ BPMN As-Is của quy trình Quản lý kho và xuất vật tư tại FPT Telecom được thiết kế đạt mức độ phức tạp cao nhất theo Rubric đánh giá của môn học (**Đúng 7 Cổng điều kiện - Gateways = 7** và **20 Hoạt động nghiệp vụ - Activities $\ge 10$**).
 
@@ -442,9 +442,9 @@ Sơ đồ BPMN dưới đây thể hiện toàn diện 4 phân làn trách nhi�
 
 ---
 
-### **3.5.3. Phân tích định tính**
+### **3.6.3. Phân tích định tính**
 
-#### **3.5.3.1. Phân tích giá trị gia tăng**
+#### **3.6.3.1. Phân tích giá trị gia tăng**
 
 Bảng dưới đây phân loại toàn bộ các hoạt động trong quy trình **Quản lý kho và xuất vật tư** theo ba nhóm:
 - **VA (Value-Added):** Hoạt động tạo ra giá trị trực tiếp cho khách hàng; khách hàng sẵn sàng chi trả.
@@ -492,7 +492,7 @@ _Bảng 3.5.1: Phân loại giá trị gia tăng quy trình Quản lý kho và x
 ---
 
 
-#### **3.5.3.2. Phân tích lãng phí**
+#### **3.6.3.2. Phân tích lãng phí**
 
 Dựa trên 7 loại lãng phí (7 Wastes) theo phương pháp Lean, bảng dưới đây xác định các lãng phí hiện diện trong quy trình Quản lý kho và xuất vật tư tại FPT Telecom:
 
@@ -510,7 +510,7 @@ Dựa trên 7 loại lãng phí (7 Wastes) theo phương pháp Lean, bảng dư�
 
 ---
 
-#### **3.5.3.3. Phân tích các bên liên quan (Stakeholder Analysis)**
+#### **3.6.3.3. Phân tích các bên liên quan (Stakeholder Analysis)**
 
 | Bên liên quan | Mức độ ảnh hưởng | Vai trò & Kỳ vọng | Rủi ro nếu quy trình không hiệu quả |
 | :--- | :---: | :--- | :--- |
@@ -524,9 +524,9 @@ Dựa trên 7 loại lãng phí (7 Wastes) theo phương pháp Lean, bảng dư�
 
 ---
 
-### **3.5.4. Phân tích định lượng**
+### **3.6.4. Phân tích định lượng**
 
-#### **3.5.4.1. Định lượng thời gian**
+#### **3.6.4.1. Định lượng thời gian**
 
 Bảng thời gian xử lý của từng hoạt động trong **luồng chính (Happy Path — Tồn kho đủ)**:
 
@@ -586,7 +586,7 @@ $$
 
 ---
 
-#### **3.5.4.2. Định lượng chi phí**
+#### **3.6.4.2. Định lượng chi phí**
 
 **Mức lương tham chiếu (tháng 22 ngày, 8 giờ/ngày):**
 
