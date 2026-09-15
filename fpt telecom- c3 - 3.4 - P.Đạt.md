@@ -1,6 +1,6 @@
-## **3.3. Quy trình tư vấn, đăng ký và tiếp nhận yêu cầu lắp đặt Internet FPT Telecom**
+## **3.4. Quy trình cốt lõi 1: Đăng ký và tiếp nhận yêu cầu lắp đặt Internet**
 
-### **3.3.1. Phương pháp thực hiện (Khám phá quy trình - Process Discovery)**
+### **3.4.1. Phương pháp thực hiện (Khám phá quy trình - Process Discovery)**
 
 Quy trình tư vấn, đăng ký và tiếp nhận yêu cầu lắp đặt Internet là quy trình đầu vào của chuỗi cung cấp dịch vụ Internet FPT Telecom. Quy trình bắt đầu khi khách hàng phát sinh nhu cầu sử dụng dịch vụ và kết thúc khi yêu cầu đủ điều kiện đã được ghi nhận trên BPMS/CRM, tạo Work Order và phân công cho đội kỹ thuật khu vực để chuyển sang giai đoạn triển khai lắp đặt.
 
@@ -8,7 +8,7 @@ Hoạt động khám phá quy trình được triển khai theo ba hướng: **d
 
 ---
 
-#### **3.3.1.1. Dựa trên bằng chứng (Evidence-based Discovery)**
+#### **3.4.1.1. Dựa trên bằng chứng (Evidence-based Discovery)**
 
 Phương pháp dựa trên bằng chứng tập trung vào các thông tin nghiệp vụ hình thành trực tiếp trong quá trình đăng ký dịch vụ, gồm kênh tiếp nhận, thông tin khách hàng, nội dung tư vấn, kết quả kiểm tra kỹ thuật, hồ sơ đăng ký, lịch lắp đặt, hợp đồng và Work Order. Các thông tin này được liên kết theo trình tự xử lý để mô tả quy trình As-Is.
 
@@ -181,7 +181,7 @@ Các hồ sơ và dữ liệu nghiệp vụ được sử dụng xuyên suốt q
 
 ---
 
-#### **3.3.1.2. Phỏng vấn (Interview-based Discovery)**
+#### **3.4.1.2. Phỏng vấn (Interview-based Discovery)**
 
 Phương pháp phỏng vấn tập trung làm rõ trải nghiệm xử lý của Customer, Sales và Technical; mức độ thuận tiện của các kênh tiếp nhận; nguyên nhân phát sinh thời gian chờ; tỷ lệ hồ sơ phải bổ sung; và mức độ liên thông dữ liệu giữa các kênh đăng ký với BPMS/CRM. Bộ câu hỏi gồm **10 câu hỏi định tính** và **10 câu hỏi định lượng**, kết hợp câu hỏi có cấu trúc và câu hỏi mở.
 
@@ -231,7 +231,7 @@ Phương pháp phỏng vấn tập trung làm rõ trải nghiệm xử lý của
 
 ---
 
-#### **3.3.1.3. Workshop (Hội thảo khám phá quy trình - Workshop-based Discovery)**
+#### **3.4.1.3. Workshop (Hội thảo khám phá quy trình - Workshop-based Discovery)**
 
 Workshop tập trung vào việc thống nhất ranh giới quy trình, chuỗi hoạt động chính, các điểm chuyển giao giữa Customer, Sales, Technical và BPMS/CRM, đồng thời rà soát các nhánh ngoại lệ và trách nhiệm của từng bên trong quy trình.
 
@@ -274,7 +274,7 @@ Workshop tập trung vào việc thống nhất ranh giới quy trình, chuỗi 
 
 ---
 
-### **3.3.2. Mô hình hóa quy trình hiện tại (Sơ đồ BPMN - As-Is)**
+### **3.4.2. Mô hình hóa quy trình hiện tại (Sơ đồ BPMN - As-Is)**
 
 Mô hình BPMN As-Is của quy trình được xây dựng với **07 cổng quyết định Exclusive XOR (GW1–GW7)**, phản ánh các điểm lựa chọn và kiểm soát chính từ khi khách hàng phát sinh nhu cầu đến khi Work Order được tạo và phân công. Hai điều kiện kỹ thuật về **hạ tầng cáp quang** và **Port khả dụng** được thể hiện thành hai cổng quyết định riêng để làm rõ nguyên nhân dẫn đến kết quả đủ hoặc không đủ điều kiện triển khai.
 
@@ -419,9 +419,9 @@ Sơ đồ dưới đây thể hiện toàn bộ luồng As-Is với **07 cổng 
 ![Hình 3.3. Quy trình tư vấn, đăng ký và tiếp nhận yêu cầu lắp đặt Internet FPT Telecom](./docs/Quy%20trinh%20tu%20van%20lap%20dat%20FPT.png)
 ---
 
-### **3.3.3. Phân tích định tính**
+### **3.4.3. Phân tích định tính**
 
-#### **3.3.3.1. Phân tích giá trị gia tăng**
+#### **3.4.3.1. Phân tích giá trị gia tăng**
 
 Phân tích giá trị gia tăng phân loại các hoạt động theo ba nhóm:
 
@@ -469,7 +469,7 @@ Phân tích giá trị gia tăng phân loại các hoạt động theo ba nhóm:
 
 ---
 
-#### **3.3.3.2. Phân tích lãng phí**
+#### **3.4.3.2. Phân tích lãng phí**
 
 Phân tích lãng phí theo Lean cho thấy các tổn thất chủ yếu tập trung ở thời gian chờ, chuyển giao thông tin, xử lý lặp lại và tồn đọng yêu cầu giữa các công đoạn. Bảy nhóm lãng phí được đánh giá như sau:
 
@@ -495,7 +495,7 @@ Phân tích lãng phí theo Lean cho thấy các tổn thất chủ yếu tập 
 
 ---
 
-#### **3.3.3.3. Phân tích các bên liên quan (Stakeholder Analysis)**
+#### **3.4.3.3. Phân tích các bên liên quan (Stakeholder Analysis)**
 
 | Bên liên quan | Mức độ ảnh hưởng | Vai trò & kỳ vọng | Rủi ro khi quy trình không hiệu quả |
 | :--- | :---: | :--- | :--- |
@@ -508,11 +508,11 @@ Phân tích lãng phí theo Lean cho thấy các tổn thất chủ yếu tập 
 
 ---
 
-### **3.3.4. Phân tích định lượng**
+### **3.4.4. Phân tích định lượng**
 
 Phân tích định lượng sử dụng bộ số liệu ước tính về thời gian xử lý, thời gian chờ và đơn giá nguồn lực để lượng hóa **Process Time, Cycle Time, Time Efficiency** và chi phí xử lý của một yêu cầu đăng ký. Các giá trị này phục vụ mô hình phân tích quy trình và không được xem là số liệu vận hành công bố của FPT Telecom.
 
-#### **3.3.4.1. Định lượng thời gian**
+#### **3.4.4.1. Định lượng thời gian**
 
 **Thời gian xử lý trực tiếp của từng hoạt động (một lượt xử lý):**
 
@@ -588,7 +588,7 @@ Công thức:
 
 ---
 
-#### **3.3.4.2. Định lượng chi phí**
+#### **3.4.4.2. Định lượng chi phí**
 
 **Đơn giá nguồn lực quy đổi sử dụng trong mô hình:**
 
