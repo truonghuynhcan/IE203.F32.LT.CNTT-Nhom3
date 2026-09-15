@@ -1,14 +1,14 @@
-# 3.6. Quy trình quản lý: Hoạch định chiến lược kinh doanh
+# 3.2. Quy trình quản lý: Hoạch định chiến lược kinh doanh
 
-## 3.6.1. Mô tả quy trình
+## 3.2.1. Mô tả quy trình
 
-### 3.6.1.1. Mục tiêu
+### 3.2.1.1. Mục tiêu
 
 Quy trình hoạch định chiến lược kinh doanh nhằm chuyển hóa các thông tin và tín hiệu từ thị trường thành định hướng, mục tiêu và kế hoạch kinh doanh trung và dài hạn của doanh nghiệp. Kết quả của quy trình là kế hoạch chiến lược được Ban Điều hành và Hội đồng quản trị phê duyệt, sau đó được phân bổ thành các chỉ tiêu và kế hoạch hành động cho các Khối/Chi nhánh.
 
 Quy trình có sự phối hợp giữa các đơn vị kinh doanh, marketing, kỹ thuật – hạ tầng, tài chính – kế toán, Ban Điều hành, Hội đồng quản trị và các Khối/Chi nhánh.
 
-### 3.6.1.2. Các bước thực hiện
+### 3.2.1.2. Các bước thực hiện
 
 | STT | Bước thực hiện | Nội dung |
 |---:|---|---|
@@ -25,7 +25,7 @@ Quy trình có sự phối hợp giữa các đơn vị kinh doanh, marketing, k
 | 11 | Phân bổ chỉ tiêu xuống Khối/Chi nhánh | Sau khi chiến lược được phê duyệt chính thức, các mục tiêu và chỉ tiêu được phân bổ cho các Khối/Chi nhánh. Trước khi triển khai, ghi nhận phản hồi của các đơn vị về tính khả thi của chỉ tiêu (**GW4**). |
 | 12 | Xây dựng kế hoạch hành động và theo dõi triển khai | Các Khối/Chi nhánh cụ thể hóa chỉ tiêu thành kế hoạch hành động, tổ chức triển khai và thực hiện theo dõi, báo cáo định kỳ. |
 
-### 3.6.1.3. Tác nhân tham gia
+### 3.2.1.3. Tác nhân tham gia
 
 | Tác nhân | Vai trò |
 |---|---|
@@ -36,7 +36,7 @@ Quy trình có sự phối hợp giữa các đơn vị kinh doanh, marketing, k
 | HĐQT | Xem xét và phê duyệt chính thức chiến lược kinh doanh. |
 | Các Khối/Chi nhánh | Tiếp nhận chỉ tiêu, xây dựng kế hoạch hành động và triển khai thực hiện. |
 
-### 3.6.1.4. Đối tượng nhận kết quả
+### 3.2.1.4. Đối tượng nhận kết quả
 
 Các đối tượng sử dụng kết quả trực tiếp của quy trình gồm:
 
@@ -44,7 +44,7 @@ Các đối tượng sử dụng kết quả trực tiếp của quy trình gồ
 - **Ban Điều hành:** sử dụng kế hoạch để điều hành và phân bổ nguồn lực.
 - **Các Khối/Chi nhánh:** sử dụng chỉ tiêu và định hướng chiến lược để xây dựng kế hoạch hành động.
 
-### 3.6.1.5. Kết quả và các trường hợp ngoại lệ
+### 3.2.1.5. Kết quả và các trường hợp ngoại lệ
 
 **Kịch bản thành công:**
 
@@ -75,11 +75,11 @@ Các điểm quyết định chính của quy trình gồm:
 
 ---
 
-## 3.6.2. Mô hình BPMN As-is
+## 3.2.2. Mô hình BPMN As-is
 
 ![Sơ đồ quy trình](./assets/diagrams/hoach_dinh/HoachDinhChienLuoc.png)
 
-### 3.6.2.1. Các Swimlane
+### 3.2.2.1. Các Swimlane
 
 Mô hình BPMN gồm 6 Swimlane:
 
@@ -90,7 +90,7 @@ Mô hình BPMN gồm 6 Swimlane:
 5. **Ban Điều hành**
 6. **HĐQT**
 
-### 3.6.2.2. Các hoạt động chính
+### 3.2.2.2. Các hoạt động chính
 
 BPMN thể hiện 12 hoạt động tương ứng với quy trình nghiệp vụ:
 
@@ -107,7 +107,7 @@ BPMN thể hiện 12 hoạt động tương ứng với quy trình nghiệp vụ
 11. Phân bổ chỉ tiêu xuống Khối/Chi nhánh.
 12. Xây dựng kế hoạch hành động và theo dõi triển khai.
 
-### 3.6.2.3. Các Gateway
+### 3.2.2.3. Các Gateway
 
 Mô hình có 6 Gateway chính:
 
@@ -120,7 +120,7 @@ Mô hình có 6 Gateway chính:
 | GW3 | HĐQT có phê duyệt chính thức? | Quay lại bước 6 và thực hiện lại các bước thẩm định liên quan. |
 | GW4 | Các Khối/Chi nhánh có phản hồi phù hợp? | Xem xét và điều chỉnh phân bổ tại bước 11. |
 
-### 3.6.2.4. Luồng song song
+### 3.2.2.4. Luồng song song
 
 Bước **Thu thập dữ liệu thị trường** (bước 2) và **Phân tích đối thủ cạnh tranh** (bước 3) do cùng một actor — Khối Kinh doanh & Marketing — thực hiện nên diễn ra **tuần tự** (2 → 3), không thể chạy song song với nhau trên cùng một lane.
 
@@ -134,9 +134,9 @@ Tương tự, tại hai vị trí khác trong quy trình cũng có Exclusive Gat
 
 ---
 
-## 3.6.3. Phân tích định tính
+## 3.2.3. Phân tích định tính
 
-### 3.6.3.1. Phân tích giá trị gia tăng
+### 3.2.3.1. Phân tích giá trị gia tăng
 
 Việc phân loại hoạt động được thực hiện theo ba nhóm:
 
@@ -166,7 +166,7 @@ Các hoạt động VA tập trung chủ yếu ở quá trình phân tích, xây
 
 Hướng cải tiến trọng tâm là giảm thời gian chờ, chuẩn hóa tiêu chí đầu vào/đầu ra và tăng mức độ tích hợp dữ liệu giữa các đơn vị.
 
-### 3.6.3.2. Phân tích lãng phí
+### 3.2.3.2. Phân tích lãng phí
 
 | Nhóm lãng phí | Hoạt động gây lãng phí | Tác động | Đề xuất cải tiến |
 |---|---|---|---|
@@ -178,7 +178,7 @@ Hướng cải tiến trọng tâm là giảm thời gian chờ, chuẩn hóa ti
 
 **Kết luận:** Hai nhóm cần ưu tiên xử lý là **Hold** và **Rework**, vì chúng có tác động trực tiếp đến thời gian hoàn thành quy trình. Việc chuẩn hóa tiêu chí phê duyệt và tăng tính minh bạch của dữ liệu đầu vào có thể đồng thời giảm cả thời gian chờ và số lần xử lý lại.
 
-### 3.6.3.3. Phân tích Stakeholder
+### 3.2.3.3. Phân tích Stakeholder
 
 | Stakeholder | Mức ảnh hưởng | Mức quan tâm | Vai trò |
 |---|---|---|---|
@@ -189,7 +189,7 @@ Hướng cải tiến trọng tâm là giảm thời gian chờ, chuẩn hóa ti
 | Tài chính – Kế toán | Cao | Cao | Kiểm soát tính khả thi và hiệu quả tài chính. |
 | Khối/Chi nhánh | Trung bình | Cao | Tiếp nhận chỉ tiêu và triển khai kế hoạch. |
 
-### 3.6.3.4. Phân tích nguyên nhân bằng Fishbone
+### 3.2.3.4. Phân tích nguyên nhân bằng Fishbone
 
 ![Mô hình Fishbone](./assets/diagrams/hoach_dinh/fishbone-1.png)
 
@@ -208,7 +208,7 @@ Các nhóm nguyên nhân chính:
 
 ---
 
-### 3.6.3.6. Phương pháp phỏng vấn
+### 3.2.3.6. Phương pháp phỏng vấn
 
 Phỏng vấn được sử dụng để thu thập thông tin từ các đối tượng trực tiếp tham gia hoặc có ảnh hưởng đến quy trình hoạch định chiến lược kinh doanh. Nội dung phỏng vấn tập trung vào cách thức thực hiện quy trình hiện tại, các điểm phát sinh chờ đợi và xử lý lại, nguyên nhân gây chậm trễ, thời gian xử lý và tần suất phát sinh các trường hợp ngoại lệ.
 
@@ -216,7 +216,7 @@ Các nhóm đối tượng được xem xét gồm Khối Kinh doanh & Marketing
 
 Kết quả phỏng vấn được sử dụng làm cơ sở tham khảo cho phân tích định tính và xây dựng các tham số định lượng. Đối với các tỷ lệ và thời gian chưa có dữ liệu thống kê chính thức, kết quả được ghi nhận dưới dạng **ước tính/giả định phục vụ mô hình**, không đại diện cho số liệu thống kê chính thức của doanh nghiệp.
 
-#### 3.6.3.6.1. Câu hỏi phỏng vấn định tính
+#### 3.2.3.6.1. Câu hỏi phỏng vấn định tính
 
 ##### a. Câu hỏi có cấu trúc
 
@@ -238,7 +238,7 @@ Kết quả phỏng vấn được sử dụng làm cơ sở tham khảo cho ph�
 | QK04 | Nếu được thay đổi một điểm trong quy trình hiện tại, anh/chị sẽ ưu tiên thay đổi điểm nào và vì sao? | Xác định cơ hội cải tiến có tác động lớn. |
 | QK05 | Anh/chị còn nhận thấy vấn đề nào khác trong quy trình mà phần mô tả hiện tại chưa phản ánh đầy đủ? | Phát hiện vấn đề tiềm ẩn và các ngoại lệ chưa được mô hình hóa. |
 
-#### 3.6.3.6.2. Câu hỏi phỏng vấn định lượng
+#### 3.2.3.6.2. Câu hỏi phỏng vấn định lượng
 
 ##### a. Câu hỏi có cấu trúc
 
@@ -260,7 +260,7 @@ Kết quả phỏng vấn được sử dụng làm cơ sở tham khảo cho ph�
 | QDK04 | Trong một chu kỳ hoạch định, khoảng bao nhiêu thời gian làm việc của đơn vị được dành cho việc tổng hợp, kiểm tra và xử lý lại dữ liệu? | Giờ/ngày |
 | QDK05 | Theo kinh nghiệm của anh/chị, nếu chuẩn hóa dữ liệu và quy trình phê duyệt thì có thể giảm khoảng bao nhiêu thời gian xử lý? | Ngày hoặc % |
 
-#### 3.6.3.6.3. Liên hệ giữa kết quả phỏng vấn và mô hình định lượng
+#### 3.2.3.6.3. Liên hệ giữa kết quả phỏng vấn và mô hình định lượng
 
 Kết quả từ nhóm câu hỏi định lượng được sử dụng để xác định hoặc kiểm tra các tham số của mô hình, gồm thời gian xử lý từng bước, thời gian chờ, số lần xử lý lại và xác suất phát sinh vòng lặp tại các Gateway.
 
@@ -278,9 +278,9 @@ Các giá trị xác suất sử dụng trong phần định lượng như **10%
 
 ---
 
-## 3.6.4. Phân tích định lượng
+## 3.2.4. Phân tích định lượng
 
-### 3.6.4.1. Phạm vi và giả định
+### 3.2.4.1. Phạm vi và giả định
 
 Phân tích định lượng được thực hiện nhằm đánh giá ba khía cạnh chính của quy trình:
 
@@ -296,7 +296,7 @@ Các xác suất phát sinh vòng lặp trong phân tích được xem là **gi�
 
 ---
 
-### 3.6.4.2. Thời gian xử lý cơ bản
+### 3.2.4.2. Thời gian xử lý cơ bản
 
 | STT | Hoạt động | Thời gian cơ bản (ngày) | Ghi chú |
 | --- | --------- | ------------------------ | ------- |
@@ -335,7 +335,7 @@ Như vậy, trong điều kiện không phát sinh vòng lặp hoặc yêu cầu
 
 ---
 
-### 3.6.4.3. Xác suất phát sinh vòng lặp
+### 3.2.4.3. Xác suất phát sinh vòng lặp
 
 Các Gateway được xác định là các điểm có khả năng phát sinh yêu cầu điều chỉnh hoặc thực hiện lại một phần quy trình.
 
@@ -352,7 +352,7 @@ Các xác suất trên được hiểu là **xác suất không đạt có đi�
 
 ---
 
-### 3.6.4.4. Tính thời gian kỳ vọng do vòng lặp
+### 3.2.4.4. Tính thời gian kỳ vọng do vòng lặp
 
 Để ước tính tác động của các vòng lặp, thời gian phát sinh kỳ vọng tại từng Gateway được tính theo:
 
@@ -409,7 +409,7 @@ Như vậy, theo các giả định của mô hình, vòng lặp tại các đi�
 
 ---
 
-### 3.6.4.5. Processing Time và Process Efficiency
+### 3.2.4.5. Processing Time và Process Efficiency
 
 Trong phân tích hiện tại, Cycle Time bao gồm cả thời gian xử lý nghiệp vụ và thời gian chờ tại các điểm kiểm soát.
 
@@ -447,7 +447,7 @@ Theo mô hình, khoảng **92,42% Cycle Time** được sử dụng cho thời g
 
 ---
 
-### 3.6.4.6. Phân tích chất lượng – First Pass Yield
+### 3.2.4.6. Phân tích chất lượng – First Pass Yield
 
 First Pass Yield (FPY) được sử dụng để đánh giá khả năng một chu kỳ đi qua toàn bộ các điểm kiểm soát mà **không phát sinh vòng lặp hoặc yêu cầu thực hiện lại**.
 
@@ -490,7 +490,7 @@ Do đó, GW2 và GW1 là hai điểm kiểm soát cần được ưu tiên xem x
 
 ---
 
-### 3.6.4.7. Phân tích chi phí
+### 3.2.4.7. Phân tích chi phí
 
 Chi phí nguồn lực nhân sự được tính theo công thức:
 
@@ -614,7 +614,7 @@ Như vậy, theo mô hình, chi phí phát sinh do các vòng lặp chiếm kho�
 
 ---
 
-### 3.6.4.8. Tổng hợp kết quả định lượng
+### 3.2.4.8. Tổng hợp kết quả định lượng
 
 | Chỉ tiêu | Kết quả mô hình | Ý nghĩa |
 | -------- | ------------------ | -------- |
@@ -628,7 +628,7 @@ Như vậy, theo mô hình, chi phí phát sinh do các vòng lặp chiếm kho�
 | Chi phí rework kỳ vọng | **6,76 triệu VNĐ** | Chi phí tăng thêm do các vòng lặp theo mô hình |
 | **Chi phí kỳ vọng** | **≈ 40,26 triệu VNĐ** | Chi phí nguồn lực cho một chu kỳ theo các giả định |
 
-### 3.6.4.9. Nhận xét kết quả định lượng
+### 3.2.4.9. Nhận xét kết quả định lượng
 
 Kết quả mô hình cho thấy thời gian xử lý cơ bản của quy trình là **35 ngày** (trong đó chuỗi bước 2→3 do cùng một actor thực hiện tuần tự — 9 ngày — được tính song song với bước 4 do actor khác đảm nhiệm — 3 ngày). Khi tính đến tác động của các vòng lặp tại các điểm kiểm soát, thời gian tăng thêm kỳ vọng khoảng **4,55 ngày**, đưa Cycle Time ước tính lên khoảng **39,55 ngày**.
 
@@ -640,7 +640,7 @@ Các kết quả trên được xây dựng từ các giả định về thời 
 
 ---
 
-## 3.6.5. Kết luận quy trình
+## 3.2.5. Kết luận quy trình
 
 Quy trình hoạch định chiến lược kinh doanh đã được mô hình hóa từ giai đoạn xác định nhu cầu, thu thập và phân tích dữ liệu, xây dựng phương án, thẩm định, phê duyệt đến phân bổ chỉ tiêu và triển khai kế hoạch hành động.
 
