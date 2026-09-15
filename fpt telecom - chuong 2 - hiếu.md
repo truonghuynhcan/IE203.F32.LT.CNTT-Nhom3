@@ -157,8 +157,6 @@ Hệ thống vận hành với chỉ số uptime 99.99%, đảm bảo luồng ch
 
 ## 2.2. Sơ đồ kiến trúc nghiệp vụ FPT Telecom
 
-Hình 2.1. Kiến trúc nghiệp vụ FPT Telecom — phân nhóm Quản lý / Cốt lõi / Hỗ trợ
-
 ![Kiến trúc quy trình](/assets/diagrams/kien_truc/kien-truc-tong-quan.png)
 
-
+Hình 2.1. Kiến trúc nghiệp vụ FPT Telecom — phân nhóm Quản lý / Cốt lõi / Hỗ trợ
