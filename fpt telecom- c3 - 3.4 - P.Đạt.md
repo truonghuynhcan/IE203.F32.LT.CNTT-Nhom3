@@ -1,4 +1,4 @@
-## **3.4. Quy trình cốt lõi 1: Đăng ký và tiếp nhận yêu cầu lắp đặt Internet**
+## **3.4. Quy trình tư vấn, đăng ký và tiếp nhận yêu cầu lắp đặt Internet FPT Telecom**
 
 ### **3.4.1. Phương pháp thực hiện (Khám phá quy trình - Process Discovery)**
 
@@ -6,7 +6,6 @@ Quy trình tư vấn, đăng ký và tiếp nhận yêu cầu lắp đặt Inter
 
 Hoạt động khám phá quy trình được triển khai theo ba hướng: **dựa trên bằng chứng (Evidence-based Discovery)** để xác lập luồng nghiệp vụ As-Is; **phỏng vấn (Interview-based Discovery)** để làm rõ trải nghiệm xử lý, thời gian chờ và các điểm phát sinh xử lý lại; và **Workshop (Workshop-based Discovery)** để thống nhất ranh giới quy trình, trách nhiệm giữa các bên và các điểm ra quyết định trong mô hình BPMN.
 
----
 
 #### **3.4.1.1. Dựa trên bằng chứng (Evidence-based Discovery)**
 
@@ -14,7 +13,7 @@ Phương pháp dựa trên bằng chứng tập trung vào các thông tin nghi�
 
 ##### **a) Mô tả quy trình hiện có (As-Is Process Description)**
 
-Quy trình gồm **13 bước nghiệp vụ chính** và **07 cổng quyết định Exclusive XOR (GW1–GW7)**. Các cổng quyết định thể hiện các lựa chọn về kênh đăng ký, xác nhận dịch vụ, điều kiện kỹ thuật, tính hợp lệ của hồ sơ, lịch lắp đặt và hình thức ký hợp đồng.
+Quy trình gồm **13 bước nghiệp vụ chính**, **07 cổng quyết định Exclusive XOR (GW1–GW7)** và **06 cổng gộp nhánh Exclusive XOR**. Các cổng quyết định thể hiện các lựa chọn về kênh đăng ký, xác nhận dịch vụ, điều kiện kỹ thuật, tính hợp lệ của hồ sơ, lịch lắp đặt và hình thức ký hợp đồng; các cổng gộp nhánh không mang điều kiện nghiệp vụ, chỉ bảo đảm mỗi hoạt động có đúng một luồng vào theo chuẩn BPMN 2.0.
 
 * **Bước 1: Khách hàng phát sinh nhu cầu và lựa chọn kênh đăng ký – GW1**  
   Khách hàng có nhu cầu sử dụng Internet hoặc dịch vụ đi kèm lựa chọn kênh tiếp nhận ban đầu. **GW1 – XOR: Kênh đăng ký?** gồm bốn nhánh: Website, Hotline, cửa hàng giao dịch hoặc nhân viên kinh doanh. Các nhánh hội tụ tại thời điểm thông tin đăng ký ban đầu được chuyển cho Sales xử lý.
@@ -183,7 +182,7 @@ Các hồ sơ và dữ liệu nghiệp vụ được sử dụng xuyên suốt q
 
 #### **3.4.1.2. Phỏng vấn (Interview-based Discovery)**
 
-Phương pháp phỏng vấn tập trung làm rõ trải nghiệm xử lý của Customer, Sales và Technical; mức độ thuận tiện của các kênh tiếp nhận; nguyên nhân phát sinh thời gian chờ; tỷ lệ hồ sơ phải bổ sung; và mức độ liên thông dữ liệu giữa các kênh đăng ký với BPMS/CRM. Bộ câu hỏi gồm **10 câu hỏi định tính** và **10 câu hỏi định lượng**, kết hợp câu hỏi có cấu trúc và câu hỏi mở.
+Phương pháp phỏng vấn tập trung làm rõ trải nghiệm xử lý của Customer, Sales và Technical; mức độ thuận tiện của các kênh tiếp nhận; nguyên nhân phát sinh thời gian chờ; tỷ lệ hồ sơ phải bổ sung; và mức độ liên thông dữ liệu giữa các kênh đăng ký với BPMS/CRM. Bộ câu hỏi gồm **10 câu hỏi định tính** và **10 câu hỏi định lượng**, kết hợp câu hỏi có cấu trúc và câu hỏi không có cấu trúc.
 
 ##### **a) Danh sách 10 câu hỏi định tính**
 
@@ -211,15 +210,15 @@ Phương pháp phỏng vấn tập trung làm rõ trải nghiệm xử lý của
 
 **Nhóm câu hỏi có cấu trúc (Structured Quantitative Questions):**
 
-| STT | Đối tượng | Nội dung câu hỏi | Đơn vị đo lường |
-| :---: | :--- | :--- | :---: |
-| **1** | Sales | Thời gian trung bình từ khi có lead/yêu cầu đến khi Sales liên hệ lần đầu là bao lâu? | Phút |
-| **2** | Sales | Thời gian trung bình để tư vấn và lập hồ sơ đăng ký sơ bộ cho một yêu cầu? | Phút/yêu cầu |
-| **3** | Technical | Thời gian trung bình để kiểm tra hạ tầng và Port cho một địa chỉ? | Phút/yêu cầu |
-| **4** | Sales | Tỷ lệ hồ sơ đầy đủ, hợp lệ ngay lần đầu là bao nhiêu? | % |
-| **5** | BPMS/CRM / Sales | Thời gian từ khi nhận hợp đồng đã ký đến khi Work Order được tạo và phân công? | Phút |
+| STT | Đối tượng | Nội dung câu hỏi | Thang đo / phương án lựa chọn |
+| :---: | :--- | :--- | :--- |
+| **1** | Sales | Thời gian trung bình từ khi có lead/yêu cầu đến khi Sales liên hệ lần đầu là bao lâu? | [A] ≤15 phút; [B] 16–30 phút; [C] 31–60 phút; [D] 61–120 phút; [E] >120 phút. |
+| **2** | Sales | Thời gian trung bình để tư vấn và lập hồ sơ đăng ký sơ bộ cho một yêu cầu? | [A] ≤20 phút; [B] 21–40 phút; [C] 41–60 phút; [D] >60 phút. |
+| **3** | Technical | Thời gian trung bình để kiểm tra hạ tầng và Port cho một địa chỉ? | [A] ≤15 phút; [B] 16–30 phút; [C] 31–45 phút; [D] >45 phút. |
+| **4** | Sales | Tỷ lệ hồ sơ đầy đủ, hợp lệ ngay lần đầu là bao nhiêu? | [A] <50%; [B] 50–69%; [C] 70–89%; [D] ≥90%. |
+| **5** | BPMS/CRM / Sales | Thời gian từ khi nhận hợp đồng đã ký đến khi Work Order được tạo và phân công? | [A] ≤10 phút; [B] 11–20 phút; [C] 21–30 phút; [D] >30 phút. |
 
-**Nhóm câu hỏi mở định lượng (Unstructured Quantitative Questions):**
+**Nhóm câu hỏi không có cấu trúc (Unstructured Quantitative Questions):**
 
 | STT | Đối tượng | Nội dung câu hỏi | Dữ liệu kỳ vọng |
 | :---: | :--- | :--- | :--- |
@@ -276,11 +275,11 @@ Workshop tập trung vào việc thống nhất ranh giới quy trình, chuỗi 
 
 ### **3.4.2. Mô hình hóa quy trình hiện tại (Sơ đồ BPMN - As-Is)**
 
-Mô hình BPMN As-Is của quy trình được xây dựng với **07 cổng quyết định Exclusive XOR (GW1–GW7)**, phản ánh các điểm lựa chọn và kiểm soát chính từ khi khách hàng phát sinh nhu cầu đến khi Work Order được tạo và phân công. Hai điều kiện kỹ thuật về **hạ tầng cáp quang** và **Port khả dụng** được thể hiện thành hai cổng quyết định riêng để làm rõ nguyên nhân dẫn đến kết quả đủ hoặc không đủ điều kiện triển khai.
+Mô hình BPMN As-Is của quy trình được xây dựng với **07 cổng quyết định Exclusive XOR (GW1–GW7)**, phản ánh các điểm lựa chọn và kiểm soát chính từ khi khách hàng phát sinh nhu cầu đến khi Work Order được tạo và phân công. Hai điều kiện kỹ thuật về **hạ tầng cáp quang** và **Port khả dụng** được thể hiện thành hai cổng quyết định riêng để làm rõ nguyên nhân dẫn đến kết quả đủ hoặc không đủ điều kiện triển khai. Tại mọi điểm có từ hai luồng xử lý trở lên cùng hội tụ vào một hoạt động (kênh đăng ký, nhánh sau quyết định, hoặc vòng lặp xử lý lại), mô hình sử dụng một **cổng gộp nhánh Exclusive XOR** tường minh trước khi vào hoạt động đó. Tổng số cổng trong sơ đồ BPMN As-Is là **13**, gồm 07 cổng quyết định (GW1–GW7) và 06 cổng gộp nhánh.
 
 #### **a) Phân tích độ phức tạp và các phần tử BPMN 2.0**
 
-**Hệ thống 07 cổng điều kiện Exclusive XOR:**
+**Hệ thống 07 cổng quyết định (Decision) Exclusive XOR:**
 
 1. **GW1 – XOR: Khách hàng đăng ký qua kênh nào?**  
    * Website.  
@@ -315,6 +314,18 @@ Mô hình BPMN As-Is của quy trình được xây dựng với **07 cổng quy
    * **Ký hợp đồng giấy.**  
    Hai nhánh hội tụ tại trạng thái **“Hợp đồng đã ký”**, sau đó Sales/BPMS/CRM tiếp tục xử lý chung.
 
+**Hệ thống 06 cổng gộp nhánh (Merging) Exclusive XOR:**
+
+Sáu cổng gộp dưới đây không mang điều kiện nghiệp vụ, đóng vai trò điểm hội tụ kỹ thuật của luồng xử lý:
+
+1. **Gộp 4 nhánh kênh đăng ký** (đầu ra GW1: Website, Hotline, cửa hàng giao dịch, nhân viên kinh doanh) → trước bước *"Gửi yêu cầu và thông tin đăng ký"*.
+2. **Gộp luồng tư vấn lần đầu và luồng làm rõ nhu cầu** (vòng lặp GW2 – nhánh "Chưa xác nhận") → trước bước *"Nhận tư vấn gói cước"*.
+3. **Gộp hồ sơ gửi lần đầu và hồ sơ đã bổ sung** → trước bước *"Nhận đề nghị xác nhận lịch lắp đặt"*.
+4. **Gộp hai hình thức ký hợp đồng** (đầu ra GW7: ký điện tử / ký giấy) → trước bước *"Gửi hợp đồng đã ký"*.
+5. **Gộp hai nhánh "Không" của GW3 và GW4** (hạ tầng không đáp ứng / không có Port khả dụng) → trước bước *"Thông báo không đủ điều kiện cho khách hàng"*.
+6. **Gộp hồ sơ khách hàng gửi lần đầu và hồ sơ gửi lại sau khi bổ sung** (vòng lặp GW5 – nhánh "Không") → trước bước *"Nhận hồ sơ khách hàng"*.
+
+**Tổng số cổng trong sơ đồ BPMN As-Is là 13** — 07 cổng quyết định (GW1–GW7, mang điều kiện nghiệp vụ) và 06 cổng gộp nhánh.
 
 **1. Pools & Lanes:**
 
@@ -334,7 +345,10 @@ Mô hình BPMN As-Is của quy trình được xây dựng với **07 cổng quy
 
 **3. Activity Markers:**
 
-* **Loop Marker / Loop logic:** áp dụng cho cụm “kiểm tra hồ sơ → yêu cầu bổ sung/chỉnh sửa → khách hàng gửi lại → kiểm tra lại” tại GW5.
+* **Loop Marker / Loop logic:** áp dụng cho ba cụm xử lý lại (rework) trong quy trình — mỗi cụm quay lại đúng cổng quyết định đã sinh ra nhánh đó, không tạo vòng lặp mới:
+  * Tại **GW5**: “kiểm tra hồ sơ → yêu cầu bổ sung/chỉnh sửa → khách hàng gửi lại → kiểm tra lại”.
+  * Tại **GW2**: “tư vấn gói cước → khách hàng chưa xác nhận → tiếp tục làm rõ nhu cầu → quay lại xác nhận”.
+  * Tại **GW6**: “đề nghị xác nhận lịch → khách hàng chưa xác nhận → tiếp tục phối hợp chốt lịch → quay lại xác nhận”.
 
 **4. Events:**
 
@@ -348,7 +362,6 @@ Mô hình BPMN As-Is của quy trình được xây dựng với **07 cổng quy
 * **Data Objects:** thông tin đăng ký ban đầu; hồ sơ đăng ký sơ bộ; kết quả kiểm tra hạ tầng/Port; hồ sơ hoàn chỉnh; xác nhận lịch; hợp đồng đã ký; Work Order.
 * **Data Store:** BPMS/CRM.
 
----
 
 #### **b) Diễn giải chi tiết các luồng quy trình As-Is**
 
@@ -414,9 +427,9 @@ Mô hình BPMN As-Is của quy trình được xây dựng với **07 cổng quy
 
 #### **c) Sơ đồ BPMN As-Is – Quy trình tư vấn, đăng ký và tiếp nhận yêu cầu lắp đặt**
 
-Sơ đồ dưới đây thể hiện toàn bộ luồng As-Is với **07 cổng quyết định XOR GW1–GW7**, hai nhánh kết thúc do không đủ điều kiện kỹ thuật, vòng lặp bổ sung hồ sơ và các điểm hội tụ trước khi tạo Work Order:
+Sơ đồ dưới đây thể hiện toàn bộ luồng As-Is với **07 cổng quyết định XOR GW1–GW7**, hai nhánh kết thúc do không đủ điều kiện kỹ thuật, các vòng lặp xử lý lại (tại GW2, GW5, GW6) và **06 cổng gộp nhánh XOR** thể hiện tường minh các điểm hội tụ trước khi vào một hoạt động trước khi tạo Work Order:
 
-![Hình 3.3. Quy trình tư vấn, đăng ký và tiếp nhận yêu cầu lắp đặt Internet FPT Telecom](./docs/Quy%20trinh%20tu%20van%20lap%20dat%20FPT.png)
+![Hình 3.4.1. Mô hình hóa Quy trình tư vấn, đăng ký và tiếp nhận yêu cầu lắp đặt Internet FPT Telecom](./docs/Quy%20trinh%20Tu%20van%20Lap%20dat%20Internet%20FPT.png)
 ---
 
 ### **3.4.3. Phân tích định tính**
@@ -429,71 +442,75 @@ Phân tích giá trị gia tăng phân loại các hoạt động theo ba nhóm:
 * **BVA (Business Value-Added):** Không tạo giá trị cảm nhận trực tiếp nhưng cần thiết cho vận hành, kiểm soát hoặc tính hợp lệ của giao dịch.
 * **NVA (Non-Value-Added):** Không làm tăng giá trị đầu ra, thường liên quan chuyển giao, tiếp nhận lặp lại hoặc xử lý lại và cần được giảm thiểu.
 
+Các nhánh thay thế cùng thực hiện một mục đích nghiệp vụ và hội tụ về cùng luồng xử lý tiếp theo được phân tích như một hoạt động logic. Các thao tác gửi/nhận nằm trong cùng một tương tác nghiệp vụ được gộp khi không tạo thành một công đoạn xử lý độc lập. Điểm khởi tạo “Phát sinh nhu cầu sử dụng dịch vụ Internet” là sự kiện kích hoạt quy trình và không tính trong tỷ lệ VA/BVA/NVA.
+
 | STT | Hoạt động | Người thực hiện | Phân loại | Lập luận theo tiêu chuẩn phân loại |
 | :---: | :--- | :--- | :---: | :--- |
-| 1 | Lựa chọn kênh đăng ký | Customer | **BVA** | Cần để yêu cầu đi vào hệ thống tiếp nhận, nhưng bản thân việc chọn kênh không làm thay đổi giá trị dịch vụ. |
-| 2 | Cung cấp thông tin đăng ký | Customer | **BVA** | Dữ liệu bắt buộc để nhận diện và xử lý yêu cầu. |
-| 3 | Tiếp nhận và ghi nhận thông tin | Sales | **BVA** | Cần cho kiểm soát đầu vào và điều phối quy trình. |
-| 4 | Tư vấn gói cước phù hợp | Sales | **VA** | Trực tiếp giúp khách hàng chọn dịch vụ phù hợp nhu cầu. |
+| 1 | Lựa chọn kênh đăng ký | Customer | **BVA** | Cần để yêu cầu đi vào kênh tiếp nhận phù hợp, nhưng bản thân việc lựa chọn kênh không trực tiếp tạo giá trị cho dịch vụ. |
+| 2 | Cung cấp/gửi thông tin đăng ký | Customer | **BVA** | Dữ liệu bắt buộc để nhận diện khách hàng, địa chỉ lắp đặt và nhu cầu sử dụng. |
+| 3 | Tiếp nhận, kiểm tra và ghi nhận thông tin | Sales | **BVA** | Cần cho kiểm soát đầu vào và điều phối yêu cầu trong quy trình. |
+| 4 | Tư vấn gói cước và làm rõ nhu cầu | Sales | **VA** | Trực tiếp giúp khách hàng xác định gói dịch vụ phù hợp với nhu cầu sử dụng. |
 | 5 | Xác nhận gói cước / nhu cầu sử dụng | Customer | **VA** | Xác lập lựa chọn dịch vụ mà khách hàng mong muốn. |
-| 6 | Lập hồ sơ đăng ký sơ bộ | Sales | **BVA** | Cần để chuyển yêu cầu sang khâu kiểm tra kỹ thuật. |
-| 7 | Chuyển yêu cầu sang Technical | Sales | **NVA** | Chuyển giao nội bộ không làm tăng giá trị; có thể tự động hóa. |
-| 8 | Tiếp nhận yêu cầu kiểm tra | Technical | **NVA** | Thao tác tiếp nhận thuần túy, có thể giảm bằng tích hợp hệ thống. |
-| 9 | Kiểm tra hạ tầng cáp quang | Technical | **BVA** | Điều kiện cần để tránh cam kết dịch vụ khi không thể triển khai. |
-| 10 | Kiểm tra số lượng Port | Technical | **BVA** | Điều kiện kỹ thuật bắt buộc cho khả năng cấp dịch vụ. |
-| 11 | Đánh giá điều kiện cung cấp dịch vụ | Technical | **BVA** | Điểm kiểm soát quyết định quy trình tiếp tục hay dừng. |
-| 12 | Thông báo kết quả không đủ điều kiện | Technical / Sales | **BVA** | Cần để đóng yêu cầu đúng trạng thái và phản hồi khách hàng. |
-| 13 | Yêu cầu khách hàng hoàn thiện hồ sơ | Sales | **BVA** | Hướng dẫn khách hàng đáp ứng điều kiện giao dịch. |
-| 14 | Hoàn thiện/cung cấp hồ sơ lần đầu | Customer | **BVA** | Cần để ký hợp đồng và tạo Work Order hợp lệ. |
-| 15 | Nhận hồ sơ khách hàng | Sales | **NVA** | Thao tác nhận/chuyển hồ sơ không làm tăng giá trị; có thể số hóa. |
-| 16 | Kiểm tra tính đầy đủ, hợp lệ của hồ sơ | Sales | **BVA** | Kiểm soát chất lượng và tính hợp lệ trước khi ký hợp đồng. |
-| 17 | Yêu cầu bổ sung/chỉnh sửa hồ sơ | Sales | **NVA** | Phát sinh do hồ sơ chưa đạt; là xử lý lại. |
-| 18 | Bổ sung/chỉnh sửa hồ sơ theo yêu cầu | Customer | **NVA** | Rework do đầu vào chưa đúng ngay lần đầu. |
-| 19 | Xác nhận/chốt lịch lắp đặt | Sales / Customer | **VA** | Xác lập cam kết thời điểm cung cấp dịch vụ theo nhu cầu khách hàng. |
-| 20 | Ký hợp đồng điện tử hoặc giấy | Customer | **BVA** | Điều kiện pháp lý/nghiệp vụ để chính thức hóa đăng ký. |
-| 21 | Ghi nhận hợp đồng trên BPMS/CRM | BPMS/CRM | **BVA** | Cần để lưu giao dịch và kích hoạt công việc tiếp theo. |
-| 22 | Tạo Work Order | BPMS/CRM | **BVA** | Chuyển yêu cầu đã hợp lệ thành lệnh triển khai chính thức. |
-| 23 | Phân công đội kỹ thuật khu vực | BPMS/CRM | **BVA** | Bắt buộc để Work Order có đơn vị thực hiện. |
-| 24 | Lưu và theo dõi trạng thái đơn hàng | BPMS/CRM | **BVA** | Cần cho quản trị, truy vết và phối hợp giữa các bộ phận. |
+| 6 | Lập hồ sơ đăng ký sơ bộ | Sales | **BVA** | Cần để hình thành thông tin nghiệp vụ phục vụ kiểm tra khả năng cung cấp dịch vụ. |
+| 7 | Chuyển yêu cầu kiểm tra kỹ thuật | Sales | **NVA** | Chuyển giao nội bộ không làm tăng giá trị đầu ra và có thể được tự động hóa. |
+| 8 | Tiếp nhận yêu cầu kiểm tra | Technical | **NVA** | Thao tác tiếp nhận nội bộ không trực tiếp tạo thêm giá trị và có thể giảm bằng tích hợp hệ thống. |
+| 9 | Kiểm tra hạ tầng cáp quang | Technical | **BVA** | Điều kiện kỹ thuật cần thiết để tránh cam kết dịch vụ khi hạ tầng không đáp ứng. |
+| 10 | Kiểm tra cổng kết nối (Port) | Technical | **BVA** | Điều kiện kỹ thuật bắt buộc để xác định khả năng cấp dịch vụ tại địa chỉ đăng ký. |
+| 11 | Thông báo không đủ điều kiện cho khách hàng | Sales | **BVA** | Cần để phản hồi kết quả kiểm tra kỹ thuật và đóng yêu cầu đúng trạng thái. |
+| 12 | Yêu cầu khách hàng hoàn thiện hồ sơ | Sales | **BVA** | Hướng dẫn khách hàng cung cấp đủ thông tin và giấy tờ cần thiết cho giao dịch. |
+| 13 | Hoàn thiện/cung cấp hồ sơ lần đầu | Customer | **BVA** | Cần để kiểm tra tính hợp lệ, ký hợp đồng và tạo Work Order. |
+| 14 | Nhận hồ sơ khách hàng | Sales | **NVA** | Thao tác tiếp nhận/chuyển hồ sơ không làm tăng giá trị đầu ra và có thể được số hóa. |
+| 15 | Kiểm tra tính đầy đủ, hợp lệ của hồ sơ | Sales | **BVA** | Kiểm soát chất lượng và tính hợp lệ của hồ sơ trước khi ký hợp đồng. |
+| 16 | Yêu cầu bổ sung/chỉnh sửa hồ sơ | Sales | **NVA** | Phát sinh khi hồ sơ chưa đạt yêu cầu và tạo thêm một vòng xử lý lại. |
+| 17 | Bổ sung/chỉnh sửa và gửi lại hồ sơ | Customer | **NVA** | Rework phát sinh do hồ sơ chưa đúng hoặc chưa đủ ngay lần đầu. |
+| 18 | Xác nhận/chốt lịch lắp đặt | Sales / Customer | **VA** | Xác lập thời điểm cung cấp dịch vụ phù hợp với nhu cầu và khả năng phối hợp của khách hàng. |
+| 19 | Ký hợp đồng điện tử hoặc giấy | Customer | **BVA** | Điều kiện pháp lý/nghiệp vụ để chính thức hóa đăng ký dịch vụ. |
+| 20 | Ghi nhận hợp đồng trên BPMS/CRM | BPMS/CRM | **BVA** | Cần để lưu giao dịch và kích hoạt các công việc tiếp theo trên hệ thống. |
+| 21 | Tạo Work Order | BPMS/CRM | **BVA** | Chuyển yêu cầu hợp lệ thành lệnh triển khai chính thức. |
+| 22 | Phân công đội kỹ thuật khu vực | BPMS/CRM | **BVA** | Cần để Work Order có đơn vị chịu trách nhiệm thực hiện. |
+| 23 | Cập nhật trạng thái và chuyển sang triển khai | BPMS/CRM | **BVA** | Cần cho quản trị, truy vết và chuyển giao yêu cầu sang giai đoạn triển khai lắp đặt. |
 
 **Tổng hợp phân loại:**
 
 | Loại giá trị | Số hoạt động | Tỷ lệ |
 | :---: | :---: | :---: |
-| **VA** | 3 | **12,5%** |
-| **BVA** | 16 | **66,7%** |
-| **NVA** | 5 | **20,8%** |
-| **Tổng** | **24** | **100%** |
+| **VA** | 3 | **13,04%** |
+| **BVA** | 15 | **65,22%** |
+| **NVA** | 5 | **21,74%** |
+| **Tổng** | **23** | **100%** |
 
-> **Nhận xét:** BVA chiếm tỷ trọng lớn vì quy trình phải kiểm soát điều kiện kỹ thuật, hồ sơ, hợp đồng và tạo Work Order trước khi triển khai. NVA tập trung ở **handoff và rework**; đây là nhóm cần ưu tiên giảm bằng tích hợp dữ liệu, kiểm tra đầu vào và tự động chuyển trạng thái.
+> **Nhận xét:** BVA chiếm tỷ trọng lớn do quy trình có nhiều hoạt động kiểm soát điều kiện kỹ thuật, hồ sơ, hợp đồng và lệnh triển khai. NVA tập trung ở chuyển giao nội bộ, tiếp nhận hồ sơ và vòng bổ sung/chỉnh sửa. VA tập trung tại tư vấn dịch vụ, xác nhận nhu cầu và chốt lịch lắp đặt.
+
+![Hình 3.4.2. Mô hình hóa phân tích giá trị gia tăng](./docs/Mo%20hinh%20hoa%20Quy%20trinh%20phan%20tich%20gia%20tri%20gia%20tang.png)
 
 ---
 
 #### **3.4.3.2. Phân tích lãng phí**
 
-Phân tích lãng phí theo Lean cho thấy các tổn thất chủ yếu tập trung ở thời gian chờ, chuyển giao thông tin, xử lý lặp lại và tồn đọng yêu cầu giữa các công đoạn. Bảy nhóm lãng phí được đánh giá như sau:
+Phân tích lãng phí theo Lean tập trung vào các điểm chờ trước khi một yêu cầu được xử lý, các bước chuyển giao giữa các tác nhân, thao tác xử lý lặp lại và lượng công việc tồn đọng trong quá trình đăng ký dịch vụ. Bảy nhóm lãng phí được đánh giá như sau:
 
 | Loại lãng phí Lean | Biểu hiện trong quy trình |
 | :--- | :--- |
-| **Waiting (Chờ đợi)** | Khách hàng chờ Sales liên hệ; Sales chờ Technical kiểm tra; chờ khách hàng bổ sung hồ sơ/ký hợp đồng; chờ Work Order được tạo/phân công. |
-| **Transportation / Handoff (Chuyển giao)** | Dữ liệu đi qua nhiều điểm Customer → Sales → Technical → Sales → BPMS/CRM; nếu chuyển thủ công sẽ tăng độ trễ và nguy cơ sai lệch. |
-| **Over-processing (Xử lý thừa)** | Thông tin có thể được xác nhận hoặc kiểm tra lại ở nhiều bước nếu các kênh tiếp nhận không chia sẻ một nguồn dữ liệu thống nhất. |
-| **Defects / Rework (Lỗi và làm lại)** | Hồ sơ thiếu/sai/chưa hợp lệ dẫn đến yêu cầu bổ sung và lặp lại kiểm tra. Đây là biểu hiện NVA rõ nhất trong mô tả hiện có. |
-| **Over-production (Xử lý trước nhu cầu)** | Không ghi nhận là lãng phí trọng tâm trong luồng As-Is; Work Order chỉ được tạo sau khi hoàn tất các điều kiện đăng ký và ký hợp đồng. |
-| **Inventory / Backlog (Tồn đọng công việc)** | Các yêu cầu chờ Sales xử lý, chờ kết quả Technical hoặc chờ khách hàng hoàn thiện hồ sơ hình thành hàng đợi công việc và làm tăng Cycle Time. |
-| **Motion (Thao tác không cần thiết)** | Phát sinh ở các thao tác tra cứu, xác nhận lại hoặc nhập lại cùng một thông tin khi dữ liệu giữa kênh tiếp nhận và BPMS/CRM chưa được liên thông xuyên suốt. |
+| **Waiting (Chờ đợi)** | Yêu cầu đăng ký có thể chờ trước khi được Sales tiếp nhận và xử lý; yêu cầu kiểm tra có thể chờ trước khi được Technical tiếp nhận; yêu cầu tiếp tục chờ trong quá trình kiểm tra hạ tầng/Port, hoàn thiện hồ sơ, ký hợp đồng hoặc trước khi Work Order được tạo và phân công. |
+| **Transportation / Handoff (Chuyển giao)** | Yêu cầu và dữ liệu được chuyển qua nhiều điểm Customer → Sales → Technical → Sales → BPMS/CRM. Các bước chuyển giao thủ công có thể làm tăng độ trễ và nguy cơ sai lệch thông tin. |
+| **Over-processing (Xử lý thừa)** | Cùng một thông tin có thể phải được tra cứu, xác nhận hoặc kiểm tra lại ở nhiều công đoạn khi dữ liệu giữa các kênh tiếp nhận, Technical và BPMS/CRM chưa được liên thông đầy đủ. |
+| **Defects / Rework (Lỗi và làm lại)** | Hồ sơ thiếu, sai hoặc chưa hợp lệ làm phát sinh yêu cầu bổ sung/chỉnh sửa, gửi lại hồ sơ và kiểm tra lại trước khi quy trình có thể tiếp tục. |
+| **Over-production (Xử lý trước nhu cầu)** | Không ghi nhận là lãng phí trọng tâm trong luồng As-Is; Work Order chỉ được tạo sau khi hoàn tất các điều kiện đăng ký, kiểm tra kỹ thuật, hồ sơ và hợp đồng. |
+| **Inventory / Backlog (Tồn đọng công việc)** | Các yêu cầu chưa được Sales hoặc Technical tiếp nhận, các yêu cầu đang chờ kết quả kiểm tra hoặc chờ khách hàng hoàn thiện hồ sơ/ký hợp đồng có thể tích tụ thành hàng đợi công việc và làm tăng Cycle Time. |
+| **Motion (Thao tác không cần thiết)** | Phát sinh khi nhân sự phải tra cứu ở nhiều nguồn, xác nhận lại hoặc nhập lại cùng một thông tin do dữ liệu giữa kênh tiếp nhận, Technical và BPMS/CRM chưa được liên thông xuyên suốt. |
+
+![Hình 3.4.3. Mô hình hóa Phân tích lãng phí](./docs/Mo%20hinh%20hoa%20Quy%20trinh%20phan%20tich%20lang%20phi.png)
 
 **Định hướng cải tiến từ phân tích lãng phí:**
 
 * Chuẩn hóa và kiểm tra dữ liệu đầu vào ngay tại điểm tiếp nhận.
 * Tích hợp các kênh Website/Hotline/cửa hàng/Sales vào nguồn dữ liệu dùng chung.
-* Tự động chuyển yêu cầu đạt điều kiện sang Technical.
-* Đồng bộ kết quả kiểm tra hạ tầng và Port về BPMS/CRM.
-* Sử dụng checklist hồ sơ và validation bắt buộc để tăng tỷ lệ hồ sơ đúng ngay lần đầu.
-* Thông báo trạng thái tự động cho Customer/Sales để giảm thao tác hỏi–đáp và theo dõi thủ công.
-* Theo dõi số lượng case tồn, thời gian chờ và số vòng Rework theo từng công đoạn.
+* Tự động chuyển yêu cầu đủ thông tin sang Technical và ghi nhận thời điểm bắt đầu chờ để kiểm soát hàng đợi.
+* Đồng bộ kết quả kiểm tra hạ tầng và Port về BPMS/CRM để giảm thời gian chờ và thao tác chuyển giao.
+* Sử dụng checklist hồ sơ và validation bắt buộc để tăng tỷ lệ hồ sơ đúng ngay lần đầu và giảm Rework.
+* Thông báo trạng thái tự động cho Customer/Sales để giảm thao tác hỏi–đáp, xác nhận lại và theo dõi thủ công.
+* Theo dõi số lượng yêu cầu tồn, thời gian chờ trước từng công đoạn và số vòng Rework để nhận diện bottleneck.
 
----
 
 #### **3.4.3.3. Phân tích các bên liên quan (Stakeholder Analysis)**
 
@@ -619,5 +636,3 @@ Công thức:
 
 
 > **Nhận xét:** Sales và Technical chiếm phần lớn chi phí xử lý nội bộ. Việc giảm thao tác chuyển giao, hạn chế Rework và tăng mức độ liên thông dữ liệu sẽ tác động trực tiếp đến cả Cycle Time và chi phí xử lý.
-
----
