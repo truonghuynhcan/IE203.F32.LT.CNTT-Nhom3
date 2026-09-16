@@ -73,6 +73,9 @@ Các trường hợp cụ thể:
 
 **Nguyên tắc kết thúc:** mọi nhánh ngoại lệ đều có End Event rõ ràng và không có sequence flow quay về node đã đi qua. Infinite loop được loại bỏ ở **cấu trúc đồ thị BPMN**, không phải bằng cách giới hạn số lần xử lý lại.
 
+## 3.2.2. Mô hình hóa quy trình
+![Sơ đồ](.\assets\diagrams\hoach_dinh\HoachDinhChienLuoc.png)
+
 ### 3.2.2.1. Các Swimlane
 1. **Khối/Chi nhánh**
 2. **Khối Kỹ thuật & Hạ tầng**
@@ -181,6 +184,7 @@ Các vấn đề được ghi nhận theo **khả năng dẫn đến nhánh ngo�
 | Khối/Chi nhánh không xác nhận chỉ tiêu | Không đạt tại GW 7 | P = 10% | Không thể chuyển sang triển khai | Lấy ý kiến khả thi trước khi chốt phân bổ |
 
 **Biểu đồ Pareto** (xếp theo xác suất không đạt giả định của từng Gateway; tổng trọng số = 105%):
+![Biểu đồ Pareto](.\assets\diagrams\hoach_dinh\BieuDoPareto.png)
 
 | Vấn đề | Xác suất | Tỷ lệ % | % Tích lũy |
 |---|---:|---:|---:|
