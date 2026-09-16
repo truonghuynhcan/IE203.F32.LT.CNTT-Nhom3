@@ -525,89 +525,165 @@ Phân tích lãng phí theo Lean tập trung vào các điểm chờ trước kh
 
 ---
 
-### **3.4.4. Phân tích định lượng**
+#### **3.4.3.3. Phân tích các bên liên quan (Stakeholder Analysis)**
 
-Phân tích định lượng sử dụng bộ số liệu ước tính về thời gian xử lý, thời gian chờ và đơn giá nguồn lực để lượng hóa **Process Time, Cycle Time, Time Efficiency** và chi phí xử lý của một yêu cầu đăng ký. Các giá trị này phục vụ mô hình phân tích quy trình và không được xem là số liệu vận hành công bố của FPT Telecom.
-
-#### **3.4.4.1. Định lượng thời gian**
-
-**Thời gian xử lý trực tiếp của từng hoạt động (một lượt xử lý):**
-
-| STT | Hoạt động | Tác nhân | TG ngắn nhất (phút) | TG dài nhất (phút) |
-| :---: | :--- | :--- | :---: | :---: |
-| 1 | Cung cấp thông tin đăng ký | Customer | 5 | 10 |
-| 2 | Tiếp nhận và ghi nhận thông tin | Sales | 5 | 10 |
-| 3 | Tư vấn gói cước | Sales | 10 | 20 |
-| 4 | Lập hồ sơ đăng ký sơ bộ | Sales | 10 | 20 |
-| 5 | Tiếp nhận yêu cầu kiểm tra | Technical | 5 | 10 |
-| 6 | Kiểm tra hạ tầng cáp quang | Technical | 15 | 30 |
-| 7 | Kiểm tra số lượng Port | Technical | 5 | 10 |
-| 8 | Đánh giá điều kiện cung cấp dịch vụ | Technical | 5 | 10 |
-| 9 | Kiểm tra tính đầy đủ, hợp lệ của hồ sơ | Sales | 10 | 20 |
-| 10 | Hoàn thiện/cung cấp hồ sơ theo yêu cầu | Customer | 5 | 15 |
-| 11 | Điều phối và chốt lịch lắp đặt | Sales | 5 | 10 |
-| 12 | Ký hợp đồng | Customer | 5 | 10 |
-| 13 | Ghi nhận hợp đồng trên BPMS/CRM | BPMS/CRM | 2 | 5 |
-| 14 | Tạo Work Order | BPMS/CRM | 2 | 5 |
-| 15 | Phân công đội kỹ thuật khu vực | BPMS/CRM | 3 | 10 |
-| 16 | Lưu và cập nhật trạng thái | BPMS/CRM | 2 | 5 |
-
-**Process Time ngắn nhất:**
-
-`5 + 5 + 10 + 10 + 5 + 15 + 5 + 5 + 10 + 5 + 5 + 5 + 2 + 2 + 3 + 2 = 94 phút`
-
-**Process Time dài nhất:**
-
-`10 + 10 + 20 + 20 + 10 + 30 + 10 + 10 + 20 + 15 + 10 + 10 + 5 + 5 + 10 + 5 = 200 phút`
-
-
-> Khoảng **94–200 phút** phản ánh thời gian xử lý trực tiếp của một lượt theo luồng chính. Các Gateway là điểm quyết định nên không cộng thời gian riêng; thời gian xác nhận tại GW1, GW2, GW6 và GW7 được tính trong các hoạt động liên quan. Vòng lặp GW5 làm tăng Process Time khi hồ sơ phải bổ sung hoặc chỉnh sửa.
-
-
-**Thời gian chờ sử dụng trong mô hình phân tích:**
-
-| Điểm chờ | Best-case | Worst-case |
-| :--- | ---: | ---: |
-| Chờ Sales tiếp nhận/liên hệ | 30 phút | 120 phút |
-| Chờ Technical tiếp nhận | 30 phút | 120 phút |
-| Chờ kết quả kiểm tra/phản hồi | 30 phút | 180 phút |
-| Chờ khách hàng hoàn thiện hồ sơ và ký hợp đồng | 30 phút | 120 phút |
-| **Tổng thời gian chờ** | **120 phút** | **540 phút** |
-
-**Cycle Time:**
-
-* **Best-case:** `94 + 120 = 214 phút` = **3 giờ 34 phút**.
-* **Worst-case:** `200 + 540 = 740 phút` = **12 giờ 20 phút**.
-
-**Hiệu suất thời gian (Time Efficiency):**
-
-| Trường hợp | Process Time | Cycle Time | Waiting Time | Hiệu suất thời gian |
-| :---: | ---: | ---: | ---: | ---: |
-| **Best-case** | 94 phút | 214 phút | 120 phút | **43,93%** |
-| **Worst-case** | 200 phút | 740 phút | 540 phút | **27,03%** |
-
-Công thức:
-
-`Time Efficiency = Process Time / Cycle Time × 100%`
-
-**Thời gian xử lý theo tác nhân:**
-
-| Tác nhân | TG ngắn nhất | TG dài nhất | Nhận xét |
-| :--- | ---: | ---: | :--- |
-| **Customer** | 15 phút | 35 phút | Không tính vào chi phí lao động nội bộ nhưng ảnh hưởng trực tiếp trải nghiệm khách hàng. |
-| **Sales** | 40 phút | 80 phút | Tham gia nhiều công đoạn nhất và là đầu mối điều phối. |
-| **Technical** | 30 phút | 60 phút | Tập trung ở bước kiểm tra và quyết định khả năng cung cấp. |
-| **BPMS/CRM** | 9 phút | 25 phút | Thời gian xử lý quy đổi thấp hơn do phần lớn hoạt động được hệ thống hỗ trợ. |
-| **Tổng** | **94 phút** | **200 phút** | Khớp với Process Time của một lượt xử lý. |
-
-> **Nhận xét:** Thời gian chờ chiếm **56,1% Cycle Time trong best-case** (120/214) và khoảng **73,0% trong worst-case** (540/740). Đây là thành phần ảnh hưởng lớn nhất đến hiệu suất thời gian của quy trình, đặc biệt tại các điểm chuyển giao giữa Sales, Technical và khách hàng.
-
+| Bên liên quan | Mức độ ảnh hưởng | Vai trò & kỳ vọng | Rủi ro khi quy trình không hiệu quả |
+| :--- | :---: | :--- | :--- |
+| **Khách hàng** | **Rất cao** | Được tư vấn đúng; biết sớm khả năng triển khai; thủ tục đơn giản; lịch lắp đặt rõ ràng. | Chờ lâu, cung cấp lại thông tin, trải nghiệm kém, có thể từ bỏ đăng ký. |
+| **Sales** | **Rất cao** | Tiếp nhận và điều phối nhanh; hồ sơ đạt chuẩn; có trạng thái rõ để theo dõi. | Quá tải thao tác, nhiều Rework, mất thời gian theo dõi/chuyển giao. |
+| **Technical** | **Rất cao** | Nhận đủ dữ liệu để kiểm tra; truy cập được thông tin hạ tầng/Port chính xác. | Kiểm tra chậm hoặc trả kết quả sai, gây cam kết sai khả năng cung cấp. |
+| **BPMS/CRM** | **Rất cao** | Dữ liệu nhất quán; tạo/phân công Work Order đúng trạng thái. | Sai dữ liệu, tạo đơn chậm/trùng, khó truy vết tiến độ. |
+| **Đội kỹ thuật khu vực** | **Cao** | Nhận Work Order có đủ thông tin và lịch lắp đặt để triển khai. | Phải xác minh lại, đổi lịch, giảm hiệu suất thi công. |
+| **Bộ phận quản lý vận hành** | **Cao** | Theo dõi SLA, tỷ lệ chuyển đổi, Rework và bottleneck của quy trình. | Thiếu dữ liệu để đánh giá hiệu suất và ưu tiên cải tiến. |
 
 ---
 
-#### **3.4.4.2. Định lượng chi phí**
+### **3.4.4. Phân tích định lượng**
 
-**Đơn giá nguồn lực quy đổi sử dụng trong mô hình:**
+Phân tích định lượng sử dụng cách tiếp cận **Cycle Time (CT) – Processing Time (PT)** kết hợp xác suất tại các cổng quyết định để lượng hóa thời gian chu kỳ, thời gian xử lý thực tế, hiệu quả chu kỳ, chi phí xử lý và tỷ lệ đạt ngay lần đầu của một yêu cầu đăng ký. Trong mô hình này, **CT** phản ánh tổng thời gian trôi qua của yêu cầu, bao gồm cả thời gian chờ và phản hồi; **PT** chỉ phản ánh thời gian nguồn lực nội bộ của FPT Telecom thực sự xử lý. Thời gian khách hàng tự thao tác hoặc chờ khách hàng phản hồi vẫn được tính trong CT nhưng không tính vào PT nội bộ. Gateway không cộng thời gian riêng mà chỉ quyết định xác suất đi tiếp, kết thúc hoặc lặp lại.
+
+Các số liệu dưới đây là giả định phục vụ mô hình phân tích quy trình As-Is và được sử dụng thống nhất trong toàn bộ phép tính.
+
+![Hình 3.4.4. Mô hình hóa Phân tích định lượng](./docs/Quy_trinh_Tu_Van_Lap_Dat_Phan_tich_dinh_luong.png)
+
+#### **3.4.4.1. Giả định thời gian và xác suất từng bước**
+
+**Thời gian CT và PT của các hoạt động:**
+
+| Ký hiệu | Hoạt động | Tác nhân | CT (phút) | PT (phút) | Ghi chú |
+| :---: | :--- | :--- | ---: | ---: | :--- |
+| **t1** | Lựa chọn kênh và cung cấp thông tin đăng ký ban đầu | Customer | 10 | 0 | Thời gian phía khách hàng; không tính vào PT nội bộ. |
+| **t2** | Sales tiếp nhận, kiểm tra thông tin và tư vấn gói cước | Sales | 60 | 25 | CT bao gồm thời gian yêu cầu chờ được tiếp nhận và phản hồi. |
+| **r2** | Tiếp tục tư vấn/làm rõ nhu cầu khi khách hàng chưa xác nhận tại GW2 | Sales / Customer | 30 | 10 | Vòng lặp, chỉ phát sinh khi GW2 = “Chưa xác nhận”. |
+| **t3** | Lập hồ sơ đăng ký sơ bộ và chuyển yêu cầu sang Technical | Sales | 15 | 10 | Bao gồm thao tác lập hồ sơ và chuyển giao nội bộ. |
+| **t4** | Technical tiếp nhận và kiểm tra hạ tầng cáp quang | Technical | 90 | 30 | CT bao gồm thời gian chờ hàng đợi và thời gian kiểm tra thực tế. |
+| **t5** | Thông báo khách hàng khi hạ tầng không đáp ứng | Sales | 10 | 5 | Nhánh kết thúc tại GW3. |
+| **t6** | Kiểm tra Port khả dụng | Technical | 15 | 10 | Chỉ thực hiện khi hạ tầng đáp ứng. |
+| **t7** | Thông báo khách hàng khi không có Port khả dụng | Sales | 10 | 5 | Nhánh kết thúc tại GW4. |
+| **t8** | Yêu cầu và chờ khách hàng hoàn thiện hồ sơ đăng ký | Sales / Customer | 60 | 5 | Phần lớn CT là thời gian khách hàng chuẩn bị/gửi hồ sơ. |
+| **t9** | Kiểm tra tính đầy đủ, hợp lệ của hồ sơ | Sales | 15 | 15 | Lần kiểm tra đầu tiên. |
+| **r5** | Bổ sung/chỉnh sửa và kiểm tra lại hồ sơ | Sales / Customer | 60 | 20 | Vòng lặp khi GW5 = “Không”. |
+| **t10** | Đề nghị, phối hợp và xác nhận lịch lắp đặt | Sales / Customer | 45 | 10 | Lần xác nhận đầu tiên. |
+| **r6** | Phối hợp lại lịch khi khách hàng chưa xác nhận | Sales / Customer | 30 | 5 | Vòng lặp khi GW6 = “Chưa xác nhận”. |
+| **t11e** | Gửi và ký hợp đồng điện tử | Sales / Customer | 15 | 5 | Nhánh ký điện tử tại GW7. |
+| **t11p** | Gửi và ký hợp đồng giấy | Sales / Customer | 60 | 10 | Nhánh ký giấy tại GW7. |
+| **t12** | Ghi nhận hợp đồng, tạo Work Order, phân công và cập nhật trạng thái | BPMS/CRM | 15 | 10 | Chỉ phát sinh với yêu cầu vượt qua điều kiện kỹ thuật. |
+
+**Xác suất tại các cổng quyết định:**
+
+| Gateway | Điều kiện | Xác suất | Cách xử lý trong mô hình |
+| :---: | :--- | ---: | :--- |
+| **GW1** | Kênh đăng ký | — | Không cộng thời gian gateway riêng; ảnh hưởng của kênh đã được gộp trong t1–t2. |
+| **GW2** | Khách hàng xác nhận gói cước/nhu cầu ngay lần đầu | **85%** | 15% còn lại phát sinh vòng lặp r2 cho đến khi xác nhận. |
+| **GW3** | Hạ tầng cáp quang đáp ứng | **90%** | 10% kết thúc tại t5; 90% đi tiếp sang kiểm tra Port. |
+| **GW4** | Có Port khả dụng | **95%** | 5% kết thúc tại t7; 95% đi tiếp sang hoàn thiện hồ sơ. |
+| **GW5** | Hồ sơ đầy đủ, hợp lệ ngay lần đầu | **80%** | 20% phát sinh vòng lặp r5 cho đến khi hồ sơ hợp lệ. |
+| **GW6** | Khách hàng xác nhận lịch ngay lần đầu | **90%** | 10% phát sinh vòng lặp r6 cho đến khi chốt được lịch. |
+| **GW7** | Hình thức ký hợp đồng | **70% điện tử / 30% giấy** | Hai nhánh đều hợp lệ và hội tụ về cùng bước ghi nhận hợp đồng. |
+
+Với các gateway tạo vòng lặp, số vòng xử lý lại kỳ vọng được tính theo:
+
+`E(Số vòng Rework) = q / p`
+
+trong đó `p` là xác suất đạt tại một lần kiểm tra/xác nhận và `q = 1 - p`. Do đó, phần thời gian tăng thêm do Rework được tính bằng:
+
+`E(T_rework) = (q / p) × T_rework_mỗi_vòng`
+
+Đối với các cổng có nhánh kết thúc, thời gian được tính theo xác suất có trọng số theo cấu trúc:
+
+`Lvl(n) = Test(n) + p_kết_thúc × End(n) + p_đi_tiếp × Lvl(n+1)`
+
+#### **3.4.4.2. Định lượng thời gian**
+
+**a) Thời gian chu kỳ kỳ vọng (Cycle Time)**
+
+Tính từ trong ra ngoài theo cấu trúc các cổng quyết định của quy trình.
+
+Phần sau khi vượt qua GW4:
+
+`Lvl_HS = t8 + t9 + (0,20 / 0,80) × r5 + t10 + (0,10 / 0,90) × r6 + (0,70 × t11e + 0,30 × t11p) + t12`
+
+`Lvl_HS = 60 + 15 + (0,20 / 0,80) × 60 + 45 + (0,10 / 0,90) × 30 + (0,70 × 15 + 0,30 × 60) + 15`
+
+`Lvl_HS ≈ 181,83 phút`
+
+Tại GW4:
+
+`Lvl_GW4 = t6 + 0,05 × t7 + 0,95 × Lvl_HS`
+
+`Lvl_GW4 = 15 + 0,05 × 10 + 0,95 × 181,83 ≈ 188,24 phút`
+
+Tại GW3:
+
+`Lvl_GW3 = t4 + 0,10 × t5 + 0,90 × Lvl_GW4`
+
+`Lvl_GW3 = 90 + 0,10 × 10 + 0,90 × 188,24 ≈ 260,42 phút`
+
+Toàn bộ quy trình:
+
+`Tct = t1 + t2 + (0,15 / 0,85) × r2 + t3 + Lvl_GW3`
+
+`Tct = 10 + 60 + (0,15 / 0,85) × 30 + 15 + 260,42`
+
+`Tct ≈ 350,71 phút ≈ 5,85 giờ ≈ 5 giờ 51 phút`
+
+Như vậy, **Cycle Time kỳ vọng của một yêu cầu đầu vào là khoảng 350,71 phút**. Kết quả này đã phản ánh xác suất yêu cầu bị kết thúc sớm tại GW3/GW4, xác suất phát sinh xử lý lại tại GW2/GW5/GW6 và tỷ trọng hai hình thức ký hợp đồng tại GW7.
+
+**b) Thời gian xử lý thực tế (Processing Time)**
+
+PT được tính theo đúng cấu trúc xác suất như CT, nhưng chỉ lấy phần thời gian nguồn lực nội bộ thực sự xử lý. Thời gian khách hàng tự chuẩn bị, phản hồi hoặc chờ đợi không được cộng vào PT.
+
+Phần sau khi vượt qua GW4:
+
+`Lvl_HS_PT = 5 + 15 + (0,20 / 0,80) × 20 + 10 + (0,10 / 0,90) × 5 + (0,70 × 5 + 0,30 × 10) + 10`
+
+`Lvl_HS_PT ≈ 52,06 phút`
+
+Tại GW4:
+
+`Lvl_GW4_PT = 10 + 0,05 × 5 + 0,95 × 52,06 ≈ 59,70 phút`
+
+Tại GW3:
+
+`Lvl_GW3_PT = 30 + 0,10 × 5 + 0,90 × 59,70 ≈ 84,23 phút`
+
+Toàn bộ quy trình:
+
+`Tpt = 0 + 25 + (0,15 / 0,85) × 10 + 10 + 84,23`
+
+`Tpt ≈ 121,00 phút ≈ 2,02 giờ`
+
+**c) Độ hiệu quả của chu kỳ (Process Cycle Efficiency – PCE)**
+
+Công thức:
+
+`PCE = Processing Time / Cycle Time × 100%`
+
+`PCE = 121,00 / 350,71 × 100% ≈ 34,50%`
+
+Thời gian không trực tiếp tạo ra hoạt động xử lý nội bộ:
+
+`Waiting/Non-processing Time = 350,71 - 121,00 = 229,71 phút`
+
+Tỷ trọng thời gian chờ và không xử lý trực tiếp:
+
+`229,71 / 350,71 × 100% ≈ 65,50%`
+
+| Chỉ tiêu | Kết quả |
+| :--- | ---: |
+| **Cycle Time kỳ vọng** | **350,71 phút (≈ 5,85 giờ)** |
+| **Processing Time kỳ vọng** | **121,00 phút (≈ 2,02 giờ)** |
+| **Waiting/Non-processing Time** | **229,71 phút** |
+| **Process Cycle Efficiency (PCE)** | **34,50%** |
+| **Tỷ trọng thời gian chờ/không xử lý** | **65,50%** |
+
+> **Nhận xét:** PCE khoảng **34,50%** cho thấy phần lớn thời gian chu kỳ nằm ở thời gian chờ, phản hồi và chuyển giao. Cụm kiểm tra kỹ thuật có CT lớn do bao gồm hàng đợi trước khi Technical xử lý; các vòng lặp hồ sơ và xác nhận lịch tiếp tục làm tăng thời gian chu kỳ dù thời gian xử lý nội bộ tăng không nhiều. Vì vậy, ưu tiên cải tiến nên tập trung vào giảm thời gian chờ trước Technical, tăng tỷ lệ hồ sơ hợp lệ ngay lần đầu và rút ngắn thời gian phản hồi/xác nhận với khách hàng.
+
+---
+
+#### **3.4.4.3. Định lượng chi phí**
+
+**Đơn giá nguồn lực quy đổi:**
 
 | Tác nhân / nguồn lực | Đơn giá quy đổi | Chi phí/phút |
 | :--- | ---: | ---: |
@@ -615,24 +691,65 @@ Công thức:
 | **Technical** | 60.000 VNĐ/giờ | **1.000 VNĐ/phút** |
 | **BPMS/CRM** | 55.000 VNĐ/giờ | **916,67 VNĐ/phút** |
 
-> Chi phí BPMS/CRM là chi phí vận hành hệ thống quy đổi theo thời gian xử lý. Thời gian của Customer không được tính vào chi phí vận hành nội bộ của doanh nghiệp.
+Thời gian của Customer không được tính vào chi phí lao động nội bộ. Chi phí được tính trên **PT kỳ vọng** của từng tác nhân và theo cùng cấu trúc xác suất của Cycle Time.
 
-**Chi phí theo từng tác nhân trên một yêu cầu:**
+**PT kỳ vọng theo tác nhân:**
 
-| Tác nhân | TG best-case | Chi phí best-case | TG worst-case | Chi phí worst-case |
+`PT_Sales = 25 + (0,15 / 0,85) × 10 + 10 + 0,10 × 5 + 0,90 × [0,05 × 5 + 0,95 × (5 + 15 + (0,20 / 0,80) × 20 + 10 + (0,10 / 0,90) × 5 + (0,70 × 5 + 0,30 × 10))]`
+
+`PT_Sales ≈ 73,45 phút`
+
+`PT_Technical = 30 + 0,90 × 10 = 39,00 phút`
+
+`PT_BPMS/CRM = 0,90 × 0,95 × 10 = 8,55 phút`
+
+Tổng PT nội bộ:
+
+`73,45 + 39,00 + 8,55 = 121,00 phút`
+
+**Chi phí xử lý kỳ vọng trên một yêu cầu đầu vào:**
+
+| Tác nhân | PT kỳ vọng | Đơn giá/phút | Chi phí kỳ vọng | Tỷ trọng |
 | :--- | ---: | ---: | ---: | ---: |
-| **Sales** | 40 phút | **33.333 VNĐ** | 80 phút | **66.667 VNĐ** |
-| **Technical** | 30 phút | **30.000 VNĐ** | 60 phút | **60.000 VNĐ** |
-| **BPMS/CRM** | 9 phút | **8.250 VNĐ** | 25 phút | **22.917 VNĐ** |
-| **Tổng nội bộ** | **79 phút** | **71.583 VNĐ** | **165 phút** | **149.584 VNĐ** |
+| **Sales** | 73,45 phút | 833,33 VNĐ | **61.206 VNĐ** | **56,65%** |
+| **Technical** | 39,00 phút | 1.000 VNĐ | **39.000 VNĐ** | **36,10%** |
+| **BPMS/CRM** | 8,55 phút | 916,67 VNĐ | **7.838 VNĐ** | **7,25%** |
+| **Tổng** | **121,00 phút** |  | **108.044 VNĐ/yêu cầu** | **100%** |
 
-> Chi phí được làm tròn đến đơn vị đồng.
+Công thức tổng quát:
 
-**Tỷ trọng chi phí nội bộ trong best-case:**
+`Cost = Σ(PT_kỳ_vọng_theo_tác_nhân × Đơn_giá_tác_nhân)`
 
-* **Sales:** `33.333 / 71.583 × 100% = 46,57%`.
-* **Technical:** `30.000 / 71.583 × 100% = 41,91%`.
-* **BPMS/CRM:** `8.250 / 71.583 × 100% = 11,52%`.
+`Cost ≈ 108.044 VNĐ/yêu cầu`
 
+> **Nhận xét:** Sales chiếm khoảng **56,65%** chi phí xử lý nội bộ do tham gia xuyên suốt từ tiếp nhận, tư vấn, lập hồ sơ, xử lý Rework, điều phối lịch đến hợp đồng. Technical chiếm khoảng **36,10%**, tập trung ở kiểm tra hạ tầng và Port. Do đó, tự động hóa chuyển giao, tăng kiểm tra dữ liệu đầu vào và giảm Rework ở hồ sơ có khả năng tác động trực tiếp đến cả chi phí xử lý và Cycle Time.
 
-> **Nhận xét:** Sales và Technical chiếm phần lớn chi phí xử lý nội bộ. Việc giảm thao tác chuyển giao, hạn chế Rework và tăng mức độ liên thông dữ liệu sẽ tác động trực tiếp đến cả Cycle Time và chi phí xử lý.
+---
+
+#### **3.4.4.4. Định lượng chất lượng – First Pass Yield**
+
+First Pass Yield phản ánh tỷ lệ yêu cầu có thể đi qua các điểm kiểm soát chính **ngay lần đầu**, không phát sinh vòng lặp tại GW2/GW5/GW6 và không bị kết thúc do không đủ điều kiện kỹ thuật tại GW3/GW4.
+
+Các tỷ lệ sử dụng:
+
+| Chỉ tiêu | Tỷ lệ đạt ngay lần đầu |
+| :--- | ---: |
+| Khách hàng xác nhận gói cước/nhu cầu tại GW2 | **85%** |
+| Hạ tầng đáp ứng tại GW3 | **90%** |
+| Có Port khả dụng tại GW4 | **95%** |
+| Hồ sơ đầy đủ, hợp lệ tại GW5 | **80%** |
+| Khách hàng xác nhận lịch tại GW6 | **90%** |
+
+GW7 không đưa vào phép nhân RFPY vì ký điện tử và ký giấy là hai **nhánh lựa chọn hợp lệ**, không phải quan hệ đạt/không đạt.
+
+Công thức:
+
+`RFPY = 0,85 × 0,90 × 0,95 × 0,80 × 0,90`
+
+`RFPY ≈ 0,52326 = 52,33%`
+
+Như vậy, **khoảng 52,33% yêu cầu có thể đi qua toàn bộ các điểm kiểm soát chính ngay lần đầu theo mô hình giả định**. Riêng xác suất một yêu cầu vượt qua hai điều kiện kỹ thuật GW3 và GW4 là:
+
+`0,90 × 0,95 = 85,50%`
+
+> **Nhận xét & đề xuất:** RFPY khoảng **52,33%** cho thấy dư địa cải thiện lớn nhất nằm ở các điểm có khả năng phát sinh xử lý lại, đặc biệt là tính đầy đủ/hợp lệ của hồ sơ tại GW5 và xác nhận của khách hàng tại GW2, GW6. Việc sử dụng biểu mẫu có kiểm tra dữ liệu bắt buộc, đồng bộ thông tin giữa các kênh với BPMS/CRM, tự động chuyển yêu cầu sang Technical và tăng tỷ trọng ký điện tử sẽ giúp giảm thời gian chờ, giảm số vòng Rework, tăng PCE và giảm chi phí xử lý trên mỗi yêu cầu.
