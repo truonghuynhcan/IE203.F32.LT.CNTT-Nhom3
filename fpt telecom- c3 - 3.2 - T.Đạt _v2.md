@@ -1,16 +1,14 @@
-## 3.2. Quy trình quản lý: Hoạch định chiến lược kinh doanh
+# 3.2. Quy trình quản lý: Hoạch định chiến lược kinh doanh
 
-### 3.2.1. Mô tả quy trình
+## 3.2.1. Mô tả quy trình
 
-#### 3.2.1.1. Mục tiêu
+### 3.2.1.1. Mục tiêu
 
 Quy trình hoạch định chiến lược kinh doanh nhằm chuyển hóa các thông tin và tín hiệu từ thị trường thành định hướng, mục tiêu và kế hoạch kinh doanh trung và dài hạn của doanh nghiệp. Kết quả của quy trình là kế hoạch chiến lược được Ban Điều hành và Hội đồng quản trị phê duyệt, sau đó được phân bổ thành các chỉ tiêu và kế hoạch hành động cho các Khối/Chi nhánh.
 
 Quy trình có sự phối hợp giữa các đơn vị kinh doanh, marketing, kỹ thuật – hạ tầng, tài chính – kế toán, Ban Điều hành, Hội đồng quản trị và các Khối/Chi nhánh.
 
-#### 3.2.1.2. Các bước thực hiện
-
-###### Bảng 3. : Các bước thực hiện quy trình hoạch định chiến lược kinh doanh
+### 3.2.1.2. Các bước thực hiện
 
 | STT | Bước thực hiện | Nội dung |
 |---:|---|---|
@@ -25,11 +23,9 @@ Quy trình có sự phối hợp giữa các đơn vị kinh doanh, marketing, k
 | 9 | Ban Điều hành xem xét, góp ý, phê duyệt sơ bộ | Ban Điều hành đánh giá tính phù hợp, khả thi và nhất quán của dự thảo. Nếu không phê duyệt, quyết định và lý do được ghi nhận; hồ sơ chuyển sang nhánh xử lý ngoại lệ hoặc kết thúc instance, không trình lại GW 5 trong cùng instance. |
 | 10 | Trình HĐQT phê duyệt chính thức | Hồ sơ sau khi được Ban Điều hành phê duyệt sơ bộ được trình Hội đồng quản trị để xem xét và phê duyệt chính thức. Nếu không được phê duyệt, quyết định được ghi nhận và instance kết thúc; không trình lại trong cùng instance. |
 | 11 | Phân bổ chỉ tiêu xuống Khối/Chi nhánh | Sau khi chiến lược được phê duyệt chính thức, các mục tiêu và chỉ tiêu được phân bổ cho các Khối/Chi nhánh. Trước khi triển khai, ghi nhận phản hồi của các đơn vị về tính khả thi của chỉ tiêu (**GW 7**). |
-| 12 | Xây dựng kế hoạch hành động | Các Khối/Chi nhánh cụ thể hóa chỉ tiêu thành kế hoạch hành động, tổ chức triển khai và thực hiện theo dõi, báo cáo định kỳ. |
+| 12 | Xây dựng kế hoạch hành động và theo dõi triển khai | Các Khối/Chi nhánh cụ thể hóa chỉ tiêu thành kế hoạch hành động, tổ chức triển khai và thực hiện theo dõi, báo cáo định kỳ. |
 
-#### 3.2.1.3. Tác nhân tham gia
-
-###### Bảng 3. : Các tác nhân tham gia quy trình hoạch định chiến lược kinh doanh
+### 3.2.1.3. Tác nhân tham gia
 
 | Tác nhân | Vai trò |
 |---|---|
@@ -40,7 +36,7 @@ Quy trình có sự phối hợp giữa các đơn vị kinh doanh, marketing, k
 | HĐQT | Xem xét và phê duyệt chính thức chiến lược kinh doanh. |
 | Các Khối/Chi nhánh | Tiếp nhận chỉ tiêu, xây dựng kế hoạch hành động và triển khai thực hiện. |
 
-#### 3.2.1.4. Đối tượng nhận kết quả
+### 3.2.1.4. Đối tượng nhận kết quả
 
 Các đối tượng sử dụng kết quả trực tiếp của quy trình gồm:
 
@@ -48,16 +44,16 @@ Các đối tượng sử dụng kết quả trực tiếp của quy trình gồ
 - **Ban Điều hành:** sử dụng kế hoạch để điều hành và phân bổ nguồn lực.
 - **Các Khối/Chi nhánh:** sử dụng chỉ tiêu và định hướng chiến lược để xây dựng kế hoạch hành động.
 
-#### 3.2.1.5. Kết quả và các trường hợp ngoại lệ
+### 3.2.1.5. Kết quả và các trường hợp ngoại lệ
 
 **Kịch bản thành công:**
 
-Dữ liệu đầu vào đầy đủ và có độ tin cậy phù hợp.  
-Các phương án chiến lược được xây dựng dựa trên kết quả phân tích.  
-Phương án đáp ứng yêu cầu về năng lực hạ tầng và tài chính.  
-Ban Điều hành và HĐQT phê duyệt.  
-Chỉ tiêu được phân bổ rõ ràng cho các đơn vị.  
-Các Khối/Chi nhánh xây dựng kế hoạch hành động và triển khai theo dõi.
+1. Dữ liệu đầu vào đầy đủ và có độ tin cậy phù hợp.
+2. Các phương án chiến lược được xây dựng dựa trên kết quả phân tích.
+3. Phương án đáp ứng yêu cầu về năng lực hạ tầng và tài chính.
+4. Ban Điều hành và HĐQT phê duyệt.
+5. Chỉ tiêu được phân bổ rõ ràng cho các đơn vị.
+6. Các Khối/Chi nhánh xây dựng kế hoạch hành động và triển khai theo dõi.
 
 **Kịch bản ngoại lệ – xử lý dứt điểm trong một instance:**
 
@@ -77,23 +73,18 @@ Các trường hợp cụ thể:
 
 **Nguyên tắc kết thúc:** mọi nhánh ngoại lệ đều có End Event rõ ràng và không có sequence flow quay về node đã đi qua. Infinite loop được loại bỏ ở **cấu trúc đồ thị BPMN**, không phải bằng cách giới hạn số lần xử lý lại.
 
-### 3.2.2. Mô hình hóa quy trình
+## 3.2.2. Mô hình hóa quy trình
 ![Sơ đồ](.\assets\diagrams\hoach_dinh\HoachDinhChienLuoc.png)
 
-####### Hình 3. : Mô hình BPMN quy trình hoạch định chiến lược kinh doanh
+### 3.2.2.1. Các Swimlane
+1. **Khối/Chi nhánh**
+2. **Khối Kỹ thuật & Hạ tầng**
+3. **Khối Tài chính – Kế toán**
+4. **Khối Kinh doanh & Marketing**
+5. **Ban Điều hành**
+6. **HĐQT**
 
-#### 3.2.2.1. Các Swimlane
-
-Mô hình BPMN gồm 6 Swimlane:
-
-Khối/Chi nhánh.  
-Khối Kỹ thuật & Hạ tầng.  
-Khối Tài chính – Kế toán.  
-Khối Kinh doanh & Marketing.  
-Ban Điều hành.  
-HĐQT.
-
-#### 3.2.2.2. Các hoạt động chính
+### 3.2.2.2. Các hoạt động chính
 
 BPMN thể hiện **12 hoạt động chính** tương ứng với quy trình nghiệp vụ, cộng thêm **1 hoạt động kiểm tra tính đầy đủ hồ sơ** trước khi trình Ban Điều hành:
 
@@ -109,13 +100,11 @@ BPMN thể hiện **12 hoạt động chính** tương ứng với quy trình ng
 9. Ban Điều hành xem xét, góp ý, phê duyệt sơ bộ.
 10. HĐQT xem xét và phê duyệt chính thức.
 11. Phân bổ chỉ tiêu xuống Khối/Chi nhánh.
-12. Xây dựng kế hoạch hành động.
+12. Xây dựng kế hoạch hành động và theo dõi triển khai.
 
-#### 3.2.2.3. Các Gateway
+### 3.2.2.3. Các Gateway
 
 Mô hình gồm 7 Gateway kiểm tra điều kiện. **Không Gateway nào có sequence flow quay ngược về một node đã đi qua trong cùng instance.**
-
-###### Bảng 3. : Các Gateway kiểm soát trong quy trình hoạch định chiến lược kinh doanh
 
 | Gateway | Loại | Điều kiện kiểm tra | Khi đạt | Khi chưa đạt |
 |---|---|---|---|---|
@@ -129,15 +118,16 @@ Mô hình gồm 7 Gateway kiểm tra điều kiện. **Không Gateway nào có s
 
 Các Task xử lý ngoại lệ là **nhánh một chiều**, không phải vòng lặp xử lý lại. Nếu đủ điều kiện thì đi tới node tiếp theo; nếu không đủ điều kiện thì kết thúc instance.
 
-#### 3.2.2.4. Luồng song song
+### 3.2.2.4. Luồng song song
 
 Bước **2 → 3** do Khối Kinh doanh & Marketing thực hiện tuần tự. Chuỗi này chạy **song song** với bước **4** do Khối Kỹ thuật & Hạ tầng thực hiện. Hai nhánh được đồng bộ tại AND-Join sau khi mỗi nhánh hoàn tất kiểm tra GW 1/GW 2.
 
 AND-Join nhận token từ **cả hai nhánh** sau khi GW 1 và GW 2 đều đạt. Nếu một nhánh không đáp ứng tiêu chí dữ liệu, nhánh đó đi vào xử lý ngoại lệ và kết thúc toàn bộ process instance bằng Terminate End Event; vì vậy token của nhánh còn lại không được phép tiếp tục độc lập đến AND-Join.
 
-#### 3.2.3.1. Phân tích giá trị gia tăng
+## 3.2.3. Phân tích định tính
+### 3.2.3.1. Phân tích giá trị gia tăng
 
-###### Bảng 3. : Phân loại giá trị gia tăng của các hoạt động trong quy trình
+![Sơ đồ](.\assets\diagrams\hoach_dinh\GTGT.png)
 
 | STT | Hoạt động | Tác nhân chính | Phân loại | Định hướng cải tiến |
 |---:|---|---|---|---|
@@ -150,7 +140,7 @@ AND-Join nhận token từ **cả hai nhánh** sau khi GW 1 và GW 2 đều đ�
 | 7 | Thẩm định tính khả thi tài chính | Tài chính – Kế toán | BVA | Chuẩn hóa mô hình và bộ chỉ tiêu tài chính. |
 | 8 | Hoàn thiện dự thảo kế hoạch | KD & Marketing | BVA | Sử dụng workflow và kiểm soát phiên bản. |
 | 9 | BĐH xem xét, góp ý, phê duyệt sơ bộ | Ban Điều hành | BVA | Quy định SLA và tiêu chí phê duyệt. |
-| 10 | Trình HĐQT phê duyệt chính thức | HĐQT | BVA | Chuẩn hóa tiêu chí đánh giá, lịch trình và hồ sơ trình duyệt. |
+| 10 | Trình HĐQT phê duyệt chính thức | HĐQT | NVA | Giảm thời gian chờ, chuẩn hóa lịch trình phê duyệt. |
 | 11 | Phân bổ chỉ tiêu | BĐH / KD & Marketing | VA | Chuẩn hóa nguyên tắc và công thức phân bổ. |
 | 12 | Xây dựng kế hoạch hành động và theo dõi triển khai | Khối/Chi nhánh | VA | Chuẩn hóa mẫu kế hoạch hành động. |
 
@@ -160,38 +150,34 @@ Các hoạt động VA tập trung chủ yếu ở quá trình phân tích, xây
 
 Hướng cải tiến trọng tâm là giảm thời gian chờ, chuẩn hóa tiêu chí đầu vào/đầu ra và tăng mức độ tích hợp dữ liệu giữa các đơn vị.
 
-#### 3.2.3.2. Phân tích lãng phí
+### 3.2.3.2. Phân tích lãng phí
 
-###### Bảng 3. : Các loại lãng phí trong quy trình hoạch định chiến lược kinh doanh
+![Sơ đồ](.\assets\diagrams\hoach_dinh\LangPhi.png)
 
 | Nhóm lãng phí | Hoạt động gây lãng phí | Tác động | Đề xuất cải tiến |
 |---|---|---|---|
 | **Move** | Luân chuyển dự thảo giữa nhiều đơn vị để lấy ý kiến | Tăng thời gian và khó kiểm soát phiên bản | Sử dụng workflow điện tử và kho tài liệu dùng chung. |
-| **Hold** | Thời gian chờ lịch họp và phản hồi phê duyệt của HĐQT/BĐH | Tăng Cycle Time | Quy định SLA và lịch phê duyệt định kỳ. |
+| **Hold** | Chờ họp, chờ phản hồi và chờ phê duyệt | Tăng Cycle Time | Quy định SLA và lịch phê duyệt định kỳ. |
 | **Overdo** | Phân tích quá sâu đối với phương án có mức độ rủi ro thấp | Tăng nguồn lực nhưng giá trị tăng thêm thấp | Phân tầng mức độ phân tích theo quy mô/rủi ro. |
 | **xử lý lại** | Chỉnh sửa dự thảo khi bị trả lại | Tăng thời gian và chi phí | Chuẩn hóa tiêu chí đầu vào và checklist trước khi trình. |
 | **Over-processing** | Thu thập dữ liệu thủ công từ nhiều nguồn | Tăng thao tác và nguy cơ sai lệch | Tích hợp dữ liệu và xây dựng nguồn dữ liệu dùng chung. |
 
 **Kết luận:** Hai nhóm cần ưu tiên xử lý là **Hold** và **xử lý lại**, vì chúng có tác động trực tiếp đến thời gian hoàn thành quy trình. Việc chuẩn hóa tiêu chí phê duyệt và tăng tính minh bạch của dữ liệu đầu vào có thể đồng thời giảm cả thời gian chờ và số lần xử lý lại.
 
-#### 3.2.3.3. Phân tích Stakeholder
-
-###### Bảng 3. : Phân tích Stakeholder trong quy trình hoạch định chiến lược kinh doanh
+### 3.2.3.3. Phân tích Stakeholder
 
 | Stakeholder | Mức ảnh hưởng | Mức quan tâm | Vai trò |
 |---|---|---|---|
-|  | Cao | Cao | Phê duyệt chiến lược chính thức. |
+| HĐQT | Cao | Cao | Phê duyệt chiến lược chính thức. |
 | Ban Điều hành | Cao | Cao | Điều hành và phê duyệt sơ bộ. |
 | KD & Marketing | Cao | Cao | Chủ trì xây dựng chiến lược và tổng hợp kế hoạch. |
 | Kỹ thuật & Hạ tầng | Trung bình – Cao | Cao | Đảm bảo phương án phù hợp với năng lực hạ tầng. |
 | Tài chính – Kế toán | Cao | Cao | Kiểm soát tính khả thi và hiệu quả tài chính. |
 | Khối/Chi nhánh | Trung bình | Cao | Tiếp nhận chỉ tiêu và triển khai kế hoạch. |
 
-#### 3.2.3.4. Đăng ký vấn đề (Issue Register) và Pareto
+### 3.2.3.4. Đăng ký vấn đề (Issue Register) và Pareto
 
 Các vấn đề được ghi nhận theo **khả năng dẫn đến nhánh ngoại lệ/kết thúc không đạt**, thay vì theo số lần phát sinh vòng lặp.
-
-###### Bảng 3. : Danh sách vấn đề và mức độ ưu tiên cải tiến
 
 | Tên vấn đề | Mô tả | Giả định | Tác động định tính | Hành động cải tiến |
 |---|---|---|---|---|
@@ -202,11 +188,8 @@ Các vấn đề được ghi nhận theo **khả năng dẫn đến nhánh ngo�
 | Năng lực hạ tầng chưa đáp ứng | Không đạt tại GW 3 | P = 10% | Phương án không thể chuyển sang thẩm định tài chính | Đối chiếu phương án với năng lực hạ tầng sớm |
 | Khối/Chi nhánh không xác nhận chỉ tiêu | Không đạt tại GW 7 | P = 10% | Không thể chuyển sang triển khai | Lấy ý kiến khả thi trước khi chốt phân bổ |
 
+**Biểu đồ Pareto** (xếp theo xác suất không đạt giả định của từng Gateway):
 ![Biểu đồ Pareto](.\assets\diagrams\hoach_dinh\BieuDoPareto.png)
-
-####### Hình 3. : Biểu đồ ưu tiên rủi ro theo xác suất Gateway giả định (xếp theo xác suất không đạt giả định của từng Gateway; tổng trọng số = 105%):
-
-###### Bảng 3. : Xếp hạng rủi ro theo xác suất Gateway giả định
 
 | Vấn đề | Xác suất | Tỷ lệ % | % Tích lũy |
 |---|---:|---:|---:|
@@ -220,11 +203,9 @@ Các vấn đề được ghi nhận theo **khả năng dẫn đến nhánh ngo�
 
 **Nhận xét:** theo các xác suất giả định, GW 5, GW 4 và GW 6 chiếm khoảng **61,9%** tổng trọng số xác suất không đạt. Đây là chỉ báo để ưu tiên chuẩn hóa tiêu chí và chất lượng hồ sơ; không được diễn giải là 61,9% số vòng lặp.
 
-#### 3.2.3.5. Phân tích nguyên nhân bằng Fishbone
+### 3.2.3.5. Phân tích nguyên nhân bằng Fishbone
 
 ![Mô hình Fishbone](.\assets\diagrams\hoach_dinh\fishborn3.2.png)
-
-####### Hình 3. : Phân tích nguyên nhân bằng mô hình Fishbone
 
 Vấn đề trọng tâm:
 
@@ -241,17 +222,17 @@ Các nhóm nguyên nhân chính:
 
 ---
 
-#### 3.2.3.6. Phương pháp phỏng vấn
+### 3.2.3.2. Phương pháp phỏng vấn
 
 Phỏng vấn được sử dụng để thu thập thông tin từ các đối tượng trực tiếp tham gia hoặc có ảnh hưởng đến quy trình hoạch định chiến lược kinh doanh. Nội dung phỏng vấn tập trung vào cách thức thực hiện quy trình hiện tại, các điểm phát sinh chờ đợi, nguyên nhân gây chậm trễ, thời gian xử lý và tần suất phát sinh các trường hợp ngoại lệ.
 
 Các nhóm đối tượng được xem xét gồm Khối Kinh doanh & Marketing, Khối Kỹ thuật & Hạ tầng, Khối Tài chính – Kế toán, Ban Điều hành và đại diện Khối/Chi nhánh.
 
-Bộ câu hỏi được xây dựng nhằm thu thập thông tin từ các đối tượng liên quan. Trong trường hợp chưa có dữ liệu thực tế, các tham số được sử dụng dưới dạng giả định mô hình.
+Kết quả phỏng vấn được sử dụng làm cơ sở tham khảo cho phân tích định tính và xây dựng các tham số định lượng. Đối với các tỷ lệ và thời gian chưa có dữ liệu thống kê chính thức, kết quả được ghi nhận dưới dạng **ước tính/giả định phục vụ mô hình**, không đại diện cho số liệu thống kê chính thức của doanh nghiệp.
 
-##### 3.2.3.6.1. Câu hỏi phỏng vấn định tính
+#### 3.2.3.2.1. Câu hỏi phỏng vấn định tính
 
-###### Bảng 3. : Bộ câu hỏi phỏng vấn định tính có cấu trúc
+##### a. Câu hỏi có cấu trúc
 
 | Mã | Câu hỏi | Thang trả lời | Mục đích thu thập |
 |---|---|---|---|
@@ -263,7 +244,7 @@ Bộ câu hỏi được xây dựng nhằm thu thập thông tin từ các đ�
 
 Sau mỗi câu hỏi thang đo, có thể bổ sung một câu hỏi mở ngắn ("Vì sao anh/chị chọn mức này?") để thu thập ngữ cảnh, nhưng câu hỏi chính vẫn giữ dạng đóng để đảm bảo tính "có cấu trúc".
 
-###### Bảng 3. : Bộ câu hỏi phỏng vấn định tính không cấu trúc
+##### b. Câu hỏi không cấu trúc
 
 | Mã | Câu hỏi | Mục đích thu thập |
 |---|---|---|
@@ -273,9 +254,9 @@ Sau mỗi câu hỏi thang đo, có thể bổ sung một câu hỏi mở ngắn
 | QK04 | Nếu được thay đổi một điểm trong quy trình hiện tại, anh/chị sẽ ưu tiên thay đổi điểm nào và vì sao? | Xác định cơ hội cải tiến có tác động lớn. |
 | QK05 | Anh/chị còn nhận thấy vấn đề nào khác trong quy trình mà phần mô tả hiện tại chưa phản ánh đầy đủ? | Phát hiện vấn đề tiềm ẩn và các ngoại lệ chưa được mô hình hóa. |
 
-##### 3.2.3.6.2. Câu hỏi phỏng vấn định lượng
+#### 3.2.3.2.2. Câu hỏi phỏng vấn định lượng
 
-###### Bảng 3. : Bộ câu hỏi phỏng vấn định lượng có cấu trúc
+##### a. Câu hỏi có cấu trúc
 
 | Mã | Câu hỏi | Phương án trả lời (chọn 1) | Mục đích thu thập |
 |---|---|---|---|
@@ -285,7 +266,7 @@ Sau mỗi câu hỏi thang đo, có thể bổ sung một câu hỏi mở ngắn
 | QD04 | Trung bình mất bao nhiêu ngày để Ban Điều hành và HĐQT phản hồi hoặc phê duyệt hồ sơ (cộng dồn cả 2 cấp)? | ☐ ≤ 3 ngày ☐ 4–5 ngày ☐ 6–7 ngày ☐ ≥ 8 ngày | Kiểm chứng thời gian giả định của bước 9+10 (2+3 = 5 ngày). |
 | QD05 | Trong các chu kỳ hoạch định gần đây, khoảng bao nhiêu phần trăm hồ sơ phải điều chỉnh tại các điểm kiểm soát? | ☐ < 10% ☐ 10–20% ☐ 21–30% ☐ > 30% | Kiểm chứng xác suất không đạt Gateway giả định (10–30%). |
 
-###### Bảng 3. : Bộ câu hỏi phỏng vấn định lượng không cấu trúc
+##### b. Câu hỏi không cấu trúc
 
 | Mã | Câu hỏi | Đơn vị/Kết quả |
 |---|---|---|
@@ -295,11 +276,9 @@ Sau mỗi câu hỏi thang đo, có thể bổ sung một câu hỏi mở ngắn
 | QDK04 | Trong một chu kỳ hoạch định, khoảng bao nhiêu thời gian làm việc của đơn vị được dành cho việc tổng hợp, kiểm tra và xử lý lại dữ liệu? | Giờ/ngày |
 | QDK05 | Theo kinh nghiệm của anh/chị, nếu chuẩn hóa dữ liệu và quy trình phê duyệt thì có thể giảm khoảng bao nhiêu thời gian xử lý? | Ngày hoặc % |
 
-##### 3.2.3.6.3. Liên hệ giữa kết quả phỏng vấn và mô hình định lượng
+#### 3.2.3.2.3. Liên hệ giữa kết quả phỏng vấn và mô hình định lượng
 
 Kết quả từ nhóm câu hỏi định lượng được sử dụng để xác định hoặc kiểm tra các tham số của mô hình, gồm thời gian xử lý từng bước, thời gian chờ, số lần xử lý lại và xác suất phát sinh nhánh ngoại lệ tại các Gateway.
-
-###### Bảng 3. : Liên hệ tham số
 
 | Tham số trong mô hình | Câu hỏi liên quan | Cách sử dụng |
 |---|---|---|
@@ -311,13 +290,13 @@ Kết quả từ nhóm câu hỏi định lượng được sử dụng để x�
 | Thời gian xử lý xử lý lại | QDK01, QDK02 | Ước lượng thời gian phát sinh khi một Gateway không đạt. |
 | Khả năng giảm thời gian | QDK05 | Làm cơ sở đề xuất mục tiêu cải tiến. |
 
-Các giá trị xác suất sử dụng trong phần định lượng như **10%, 20%, 30%, 15%** cần được đối chiếu với kết quả phỏng vấn hoặc dữ liệu thực tế trước khi được xem là số liệu chính thức. Trong trường hợp chưa có dữ liệu thống kê đủ lớn, các giá trị này phải được ghi rõ là **giả định mô hình**.
+Các giá trị xác suất sử dụng trong phần định lượng như **10%, 20%, 30%, 15%** cần được đối chiếu với kết quả phỏng vấn hoặc dữ liệu thực tế trước khi được xem là số liệu chính thức. Trong trường hợp chưa có dữ liệu thống kê đủ lớn, các giá trị này phải được xem là **giả định mô hình**.
 
 ---
 
-### 3.2.4. Phân tích định lượng
+## 3.2.4. Phân tích định lượng
 
-#### 3.2.4.1. Phạm vi và giả định
+### 3.2.4.1. Phạm vi và giả định
 
 Phân tích định lượng đánh giá thời gian, chất lượng và chi phí của một **instance không có vòng lặp**. Các xác suất không đạt tại Gateway được dùng để ước lượng khả năng instance kết thúc không đạt, không dùng để tính thời gian hoặc chi phí xử lý lại.
 
@@ -325,9 +304,9 @@ Mô hình có hai loại kết quả: **Completed** khi đi hết đến bước
 
 Vì đồ thị không có cycle, một instance có thời gian hữu hạn theo đường đi thực tế. Không tồn tại kỳ vọng thời gian vô hạn do lặp lại Gateway.
 
-#### 3.2.4.2. Thời gian xử lý cơ bản
+![Sơ đồ](.\assets\diagrams\hoach_dinh\DinhLuong.png)
 
-###### Bảng 3. : Thời gian xử lý cơ bản
+### 3.2.4.2. Thời gian xử lý cơ bản
 
 | STT | Hoạt động | Thời gian cơ bản (ngày) | Ghi chú |
 |---|---|---:|---|
@@ -352,11 +331,9 @@ Với nhóm song song:
 
 Đây là thời gian của đường đi thành công cơ bản. Không cộng thời gian xử lý lại vì mô hình không có vòng xử lý lại.
 
-#### 3.2.4.3. Xác suất kết thúc không đạt và khả năng hoàn thành
+### 3.2.4.3. Xác suất kết thúc không đạt và khả năng hoàn thành
 
 Các Gateway được giữ để đo chất lượng quyết định; kết quả không đạt không tạo vòng lặp.
-
-###### Bảng 3. : Xếp hạng rủi ro theo xác suất Gateway giả định
 
 | Gateway | Xác suất không đạt | Tỷ trọng trong tổng xác suất không đạt* |
 |---|---:|---:|
@@ -377,13 +354,11 @@ Giả sử các xác suất độc lập ở mức mô hình:
 
 Các giá trị trên là **giả định mô hình**, không phải số liệu vận hành chính thức.
 
-#### 3.2.4.4. Tác động của xử lý ngoại lệ
+### 3.2.4.4. Tác động của xử lý ngoại lệ
 
 Không tính thời gian xử lý lại kỳ vọng và không sử dụng công thức E(T_xử lý lại) = P(failure) × T_xử lý lại, vì không có vòng lặp trong cùng instance. Thời gian của các Task xử lý ngoại lệ cần được đo từ log thực tế nếu doanh nghiệp muốn lập mô hình chi tiết hơn.
 
-#### 3.2.4.5. Processing Time và Process Efficiency
-
-###### Bảng 3. : Phân tích Processing Time và Process Efficiency của quy trình hoạch định chiến lược kinh doanh
+### 3.2.4.5. Processing Time và Process Efficiency
 
 | Bước | CT (ngày) | Tỷ lệ PT | PT (ngày) |
 |---|---:|---:|---:|
@@ -395,20 +370,18 @@ Không tính thời gian xử lý lại kỳ vọng và không sử dụng công
 | 6 | 5 | 50% | 2,5 |
 | 7 | 3 | 50% | 1,5 |
 | 8 | 2 | 100% | 2,0 |
-| 9 | 2 | 25% | 0,5 |
-| 10 | 3 | 20% | 0,6 |
+| 9 | 2 | 0% | 0,0 |
+| 10 | 3 | 0% | 0,0 |
 | 11 | 2 | 100% | 2,0 |
 | 12 | 5 | 100% | 5,0 |
 
-**PT_base = 1,0 + 4,5 + 1,5 + 2,5 + 1,5 + 2,0 + 0,5 + 0,6 + 2,0 + 5,0 = 21,6 ngày**
+**PT_base = 1,0 + 4,5 + 1,5 + 2,5 + 1,5 + 2,0 + 0 + 0 + 2,0 + 5,0 = 20,5 ngày**
 
-**Process Efficiency = (21,6 / 35) × 100% = 61,7%**
+**Process Efficiency = (20,5 / 35) × 100% = 58,6%**
 
 Không cộng PT xử lý lại vì mô hình không có xử lý lại loop.
 
-Theo giả định mô hình, Processing Time của quy trình đạt khoảng 21,6 ngày trên tổng Cycle Time 35 ngày, tương ứng Process Efficiency khoảng 61,7%. Phần thời gian còn lại chủ yếu đến từ thời gian chờ kiểm tra, phản hồi và phê duyệt giữa các đơn vị.
-
-#### 3.2.4.6. Phân tích chất lượng – First Pass Yield
+### 3.2.4.6. Phân tích chất lượng – First Pass Yield
 
 First Pass Yield (FPY) được sử dụng để đánh giá khả năng một instance đi qua toàn bộ các điểm kiểm soát mà không rơi vào nhánh kết thúc không đạt.
 
@@ -416,15 +389,13 @@ First Pass Yield (FPY) được sử dụng để đánh giá khả năng một 
 
 Theo giả định mô hình, khoảng 31,2% instance đi qua toàn bộ các Gateway mà không kết thúc tại nhánh ngoại lệ.
 
-#### 3.2.4.7. Phân tích chi phí
+### 3.2.4.7. Phân tích chi phí
 
 Chi phí nguồn lực nhân sự được tính theo:
 
 **Cost = Σ(Timeᵢ × Cost/dayᵢ)**
 
-Mức chi phí ngày giả định
-
-###### Bảng 3. : Chi phí nhân sự giả định theo nhóm nguồn lực
+Mức chi phí ngày giả định:
 
 | Nhóm nguồn lực | Chi phí nhân sự/ngày |
 |---|---:|
@@ -439,28 +410,26 @@ Chi phí cơ bản theo đường đi thành công, với giả định phân b�
 - Kỹ thuật & Hạ tầng: bước 4 (3) = 3 ngày → 3 × 700.000 = **2,10 triệu VNĐ**.
 - Tài chính – Kế toán: bước 7 (3) = 3 ngày → 3 × 700.000 = **2,10 triệu VNĐ**.
 - Ban Điều hành: bước 1 (1) + bước 9 (2) + bước 11 (2) = 5 ngày → 5 × 2.000.000 = **10,00 triệu VNĐ**.
-- HĐQT: bước 10 (3) = 3 ngày → 3 × 2.000.000 = **6,00 triệu VNĐ**.
+- HĐQT/BĐH: bước 10 (3) = 3 ngày → 3 × 2.000.000 = **6,00 triệu VNĐ**.
 
 **C_base = 33,50 triệu VNĐ**
 
 Không cộng khoản chi phí xử lý lại kỳ vọng riêng, vì mô hình không có xử lý lại loop trong cùng instance. Chi phí của các Task xử lý ngoại lệ chưa được lượng hóa do chưa có dữ liệu thời gian thực tế.
 
-#### 3.2.4.8. Tổng hợp kết quả định lượng
-
-###### Bảng 3. : Tổng hợp kết quả phân tích định lượng quy trình hoạch định chiến lược kinh doanh
+### 3.2.4.8. Tổng hợp kết quả định lượng
 
 | Chỉ tiêu | Kết quả mô hình | Ý nghĩa |
 |---|---:|---|
 | Thời gian đường đi thành công | **35 ngày** | Không có xử lý lại loop |
 | Thời gian xử lý lại trong cùng instance | **0 ngày** | Không tồn tại sequence flow quay ngược |
-| Processing Time | **21,6 ngày** | Theo tỷ lệ PT giả định |
-| Process Efficiency | **≈61,7%** | PT/CT của đường đi thành công |
+| Processing Time | **20,5 ngày** | Theo tỷ lệ PT giả định |
+| Process Efficiency | **≈58,6%** | PT/CT của đường đi thành công |
 | Xác suất hoàn thành | **31,2%** | Theo các xác suất Gateway giả định |
 | Xác suất kết thúc không đạt | **68,8%** | Kết thúc tại nhánh ngoại lệ, không lặp |
 | Chi phí cơ bản | **33,50 triệu VNĐ** | Đường đi thành công |
 | Chi phí xử lý lại trong cùng instance | **0 triệu VNĐ theo mô hình** | Không có vòng xử lý lại |
 
-#### 3.2.4.9. Nhận xét kết quả định lượng
+### 3.2.4.9. Nhận xét kết quả định lượng
 
 Theo các xác suất giả định và giả định độc lập, xác suất một instance hoàn thành toàn bộ quy trình là **31,2%**; **68,8%** còn lại đi vào một nhánh kết thúc không đạt. Đây là chỉ báo về chất lượng đầu vào và chất lượng quyết định, không phải xác suất của một vòng lặp.
 
@@ -468,12 +437,12 @@ Do không có cycle trong đồ thị, một instance không thể chạy vô h�
 
 Các xác suất, thời gian và chi phí hiện tại vẫn là **giả định mô hình**, cần kiểm chứng bằng log/hồ sơ lịch sử trước khi sử dụng làm KPI chính thức.
 
-### 3.2.5. Kết luận quy trình
+## 3.2.5. Kết luận quy trình
 
 Quy trình hoạch định chiến lược kinh doanh bao gồm các hoạt động từ xác định nhu cầu, thu thập và phân tích dữ liệu, xây dựng phương án, thẩm định, phê duyệt, phân bổ chỉ tiêu đến xây dựng kế hoạch hành động và theo dõi triển khai.
 
 Mô hình BPMN được thiết kế theo nguyên tắc mỗi process instance có luồng kết thúc rõ ràng. Các Gateway được đặt tại các điểm kiểm soát phù hợp; hai nhánh dữ liệu được đồng bộ bằng AND-Join sau khi đạt điều kiện kiểm soát. Trường hợp không đạt được chuyển sang nhánh ngoại lệ và kết thúc process instance bằng điểm kết thúc phù hợp.
 
-Theo các giả định định lượng hiện tại, Cycle Time cơ bản là **35 ngày**, Processing Time là **21,6 ngày**, Process Efficiency khoảng **61,7%**, khả năng hoàn thành khoảng **31,2%** và xác suất kết thúc không đạt khoảng **68,8%**.
+Theo các giả định định lượng hiện tại, Cycle Time cơ bản là **35 ngày**, Processing Time là **20,5 ngày**, Process Efficiency khoảng **58,6%**, khả năng hoàn thành khoảng **31,2%** và xác suất kết thúc không đạt khoảng **68,8%**.
 
 Các câu hỏi phỏng vấn định tính và định lượng được sử dụng để kiểm chứng cách thức vận hành thực tế, xác định các điểm chờ, nguyên nhân phát sinh vấn đề và cung cấp cơ sở để hiệu chỉnh các tham số định lượng khi có dữ liệu thực tế.
