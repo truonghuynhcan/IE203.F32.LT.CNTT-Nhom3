@@ -73,6 +73,76 @@ Các trường hợp cụ thể:
 
 **Nguyên tắc kết thúc:** mọi nhánh ngoại lệ đều có End Event rõ ràng và không có sequence flow quay về node đã đi qua. Infinite loop được loại bỏ ở **cấu trúc đồ thị BPMN**, không phải bằng cách giới hạn số lần xử lý lại.
 
+### 3.2.1.6. Phương pháp phỏng vấn
+
+Phỏng vấn được sử dụng để thu thập thông tin từ các đối tượng trực tiếp tham gia hoặc có ảnh hưởng đến quy trình hoạch định chiến lược kinh doanh. Nội dung phỏng vấn tập trung vào cách thức thực hiện quy trình hiện tại, các điểm phát sinh chờ đợi, nguyên nhân gây chậm trễ, thời gian xử lý và tần suất phát sinh các trường hợp ngoại lệ.
+
+Các nhóm đối tượng được xem xét gồm Khối Kinh doanh & Marketing, Khối Kỹ thuật & Hạ tầng, Khối Tài chính – Kế toán, Ban Điều hành và đại diện Khối/Chi nhánh.
+
+Kết quả phỏng vấn được sử dụng làm cơ sở tham khảo cho phân tích định tính và xây dựng các tham số định lượng. Đối với các tỷ lệ và thời gian chưa có dữ liệu thống kê chính thức, kết quả được ghi nhận dưới dạng **ước tính/giả định phục vụ mô hình**, không đại diện cho số liệu thống kê chính thức của doanh nghiệp.
+
+#### 3.2.1.6.1. Câu hỏi phỏng vấn định tính
+
+##### a. Câu hỏi có cấu trúc
+
+| Mã | Câu hỏi | Thang trả lời | Mục đích thu thập |
+|---|---|---|---|
+| QT01 | Các bước thực hiện quy trình hoạch định chiến lược hiện nay khớp với mô tả/BPMN đang áp dụng ở mức nào? | Hoàn toàn khớp / Khớp phần lớn / Khớp một phần / Ít khớp / Không khớp | Đối chiếu luồng nghiệp vụ thực tế với BPMN. |
+| QT02 | Dữ liệu đầu vào (thị trường, hạ tầng) nhận được thường đủ độ tin cậy để sử dụng ngay ở mức nào? | Luôn luôn / Thường xuyên / Thỉnh thoảng / Hiếm khi / Không bao giờ | Xác định điều kiện kiểm soát tại GW 1/GW 2. |
+| QT03 | Dự thảo kế hoạch chiến lược phải chỉnh sửa hoặc trình lại với tần suất ở mức nào? | Luôn luôn / Thường xuyên / Thỉnh thoảng / Hiếm khi / Không bao giờ | Xác định mức độ phát sinh xử lý lại. |
+| QT04 | Anh/chị đánh giá mức độ ảnh hưởng của thời gian chờ phản hồi liên đơn vị đến tiến độ chung ở mức nào? | Rất lớn / Lớn / Trung bình / Nhỏ / Không đáng kể | Xác định các điểm Hold và phụ thuộc liên đơn vị. |
+| QT05 | Cơ chế phối hợp và trao đổi dữ liệu hiện nay giữa các đơn vị được đánh giá ở mức nào? | Rất tốt / Tốt / Trung bình / Kém / Rất kém | Đánh giá cơ chế phối hợp, luân chuyển thông tin và vấn đề dữ liệu phân tán. |
+
+Sau mỗi câu hỏi thang đo, có thể bổ sung một câu hỏi mở ngắn ("Vì sao anh/chị chọn mức này?") để thu thập ngữ cảnh, nhưng câu hỏi chính vẫn giữ dạng đóng để đảm bảo tính "có cấu trúc".
+
+##### b. Câu hỏi không cấu trúc
+
+| Mã | Câu hỏi | Mục đích thu thập |
+|---|---|---|
+| QK01 | Theo anh/chị, điểm nào trong quy trình hiện nay gây khó khăn nhất khi thực hiện? | Khai thác vấn đề thực tế từ người trực tiếp tham gia. |
+| QK02 | Anh/chị có thể mô tả một trường hợp gần đây mà kế hoạch bị trả lại hoặc phải điều chỉnh nhiều lần không? | Khai thác tình huống xử lý lại thực tế và nguyên nhân. |
+| QK03 | Theo kinh nghiệm của anh/chị, điều gì thường làm cho việc phối hợp giữa các đơn vị bị chậm? | Xác định nguyên nhân của Hold và vấn đề phối hợp. |
+| QK04 | Nếu được thay đổi một điểm trong quy trình hiện tại, anh/chị sẽ ưu tiên thay đổi điểm nào và vì sao? | Xác định cơ hội cải tiến có tác động lớn. |
+| QK05 | Anh/chị còn nhận thấy vấn đề nào khác trong quy trình mà phần mô tả hiện tại chưa phản ánh đầy đủ? | Phát hiện vấn đề tiềm ẩn và các ngoại lệ chưa được mô hình hóa. |
+
+#### 3.2.1.6.2. Câu hỏi phỏng vấn định lượng
+
+##### a. Câu hỏi có cấu trúc
+
+| Mã | Câu hỏi | Phương án trả lời (chọn 1) | Mục đích thu thập |
+|---|---|---|---|
+| QD01 | Trung bình cần bao nhiêu ngày để thu thập và hoàn thiện dữ liệu thị trường đầu vào? | ☐ ≤ 3 ngày ☐ 4–5 ngày ☐ 6–7 ngày ☐ ≥ 8 ngày | Kiểm chứng thời gian giả định của bước 2 (5 ngày). |
+| QD02 | Trung bình một dự thảo kế hoạch mất bao nhiêu ngày để hoàn thiện **và tự kiểm tra tính đầy đủ** trước khi trình Ban Điều hành? | ☐ ≤ 1 ngày ☐ 2 ngày ☐ 3–4 ngày ☐ ≥ 5 ngày | Kiểm chứng thời gian giả định của bước 8 (gộp, 2 ngày). |
+| QD03 | Trong một chu kỳ hoạch định, trung bình có bao nhiêu lần dự thảo phải chỉnh sửa hoặc trình lại? | ☐ 0 lần ☐ 1 lần ☐ 2 lần ☐ ≥ 3 lần | Đánh giá mức độ xử lý lại thực tế so với xác suất Gateway giả định. |
+| QD04 | Trung bình mất bao nhiêu ngày để Ban Điều hành và HĐQT phản hồi hoặc phê duyệt hồ sơ (cộng dồn cả 2 cấp)? | ☐ ≤ 3 ngày ☐ 4–5 ngày ☐ 6–7 ngày ☐ ≥ 8 ngày | Kiểm chứng thời gian giả định của bước 9+10 (2+3 = 5 ngày). |
+| QD05 | Trong các chu kỳ hoạch định gần đây, khoảng bao nhiêu phần trăm hồ sơ phải điều chỉnh tại các điểm kiểm soát? | ☐ < 10% ☐ 10–20% ☐ 21–30% ☐ > 30% | Kiểm chứng xác suất không đạt Gateway giả định (10–30%). |
+
+##### b. Câu hỏi không cấu trúc
+
+| Mã | Câu hỏi | Đơn vị/Kết quả |
+|---|---|---|
+| QDK01 | Anh/chị thường mất khoảng bao lâu để xử lý một lần yêu cầu bổ sung dữ liệu hoặc chỉnh sửa phương án? | Ngày/giờ |
+| QDK02 | Nếu tính cả thời gian chờ phản hồi, một vòng trình lại thường kéo dài thêm bao nhiêu thời gian? | Ngày |
+| QDK03 | Theo các hồ sơ anh/chị từng xử lý, số lần chỉnh sửa thường dao động trong khoảng bao nhiêu lần? | Lần/chu kỳ |
+| QDK04 | Trong một chu kỳ hoạch định, khoảng bao nhiêu thời gian làm việc của đơn vị được dành cho việc tổng hợp, kiểm tra và xử lý lại dữ liệu? | Giờ/ngày |
+| QDK05 | Theo kinh nghiệm của anh/chị, nếu chuẩn hóa dữ liệu và quy trình phê duyệt thì có thể giảm khoảng bao nhiêu thời gian xử lý? | Ngày hoặc % |
+
+#### 3.2.1.6.3. Liên hệ giữa kết quả phỏng vấn và mô hình định lượng
+
+Kết quả từ nhóm câu hỏi định lượng được sử dụng để xác định hoặc kiểm tra các tham số của mô hình, gồm thời gian xử lý từng bước, thời gian chờ, số lần xử lý lại và xác suất phát sinh nhánh ngoại lệ tại các Gateway.
+
+| Tham số trong mô hình | Câu hỏi liên quan | Cách sử dụng |
+|---|---|---|
+| Thời gian thu thập dữ liệu | QD01, QDK01 | Ước lượng thời gian bước 2 và thời gian bổ sung dữ liệu. |
+| Thời gian hoàn thiện dự thảo | QD02 | Ước lượng thời gian bước 8. |
+| Số lần chỉnh sửa/trình lại | QD03, QDK03 | Đánh giá mức độ xử lý lại. |
+| Thời gian phê duyệt | QD04, QDK02 | Ước lượng thời gian Hold tại các cấp phê duyệt. |
+| Tỷ lệ hồ sơ phải điều chỉnh | QD05 | Tham khảo để xác định xác suất Gateway không đạt. |
+| Thời gian xử lý xử lý lại | QDK01, QDK02 | Ước lượng thời gian phát sinh khi một Gateway không đạt. |
+| Khả năng giảm thời gian | QDK05 | Làm cơ sở đề xuất mục tiêu cải tiến. |
+
+Các giá trị xác suất sử dụng trong phần định lượng như **10%, 20%, 30%, 15%** cần được đối chiếu với kết quả phỏng vấn hoặc dữ liệu thực tế trước khi được xem là số liệu chính thức. Trong trường hợp chưa có dữ liệu thống kê đủ lớn, các giá trị này phải được xem là **giả định mô hình**.
+
 ## 3.2.2. Mô hình hóa quy trình
 ![Sơ đồ](.\assets\diagrams\hoach_dinh\HoachDinhChienLuoc.png)
 
@@ -219,78 +289,6 @@ Các nhóm nguyên nhân chính:
 - **Data/System:** dữ liệu phân tán ở nhiều đơn vị, cập nhật không đồng thời và còn phụ thuộc vào thao tác thủ công.
 
 **Kết luận nguyên nhân:** Nhóm **Method** và **Data/System** là các nguyên nhân có khả năng tác động lớn đến việc phát sinh nhánh ngoại lệ. Do đó, ưu tiên cải tiến là chuẩn hóa tiêu chí đánh giá/phê duyệt và xây dựng cơ chế dữ liệu tập trung, cập nhật đồng bộ.
-
----
-
-### 3.2.3.2. Phương pháp phỏng vấn
-
-Phỏng vấn được sử dụng để thu thập thông tin từ các đối tượng trực tiếp tham gia hoặc có ảnh hưởng đến quy trình hoạch định chiến lược kinh doanh. Nội dung phỏng vấn tập trung vào cách thức thực hiện quy trình hiện tại, các điểm phát sinh chờ đợi, nguyên nhân gây chậm trễ, thời gian xử lý và tần suất phát sinh các trường hợp ngoại lệ.
-
-Các nhóm đối tượng được xem xét gồm Khối Kinh doanh & Marketing, Khối Kỹ thuật & Hạ tầng, Khối Tài chính – Kế toán, Ban Điều hành và đại diện Khối/Chi nhánh.
-
-Kết quả phỏng vấn được sử dụng làm cơ sở tham khảo cho phân tích định tính và xây dựng các tham số định lượng. Đối với các tỷ lệ và thời gian chưa có dữ liệu thống kê chính thức, kết quả được ghi nhận dưới dạng **ước tính/giả định phục vụ mô hình**, không đại diện cho số liệu thống kê chính thức của doanh nghiệp.
-
-#### 3.2.3.2.1. Câu hỏi phỏng vấn định tính
-
-##### a. Câu hỏi có cấu trúc
-
-| Mã | Câu hỏi | Thang trả lời | Mục đích thu thập |
-|---|---|---|---|
-| QT01 | Các bước thực hiện quy trình hoạch định chiến lược hiện nay khớp với mô tả/BPMN đang áp dụng ở mức nào? | Hoàn toàn khớp / Khớp phần lớn / Khớp một phần / Ít khớp / Không khớp | Đối chiếu luồng nghiệp vụ thực tế với BPMN. |
-| QT02 | Dữ liệu đầu vào (thị trường, hạ tầng) nhận được thường đủ độ tin cậy để sử dụng ngay ở mức nào? | Luôn luôn / Thường xuyên / Thỉnh thoảng / Hiếm khi / Không bao giờ | Xác định điều kiện kiểm soát tại GW 1/GW 2. |
-| QT03 | Dự thảo kế hoạch chiến lược phải chỉnh sửa hoặc trình lại với tần suất ở mức nào? | Luôn luôn / Thường xuyên / Thỉnh thoảng / Hiếm khi / Không bao giờ | Xác định mức độ phát sinh xử lý lại. |
-| QT04 | Anh/chị đánh giá mức độ ảnh hưởng của thời gian chờ phản hồi liên đơn vị đến tiến độ chung ở mức nào? | Rất lớn / Lớn / Trung bình / Nhỏ / Không đáng kể | Xác định các điểm Hold và phụ thuộc liên đơn vị. |
-| QT05 | Cơ chế phối hợp và trao đổi dữ liệu hiện nay giữa các đơn vị được đánh giá ở mức nào? | Rất tốt / Tốt / Trung bình / Kém / Rất kém | Đánh giá cơ chế phối hợp, luân chuyển thông tin và vấn đề dữ liệu phân tán. |
-
-Sau mỗi câu hỏi thang đo, có thể bổ sung một câu hỏi mở ngắn ("Vì sao anh/chị chọn mức này?") để thu thập ngữ cảnh, nhưng câu hỏi chính vẫn giữ dạng đóng để đảm bảo tính "có cấu trúc".
-
-##### b. Câu hỏi không cấu trúc
-
-| Mã | Câu hỏi | Mục đích thu thập |
-|---|---|---|
-| QK01 | Theo anh/chị, điểm nào trong quy trình hiện nay gây khó khăn nhất khi thực hiện? | Khai thác vấn đề thực tế từ người trực tiếp tham gia. |
-| QK02 | Anh/chị có thể mô tả một trường hợp gần đây mà kế hoạch bị trả lại hoặc phải điều chỉnh nhiều lần không? | Khai thác tình huống xử lý lại thực tế và nguyên nhân. |
-| QK03 | Theo kinh nghiệm của anh/chị, điều gì thường làm cho việc phối hợp giữa các đơn vị bị chậm? | Xác định nguyên nhân của Hold và vấn đề phối hợp. |
-| QK04 | Nếu được thay đổi một điểm trong quy trình hiện tại, anh/chị sẽ ưu tiên thay đổi điểm nào và vì sao? | Xác định cơ hội cải tiến có tác động lớn. |
-| QK05 | Anh/chị còn nhận thấy vấn đề nào khác trong quy trình mà phần mô tả hiện tại chưa phản ánh đầy đủ? | Phát hiện vấn đề tiềm ẩn và các ngoại lệ chưa được mô hình hóa. |
-
-#### 3.2.3.2.2. Câu hỏi phỏng vấn định lượng
-
-##### a. Câu hỏi có cấu trúc
-
-| Mã | Câu hỏi | Phương án trả lời (chọn 1) | Mục đích thu thập |
-|---|---|---|---|
-| QD01 | Trung bình cần bao nhiêu ngày để thu thập và hoàn thiện dữ liệu thị trường đầu vào? | ☐ ≤ 3 ngày ☐ 4–5 ngày ☐ 6–7 ngày ☐ ≥ 8 ngày | Kiểm chứng thời gian giả định của bước 2 (5 ngày). |
-| QD02 | Trung bình một dự thảo kế hoạch mất bao nhiêu ngày để hoàn thiện **và tự kiểm tra tính đầy đủ** trước khi trình Ban Điều hành? | ☐ ≤ 1 ngày ☐ 2 ngày ☐ 3–4 ngày ☐ ≥ 5 ngày | Kiểm chứng thời gian giả định của bước 8 (gộp, 2 ngày). |
-| QD03 | Trong một chu kỳ hoạch định, trung bình có bao nhiêu lần dự thảo phải chỉnh sửa hoặc trình lại? | ☐ 0 lần ☐ 1 lần ☐ 2 lần ☐ ≥ 3 lần | Đánh giá mức độ xử lý lại thực tế so với xác suất Gateway giả định. |
-| QD04 | Trung bình mất bao nhiêu ngày để Ban Điều hành và HĐQT phản hồi hoặc phê duyệt hồ sơ (cộng dồn cả 2 cấp)? | ☐ ≤ 3 ngày ☐ 4–5 ngày ☐ 6–7 ngày ☐ ≥ 8 ngày | Kiểm chứng thời gian giả định của bước 9+10 (2+3 = 5 ngày). |
-| QD05 | Trong các chu kỳ hoạch định gần đây, khoảng bao nhiêu phần trăm hồ sơ phải điều chỉnh tại các điểm kiểm soát? | ☐ < 10% ☐ 10–20% ☐ 21–30% ☐ > 30% | Kiểm chứng xác suất không đạt Gateway giả định (10–30%). |
-
-##### b. Câu hỏi không cấu trúc
-
-| Mã | Câu hỏi | Đơn vị/Kết quả |
-|---|---|---|
-| QDK01 | Anh/chị thường mất khoảng bao lâu để xử lý một lần yêu cầu bổ sung dữ liệu hoặc chỉnh sửa phương án? | Ngày/giờ |
-| QDK02 | Nếu tính cả thời gian chờ phản hồi, một vòng trình lại thường kéo dài thêm bao nhiêu thời gian? | Ngày |
-| QDK03 | Theo các hồ sơ anh/chị từng xử lý, số lần chỉnh sửa thường dao động trong khoảng bao nhiêu lần? | Lần/chu kỳ |
-| QDK04 | Trong một chu kỳ hoạch định, khoảng bao nhiêu thời gian làm việc của đơn vị được dành cho việc tổng hợp, kiểm tra và xử lý lại dữ liệu? | Giờ/ngày |
-| QDK05 | Theo kinh nghiệm của anh/chị, nếu chuẩn hóa dữ liệu và quy trình phê duyệt thì có thể giảm khoảng bao nhiêu thời gian xử lý? | Ngày hoặc % |
-
-#### 3.2.3.2.3. Liên hệ giữa kết quả phỏng vấn và mô hình định lượng
-
-Kết quả từ nhóm câu hỏi định lượng được sử dụng để xác định hoặc kiểm tra các tham số của mô hình, gồm thời gian xử lý từng bước, thời gian chờ, số lần xử lý lại và xác suất phát sinh nhánh ngoại lệ tại các Gateway.
-
-| Tham số trong mô hình | Câu hỏi liên quan | Cách sử dụng |
-|---|---|---|
-| Thời gian thu thập dữ liệu | QD01, QDK01 | Ước lượng thời gian bước 2 và thời gian bổ sung dữ liệu. |
-| Thời gian hoàn thiện dự thảo | QD02 | Ước lượng thời gian bước 8. |
-| Số lần chỉnh sửa/trình lại | QD03, QDK03 | Đánh giá mức độ xử lý lại. |
-| Thời gian phê duyệt | QD04, QDK02 | Ước lượng thời gian Hold tại các cấp phê duyệt. |
-| Tỷ lệ hồ sơ phải điều chỉnh | QD05 | Tham khảo để xác định xác suất Gateway không đạt. |
-| Thời gian xử lý xử lý lại | QDK01, QDK02 | Ước lượng thời gian phát sinh khi một Gateway không đạt. |
-| Khả năng giảm thời gian | QDK05 | Làm cơ sở đề xuất mục tiêu cải tiến. |
-
-Các giá trị xác suất sử dụng trong phần định lượng như **10%, 20%, 30%, 15%** cần được đối chiếu với kết quả phỏng vấn hoặc dữ liệu thực tế trước khi được xem là số liệu chính thức. Trong trường hợp chưa có dữ liệu thống kê đủ lớn, các giá trị này phải được xem là **giả định mô hình**.
 
 ---
 
