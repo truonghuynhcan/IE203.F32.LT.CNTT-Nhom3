@@ -1,5 +1,7 @@
 ## **3.7. QUY TRÌNH HỖ TRỢ 2: QUẢN LÝ TÀI CHÍNH – KẾ TOÁN (THU CƯỚC, ĐỐI SOÁT CÔNG NỢ VÀ XUẤT HÓA ĐƠN ĐIỆN TỬ)**
 
+> *Sinh viên phụ trách thực hiện: Đoàn Hữu Hàn - MSSV: 25410199*
+
 ---
 
 ### **3.7.1. Phương pháp thực hiện (Khám phá quy trình - Process Discovery)**
@@ -16,6 +18,10 @@ Khám phá quy trình (Process Discovery) là bước khởi đầu then chốt 
 Phương pháp dựa trên bằng chứng tập trung thu thập, kiểm tra chéo và đối soát các tài liệu, hồ sơ kế toán, dữ liệu log hệ thống và văn bản hướng dẫn nghiệp vụ thực tế đang ban hành tại FPT Telecom nhằm phản ánh chính xác quy trình As-is mà không bị ảnh hưởng bởi nhận định cảm tính.
 
 ##### **a) Mô tả quy trình hiện có (As-is Process Description)**
+
+**Mục tiêu và phạm vi quy trình:**
+* **Mục tiêu quy trình:** Đảm bảo 100% dòng tiền cước dịch vụ viễn thông (Internet cáp quang FTTH, Truyền hình FPT Play, Camera an ninh) được thu hồi đầy đủ, chính xác và kịp thời; bảo toàn nguồn vốn lưu động của doanh nghiệp; phát hành và truyền nhận dữ liệu Hóa đơn điện tử e-Invoice hợp pháp tuân thủ Thông tư 78/2021/TT-BTC và Nghị định 123/2020/NĐ-CP; quản trị công nợ minh bạch và giảm thiểu tỷ lệ nợ khó đòi.
+* **Phạm vi quy trình:** Bắt đầu từ thời điểm hệ thống FPT Billing tự động quét cước chu kỳ vào cuối tháng, phát hành thông báo cước đa kênh, tiếp nhận phân luồng thanh toán, thực hiện đối soát ngân hàng, gạch nợ, ký số e-Invoice, theo dõi nợ quá hạn, kích hoạt lệnh khóa/mở cước (Barring/Unbarring), đến hạch toán phân hệ kế toán ERP (SAP) và đóng kỳ kế toán doanh thu.
 
 Quy trình Quản lý tài chính – kế toán trong mảng thu cước và đối soát doanh thu viễn thông tại FPT Telecom là quy trình hỗ trợ cốt lõi, có nhiệm vụ chuyển đổi toàn bộ dịch vụ Internet/Truyền hình/Camera đã cung cấp cho khách hàng thành dòng tiền thực thu của doanh nghiệp; đồng thời bảo đảm tính chuẩn xác của hóa đơn chứng từ theo quy định pháp lý của Tổng cục Thuế và chuẩn mực kế toán Việt Nam (VAS/IFRS).
 
@@ -61,6 +67,39 @@ Chuỗi hoạt động As-is bao gồm **12 bước nghiệp vụ liên tục** 
 * **Bước 12: Tổng hợp báo cáo tài chính doanh thu và phân tích nợ khó đòi:**  
   Cuối kỳ kế toán, Kế toán doanh thu và Kế toán trưởng tổng hợp Báo cáo doanh thu thực thu, Báo cáo đối soát công nợ, tính toán tỷ lệ trích lập dự phòng nợ khó đòi và trình Ban Giám đốc Chi nhánh phê duyệt.
 
+
+
+**Các tác nhân tham gia quy trình (Actors & Roles):**
+
+**Bảng 3.7.1: Danh mục các tác nhân tham gia quy trình Quản lý Tài chính – Kế toán**
+
+| STT | Tác nhân | Phân loại | Vai trò và trách nhiệm cốt lõi trong quy trình |
+| :---: | :--- | :---: | :--- |
+| **1** | **Khách hàng thuê bao** | External Actor | Tiếp nhận thông báo cước; lựa chọn kênh thanh toán (Online qua ngân hàng/Foxpay hoặc Offline tại quầy/tại nhà); nhận hóa đơn e-Invoice. |
+| **2** | **Đối tác Ngân hàng & Cổng thanh toán** | External Actor | Xử lý giao dịch trừ tiền; gửi callback xác thực; xuất file sao kê giao dịch hàng ngày (Settlement File) cho FPT. |
+| **3** | **Hệ thống FPT Billing** | Internal System | Quét cước chu kỳ; tạo thông báo cước; tiếp nhận mã giao dịch; đối soát tự động; gạch nợ CSDL; truyền lệnh Barring/Unbarring sang mạng lõi AAA. |
+| **4** | **Phân hệ Kế toán ERP (SAP)** | Internal System | Tự động ghi nhận định khoản kế toán (Nợ TK 111/112, Có TK 131, Có TK 511, Có TK 3331); đồng bộ dữ liệu sổ cái và Báo cáo tài chính. |
+| **5** | **Thu ngân / Giao dịch viên** | Internal User | Thu tiền mặt trực tiếp tại quầy hoặc tại nhà khách hàng; lập phiếu thu trên Mobisale; kiểm đếm và nộp tiền mặt vào ngân hàng. |
+| **6** | **Kế toán Doanh thu** | Internal User | Tiếp nhận file sao kê ngân hàng; đối soát số liệu; xử lý lệch cước ngoại lệ; kiểm soát ký số e-Invoice; lập Báo cáo doanh thu ngày/tháng. |
+| **7** | **Kế toán Công nợ & CSKH** | Internal User | Quét danh sách nợ quá hạn; trích xuất Aging Debt Report; triển khai chiến dịch nhắc nợ đa kênh; tiếp nhận tra soát khiếu nại cước. |
+| **8** | **Kế toán trưởng & Ban Giám đốc** | Management | Phê duyệt biên bản tra soát sai lệch; duyệt chính sách xóa nợ/trích lập dự phòng nợ khó đòi; phê duyệt BCTC doanh thu chi nhánh. |
+
+**Khách hàng của quy trình (Customers):**
+* **Khách hàng bên ngoài (External Customer):** Thuê bao cá nhân và doanh nghiệp sử dụng mạng Internet/Truyền hình FPT. Họ mong muốn nhận thông báo cước minh bạch, thanh toán nhanh chóng tiện lợi, được gạch nợ tức thì và không bị gián đoạn đường truyền mạng vô cớ.
+* **Khách hàng nội bộ (Internal Customer):** Ban Giám đốc Chi nhánh, Phòng Kế toán Tổng công ty và Khối Chăm sóc khách hàng. Cần dữ liệu doanh thu chính xác, công nợ minh bạch và dòng tiền quay vòng nhanh chóng.
+
+**Khả năng kết quả của quy trình (Possible Outcomes theo chuẩn môn học):**
+
+**Bảng 3.7.2: Các kịch bản kết quả đầu ra và cơ chế xử lý ngoại lệ quy trình tài chính**
+
+| Kết quả đầu ra | Phân loại | Diễn giải chi tiết kịch bản |
+| :--- | :---: | :--- |
+| **Thu cước & Gạch nợ thành công (Happy Path)** | Thành công | Khách hàng thanh toán đúng hạn qua ngân hàng/Foxpay; đối soát khớp 100%; tự động gạch nợ tức thì; phát hành e-Invoice hợp lệ; mạng thông suốt. |
+| **Xử lý tra soát sai lệch đối soát** | Xử lý ngoại lệ | Khách hàng chuyển khoản sai cú pháp mã HĐ hoặc nghẽn giao dịch liên ngân hàng; Kế toán lập biên bản tra soát và gạch nợ bổ sung bằng tay. |
+| **Khách hàng nợ quá hạn và tạm khóa cước** | Xử lý ngoại lệ | Khách hàng chậm thanh toán sau ngày 15; chuyển sang nhắc nợ tự động; quá ngày 21 kích hoạt lệnh Barring tạm ngưng Internet; mở lại sau khi nộp cước. |
+| **Xử lý khiếu nại cước dịch vụ** | Xử lý ngoại lệ | Khách hàng khiếu nại cước phát sinh; CSKH và Kế toán tra soát log hệ thống; nếu tính sai lập phiếu giảm trừ/hoàn tiền; nếu đúng giải thích thỏa đáng. |
+| **Thuê bao nợ cước khó đòi (> 90 ngày)** | Không thành công | Khách hàng rời mạng không nộp nợ; chấm dứt hợp đồng; chuyển bộ phận pháp chế thu hồi nợ xấu và trích lập dự phòng tổn thất tài chính. |
+
 ---
 
 ##### **b) Sơ đồ tổ chức và Ma trận trách nhiệm (Organizational Chart & RACI Matrix)**
@@ -69,9 +108,7 @@ Bộ máy quản lý tài chính – kế toán tại Chi nhánh FPT Telecom đ�
 
 ![Sơ đồ tổ chức bộ máy Quản lý Tài chính - Kế toán FPT Telecom](./assets/diagrams/quan_ly_tai_chinh/quanlytaichinh.jpg)
 
-
-**Ma trận phân công trách nhiệm (RACI Matrix):**  
-*(R – Responsible: Thực hiện trực tiếp; A – Accountable: Phê duyệt cuối cùng; C – Consulted: Tham vấn chuyên môn; I – Informed: Nhận thông tin)*
+**Bảng 3.7.3: Ma trận phân công trách nhiệm (RACI Matrix) quy trình Quản lý Tài chính – Kế toán**
 
 | Hoạt động nghiệp vụ | Thu ngân / GDV | Kế toán Doanh thu | Kế toán Công nợ | Kế toán trưởng | Ban Giám đốc | Hệ thống Billing/ERP |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -87,16 +124,15 @@ Bộ máy quản lý tài chính – kế toán tại Chi nhánh FPT Telecom đ�
 | Kích hoạt lệnh tạm khóa dịch vụ (Barring) | I | I | C | I | I | **R / A** |
 | Báo cáo doanh thu & trích lập nợ khó đòi | I | **R** | **R** | **C** | **A** | I |
 
+
 ---
 
 ##### **c) Kế hoạch làm việc (Work Schedule)**
 
 Quy trình thu cước và đối soát tài chính viễn thông có tần suất giao dịch cực lớn (hàng chục nghìn thuê bao/ngày), đòi hỏi kế hoạch làm việc chặt chẽ theo từng khung giờ trong ngày và từng giai đoạn trong tháng:
 
-**Kế hoạch công việc theo ngày (Daily Schedule):**
+**Bảng 3.7.4: Kế hoạch công việc theo ngày (Daily Schedule) của nhân sự tài chính – kế toán**
 
-| Khung giờ | Bộ phận thực hiện | Nội dung công việc chi tiết |
-| :---: | :--- | :--- |
 | **08:00 – 09:00** | Kế toán Doanh thu & Ngân quỹ | Kiểm tra sao kê đầu ngày; tiếp nhận biên bản bàn giao tiền mặt và hóa đơn thu hộ từ các Thu ngân hiện trường ca hôm trước; nộp tiền mặt vào tài khoản ngân hàng công ty. |
 | **09:00 – 11:30** | Kế toán Doanh thu & Foxpay | Rà soát các giao dịch thanh toán trực tuyến bị lỗi hoặc treo trạng thái trong đêm; xử lý các yêu cầu tra soát hoàn tiền từ ngân hàng liên kết. |
 | **11:30 – 12:00** | Thu ngân / Giao dịch viên | Chốt ca sáng tại quầy giao dịch; kiểm đếm tiền két và đối chiếu số liệu phiếu thu trên hệ thống. |
@@ -105,10 +141,10 @@ Quy trình thu cước và đối soát tài chính viễn thông có tần su�
 | **17:30 – 19:00** | Thu ngân & Kế toán | Chốt sổ quỹ tiền mặt cuối ngày; niêm phong két sắt; kiểm tra nộp tiền ca chiều của các đội Thu ngân lưu động. |
 | **23:00 – 01:00** | Hệ thống & Kế toán trực ca | **Khung giờ đối soát tự động:** Hệ thống Billing tự động tải file Settlement từ Foxpay, VNPay, Napas; chạy đối soát tự động theo Batch Job; gửi email cảnh báo các bản ghi lệch cước. |
 
-**Kế hoạch công việc theo chu kỳ tháng (Monthly Schedule):**
 
-| Giai đoạn trong tháng | Bộ phận chủ trì | Mục tiêu và nhiệm vụ trọng tâm |
-| :---: | :--- | :--- |
+
+**Bảng 3.7.5: Kế hoạch công việc theo chu kỳ tính cước và đóng sổ kế toán tháng**
+
 | **Ngày 01 – Ngày 03** | Hệ thống Billing & Kế toán DT | Chốt số liệu cước tháng trước; quét cước thuê bao, cước phát sinh và cước thiết bị; phát hành đồng loạt Thông báo cước. |
 | **Ngày 04 – Ngày 15** | Toàn bộ khối Thu ngân & Kế toán | **Giai đoạn cao điểm thu cước:** Đẩy mạnh thu cước qua kênh Online và Offline; theo dõi sát sao dòng tiền về tài khoản ngân hàng. |
 | **Ngày 16 – Ngày 20** | Kế toán Công nợ & CSKH | **Chiến dịch nhắc nợ đợt 1:** Lọc danh sách nợ cước quá hạn; kích hoạt Voicebot nhắc cước tự động; gửi tin nhắn Zalo ZNS cảnh báo ngắt dịch vụ. |
@@ -116,12 +152,14 @@ Quy trình thu cước và đối soát tài chính viễn thông có tần su�
 | **Ngày 26 – Ngày 28** | Thu ngân & Kế toán | Rà soát thu hồi thiết bị Modem đối với khách hàng nợ cước khó đòi có nguy cơ rời mạng (Churn); đối chiếu tài sản thu hồi với Thủ kho. |
 | **Ngày 29 – Ngày 30/31** | Kế toán trưởng & Kế toán DT | Khóa sổ kế toán tháng; đối soát tổng thể doanh thu viễn thông; lập báo cáo tuổi nợ; chuyển số liệu chính thức sang phân hệ SAP ERP tổng công ty. |
 
+
+
 ---
 
 ##### **d) Thuật ngữ và sổ tay nghiệp vụ (Glossary & Manuals)**
 
-| Thuật ngữ / Ký hiệu | Tên đầy đủ / Định nghĩa | Vai trò trong quy trình FPT Telecom |
-| :--- | :--- | :--- |
+**Bảng 3.7.6: Bảng thuật ngữ và định nghĩa nghiệp vụ tài chính – kế toán viễn thông**
+
 | **Billing System** | Hệ thống tính cước viễn thông | Phần mềm chuyên dụng tính toán lưu lượng, cước trọn gói, khuyến mãi và xuất thông báo cước thuê bao. |
 | **e-Invoice** | Hóa đơn điện tử | Hóa đơn GTGT có mã của cơ quan thuế được khởi tạo, gửi, nhận, lưu trữ bằng phương tiện điện tử. |
 | **Reconciliation** | Đối soát tài chính | Quá trình so khớp độc lập giữa sổ phụ ngân hàng/cổng thanh toán với dữ liệu giao dịch ghi nhận trên FPT Billing. |
@@ -133,14 +171,15 @@ Quy trình thu cước và đối soát tài chính viễn thông có tần su�
 | **Foxpay** | Trung tâm thanh toán điện tử FPT | Cổng thanh toán trung gian và ví điện tử trực thuộc FPT Telecom, xử lý các giao dịch thanh toán trực tuyến. |
 | **Auto-debit** | Trích nợ tự động | Tính năng cho phép FPT tự động trừ tiền cước hàng tháng từ tài khoản ngân hàng của khách hàng theo thỏa thuận. |
 
+
 ---
 
 ##### **e) Hệ thống biểu mẫu áp dụng (Forms & Templates)**
 
 Dưới đây là 6 biểu mẫu nghiệp vụ kế toán thực tế được áp dụng chuẩn hóa trong quy trình:
 
-**Biểu mẫu 1: Bảng kê thu cước và hòa mạng trong ngày**  
-* *Mã hiệu:* BM-TCKT-01 | *Đơn vị:* Phòng Kế toán Chi nhánh | *Ngày lập:* Hàng ngày  
+**Bảng 3.7.7: Bảng kê thu cước và hòa mạng trong ngày (BM-TCKT-01)**
+* *Mã hiệu:* BM-TCKT-01 | *Đơn vị:* Phòng Kế toán Chi nhánh | *Ngày lập:* Hàng ngày
 
 | STT | Mã Thu ngân | Mã Hợp đồng | Tên Khách hàng | Gói cước | Số tiền thu (VNĐ) | Hình thức TT | Mã phiếu thu Mobisale | Giờ thu |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -149,8 +188,9 @@ Dưới đây là 6 biểu mẫu nghiệp vụ kế toán thực tế được �
 | 3 | TN-105 | SGN124012 | Công ty TNHH ABC | F-Business | 1.100.000 | Chuyển khoản | PT-260901-03 | 14:20 |
 | **Tổng** | | | | | **1.650.000 VNĐ** | | | |
 
-**Biểu mẫu 2: Biên bản đối soát giao dịch cổng thanh toán điện tử**  
-* *Mã hiệu:* BM-TCKT-02 | *Kỳ đối soát:* Ngày 01/09/2026 | *Đối tác:* Ví điện tử Foxpay / VNPay  
+
+**Bảng 3.7.8: Biên bản đối soát giao dịch cổng thanh toán điện tử (BM-TCKT-02)**
+* *Mã hiệu:* BM-TCKT-02 | *Kỳ đối soát:* Ngày 01/09/2026 | *Đối tác:* Ví điện tử Foxpay / VNPay
 
 | Kênh thanh toán | Tổng số GD Sao kê | Tổng tiền Sao kê (VNĐ) | Số GD khớp Billing | Tiền khớp Billing (VNĐ) | Chênh lệch GD | Tiền chênh lệch (VNĐ) | Hướng xử lý |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -159,8 +199,9 @@ Dưới đây là 6 biểu mẫu nghiệp vụ kế toán thực tế được �
 | Auto-debit VCB | 450 | 148.500.000 | 450 | 148.500.000 | 0 | 0 | Khớp chuẩn 100% |
 | **Tổng cộng** | **2.520** | **787.700.000** | **2.518** | **787.100.000** | **-2** | **-600.000** | |
 
-**Biểu mẫu 3: Mẫu thông báo cước kiêm Hóa đơn giá trị gia tăng điện tử**  
-* *Mã hiệu:* BM-TCKT-03 | *Ký hiệu:* 1C26TFT | *Số HĐ:* 0012890 | *Cơ quan Thuế:* Đã cấp mã  
+
+**Bảng 3.7.9: Mẫu thông báo cước kiêm Hóa đơn giá trị gia tăng điện tử (BM-TCKT-03)**
+* *Mã hiệu:* BM-TCKT-03 | *Ký hiệu:* 1C26TFT | *Số HĐ:* 0012890 | *Cơ quan Thuế:* Đã cấp mã
 
 | Tên dịch vụ viễn thông | Kỳ cước | ĐVT | Số lượng | Đơn giá (VNĐ) | Thuế suất | Tiền thuế GTGT (VNĐ) | Thành tiền (VNĐ) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -169,24 +210,28 @@ Dưới đây là 6 biểu mẫu nghiệp vụ kế toán thực tế được �
 | **Tổng cộng thanh toán** | | | | | | **28.000** | **308.000 VNĐ** |
 *(Ký bởi: CÔNG TY CỔ PHẦN VIỄN THÔNG FPT – Chữ ký số Viettel-CA / FPT-CA hợp lệ)*
 
-**Biểu mẫu 4: Thông báo nhắc nợ cước và dự kiến tạm ngưng dịch vụ**  
-* *Mã hiệu:* BM-TCKT-04 | *Kính gửi:* Thuê bao SGN123456 | *Ngày phát hành:* 18/09/2026  
+
+**Bảng 3.7.10: Thông báo nhắc nợ cước và dự kiến tạm ngưng dịch vụ (BM-TCKT-04)**
+* *Mã hiệu:* BM-TCKT-04 | *Kính gửi:* Thuê bao SGN123456 | *Ngày phát hành:* 18/09/2026
 
 | Mã khách hàng | Tên chủ hợp đồng | Địa chỉ lắp đặt | Số tiền nợ cước (VNĐ) | Kỳ nợ | Hạn thanh toán cuối cùng | Thời điểm dự kiến khóa mạng |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | SGN123456 | Nguyễn Văn A | 123 Lê Duẩn, Q.1, TP.HCM | 308.000 | T08/2026 | 21/09/2026 | 08:00 Ngày 22/09/2026 |
 *(Thông báo tự động gửi qua ứng dụng Hi FPT và tin nhắn Brandname FPT Telecom)*
 
-**Biểu mẫu 5: Phiếu xử lý khiếu nại cước và điều chỉnh sai lệch số dư**  
-* *Mã hiệu:* BM-TCKT-05 | *Người lập:* Kế toán Doanh thu | *Người duyệt:* Kế toán trưởng  
+
+**Bảng 3.7.11: Phiếu xử lý khiếu nại cước và điều chỉnh sai lệch số dư (BM-TCKT-05)**
+* *Mã hiệu:* BM-TCKT-05 | *Người lập:* Kế toán Doanh thu | *Người duyệt:* Kế toán trưởng
 
 | STT | Mã Hợp đồng | Tên Khách hàng | Nguyên nhân khiếu nại | Số tiền cước cũ | Số tiền sau điều chỉnh | Số tiền chênh lệch | Biên bản phê duyệt đính kèm |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 1 | SGN99812 | Trần Minh C | Bị tính trùng cước IP tĩnh tháng 8 | 550.000 | 330.000 | -220.000 (Giảm trừ) | BB-KHIEUNAI-882 |
 | 2 | SGN77621 | Lê Văn D | Khách chuyển khoản sai mã HĐ | 0 | 220.000 | +220.000 (Ghi có) | Sao kê VCB-260902 |
 
-**Biểu mẫu 6: Báo cáo phân tích tuổi nợ và doanh thu tháng (Aging Debt Report)**  
-* *Mã hiệu:* BM-TCKT-06 | *Kỳ lập:* Cuối tháng 08/2026 | *Đơn vị tính:* Triệu đồng  
+
+
+**Bảng 3.7.12: Báo cáo phân tích tuổi nợ và doanh thu tháng (Aging Debt Report - BM-TCKT-06)**
+* *Mã hiệu:* BM-TCKT-06 | *Kỳ lập:* Cuối tháng 08/2026 | *Đơn vị tính:* Triệu đồng
 
 | Nhóm khách hàng | Tổng Doanh thu phát sinh | Đã thu đúng hạn | Nợ 1 – 30 ngày (Trong hạn) | Nợ 31 – 60 ngày (Cảnh báo) | Nợ > 90 ngày (Khó đòi) | Tỷ lệ thu hồi (%) | Trích lập dự phòng |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -194,17 +239,19 @@ Dưới đây là 6 biểu mẫu nghiệp vụ kế toán thực tế được �
 | Khách hàng Doanh nghiệp | 8.200 | 7.600 | 420 | 120 | 60 | 92,7% | 30 |
 | **Tổng cộng** | **20.700** | **18.800** | **1.270** | **440** | **190** | **90,8%** | **95 Triệu VNĐ** |
 
+
 ---
 
 #### **3.7.1.2. Phỏng vấn (Interview-based Discovery)**
 
 Bộ câu hỏi phỏng vấn được thiết kế chuyên sâu, phân tầng cho các nhóm đối tượng liên quan trực tiếp đến chu trình thu tiền – đối soát cước. Theo đúng tiêu chí Rubric đánh giá của môn học, bảng câu hỏi gồm **10 câu hỏi định tính** và **10 câu hỏi định lượng**, phân chia chuẩn xác thành **5 câu hỏi có cấu trúc** và **5 câu hỏi không có cấu trúc**.
 
-##### **a) Danh sách 10 câu hỏi định tính**
+##### **a) Danh sách 10 câu hỏi định tính (Qualitative Questions)**
 
 * **Nhóm câu hỏi có cấu trúc (Structured Qualitative Questions):** *(Sử dụng thang đo Likert 5 mức độ hoặc lựa chọn cố định)*
 
-| Mã | Đối tượng phỏng vấn | Nội dung câu hỏi có cấu trúc | Thang đo / Phương án lựa chọn |
+**Bảng 3.7.13: Bảng câu hỏi phỏng vấn định tính có cấu trúc (Structured Qualitative)**
+
 | :---: | :--- | :--- | :--- |
 | **TC-QL01** | Kế toán Doanh thu | Anh/Chị đánh giá mức độ ổn định và tính tự động khớp lệnh của tính năng đối soát file ngân hàng trên phần mềm FPT Billing hiện nay như thế nào? | 1. Rất chậm và hay lỗi; 2. Chậm; 3. Bình thường; 4. Nhanh; 5. Hoàn toàn tự động và chính xác thời gian thực. |
 | **TC-QL02** | Thu ngân / Giao dịch viên | Khi thực hiện thu cước tiền mặt ngoài hiện trường, thao tác cập nhật biên lai điện tử trên ứng dụng Mobisale có tiện lợi và nhanh chóng không? | 1. Rất phức tạp; 2. Phức tạp; 3. Tạm chấp nhận; 4. Tiện lợi; 5. Cực kỳ nhanh chóng và trực quan. |
@@ -212,9 +259,11 @@ Bộ câu hỏi phỏng vấn được thiết kế chuyên sâu, phân tầng c
 | **TC-QL04** | Kế toán trưởng | Mức độ tuân thủ quy định truyền nhận dữ liệu Hóa đơn điện tử e-Invoice tích hợp sang máy chủ Tổng cục Thuế của hệ thống hiện tại đạt mức nào? | 1. Thường xuyên nghẽn; 2. Đôi khi nghẽn; 3. Ổn định cơ bản; 4. Rất thông suốt; 5. Chuẩn xác 100% theo thời gian thực. |
 | **TC-QL05** | Ban Giám đốc Chi nhánh | Kênh nào hiện nay được ưu tiên nhất trong chiến lược thúc đẩy khách hàng chuyển đổi sang thanh toán không dùng tiền mặt (Cashless)? | [A] Ví điện tử Foxpay; [B] Auto-debit Ngân hàng; [C] Cổng VNPAY-QR; [D] Chuyển khoản Internet Banking. |
 
+
 * **Nhóm câu hỏi không có cấu trúc (Unstructured Qualitative Questions):** *(Câu hỏi mở để khai thác nguyên nhân gốc rễ và đề xuất)*
 
-| Mã | Đối tượng phỏng vấn | Nội dung câu hỏi mở (Không có cấu trúc) | Mục tiêu thu thập thông tin |
+**Bảng 3.7.14: Bảng câu hỏi phỏng vấn định tính mở (Unstructured Qualitative)**
+
 | :---: | :--- | :--- | :--- |
 | **TC-QL06** | Kế toán Doanh thu | Trong quá trình đối soát file sao kê cuối ngày từ các ngân hàng và ví điện tử, nguyên nhân cốt lõi dẫn đến các khoản sai lệch (Discrepancies) chưa thể tự động gạch nợ là gì? | Xác định lỗi cú pháp chuyển khoản và độ trễ giao dịch liên ngân hàng. |
 | **TC-QL07** | Thu ngân hiện trường | Những tình huống khó khăn, rủi ro lớn nhất mà Thu ngân thường gặp phải khi đi thu cước tiền mặt trực tiếp tại nhà khách hàng là gì? | Nhận diện rủi ro an toàn tiền mặt, khách vắng nhà và chi phí di chuyển lặp lại. |
@@ -222,11 +271,13 @@ Bộ câu hỏi phỏng vấn được thiết kế chuyên sâu, phân tầng c
 | **TC-QL09** | Kế toán trưởng | Quy trình đồng bộ dữ liệu doanh thu và thuế giữa phần mềm FPT Billing với hệ thống ERP SAP tổng công ty hiện có những rào cản nào về mặt kiểm soát sổ sách? | Đánh giá tính đồng nhất dữ liệu tài chính và độ trễ đóng sổ cuối tháng. |
 | **TC-QL10** | Ban Giám đốc Chi nhánh | Định hướng chuyển đổi số của FPT Telecom trong 1–2 năm tới đối với việc tự động hóa 100% khâu thu tiền và quản trị công nợ thông minh là gì? | Định hình mục tiêu thiết kế quy trình tương lai To-Be. |
 
-##### **b) Danh sách 10 câu hỏi định lượng**
+
+##### **b) Danh sách 10 câu hỏi định lượng (Quantitative Questions)**
 
 * **Nhóm câu hỏi có cấu trúc (Structured Quantitative Questions):** *(Đo lường số liệu cụ thể với đơn vị tính)*
 
-| Mã | Đối tượng phỏng vấn | Nội dung câu hỏi định lượng có cấu trúc | Đơn vị đo lường |
+**Bảng 3.7.15: Bảng câu hỏi khảo sát định lượng có cấu trúc (Structured Quantitative)**
+
 | :---: | :--- | :--- | :---: |
 | **TC-QT01** | Kế toán Doanh thu | Thời gian trung bình để Kế toán hoàn thành việc rà soát và đối chiếu thủ công cho một file sao kê ngân hàng bị lệch dữ liệu là bao nhiêu phút? | Phút / file đối soát |
 | **TC-QT02** | Thu ngân / GDV | Trung bình một ngày, một Thu ngân hiện trường thực hiện thu cước thành công cho bao nhiêu thuê bao tại địa bàn phụ trách? | Hóa đơn / người / ngày |
@@ -234,9 +285,11 @@ Bộ câu hỏi phỏng vấn được thiết kế chuyên sâu, phân tầng c
 | **TC-QT04** | Kế toán trưởng | Tỷ lệ sai lệch giữa báo cáo doanh thu tạm tính hàng ngày trên FPT Billing và số liệu chốt sổ hạch toán cuối kỳ trên ERP SAP là bao nhiêu %? | Tỷ lệ phần trăm sai lệch (%) |
 | **TC-QT05** | Thu ngân | Trung bình chi phí di chuyển và xăng xe cấp phát cho một Thu ngân lưu động trong một tháng là bao nhiêu tiền? | VNĐ / nhân sự / tháng |
 
+
 * **Nhóm câu hỏi không có cấu trúc (Unstructured Quantitative Questions):** *(Khảo sát khoảng biến thiên, ước tính thiệt hại và ngân sách)*
 
-| Mã | Đối tượng phỏng vấn | Nội dung câu hỏi mở định lượng (Không có cấu trúc) | Dữ liệu định lượng kỳ vọng thu thập |
+**Bảng 3.7.16: Bảng câu hỏi khảo sát định lượng mở (Unstructured Quantitative)**
+
 | :---: | :--- | :--- | :--- |
 | **TC-QT06** | Kế toán Doanh thu | Khi phát sinh giao dịch lỗi trừ tiền nhưng chưa gạch nợ, thời gian chờ phía Ngân hàng phản hồi tra soát dao động trong khoảng từ bao nhiêu giờ đến bao nhiêu ngày? | Khoảng thời gian Best-case và Worst-case (giờ/ngày). |
 | **TC-QT07** | Kế toán Công nợ | Tỷ lệ nợ cước khó đòi (khách hàng không thanh toán trên 90 ngày và bỏ mạng) chiếm khoảng bao nhiêu % trên tổng doanh thu cước phát sinh hàng năm? | Tỷ lệ thất thoát doanh thu (%) và giá trị tiền tệ ước tính. |
@@ -244,20 +297,16 @@ Bộ câu hỏi phỏng vấn được thiết kế chuyên sâu, phân tầng c
 | **TC-QT09** | CSKH / Call Center | Trung bình một ngày có bao nhiêu cuộc gọi khiếu nại về cước viễn thông hoặc thắc mắc về việc đã trả tiền nhưng mạng vẫn bị tạm khóa? | Số lượng cuộc gọi khiếu nại cước / ngày. |
 | **TC-QT10** | Ban Giám đốc | Chi nhánh sẵn sàng đầu tư khung ngân sách bao nhiêu cho dự án tích hợp hệ thống AI Voicebot nhắc nợ tự động và tự động hóa đối soát Real-time? | Khung ngân sách đầu tư khả thi (Triệu VNĐ). |
 
+
 ---
 
 #### **3.7.1.3. Workshop (Hội thảo khám phá quy trình - Workshop-based Discovery)**
 
+Phương pháp hội thảo chuyên đề (Process Workshop) được tổ chức tập trung nhằm giải quyết các điểm bất đồng quan điểm giữa các bộ phận về ranh giới trách nhiệm trong chu trình thu cước, gạch nợ và khóa mở mạng.
+
 ##### **a) Biểu mẫu cuộc họp (Meeting Agenda & Setup Form)**
 
-* **Tên cuộc họp:** Hội thảo Khám phá, Chuẩn hóa và Tối ưu hóa Quy trình Quản lý Tài chính – Kế toán Viễn thông (Process Discovery Workshop: Billing & Reconciliation)
-* **Thời gian tổ chức:** 08:30 – 11:30, Ngày 28 tháng 08 năm 2026
-* **Địa điểm:** Phòng Hội nghị Lotus, Tòa nhà FPT Telecom & Trực tuyến qua Microsoft Teams
-* **Mục tiêu cuộc họp:**
-  1. Thống nhất ranh giới bắt đầu và kết thúc của chu trình cước – thu tiền – đối soát – hóa đơn.
-  2. Vẽ chi tiết luồng nghiệp vụ chuẩn (Happy Path) và xác định toàn bộ các điểm rẽ nhánh xử lý ngoại lệ (lệch cước, nợ quá hạn, khóa cước).
-  3. Chỉ ra các nguyên nhân gây nghẽn dòng tiền và thống nhất ma trận trách nhiệm RACI giữa Kế toán, Thu ngân và Khối Công nghệ.
-* **Thành phần tham dự:**
+**Bảng 3.7.17: Biểu mẫu thiết lập cuộc họp Workshop khám phá quy trình tài chính**
 
 | Họ và tên | Chức danh / Đơn vị | Vai trò trong phiên Workshop |
 | :--- | :--- | :--- |
@@ -268,6 +317,7 @@ Bộ câu hỏi phỏng vấn được thiết kế chuyên sâu, phân tầng c
 | **Đặng Thị Mai** | Đại diện Trung tâm Chăm sóc Khách hàng | Thành viên tham gia – Đóng góp góc nhìn trải nghiệm khách hàng về cước |
 | **Võ Quốc Tuấn** | Đại diện Ban Giám đốc Chi nhánh | Phê duyệt chủ trương và định hướng chính sách |
 | **Hoàng Anh Thư** | Chuyên viên BA (Business Analyst) | **Thư ký (Scribe)** – Ghi chép biên bản và phác thảo sơ đồ trực tiếp |
+
 
 ##### **b) Kịch bản cuộc họp (Meeting Script & Facilitation Guide)**
 
@@ -292,6 +342,8 @@ Phiên làm việc kéo dài 180 phút được điều phối qua 5 giai đoạ
 
 * **Giai đoạn 5: Tổng kết, Duyệt biên bản và Công bố bước tiếp theo (11:10 – 11:30 | 20 phút)**  
   * *Hoạt động:* Scribe trình chiếu biên bản ghi nhớ; Kế toán trưởng và Đại diện Ban Giám đốc ký duyệt nội dung; Facilitator chốt kế hoạch hoàn thiện mô hình BPMN và mô hình định lượng trong vòng 3 ngày làm việc.
+
+
 
 ---
 
@@ -326,11 +378,51 @@ Tuân thủ chặt chẽ tiêu chí Rubric đánh giá của môn học (**Độ
   * **Multi-Instance Task:** Áp dụng cho bước *Xử lý đối soát hàng loạt bản ghi giao dịch điện tử*.
   * **Loop Task:** Áp dụng cho bước *Nhắc nợ đa kênh tự động* (lặp lại định kỳ 3 ngày/lần cho đến khi thanh toán hoặc đến ngày khóa cước).
 
+
+
 ---
 
 #### **3.7.2.2. Sơ đồ quy trình BPMN As-is (Bản hiện trạng chuẩn Pools & Lanes)**
 
 ![Sơ đồ BPMN 2.0 As-Is Quy trình Quản lý Tài chính – Kế toán FPT Telecom](./assets/diagrams/quan_ly_tai_chinh/SoDoBPMN.jpg)
+
+---
+
+#### **3.7.2.3. Diễn giải chi tiết các luồng quy trình As-Is**
+
+##### **a) Luồng chính - Happy Path (Thanh toán trực tuyến & Gạch nợ tự động 100%):**
+
+1. **Hệ thống FPT Billing:** Vào 00:00 ngày cuối tháng, hệ thống tự động quét toàn bộ lưu lượng, dịch vụ gia tăng của từng thuê bao hoạt động $\rightarrow$ Sinh bảng kê chi tiết và phát hành Thông báo cước qua ứng dụng Hi FPT, SMS và Email.
+2. **Khách hàng:** Nhận thông báo cước, mở ứng dụng Mobile Banking hoặc Foxpay quét mã VNPAY-QR thanh toán trực tuyến (**Gateway 1 - XOR:** Chọn kênh Online).
+3. **Cổng thanh toán / Ngân hàng:** Tiếp nhận giao dịch, xác thực tài khoản và số dư thành công (**Gateway 2 - XOR:** Giao dịch thành công) $\rightarrow$ Trừ tiền và gửi mã ủy nhiệm chi điện tử về FPT.
+4. **Kế toán Doanh thu & Hệ thống Billing:** Tiếp nhận dữ liệu thanh toán đối soát tự động khớp 100% (**Gateway 3 - XOR:** Đối soát khớp) $\rightarrow$ Billing thực hiện Service Task tự động gạch nợ trên CSDL.
+5. **Phân hệ Kế toán SAP ERP:** Tự động ghi nhận nghiệp vụ định khoản: Nợ TK 112 (Tiền gửi ngân hàng) / Có TK 131 (Phải thu khách hàng).
+6. **Hệ thống e-Invoice:** Tự động ký số điện tử trên hóa đơn GTGT, truyền dữ liệu cấp mã sang Tổng cục Thuế và gửi link tra cứu hóa đơn điện tử cho khách hàng $\rightarrow$ Khách hàng thanh toán trước hạn chót (**Gateway 4 - XOR:** Đã thanh toán) $\rightarrow$ Không phát sinh khiếu nại (**Gateway 6 - XOR:** Không khiếu nại) $\rightarrow$ Đóng chu kỳ cước thành công.
+
+##### **b) Luồng phụ 1 - Kịch bản phát sinh sai lệch đối soát sao kê ngân hàng & sai cú pháp:**
+
+1. **Khách hàng:** Thực hiện chuyển khoản qua Internet Banking thông thường nhưng nhập sai cú pháp nội dung chuyển tiền (sai mã Hợp đồng viễn thông), hoặc giao dịch rơi vào trạng thái treo chờ xử lý liên ngân hàng.
+2. **Cổng thanh toán / Ngân hàng:** Trừ tiền trong tài khoản khách hàng nhưng mã định danh FPT Billing không thể tự động mapping.
+3. **Kế toán Doanh thu:** Vào khung giờ đối soát cuối ngày (23:00 – 01:00), Kế toán chạy file sao kê Settlement phát hiện chênh lệch giữa số tiền ngân hàng báo có và số tiền Billing đã gạch nợ (**Gateway 3 - XOR:** Lệch tiền / Không khớp).
+4. **Kế toán Doanh thu:** Lập Phiếu yêu cầu tra soát giao dịch (BM-TCKT-02) $\rightarrow$ Liên hệ bộ phận kỹ thuật đối tác ngân hàng kiểm tra mã số tham chiếu (Reference No) và chủ tài khoản chuyển tiền.
+5. **Kế toán Doanh thu:** Sau khi xác định chính xác thuê bao, Kế toán thực hiện User Task gạch nợ bổ sung bằng tay trên hệ thống FPT Billing $\rightarrow$ Đồng bộ lại phân hệ kế toán ERP.
+
+##### **c) Luồng phụ 2 - Kịch bản theo dõi nợ quá hạn và kích hoạt lệnh tạm khóa dịch vụ (Barring):**
+
+1. **Hệ thống FPT Billing:** Đến ngày 15 hàng tháng (hạn chót thanh toán), hệ thống quét kiểm tra trạng thái cước (**Gateway 4 - XOR:** Quá hạn thanh toán) $\rightarrow$ Tự động trích xuất danh sách nợ cước chuyển sang Kế toán Công nợ.
+2. **Kế toán Công nợ & CSKH:** Kích hoạt chiến dịch nhắc nợ đa kênh: Voicebot gọi tự động nhắc nhở, gửi thông báo push Hi FPT và tin nhắn Zalo ZNS (vòng lặp Loop Task định kỳ 3 ngày/lần).
+3. **Khách hàng:** Nhận nhắc nợ và có thời gian ân hạn đến ngày 21 hàng tháng. Tại **Gateway 5 (XOR - Khách hàng thanh toán sau nhắc nợ?):**
+   * *Nhánh Đã thanh toán:* Khách hàng nộp tiền $\rightarrow$ Hệ thống giải trừ nợ và duy trì đường truyền mạng hoạt động bình thường.
+   * *Nhánh Vẫn chưa thanh toán:* Quá ngày 21, hệ thống FPT Billing tự động gửi lệnh Provisioning sang mạng lõi AAA/Radius để khóa tạm thời một chiều hoặc hai chiều kết nối Internet (Barring).
+4. **Hệ thống:** Khi khách hàng tiến hành nộp tiền bổ sung sau đó, hệ thống tiếp nhận thanh toán và gửi lệnh mở mạng tự động (Instant Unbarring).
+
+##### **d) Luồng phụ 3 - Kịch bản tiếp nhận và xử lý khiếu nại cước dịch vụ:**
+
+1. **Khách hàng:** Thắc mắc về cước phí phát sinh ngoài gói (cước thuê bao FPT Play, mua gói cước quốc tế, cước data vượt hạn mức) và gọi điện đến Call Center 19006600 hoặc tạo yêu cầu trên app Hi FPT (**Gateway 6 - XOR:** Phát sinh khiếu nại cước).
+2. **Bộ phận CSKH:** Tiếp nhận thông tin, tạo Ticket yêu cầu tra soát gửi sang Lane Kế toán Doanh thu.
+3. **Kế toán Doanh thu:** Truy xuất log dữ liệu cước chi tiết trên FPT Billing $\rightarrow$ Đối chiếu với lịch sử kích hoạt dịch vụ của thuê bao:
+   * *Trường hợp cước tính đúng quy chuẩn:* CSKH liên hệ giải thích chi tiết bảng kê cước cho khách hàng hiểu và chấp nhận thanh toán.
+   * *Trường hợp phát sinh sai sót kỹ thuật:* Kế toán lập Phiếu điều chỉnh giảm trừ cước (BM-TCKT-05) $\rightarrow$ Trình Kế toán trưởng phê duyệt $\rightarrow$ Hệ thống hoàn tiền hoặc cấn trừ công nợ vào chu kỳ kế tiếp $\rightarrow$ Chốt sổ kỳ kế toán.
 
 ---
 
@@ -343,8 +435,8 @@ Theo lý thuyết chuẩn môn học, các hoạt động được phân loại 
 * **BVA (Business Value-Added):** Hoạt động cần thiết cho việc vận hành nội bộ, tuân thủ quy định pháp luật và bảo toàn vốn kinh doanh.
 * **NVA (Non-Value-Added):** Hoạt động không tạo giá trị cho khách hàng và doanh nghiệp, là lãng phí cần loại bỏ hoặc giảm thiểu.
 
-| STT | Bước công việc (Activity) | Tác nhân thực hiện | Phân loại | Lập luận theo tiêu chuẩn phân loại |
-| :---: | :--- | :--- | :---: | :--- |
+**Bảng 3.7.18: Bảng phân loại giá trị gia tăng (VA - BVA - NVA) 12 bước quy trình tài chính**
+
 | 1 | Quét cước và tạo bảng kê chi tiết chu kỳ | Hệ thống Billing | **BVA** | Bước chuẩn bị dữ liệu nội bộ bắt buộc để khởi tạo giao dịch thu cước. |
 | 2 | Phát hành Thông báo cước qua App/SMS/Email | Hệ thống Billing | **VA** | Khách hàng trực tiếp nhận giá trị thông tin minh bạch về số tiền phải trả. |
 | 3 | Lựa chọn phương thức và thực hiện thanh toán | Khách hàng | **VA** | Thao tác chủ động của khách hàng để duy trì quyền lợi sử dụng dịch vụ. |
@@ -360,48 +452,25 @@ Theo lý thuyết chuẩn môn học, các hoạt động được phân loại 
 | 13 | Quét lọc danh sách nợ cước quá hạn (Aging Debt) | Kế toán Công nợ | **BVA** | Kiểm soát rủi ro tài chính và dòng tiền cho doanh nghiệp. |
 | 14 | Kích hoạt chiến dịch nhắc nợ tự động đa kênh | Hệ thống CSKH/Billing | **BVA** | Hoạt động nhắc nhở nội bộ giúp khách hàng tránh bị ngắt dịch vụ. |
 | 15 | Khách hàng gọi thắc mắc cước do hiểu nhầm | Khách hàng / CSKH | **NVA** | Thời gian trao đổi lãng phí do thông báo cước chưa đủ rõ ràng, chi tiết. |
-| 16 | Gửi lệnh Provisioning tạm khóa mạng (Barring) | Hệ thống Billing | **BVA** | Biện pháp chế tài kỹ thuật bắt buộc để thu hồi nợ cước khó đòi. |
-| 17 | Tiếp nhận thanh toán nợ bổ sung và mở cước (Unbarring)| Kế toán / Billing | **VA** | Khôi phục kết nối mạng ngay lập tức cho khách hàng. |
-| 18 | Tổng hợp báo cáo tài chính và trích lập dự phòng | Kế toán trưởng | **BVA** | Báo cáo quản trị bắt buộc phục vụ Ban Giám đốc và kiểm toán. |
 
-**Bảng tổng hợp phân loại giá trị gia tăng:**
 
-| Phân loại giá trị | Số lượng hoạt động | Tỷ lệ (%) | Nhận xét định hướng tối ưu |
-| :---: | :---: | :---: | :--- |
+**Bảng 3.7.19: Tổng hợp tỷ lệ phân bổ giá trị gia tăng quy trình tài chính As-Is**
+
 | **VA (Value-Added)** | 5 | **27,8%** | Tập trung ở các khâu: nhận thông báo minh bạch, thanh toán nhanh, gạch nợ tức thì, nhận hóa đơn hợp lệ và mở cước kịp thời. |
 | **BVA (Business Value-Added)** | 10 | **55,6%** | Chiếm tỷ trọng chủ đạo do đặc thù quản lý tài chính đòi hỏi đối soát, hóa đơn thuế, hạch toán ERP và quản trị công nợ chặt chẽ. |
 | **NVA (Non-Value-Added)** | 3 | **16,6%** | Chủ yếu là: nộp tiền mặt vật lý, tra soát sửa lỗi chuyển khoản sai cú pháp và giải quyết khiếu nại cước. Đây là 3 trọng tâm cần xóa bỏ khi thiết kế To-Be. |
 | **Tổng cộng** | **18** | **100%** | |
 
+
+
 ---
 
 #### **3.7.3.2. Phân tích 7 loại lãng phí (Lean Waste Analysis)**
 
-Dựa trên nguyên lý Lean, các lãng phí trong quy trình tài chính – kế toán FPT Telecom được nhận diện như sau:
+Áp dụng mô hình Lean TIMWOOD vào hoạt động quản trị tài chính – kế toán tại FPT Telecom:
 
-1. **Chờ đợi (Hold / Waiting):**
-   * Khách hàng thanh toán qua chuyển khoản liên ngân hàng ngoài giờ hành chính nhưng phải chờ từ 12–24h để Kế toán đối soát sao kê thủ công mới được gạch nợ.
-   * Thuê bao đã nộp tiền nợ nhưng phải chờ từ 30–60 phút để nhân viên kỹ thuật truyền lệnh mở cước (Unbarring).
-2. **Di chuyển không cần thiết (Move / Transportation):**
-   * Thu ngân phải đi xe máy qua lại nhiều lần giữa nhà khách hàng và văn phòng chi nhánh để nộp tiền mặt gom được vào két sắt cuối ngày.
-3. **Thao tác thừa (Motion):**
-   * Kế toán viên phải đối chiếu thủ công từng dòng giữa file Excel sao kê ngân hàng và màn hình phần mềm FPT Billing khi xảy ra lệch số dư.
-4. **Sai sót và làm lại (Defects / Rework):**
-   * Khách hàng chuyển khoản sai cú pháp (ghi tên người nộp thay vì ghi số hợp đồng) $\rightarrow$ Kế toán phải liên hệ tra soát, đối chiếu số điện thoại để gạch nợ bổ sung.
-   * Hóa đơn điện tử bị sai thông tin Mã số thuế do khách hàng cập nhật trễ $\rightarrow$ Kế toán phải làm thủ tục hủy và lập hóa đơn điều chỉnh.
-5. **Xử lý quá mức (Over-processing):**
-   * In biên lai giấy tạm thời gửi khách hàng dù hệ thống đã có tin nhắn SMS và biên lai điện tử trên ứng dụng Hi FPT.
-6. **Tồn đọng (Inventory / Aging Debt):**
-   * Các khoản công nợ cước tồn đọng trên 60–90 ngày chưa được xử lý dứt điểm, làm ứ đọng vốn lưu động và tăng chi phí trích lập dự phòng rủi ro.
-7. **Sản xuất thừa (Over-production):**
-   * Phát lệnh nhắc nợ tự động nhiều lần đối với khách hàng đã nộp cước nhưng dữ liệu đối soát ngân hàng chưa kịp đồng bộ vào hệ thống.
+**Bảng 3.7.20: Bảng phân tích 7 loại lãng phí (Lean TIMWOOD) trong quy trình tài chính**
 
----
-
-#### **3.7.3.3. Phân tích các bên liên quan (Stakeholder Analysis)**
-
-| Bên liên quan | Vai trò trong quy trình | Mức độ ảnh hưởng | Mức quan tâm | Mối quan tâm / Kỳ vọng chính | Rủi ro nếu quy trình kém | Chiến lược quản trị |
-| :--- | :--- | :---: | :---: | :--- | :--- | :--- |
 | **Khách hàng thuê bao** | Người thanh toán và thụ hưởng dịch vụ | Rất cao | Rất cao | Thanh toán nhanh, cước minh bạch, gạch nợ tức thì, không bị khóa nhầm | Khiếu nại gay gắt, từ chối nộp cước, rời mạng (Churn) | Cung cấp đa dạng kênh thanh toán online, minh bạch cước trên App |
 | **Kế toán Doanh thu** | Đối soát dòng tiền và xuất e-Invoice | Rất cao | Rất cao | Dữ liệu đối soát tự động khớp, ít sai lệch, xuất hóa đơn đúng hạn | Chậm báo cáo, lệch sổ cái, áp lực tăng ca cuối tháng | Tự động hóa đối soát bằng API, chuẩn hóa công cụ lọc |
 | **Kế toán Công nợ** | Quản lý thu hồi nợ và điều phối khóa cước | Cao | Rất cao | Tỷ lệ thu hồi nợ cao, giảm tỷ lệ nợ xấu, dữ liệu nợ chính xác | Khóa cước nhầm gây bức xúc cho khách hàng | Tích hợp cơ chế cảnh báo nợ đa tầng và tự động mở cước sau nộp |
@@ -410,31 +479,49 @@ Dựa trên nguyên lý Lean, các lãng phí trong quy trình tài chính – k
 | **Tổng cục Thuế** | Cơ quan quản lý nhà nước về thuế | Rất cao | Trung bình | Hóa đơn điện tử đúng định dạng XML, truyền dữ liệu đúng hạn | Bị phạt vi phạm hành chính về chậm xuất hóa đơn | Đảm bảo hệ thống ký số tự động và dự phòng máy chủ truyền tin |
 | **Ban Giám đốc** | Định hướng và kiểm soát hiệu quả tài chính | Rất cao | Cao | Tối ưu hóa dòng tiền, giảm tỷ lệ nợ khó đòi, tiết kiệm chi phí thu | Dòng tiền bị tắc nghẽn, tỷ lệ nợ xấu vượt ngưỡng an toàn | Báo cáo Dashboard phân tích doanh thu và tuổi nợ thời gian thực |
 
+
+
 ---
 
-#### **3.7.3.4. Bảng theo dõi vấn đề (Issue Register)**
+#### **3.7.3.3. Phân tích các bên liên quan (Stakeholder Analysis)**
 
-| Mã vấn đề | Tên vấn đề | Tình huống / Giả định phát sinh | Tác động định tính | Tác động định lượng | Hành động cải tiến đề xuất |
-| :---: | :--- | :--- | :--- | :--- | :--- |
+**Bảng 3.7.21: Ma trận phân tích các bên liên quan (Stakeholder Matrix)**
+
 | **ISS-TC01** | Lệch dữ liệu đối soát do sai cú pháp | Khách hàng chuyển khoản tự do, ghi sai mã HĐ (chiếm ~6% giao dịch chuyển khoản) | Tiền vào tài khoản nhưng không gạch nợ được, khách bị khóa mạng oan | Mất 25–40 phút/giao dịch để kế toán tra soát thủ công | Tạo mã QR động (VietQR/Foxpay) mang sẵn mã HĐ và số tiền chính xác |
 | **ISS-TC02** | Độ trễ mở cước sau khi khách đã nộp nợ | Khách nộp cước qua ngân hàng thứ 7/CN, hệ thống đối soát trễ dẫn đến chậm mở mạng | Khách hàng bức xúc gọi tổng đài khiếu nại, ảnh hưởng uy tín thương hiệu | Thời gian chờ mở cước kéo dài từ 2 đến 12 giờ | Nâng cấp Webhook API mở cước tức thì (Instant Unbarring) trong 30 giây |
 | **ISS-TC03** | Tỷ lệ nợ cước khó đòi (Aging Debt > 90 ngày) | Khách hàng chuyển nhà hoặc đổi số điện thoại không báo (chiếm ~2,5% thuê bao) | Thất thoát doanh thu, tăng chi phí trích lập dự phòng rủi ro | Thất thoát bình quân ~80–120 triệu VNĐ/chi nhánh/năm | Ứng dụng AI phân tích lịch sử cước để cảnh báo nguy cơ rời mạng sớm |
 | **ISS-TC04** | Chi phí nhân công thu cước tiền mặt cao | Khách hàng vùng nông thôn/người cao tuổi vẫn giữ thói quen nộp tiền mặt tại nhà | Chi phí quản lý cao, rủi ro an toàn tiền mặt cho thu ngân | Tốn ~12.000 VNĐ chi phí nhân công và xăng xe trên mỗi hóa đơn thu tại nhà | Tặng voucher cước/data khi thanh toán lần đầu qua Foxpay/Auto-debit |
 
+
+
+---
+
+#### **3.7.3.4. Bảng theo dõi vấn đề (Issue Register)**
+
+**Bảng 3.7.22: Bảng theo dõi vấn đề (Issue Register) quy trình Quản lý Tài chính – Kế toán**
+
+| **ISS-TC01** | Lệch dữ liệu đối soát do sai cú pháp | Khách hàng chuyển khoản tự do, ghi sai mã HĐ (chiếm ~6% giao dịch chuyển khoản) | Tiền vào tài khoản nhưng không gạch nợ được, khách bị khóa mạng oan | Mất 25–40 phút/giao dịch để kế toán tra soát thủ công | Tạo mã QR động (VietQR/Foxpay) mang sẵn mã HĐ và số tiền chính xác |
+| **ISS-TC02** | Độ trễ mở cước sau khi khách đã nộp nợ | Khách nộp cước qua ngân hàng thứ 7/CN, hệ thống đối soát trễ dẫn đến chậm mở mạng | Khách hàng bức xúc gọi tổng đài khiếu nại, ảnh hưởng uy tín thương hiệu | Thời gian chờ mở cước kéo dài từ 2 đến 12 giờ | Nâng cấp Webhook API mở cước tức thì (Instant Unbarring) trong 30 giây |
+| **ISS-TC03** | Tỷ lệ nợ cước khó đòi (Aging Debt > 90 ngày) | Khách hàng chuyển nhà hoặc đổi số điện thoại không báo (chiếm ~2,5% thuê bao) | Thất thoát doanh thu, tăng chi phí trích lập dự phòng rủi ro | Thất thoát bình quân ~80–120 triệu VNĐ/chi nhánh/năm | Ứng dụng AI phân tích lịch sử cước để cảnh báo nguy cơ rời mạng sớm |
+| **ISS-TC04** | Chi phí nhân công thu cước tiền mặt cao | Khách hàng vùng nông thôn/người cao tuổi vẫn giữ thói quen nộp tiền mặt tại nhà | Chi phí quản lý cao, rủi ro an toàn tiền mặt cho thu ngân | Tốn ~12.000 VNĐ chi phí nhân công và xăng xe trên mỗi hóa đơn thu tại nhà | Tặng voucher cước/data khi thanh toán lần đầu qua Foxpay/Auto-debit |
+
+
+
 ---
 
 #### **3.7.3.5. Biểu đồ Pareto nhận diện vấn đề ưu tiên**
 
-Phân tích nguyên nhân phát sinh khiếu nại và chậm trễ trong quy trình tài chính:
+Phân tích nguyên nhân phát sinh khiếu nại và chậm trễ trong quy trình tài chính theo nguyên lý 80/20:
 
-| STT | Nhóm nguyên nhân | Số vụ việc phát sinh/tháng | Tỷ lệ (%) | Tỷ lệ tích lũy (%) | Phân loại Pareto |
-| :---: | :--- | :---: | :---: | :---: | :---: |
+**Bảng 3.7.23: Bảng phân tích nguyên nhân sự cố cước theo nguyên lý Pareto 80/20**
+
 | 1 | Chuyển khoản sai cú pháp $\rightarrow$ Chưa được gạch nợ tự động | 420 | 44,2% | 44,2% | **Nhóm A (Ưu tiên 80%)** |
 | 2 | Đã thanh toán nhưng hệ thống chậm mở cước mạng (Unbarring) | 260 | 27,4% | 71,6% | **Nhóm A (Ưu tiên 80%)** |
 | 3 | Lỗi trừ tiền 2 lần trên ứng dụng ngân hàng đối tác | 110 | 11,6% | 83,2% | **Nhóm A (Ưu tiên 80%)** |
 | 4 | Thắc mắc về cước phát sinh dịch vụ truyền hình/FPT Play | 90 | 9,5% | 92,7% | Nhóm B |
 | 5 | Không nhận được đường link hóa đơn điện tử e-Invoice | 70 | 7,3% | 100,0% | Nhóm C |
 | **Tổng** | | **950** | **100%** | | |
+
 
 > **Nhận xét Pareto:** Ba nguyên nhân đầu tiên chiếm đến **83,2%** tổng số sự cố cước viễn thông. Việc giải quyết dứt điểm khâu chuyển khoản chuẩn hóa qua QR động và mở cước tức thì qua Webhook sẽ xử lý được hơn 80% điểm nghẽn của quy trình.
 
@@ -453,6 +540,8 @@ Phân tích nguyên nhân phát sinh khiếu nại và chậm trễ trong quy tr
 
 ![Sơ đồ xương cá Fishbone 6M phân tích nguyên nhân chậm đối soát và thất thoát cước](./assets/diagrams/quan_ly_tai_chinh/SoDoXuongCa.jpg)
 
+
+
 ---
 
 ### **3.7.4. Phân tích định lượng (Quantitative Analysis)**
@@ -461,8 +550,8 @@ Phân tích nguyên nhân phát sinh khiếu nại và chậm trễ trong quy tr
 
 Bảng phân bổ thời gian của 18 bước nghiệp vụ trong chu trình cước tháng:
 
-| STT | Bước công việc | Thời gian chu kỳ ngắn nhất ($T_{\min}$) | Thời gian chu kỳ dài nhất ($T_{\max}$) | Thời gian xử lý thực ($T_p$) | Phân loại |
-| :---: | :--- | :---: | :---: | :---: | :---: |
+**Bảng 3.7.24: Bảng định lượng thời gian xử lý (PT, WT, CT) theo các bước quy trình As-Is**
+
 | 1 | Quét cước và tạo bảng kê chi tiết chu kỳ | 15 phút | 30 phút | 15 phút | BVA |
 | 2 | Phát hành Thông báo cước qua App/SMS | 10 phút | 20 phút | 10 phút | VA |
 | 3 | Khách hàng thực hiện thanh toán | 5 phút | 15 phút | 5 phút | VA |
@@ -481,6 +570,7 @@ Bảng phân bổ thời gian của 18 bước nghiệp vụ trong chu trình c�
 | 16 | [Nếu chưa nộp (5%)]: Tạm khóa mạng (Barring) | 5 phút | 15 phút | 5 phút | BVA |
 | 17 | Tiếp nhận nộp bổ sung và mở cước (Unbarring) | 5 phút | 15 phút | 5 phút | VA |
 | 18 | Tổng hợp báo cáo tài chính và nợ khó đòi | 60 phút | 120 phút | 60 phút | BVA |
+
 
 **Tính toán các chỉ số thời gian theo công thức chuẩn môn học:**
 
@@ -510,20 +600,23 @@ $$
 
 > **Nhận xét thời gian:** Hiệu suất thời gian chỉ đạt **25,51%**, phần lớn thời gian chu kỳ (gần 75%) bị lãng phí do các khoảng chờ: chờ chạy batch đối soát cuối ngày (chờ qua đêm) và chờ thời gian phản hồi nhắc nợ thủ công.
 
+
+
 ---
 
 #### **3.7.4.2. Phân tích chất lượng – First Pass Yield (FPY)**
 
 Xác suất vượt qua an toàn tại từng Gateway mà không phát sinh lỗi hoặc xử lý lại:
 
-| Gateway kiểm soát | Tên điểm kiểm soát | Xác suất đạt chuẩn ($p_i$) | Xác suất lỗi / Rework ($1 - p_i$) | Ghi chú điều kiện |
-| :---: | :--- | :---: | :---: | :--- |
+**Bảng 3.7.25: Bảng xác suất vượt qua an toàn tại các điểm kiểm soát và tính toán FPY**
+
 | **GW1** | Phương thức thanh toán chuẩn | 0.95 | 0.05 | 5% thanh toán offline tiền mặt gặp lỗi |
 | **GW2** | Giao dịch trừ tiền thành công | 0.92 | 0.08 | 8% lỗi mạng hoặc số dư không đủ |
 | **GW3** | Dữ liệu đối soát khớp 100% | 0.94 | 0.06 | 6% chuyển khoản sai cú pháp mã HĐ |
 | **GW4** | Khách thanh toán đúng hạn | 0.85 | 0.15 | 15% khách nợ cước sau ngày 15 |
 | **GW5** | Thanh toán sau khi nhắc nợ | 0.80 | 0.20 | 20% trong nhóm nợ tiếp tục chây ỳ |
 | **GW6** | Không phát sinh khiếu nại cước | 0.96 | 0.04 | 4% phát sinh khiếu nại cước dịch vụ |
+
 
 Xác suất một chu trình cước vận hành trơn tru từ đầu đến cuối không vướng bất kỳ vòng lặp hay xử lý lại nào (First Pass Yield):
 
@@ -536,19 +629,20 @@ $$
 
 > **Nhận xét chất lượng:** FPY chỉ đạt **53,67%**, nghĩa là có tới **46,33%** các giao dịch cước gặp phải ít nhất một lần xử lý lại (nhắc nợ, tra soát lệch tiền, xử lý khiếu nại hoặc tạm khóa mạng). Điểm nghẽn lớn nhất nằm ở **GW4 (tỷ lệ thanh toán đúng hạn chỉ 85%)** và **GW5 (tỷ lệ nộp sau nhắc nợ chỉ 80%)**.
 
+
+
 ---
 
 #### **3.7.4.3. Định lượng chi phí (Cost Analysis)**
 
-**Mức chi phí nhân công tham chiếu (tháng 22 ngày công, 8 giờ/ngày):**
+**Bảng 3.7.26: Đơn giá chi phí nhân sự tham chiếu theo vị trí kế toán và thu ngân**
 
-| Nhóm nhân sự | Lương tháng (VNĐ) | Chi phí nhân sự / phút (VNĐ) |
-| :--- | :---: | :---: |
 | Kế toán Doanh thu | 9.000.000 | **852** |
 | Kế toán Công nợ | 9.000.000 | **852** |
 | Kế toán trưởng | 18.000.000 | **1.705** |
 | Thu ngân hiện trường | 7.500.000 | **710** |
 | Điện thoại viên CSKH | 7.500.000 | **710** |
+
 
 **Tính toán chi phí cho 1 chu kỳ xử lý cước bình quân (tính trên đơn vị 100 thuê bao):**
 
@@ -580,23 +674,26 @@ $$
 
 > **Nhận xét chi phí:** Tỷ lệ lãng phí chi phí chiếm tới **24,06%** tổng chi phí vận hành, trong đó chi phí duy trì kênh thu tiền mặt và đi lại của Thu ngân chiếm tỷ trọng áp đảo. Chuyển dịch toàn diện sang thanh toán trực tuyến là đòn bẩy tiết kiệm ngân sách lớn nhất.
 
+
+
 ---
 
 ### **3.7.5. Đề xuất giải pháp cải tiến quy trình (To-Be Process Design)**
 
 #### **3.7.5.1. Ma trận giải pháp theo Issue Register**
 
-| Mã vấn đề | Giải pháp cải tiến cụ thể | Ứng dụng Công nghệ / Heuristics | Lợi ích kỳ vọng đạt được |
-| :---: | :--- | :--- | :--- |
+**Bảng 3.7.27: Ma trận giải pháp cải tiến quy trình tài chính theo Issue Register**
+
 | **ISS-TC01** | Tạo mã **VietQR động** tích hợp trực tiếp trên thông báo cước App/SMS, tự động điền sẵn mã HĐ và số tiền | Dynamic QR Code, API Gateway | Triệt tiêu 100% lỗi chuyển khoản sai cú pháp; tự động gạch nợ Real-time. |
 | **ISS-TC02** | Xây dựng cơ chế **Instant Unbarring qua Webhook**: Cổng TT thông báo trừ tiền $\rightarrow$ Kích hoạt mở mạng trong 30 giây | Webhook Integration, Event-Driven Architecture | Rút ngắn thời gian mở cước từ 12 giờ xuống 30 giây; giảm 90% khiếu nại. |
 | **ISS-TC03** | Triển khai **Hệ thống AI Voicebot & Zalo ZNS** nhắc nợ cá nhân hóa theo hành vi lịch sử | AI Natural Language Processing, Smart Messaging | Tăng tỷ lệ thu cước đúng hạn từ 85% lên 96%; giảm chi phí gọi điện thủ công. |
 | **ISS-TC04** | Chính sách ưu đãi giảm trừ cước khi cài đặt **Auto-debit (Trích nợ tự động)** qua ngân hàng | Electronic Direct Debit, e-KYC | Giảm tỷ lệ thanh toán tiền mặt từ 35% xuống dưới 5%; xóa bỏ chi phí đi lại của Thu ngân. |
 
+
 #### **3.7.5.2. Bảng so sánh toàn diện As-Is và To-Be**
 
-| Tiêu chí so sánh | Quy trình hiện tại (As-Is) | Quy trình tương lai đề xuất (To-Be) | Hiệu quả cải tiến |
-| :--- | :--- | :--- | :---: |
+**Bảng 3.7.28: Bảng so sánh toàn diện quy trình Quản lý Tài chính – Kế toán As-Is và To-Be**
+
 | **Cơ chế đối soát** | Theo lô (Batch Processing) cuối ngày, Kế toán tra soát thủ công | Đối soát tự động thời gian thực (Real-time Webhook) | **Rút ngắn 95% thời gian** |
 | **Cú pháp thanh toán** | Khách tự nhập nội dung chuyển khoản, dễ sai sót mã HĐ | Quét mã VietQR động tích hợp sẵn thông tin hóa đơn | **Triệt tiêu 100% lỗi cú pháp** |
 | **Thời gian mở cước sau nợ** | Từ 2 đến 12 giờ (chờ nhân sự đối soát và truyền lệnh) | Dưới 30 giây (Hệ thống tự động kích hoạt Provisioning) | **Nhanh hơn 99%** |
@@ -604,11 +701,21 @@ $$
 | **Chiến dịch nhắc nợ** | Điện thoại viên gọi thủ công và gửi SMS văn bản đơn thuần | AI Voicebot thông minh tự động kết hợp Zalo ZNS | **Tiết kiệm 70% nhân lực CSKH** |
 | **Tỷ lệ thanh toán không tiền mặt**| Khoảng 65% (vẫn còn 35% thu tiền mặt tại nhà) | Mục tiêu đạt $\ge 95\%$ thông qua Auto-debit và Foxpay | **Giảm 80% chi phí thu ngân** |
 
+
 ---
 
 ### **3.7.6. Kế hoạch chuyển đổi & Đánh giá tác động (Implementation Plan & Impact Assessment)**
 
 #### **3.7.6.1. Lộ trình thực thi 4 giai đoạn**
+
+**Bảng 3.7.29: Lộ trình thực thi 4 giai đoạn chuyển đổi số quy trình tài chính**
+
+| Giai đoạn | Thời gian | Mục tiêu trọng tâm | Nhiệm vụ kỹ thuật chính |
+| :--- | :---: | :--- | :--- |
+| **GĐ 1 – Chuẩn hóa & Tích hợp hạ tầng** | Tháng 1–2 | Kết nối Webhook Real-time | Xây dựng API Webhook FPT Billing với các cổng ngân hàng & Foxpay; chuẩn hóa VietQR động Napas. |
+| **GĐ 2 – Số hóa Hóa đơn & Đối soát** | Tháng 3–4 | Tự động hóa gạch nợ | Nâng cấp ký số e-Invoice tự động hàng loạt; gạch nợ Real-time; triển khai Auto-debit khách hàng mới. |
+| **GĐ 3 – Tích hợp AI & Mở cước tức thì** | Tháng 5–6 | Loại bỏ chờ đợi | Huấn luyện AI Voicebot nhắc nợ; kích hoạt Instant Unbarring (mở mạng trong 30 giây). |
+| **GĐ 4 – Tối ưu hóa toàn diện** | Tháng 7 trở đi | Tinh gọn bộ máy | Giảm 80% thu tiền mặt tại nhà; tinh gọn thu ngân; vận hành Dashboard tài chính Real-time. |
 
 1. **Giai đoạn 1 – Chuẩn hóa & Tích hợp hạ tầng (Tháng 1–2):**  
    Xây dựng API kết nối Webhook giữa FPT Billing với các cổng thanh toán ngân hàng (Vietcombank, MB, Techcombank) và ví Foxpay; chuẩn hóa định dạng mã VietQR động theo tiêu chuẩn Napas.
@@ -619,6 +726,8 @@ $$
 4. **Giai đoạn 4 – Tối ưu hóa toàn diện & Đánh giá KPI (Tháng 7 trở đi):**  
    Thu hẹp dần kênh thu tiền mặt tại nhà; tinh gọn bộ máy thu ngân hiện trường; theo dõi bảng Dashboard thời gian thực phân tích tuổi nợ và doanh thu.
 
+
+
 ---
 
 #### **3.7.6.2. Đánh giá tác động định lượng sau chuyển đổi**
@@ -627,12 +736,28 @@ $$
 * **Về chất lượng:** First Pass Yield (FPY) tăng vọt từ **53,67%** lên mức **88,5%**; triệt tiêu hoàn toàn các khiếu nại do chuyển khoản nhầm cú pháp hoặc khóa mạng nhầm.
 * **Về chi phí:** Chi phí vận hành trên 100 thuê bao giảm từ **196.359 VNĐ** xuống còn **98.200 VNĐ** (tiết kiệm **49,9%** chi phí), tương đương tiết kiệm hàng tỷ đồng ngân sách vận hành mỗi năm cho toàn hệ thống FPT Telecom.
 
+
+
+**Bảng 3.7.30: Bảng tổng hợp đối chiếu chỉ số KPI As-Is và To-Be sau chuyển đổi**
+
+| Chỉ số đo lường (KPI) | Hiện trạng (As-Is) | Mục tiêu cải tiến (To-Be) | Mức độ cải thiện |
+| :--- | :---: | :---: | :--- |
+| **Tổng thời gian chu kỳ (Cycle Time)** | 12,08 giờ (724,95 phút) | 2,50 giờ (150 phút) | **Rút ngắn 79,3% thời gian** |
+| **Hiệu suất chu kỳ (Cycle Time Efficiency - CTE)** | 25,51% | $\ge 65,00\%$ | **Tăng 39,5 điểm %** |
+| **Tỷ lệ vượt qua lần đầu (First Pass Yield - FPY)** | 53,67% | $\ge 88,50\%$ | **Tăng 34,8 điểm %** |
+| **Thời gian mở cước sau nợ (Unbarring Latency)** | 2 – 12 giờ | $\le 30$ giây | **Nhanh hơn 99%** |
+| **Chi phí vận hành / 100 thuê bao** | 196.359 VNĐ | 98.200 VNĐ | **Tiết kiệm 49,9% chi phí** |
+| **Tỷ lệ thanh toán không tiền mặt (Cashless)** | 65% | $\ge 95\%$ | **Tăng 30 điểm %** |
+| **Tỷ lệ khiếu nại cước / 1.000 thuê bao** | 40 vụ việc | $\le 5$ vụ việc | **Giảm 87,5% sự cố** |
+| **Chỉ số hài lòng khách hàng (CSAT Tài chính)** | ~72% | $\ge 95\%$ | **Tăng 23 điểm %** |
+
 ---
 
-### **3.7.7. Kết luận**
+### **3.7.7. Kết luận quy trình**
 
 Quy trình Quản lý tài chính – kế toán (Thu cước, đối soát công nợ và xuất hóa đơn điện tử) là mạch máu kết nối chặt chẽ giữa hoạt động vận hành viễn thông với sức khỏe tài chính của FPT Telecom. 
 
 Bằng việc kết hợp hài hòa giữa **3 phương pháp khám phá quy trình**, áp dụng mô hình BPMN As-is có **độ phức tạp cao với 6 Cổng điều kiện (GW1 – GW6)** vượt mức yêu cầu của giảng viên, cùng các công cụ phân tích định tính (VA/BVA/NVA, 7 Lãng phí, Pareto, Fishbone 6M) và định lượng (Cycle Time, CTE, FPY, Cost Analysis), tài liệu này đã chỉ rõ các điểm nghẽn nghiêm trọng của mô hình vận hành thủ công truyền thống.
 
 Mô hình To-Be hướng tới kiến trúc **Real-time Event-Driven Billing** ứng dụng VietQR động, Webhook API và AI Voicebot chính là giải pháp tối ưu giúp FPT Telecom vừa nâng cao năng lực quản trị dòng tiền, vừa mang lại trải nghiệm tiện ích, mượt mà và vượt trội cho hàng triệu khách hàng sử dụng dịch vụ Internet trên toàn quốc.
+
