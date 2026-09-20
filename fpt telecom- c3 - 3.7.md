@@ -1,4 +1,4 @@
-## **3.7. QUY TRÌNH HỖ TRỢ: QUẢN LÝ TÀI CHÍNH – KẾ TOÁN (THU CƯỚC, ĐỐI SOÁT CÔNG NỢ VÀ XUẤT HÓA ĐƠN ĐIỆN TỬ)**
+## **3.7. QUY TRÌNH HỖ TRỢ 2: QUẢN LÝ TÀI CHÍNH – KẾ TOÁN (THU CƯỚC, ĐỐI SOÁT CÔNG NỢ VÀ XUẤT HÓA ĐƠN ĐIỆN TỬ)**
 
 ---
 
