@@ -1,1038 +1,886 @@
-## **3.5. Quy trình hỗ trợ: Quản lý kho và xuất vật tư**
-
-### **3.5.1. Phương pháp thực hiện (Khám phá quy trình - Process Discovery)**
-
-Khám phá quy trình (Process Discovery) là giai đoạn nền tảng trong vòng đời BPM nhằm thu thập dữ liệu hiện trạng, làm rõ các bước công việc thực tế, nhận diện các bên liên quan và phát hiện những điểm nghẽn trong vận hành. Nhóm áp dụng kết hợp **3 phương pháp khám phá quy trình chuẩn mực** theo bài giảng môn học (Chương 4 – Process Discovery) bao gồm: **(1) Phương pháp dựa trên bằng chứng (Evidence-based Discovery)**, **(2) Phương pháp phỏng vấn (Interview-based Discovery)**, và **(3) Phương pháp hội thảo chuyên sâu (Workshop-based Discovery)**.
+## **3.5. QUY TRÌNH CỐT LÕI 2: THI CÔNG VÀ LẮP ĐẶT MẠNG WI-FI TẠI FPT TELECOM**
 
 ---
 
-#### **3.5.1.1. Dựa trên bằng chứng (Evidence-based Discovery)**
+### **3.5.1. Khám phá quy trình (Process Discovery)**
 
-Phương pháp khám phá dựa trên bằng chứng tập trung thu thập, đối soát và phân tích các văn bản quy chuẩn nghiệp vụ, cơ cấu tổ chức, ma trận trách nhiệm, sổ tay vận hành và biểu mẫu thực tế đang được áp dụng tại Trung tâm Quản lý Kho & Chuỗi cung ứng FPT Telecom.
-
----
-
-#### **3.5.1.1.1. Sơ đồ tổ chức và Ma trận trách nhiệm (Organizational Chart & RACI Matrix)**
-
-Sơ đồ tổ chức quản lý kho và chuỗi cung ứng tại Chi nhánh FPT Telecom được thiết lập nhằm bảo đảm nguyên tắc kiểm soát độc lập giữa khâu bảo quản hiện vật (Kho), mua sắm (Mua hàng), kiểm soát chi phí (Kế toán) và phê duyệt chủ trương (Ban Giám đốc):
-
-![Sơ đồ tổ chức bộ máy Quản lý Kho & Chuỗi cung ứng FPT Telecom](./assets/diagrams/quan_ly_kho/quanlykho.jpg)
-
-_Hình 3.5.1: Sơ đồ tổ chức bộ máy Quản lý Kho & Chuỗi cung ứng FPT Telecom_
-
-**Bảng 3.5.1: Ma trận phân công trách nhiệm (RACI Matrix) quy trình Quản lý kho**
-
-*(R – Responsible: Người trực tiếp thực hiện; A – Accountable: Người chịu trách nhiệm phê duyệt cuối cùng; C – Consulted: Người được tham vấn; I – Informed: Người được thông báo)*  
-*(R – Responsible: Người trực tiếp thực hiện; A – Accountable: Người chịu trách nhiệm phê duyệt cuối cùng; C – Consulted: Người được tham vấn; I – Informed: Người được thông báo)*
-
-| Hoạt động nghiệp vụ | Thủ kho | Kỹ thuật viên | Bộ phận Mua hàng | Kế toán kho | Ban Giám đốc |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| Tiếp nhận yêu cầu & kiểm tra tồn kho WMS | **R / A** | I | I | I | I |
-| Lập đề xuất mua sắm bổ sung vật tư | **R** | I | C | C | **A** |
-| Đặt hàng và theo dõi giao hàng Nhà cung cấp | I | I | **R / A** | C | I |
-| Kiểm tra chất lượng hàng nhập kho (QC) | **R** | C | I | I | **A** |
-| Quét mã Serial/MAC & chuẩn bị vật tư | **R / A** | I | I | I | I |
-| Xuất kho & bàn giao thiết bị cho KTV | **R** | **R** | I | I | I |
-| Thi công lắp đặt tại hiện trường | I | **R / A** | I | I | I |
-| Bàn giao vật tư thừa / thiết bị lỗi về kho | **R** | **R** | I | I | I |
-| Đối soát kiểm kê và hạch toán ERP | **R** | I | C | **R / A** | I |
+Khám phá quy trình (Process Discovery) là giai đoạn nền tảng trong vòng đời Quản trị Quy trình Nghiệp vụ (BPM Lifecycle). Mục đích của giai đoạn này là thu thập hiện trạng vận hành thực tế, làm rõ ranh giới các bước công việc, xác định các tác nhân liên quan và nhận diện các điểm nghẽn, rủi ro tiềm ẩn. Nhóm áp dụng kết hợp **3 phương pháp khám phá quy trình chuẩn mực** theo giáo trình môn học IE203 (Chương 4 – Process Discovery) bao gồm:
+1. **Phương pháp dựa trên bằng chứng (Evidence-based Discovery)**: Rà soát tài liệu quy trình vận hành tiêu chuẩn (SOP), quy chuẩn kỹ thuật cáp quang FTTH, dữ liệu log từ hệ thống CRM / Mobisale / BPMS và các mẫu chứng từ đang lưu hành thực tế tại FPT Telecom.
+2. **Phương pháp phỏng vấn (Interview-based Discovery)**: Phỏng vấn trực tiếp các bên liên quan từ cấp quản trị chi nhánh, nhân viên kinh doanh, kỹ thuật viên khảo sát, thủ kho, kỹ thuật viên hiện trường (TNC), nhân viên CSKH và khách hàng để thu thập dữ liệu định tính và định lượng.
+3. **Phương pháp hội thảo chuyên sâu (Workshop-based Discovery)**: Tổ chức phiên làm việc tập trung giữa các bộ phận để giải quyết triệt để các xung đột góc nhìn, thống nhất các điểm kiểm soát chất lượng (Go/No-Go Checkpoint) và chuẩn hóa bức tranh toàn cảnh As-Is.
 
 ---
 
-#### **3.5.1.1.2. Kế hoạch làm việc và phân bổ ca trực (Work Schedule)**
+#### **3.5.1.1. Phương pháp dựa trên bằng chứng (Evidence-based Discovery)**
 
-Để quy trình kho vận hành nhịp nhàng, đáp ứng tiến độ lắp đặt của hàng trăm KTV mỗi ngày, kế hoạch làm việc được thiết lập chi tiết theo ngày và theo tuần:
+Phương pháp dựa trên bằng chứng được thực hiện thông qua việc rà soát hồ sơ quy trình vận hành tiêu chuẩn (SOP), các văn bản chỉ đạo của Ban Điều hành FPT Telecom, dữ liệu log từ hệ thống FPT CRM / Mobisale / BPMS và các mẫu chứng từ đang lưu hành.
 
-**Kế hoạch công việc theo ngày (Daily Schedule):**
+##### **3.5.1.1.1. Mô tả chuỗi hoạt động As-Is dựa trên văn bản quy chuẩn**
 
-**Bảng 3.5.2: Kế hoạch công việc theo ngày (Daily Schedule) của nhân sự kho**
+Quy trình thi công và lắp đặt mạng Wi-Fi (Internet cáp quang băng rộng FTTH) tại FPT Telecom là quy trình nghiệp vụ cốt lõi (Core Process), liên kết trực tiếp từ nhu cầu đăng ký dịch vụ của khách hàng đến kết quả bàn giao kết nối Internet hoàn chỉnh, thu phí và khảo sát chăm sóc sau bán hàng.
 
-| Khung giờ | Vai trò | Nội dung công việc chi tiết |
-| :---: | :--- | :--- |
-| **07:30 – 08:30** | Thủ kho & KTV | **Ca sáng (Cao điểm xuất kho):** Mở cửa kho; in Phiếu xuất kho theo Work Order ca sáng; quét mã Serial/MAC thiết bị; bàn giao vật tư cho KTV xuất phát thi công. |
-| **08:30 – 11:30** | Thủ kho & Mua hàng | Tiếp nhận hàng nhập từ Nhà cung cấp hoặc điều chuyển từ Kho tổng; thực hiện kiểm định QC; nhập kho WMS; sắp xếp hàng hóa theo nguyên tắc FIFO. |
-| **11:30 – 12:00** | Thủ kho | Đối chiếu số liệu xuất nhập sáng trên WMS; xử lý các yêu cầu phát sinh khẩn cấp từ các tổ kỹ thuật. |
-| **13:00 – 14:00** | Thủ kho & KTV | **Ca chiều (Xuất kho đợt 2):** Tiếp nhận danh sách Work Order ca chiều; chuẩn bị thiết bị Modem/Router; bàn giao vật tư cho KTV ca chiều. |
-| **14:00 – 17:00** | Thủ kho & Kế toán | Phân loại thiết bị lỗi kỹ thuật; đóng gói thiết bị gửi đi bảo hành hãng; kiểm tra hạn mức an toàn tồn kho (Safety Stock) để lập phiếu đề xuất mua hàng. |
-| **17:00 – 18:30** | Thủ kho & KTV | **Cuối ngày (Quyết toán & thu hồi):** Tiếp nhận vật tư dôi dư và thiết bị lỗi từ KTV; kiểm đếm và ký biên bản nhập trả; đồng bộ dữ liệu xuất nhập ngày sang ERP; khóa kho. |
+![Sơ đồ chuỗi hoạt động tổng quan quy trình lắp đặt mạng Wi-Fi](./assets/diagrams/lap_dat_mang/hinh-3-1-chuoi-hoat-dong-tong-quan.png)
 
-**Kế hoạch công việc theo tuần (Weekly Schedule):**
+_Hình 3.5.1: Sơ đồ chuỗi hoạt động tổng quan quy trình lắp đặt mạng Wi-Fi_
 
-**Bảng 3.5.3: Kế hoạch công việc theo tuần (Weekly Schedule) của bộ phận kho**
+Chuỗi hoạt động hiện tại gồm **11 bước tổng quát (macro-steps)**:
 
-| Ngày trong tuần | Bộ phận thực hiện | Mục tiêu và nội dung công việc |
-| :---: | :--- | :--- |
-| **Thứ Hai** | Kho, Mua hàng, Kế toán, BGĐ | Họp giao ban đầu tuần; đánh giá hiệu suất cấp phát vật tư tuần trước; rà soát dự báo nhu cầu lắp đặt tuần mới; phê duyệt các đề xuất mua sắm lớn. |
-| **Thứ Ba** | Bộ phận Kho & Vật tư | Kiểm kê xoay vòng (*Cycle Counting*) nhóm hàng giá trị cao (Modem Wi-Fi 6, OLT/ONT chuyên dụng); đối chiếu số liệu vật lý và WMS. |
-| **Thứ Tư** | Kho & Bộ phận Mua hàng | Làm việc với các Nhà cung cấp về tiến độ giao hàng; xử lý các lô hàng bị từ chối do lỗi QC. |
-| **Thứ Năm** | Bộ phận Kho & KTV | Rà soát công nợ vật tư của toàn bộ KTV; nhắc nhở và thu hồi các thiết bị tồn giữ trên xe KTV quá 48 giờ chưa quyết toán. |
-| **Thứ Sáu** | Kho & Kế toán kho | Đối soát chứng từ xuất nhập kho giấy với dữ liệu điện tử trên hệ thống ERP; tổng hợp số liệu hao hụt vật tư tiêu hao (cáp, đầu nối). |
-| **Thứ Bảy** | Bộ phận Kho & Vật tư | Vệ sinh kho bãi, bảo dưỡng thiết bị nâng hạ và máy quét mã vạch; sắp xếp lại các khu vực kệ hàng đảm bảo tiêu chuẩn 5S. |
-| **Chủ Nhật** | Thủ kho trực ca | Trực xuất kho khẩn cấp phục vụ sự cố mạng hoặc các ca thi công VIP đã được phê duyệt đặc biệt. |
+- **Bước 1: Tiếp nhận nhu cầu đăng ký từ khách hàng:**
+  - **Mục tiêu:** Thu thập đầy đủ, chính xác thông tin đăng ký dịch vụ của khách hàng qua đa kênh tiếp cận.
+  - **Thực hiện:** Khách hàng đăng ký qua Website chính thức (fpt.vn / fptlapdat.com.vn), ứng dụng Hi FPT, Tổng đài Hotline 19006600, quầy giao dịch VPGD hoặc trực tiếp qua Nhân viên kinh doanh (Sales D2D). Thông tin thu thập gồm: Họ tên, số điện thoại, địa chỉ lắp đặt chi tiết và gói cước Internet/Wi-Fi mong muốn.
 
----
+- **Bước 2: Ghi nhận và khởi tạo yêu cầu khảo sát trên hệ thống:**
+  - **Mục tiêu:** Số hóa dữ liệu đăng ký và khởi tạo luồng xử lý trên hệ thống tập trung.
+  - **Thực hiện:** Nhân viên Sales nhập hồ sơ lên hệ thống FPT CRM / Mobisale, phần mềm tự động cấp mã Ticket ID và chuyển dữ liệu tới Đội Kỹ thuật hạ tầng khu vực.
 
-#### **3.5.1.1.3. Thuật ngữ và sổ tay nghiệp vụ (Glossary & Manuals)**
+- **Bước 3: Khảo sát hạ tầng mạng cáp và cổng kết nối (Port):**
+  - **Mục tiêu:** Điểm kiểm soát trọng yếu (Go/No-Go Checkpoint) nhằm xác minh tính khả thi kỹ thuật trước khi cam kết thương mại, tránh lãng phí chi phí triển khai.
+  - **Thực hiện:** Bộ phận Kỹ thuật kiểm tra trên bản đồ mạng GIS và hiện trường: cự ly kéo cáp từ Hộp chia quang (ODF/DP) đến nhà khách hàng (đạt chuẩn $\le 300\text{m}$) và kiểm tra số Port còn trống.
+    - **Rẽ nhánh 1 (Không đủ điều kiện):** Cập nhật trạng thái 'Không khả thi', hệ thống tự động gửi tin nhắn/email từ chối lịch sự và đóng hồ sơ.
+    - **Rẽ nhánh 2 (Đủ điều kiện):** Xác nhận khả thi và chuyển tiếp sang bước ký hợp đồng.
 
-**Bảng 3.5.4: Bảng thuật ngữ và định nghĩa viết tắt trong quản lý kho viễn thông**
+- **Bước 4: Tư vấn chi tiết gói cước và ký kết hợp đồng:**
+  - **Mục tiêu:** Thống nhất phương án gói cước, thu thập hồ sơ định danh và ký kết hợp đồng dịch vụ viễn thông.
+  - **Thực hiện:** Nhân viên Sales tư vấn thiết bị (Modem ONT 2 băng tần, Mesh Wi-Fi 6), các chương trình trả trước cước. Khách hàng cung cấp ảnh CCCD để định danh điện tử (eKYC). Sales tạo Hợp đồng điện tử (E-Contract), gửi mã OTP xác thực qua SMS để khách hàng ký số trực tuyến.
 
-| Thuật ngữ / Viết tắt | Tên đầy đủ / Định nghĩa | Giải thích vai trò trong quy trình FPT Telecom |
-| :--- | :--- | :--- |
-| **WMS** | Warehouse Management System | Hệ thống phần mềm quản lý kho, theo dõi vị trí kệ, tồn kho và lịch sử quét mã Serial/MAC. |
-| **ERP** | Enterprise Resource Planning | Hệ thống hoạch định nguồn lực doanh nghiệp (SAP/Oracle), quản lý hạch toán kế toán và giá trị tài sản. |
-| **BPMS** | Business Process Management System | Hệ thống quản trị quy trình nghiệp vụ tự động điều phối luồng công việc từ CRM sang Kho và Kỹ thuật. |
-| **ONT** | Optical Network Terminal | Thiết bị chuyển đổi tín hiệu quang sang tín hiệu điện (Modem cáp quang lắp tại nhà khách hàng). |
-| **Mesh Wi-Fi** | Hệ thống mở rộng vùng phủ sóng Wi-Fi | Thiết bị phụ trợ kết nối không dây tạo mạng Wi-Fi đồng nhất cho nhà nhiều tầng hoặc diện tích rộng. |
-| **Drop Wire** | Cáp quang thuê bao (1-2 FO) | Dây cáp quang chuyên dụng kéo ngoài trời từ hộp chia quang (ODF/DP) vào nhà khách hàng. |
-| **Fast Connector** | Đầu nối quang nhanh (SC/APC) | Phụ kiện bấm nối đầu sợi quang trực tiếp tại hiện trường mà không cần dùng máy hàn nhiệt. |
-| **Safety Stock** | Mức tồn kho an toàn | Số lượng thiết bị tối thiểu bắt buộc phải duy trì trong kho để phòng ngừa nhu cầu đột biến hoặc trễ giao hàng. |
-| **Reorder Point (ROP)** | Điểm đặt hàng lại | Mức tồn kho mà khi chạm tới, hệ thống tự động tạo cảnh báo cần đặt hàng bổ sung ngay lập tức. |
-| **FIFO** | First In, First Out | Nguyên tắc quản lý kho "Nhập trước - Xuất trước", đảm bảo thiết bị nhập trước được xuất trước, tránh hết hạn bảo hành. |
-| **GPON / XGS-PON** | Gigabit Passive Optical Network | Các chuẩn công nghệ truyền dẫn quang thụ động; XGS-PON cung cấp tốc độ đối xứng 10Gbps đòi hỏi modem chuyên biệt. |
-| **QC Incoming** | Quality Control Incoming | Quy trình kiểm tra chất lượng của lô hàng nhập từ Nhà cung cấp trước khi nhập kho chính thức. |
+- **Bước 5: Khởi tạo và phân bổ lệnh thi công (Work Order):**
+  - **Mục tiêu:** Tự động hóa quá trình điều phối nguồn lực, loại bỏ độ trễ và thao tác thủ công.
+  - **Thực hiện:** Hệ thống BPMS/CRM tự động tạo phiếu công tác (Work Order), phân bổ ca thi công và tự động gán cho Kỹ thuật viên (TNC) phụ trách tuyến theo thuật toán phân bổ.
 
----
+- **Bước 6: Chuẩn bị và xuất kho thiết bị, vật tư:**
+  - **Mục tiêu:** Cung cấp đầy đủ, chính xác vật tư và thiết bị mạng đạt tiêu chuẩn chất lượng.
+  - **Thực hiện:** Thủ kho tiếp nhận lệnh xuất kho điện tử, quét mã Serial/MAC Address của thiết bị (Modem quang ONT, Router phụ, cuộn cáp quang drop-wire, Fast Connector, phụ kiện) và bàn giao cho KTV.
 
-#### **3.5.1.1.4. Hệ thống biểu mẫu áp dụng (Forms & Templates)**
+- **Bước 7: Kỹ thuật viên liên hệ hẹn giờ thi công:**
+  - **Mục tiêu:** Thống nhất thời gian có mặt chính xác, tránh tình trạng khách hàng vắng nhà gây lãng phí công di chuyển.
+  - **Thực hiện:** KTV sử dụng ứng dụng chuyên dụng (FoxPro/MyFPT TNC) gọi điện cho khách hàng, xác nhận thời gian có mặt và vị trí dự kiến đặt modem trong nhà.
 
-Dưới đây là 6 biểu mẫu nghiệp vụ thực tế được sử dụng xuyên suốt quy trình Quản lý kho và xuất vật tư tại FPT Telecom:
+- **Bước 8: Thi công kéo cáp và cấu hình thiết bị:**
+  - **Mục tiêu:** Xây dựng đường truyền vật lý đạt tiêu chuẩn kỹ thuật và cấu hình mạng Wi-Fi.
+  - **Thực hiện:** KTV kéo rải cáp từ hộp ODF vào nhà khách hàng, bấm đầu Fast Connector hoặc hàn nối quang dã chiến; đo kiểm công suất quang (suy hao $\le -24\text{ dBm}$). Lắp đặt Modem, cấu hình tên mạng Wi-Fi (SSID), mật khẩu và dải tần. Thu cước hòa mạng ban đầu (nếu chọn trả sau) qua tiền mặt hoặc mã QR Foxpay/VNPay.
 
-**Biểu mẫu 1: Phiếu yêu cầu xuất vật tư (Electronic Material Requisition Form)**  
-* *Mã hiệu:* BM-KHO-01 | *Người lập:* Hệ thống BPMS (Tự động) | *Người nhận:* Thủ kho chi nhánh  
+- **Bước 9: Nghiệm thu và bàn giao dịch vụ:**
+  - **Mục tiêu:** Xác nhận chất lượng dịch vụ hoạt động ổn định và đo lường sự hài lòng tại chỗ.
+  - **Thực hiện:** KTV hướng dẫn khách hàng kết nối thử thiết bị, thực hiện kiểm tra tốc độ qua công cụ Speedtest. Khách hàng ký xác nhận vào biên bản nghiệm thu điện tử trên ứng dụng di động của KTV.
 
-| STT | Mã Work Order | Tên Kỹ thuật viên | Mã nhân viên | Chủng loại thiết bị yêu cầu | Số lượng | Chuẩn công nghệ | Ghi chú |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | WO-2026-0901 | Nguyễn Văn An | FPT-10822 | Modem Wi-Fi 6 ONT (G-97RG6M) | 01 Cái | GPON | Gói cước Giga |
-| 2 | WO-2026-0901 | Nguyễn Văn An | FPT-10822 | Thiết bị mở rộng Mesh (H3601P) | 01 Cái | Wi-Fi 6 | Thuê bao lắp tầng 2 |
-| 3 | WO-2026-0901 | Nguyễn Văn An | FPT-10822 | Cáp quang Drop wire 1FO có dây treo | 150 Mét | Cáp dã chiến | Khoảng cách ODF 120m |
+- **Bước 10: Kích hoạt dịch vụ trên hệ thống mạng lõi:**
+  - **Mục tiêu:** Đưa thuê bao vào vận hành thương mại chính thức trên hạ tầng mạng viễn thông.
+  - **Thực hiện:** KTV bấm 'Hoàn tất lắp đặt' trên app; hệ thống BPMS tự động gửi lệnh Provisioning kích hoạt tài khoản PPPoE/MAC Address lên Radius/AAA Server, gửi SMS/Email thông báo tài khoản quản trị mạng FPT cho khách hàng.
 
-**Biểu mẫu 2: Phiếu xuất kho kiêm biên bản bàn giao thiết bị**  
-* *Mã hiệu:* BM-KHO-02 | *Người lập:* Thủ kho | *Người nhận:* Kỹ thuật viên thi công  
+- **Bước 11: Khảo sát chất lượng dịch vụ (NPS) & Chăm sóc sau bán hàng:**
+  - **Mục tiêu:** Đo lường chỉ số hài lòng (NPS) và quản lý chất lượng dịch vụ.
+  - **Thực hiện:** Trong vòng 24 - 48 giờ sau khi nghiệm thu, hệ thống CSKH tự động gửi tin nhắn khảo sát hoặc điện thoại viên liên hệ ghi nhận đánh giá (thang điểm 1-10). Đóng ca làm việc hoàn tất.
 
-| STT | Mã vật tư | Tên thiết bị / Phụ kiện | ĐVT | SL xuất | Số Serial Number | Địa chỉ MAC | Tình trạng |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | VT-MODEM-06 | Modem Wi-Fi 6 G-97RG6M | Cái | 01 | FPTHCM26090123 | AC:22:05:4E:91:A0 | Mới 100%, nguyên hộp |
-| 2 | VT-MESH-01 | Router Mesh ZTE H3601P | Cái | 01 | ZTESG260877123 | 84:D8:1B:32:FF:12 | Mới 100%, nguyên seal |
-| 3 | VT-CAP-1FO | Cáp quang Drop wire 1FO | Mét | 150 | Lô: C-2026-T8 | N/A | Đạt kiểm định suy hao |
-| 4 | VT-FAST-SC | Đầu nối Fast Connector SC/APC | Cái | 04 | Lô: FC-09 | N/A | Đóng túi tiêu chuẩn |
-*(Kèm chữ ký xác nhận của Thủ kho bàn giao và Kỹ thuật viên nhận hàng)*
+> **Ghi chú về mức độ phân rã bước:** 11 bước ở trên là mức tổng quát (macro-steps) dùng làm cơ sở cho bảng đo thời gian Lead Time ở mục 3.4.4.1. Ở các phần phân tích chi tiết hơn (như mô hình BPMN và bảng VA/BVA/NVA), một số bước macro được phân rã thành các bước con cụ thể (chẳng hạn tách riêng hoạt động ký hợp đồng, thu tiền phí của Kế toán, kéo cáp, hàn nối, cấu hình thiết bị và nghiệm thu) để đánh giá chính xác từng tác nhân và loại trừ các giả định mâu thuẫn.
 
-**Biểu mẫu 3: Phiếu đề xuất mua sắm bổ sung vật tư**  
-* *Mã hiệu:* BM-KHO-03 | *Người lập:* Thủ kho | *Người duyệt:* Trưởng bộ phận Kho & Ban Giám đốc  
+##### **3.5.1.1.2. Danh mục tài liệu và biểu mẫu nghiệp vụ thu thập (Evidence Artifacts)**
 
-| STT | Mã thiết bị | Tên thiết bị / Chủng loại | Tồn kho hiện tại | Ngưỡng Safety Stock | SL đề xuất mua | Đơn giá dự kiến (VNĐ) | Thành tiền dự kiến (VNĐ) |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | VT-MODEM-06 | Modem Wi-Fi 6 G-97RG6M | 15 cái | 50 cái | 100 cái | 650.000 | 65.000.000 |
-| 2 | VT-CAP-1FO | Cuộn cáp Drop wire 1.000m | 2 cuộn | 5 cuộn | 10 cuộn | 1.800.000 | 18.000.000 |
-| 3 | VT-FAST-SC | Fast Connector SC/APC (hộp 100) | 3 hộp | 10 hộp | 20 hộp | 350.000 | 7.000.000 |
-| **Tổng** | | | | | | | **90.000.000 VNĐ** |
-*(Đề xuất vượt 50 triệu VNĐ $\rightarrow$ Cần chữ ký phê duyệt của Ban Giám đốc Chi nhánh)*
+Nhóm đã thu thập và đối chiếu các biểu mẫu nghiệp vụ thực tế đang vận hành tại FPT Telecom:
 
-**Biểu mẫu 4: Biên bản kiểm tra chất lượng hàng nhập kho (QC Incoming Report)**  
-* *Mã hiệu:* BM-KHO-04 | *Đơn vị giao hàng:* Nhà cung cấp | *Đơn vị kiểm tra:* Bộ phận Kho & QC  
+* **Biểu mẫu 1: Phiếu ghi nhận đăng ký dịch vụ (CRM Lead Ticket)**  
+  * *Mã hiệu:* BM-FPT-KD01 | *Kênh tiếp nhận:* Website / D2D / Hotline / Quầy giao dịch  
+  * *Nội dung thu thập:* Mã Lead ID, Thời gian đăng ký, Họ tên khách hàng, Số điện thoại, Địa chỉ lắp đặt chi tiết (Số nhà, Đường, Phường/Xã, Quận/Huyện, Tọa độ GPS), Gói cước yêu cầu (Giga 150Mbps / Sky 1Gbps / Meta 1Gbps / F-Game), Hình thức thanh toán dự kiến (Trả trước 6 tháng / 12 tháng / Trả sau).
 
-| STT | Số PO / Lô hàng | Tên mặt hàng | Tổng SL giao | Số mẫu test (AQL) | Số lượng Đạt | Số lượng Lỗi | Kết luận QC | Hướng xử lý |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | PO-NHACUNGCAP-991 | Modem Wi-Fi 6 | 100 | 10 | 10 | 0 | **ĐẠT CHUẨN** | Nhập kho WMS |
-| 2 | PO-NHACUNGCAP-992 | Dây nhảy quang Patch cord | 500 | 20 | 18 | 2 (Lỏng đầu bấm) | **TỪ CHỐI** | Trả lại Nhà cung cấp |
+* **Biểu mẫu 2: Phiếu thẩm định khảo sát hạ tầng (GIS Technical Survey Report)**  
+  * *Mã hiệu:* BM-FPT-KT02 | *Hệ thống:* GIS Network Management  
+  * *Nội dung:* Mã Ticket ID, Mã hộp ODF/Tập điểm quang gần nhất, Cự ly dây cáp thực tế (Mét), Tổng số Port thiết kế, Số Port đang sử dụng, Số Port trống khả dụng, Kết luận khảo sát: [Đủ điều kiện] / [Không đủ điều kiện - Lý do: Hết port / Vượt khoảng cách 300m / Chướng ngại vật], Chữ ký số KTV khảo sát.
 
-**Biểu mẫu 5: Phiếu thu hồi và nhập trả vật tư / thiết bị lỗi**  
-* *Mã hiệu:* BM-KHO-05 | *Người giao:* Kỹ thuật viên thi công | *Người nhận:* Thủ kho  
+* **Biểu mẫu 3: Hợp đồng điện tử dịch vụ viễn thông (FPT E-Contract)**  
+  * *Mã hiệu:* HD-FTTH-2026 | *Nền tảng:* FPT E-Contract & eKYC  
+  * *Nội dung:* Số hợp đồng, Thông tin chủ thể thuê bao (CCCD, Họ tên, Ngày sinh), Địa chỉ đặt thiết bị, Thông số gói cước & thiết bị đi kèm (Modem Wi-Fi 6 ONT, Thiết bị Mesh phụ), Mã OTP xác thực giao dịch qua SMS, Chữ ký điện tử của khách hàng và Đại diện FPT Telecom.
 
-| STT | Mã Work Order liên quan | Tên thiết bị / Vật tư hoàn trả | Số Serial / MAC | Lý do thu hồi / nhập trả | Phân loại trạng thái | Ghi chú |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | WO-2026-0889 | Cáp quang Drop wire 1FO | N/A | Dư thừa sau thi công (35m) | Tái sử dụng (Kho tốt) | Nhập lại thẻ kho |
-| 2 | WO-2026-0901 | Modem G-97RG6M | FPTHCM26090123 | Hỏng cổng quang LOS đỏ | Hỏng - Chờ bảo hành | Chuyển khu kho lỗi |
+* **Biểu mẫu 4: Lệnh công tác thi công lắp đặt (Work Order)**  
+  * *Mã hiệu:* WO-TNC-2026-X | *Hệ thống:* FPT BPMS / Dispatching Engine  
+  * *Nội dung:* Mã Work Order, Khung giờ hẹn khách, Kỹ thuật viên phụ trách (Mã NV, Họ tên, SĐT), Địa chỉ thi công, Tọa độ hộp cáp ODF, Thiết bị xuất kho tương ứng (Serial/MAC), Ghi chú thi công từ Sales.
 
-**Biểu mẫu 6: Bảng đối soát và kiểm kê tồn kho định kỳ**  
-* *Mã hiệu:* BM-KHO-06 | *Kỳ kiểm kê:* Tháng 08/2026 | *Thành phần:* Kế toán kho, Thủ kho, Trưởng kho  
+* **Biểu mẫu 5: Phiếu xuất kho vật tư thiết bị mạng (WMS Material Dispatch)**  
+  * *Mã hiệu:* PXK-TNC-05 | *Đơn vị cấp phát:* Kho kỹ thuật Chi nhánh FPT  
+  * *Nội dung:* Ngày xuất, Người nhận (KTV TNC), Danh mục: Modem Wi-Fi 6 GPON ONT (Mã barcode, Serial, MAC), Cuộn cáp quang thuê bao 1FO (Số mét bàn giao), Đầu kết nối nhanh Fast Connector (Số lượng cái), Dây kẹp treo cáp, Ống co nhiệt.
 
-| Mã vật tư | Tên vật tư thiết bị | Tồn sổ sách (WMS) | Tồn thực tế đếm | Chênh lệch (+/-) | Nguyên nhân chênh lệch | Đề xuất xử lý |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
-| VT-MODEM-06 | Modem Wi-Fi 6 | 120 | 119 | -1 | Quét sót mã khi nhập trả | Truy xuất camera & cập nhật WMS |
-| VT-CAP-1FO | Cáp quang 1FO (Mét) | 4.500 | 4.380 | -120 | Hao hụt thi công dã chiến | Hạch toán chi phí hao hụt định mức |
+* **Biểu mẫu 6: Biên bản nghiệm thu kỹ thuật và bàn giao dịch vụ điện tử**  
+  * *Mã hiệu:* BBNT-FTTH-06 | *Ứng dụng:* FoxPro / MyFPT TNC App  
+  * *Nội dung:* Mã thuê bao (Account PPPoE), Giá trị đo công suất quang suy hao tại đầu ONT (Chuẩn: $-18\text{ dBm} \div -24\text{ dBm}$), Kết quả đo tốc độ Download/Upload thực tế qua Speedtest, Tên mạng Wi-Fi (SSID 2.4GHz & 5GHz), Chữ ký xác nhận nghiệm thu điện tử của khách hàng tại chỗ.
 
 ---
 
----
+#### **3.5.1.2. Phương pháp phỏng vấn (Interview-based Discovery)**
 
-#### **3.5.1.2. Phỏng vấn (Interview-based Discovery)**
+Phương pháp phỏng vấn trực tiếp được nhóm triển khai nhằm khai thác sâu các khía cạnh vận hành thực tế tại hiện trường, làm rõ trải nghiệm của khách hàng, nhận diện các khó khăn của kỹ thuật viên và kiểm chứng các tham số định lượng (thời gian, chi phí, tỷ lệ lỗi). 
 
-Phương pháp phỏng vấn trực tiếp được thực hiện với các bên liên quan nhằm khai thác sâu các khía cạnh vận hành thực tế, trải nghiệm người dùng hệ thống, và các ngoại lệ thường phát sinh trong quá trình xuất nhập kho. Bộ câu hỏi được chia thành **10 câu hỏi định tính** và **10 câu hỏi định lượng**, cân đối giữa **dạng câu hỏi có cấu trúc (Structured)** và **không có cấu trúc (Unstructured)**.
+Bộ câu hỏi phỏng vấn được thiết kế phân tầng cho **8 nhóm tác nhân chủ chốt** (Khách hàng, Nhân viên Sales, Kỹ thuật Khảo sát, Quản trị hệ thống BPMS, Thủ kho, Kỹ thuật viên TNC, Kế toán, và Nhân viên CSKH), bao gồm **10 câu hỏi định tính** và **10 câu hỏi định lượng**, cân đối chuẩn mực giữa **dạng câu hỏi có cấu trúc (Structured)** và **không có cấu trúc (Unstructured)** theo đúng tiêu chí Rubric đánh giá của môn học.
 
-#### **3.5.1.2.1. Danh sách 10 câu hỏi định tính (Qualitative Questions)**
+##### **3.5.1.2.1. Danh sách 10 câu hỏi định tính**
 
 * **Nhóm câu hỏi có cấu trúc (Structured Qualitative Questions):** *(Sử dụng thang đo Likert 5 mức độ hoặc các phương án lựa chọn cố định nhằm lượng hóa mức độ đồng thuận)*
 
-**Bảng 3.5.5: Bảng câu hỏi phỏng vấn định tính có cấu trúc (Structured Qualitative)**
+**Bảng 3.5.1: Danh sách 10 câu hỏi phỏng vấn định tính có cấu trúc (Structured Qualitative Questions)**
 
 | STT | Đối tượng phỏng vấn | Nội dung câu hỏi có cấu trúc | Thang đo / Phương án lựa chọn |
 | :---: | :--- | :--- | :--- |
-| **Q1** | Thủ kho & Nhân viên kho | Anh/Chị đánh giá mức độ tiện dụng và độ ổn định của giao diện phần mềm WMS khi thao tác quét mã Serial/MAC và in phiếu xuất kho như thế nào? | 1. Rất khó dùng; 2. Khó dùng; 3. Bình thường; 4. Dễ dùng; 5. Rất trực quan và nhanh chóng. |
-| **Q2** | Kỹ thuật viên thi công | Khi phát hiện thiết bị modem bị lỗi quang tại hiện trường, mức độ đáp ứng thủ tục đổi thiết bị thay thế từ kho có kịp thời không? | 1. Rất chậm chạp; 2. Chậm; 3. Trung bình; 4. Nhanh; 5. Rất nhanh, hỗ trợ tức thì. |
-| **Q3** | Bộ phận Mua hàng | Mức độ tin cậy và tuân thủ đúng cam kết về thời gian giao hàng của các Nhà cung cấp thiết bị viễn thông hiện nay như thế nào? | 1. Thường xuyên trễ hẹn; 2. Đôi khi trễ hẹn; 3. Đúng hẹn ở mức trung bình; 4. Đúng hẹn phần lớn; 5. Luôn đúng hẹn 100%. |
-| **Q4** | Kế toán kho | Quy trình đối soát chứng từ xuất kho giữa số liệu quét mã WMS và hạch toán kế toán ERP hiện tại có đảm bảo độ chính xác không? | 1. Hoàn toàn không khớp; 2. Thường sai lệch; 3. Khớp một phần; 4. Khá chuẩn xác; 5. Khớp hoàn hảo theo thời gian thực. |
-| **Q5** | Ban Giám đốc Chi nhánh | Thủ tục phê duyệt đề xuất mua sắm bổ sung vật tư vượt hạn mức tự quyết (> 50 triệu đồng) hiện tại được thực hiện qua kênh nào? | [A] Ký giấy tay truyền thống; [B] Phê duyệt qua Email; [C] Phê duyệt trên phần mềm BPMS; [D] Chat qua nhóm Zalo/Telegram. |
+| **Q1** | Khách hàng | Anh/Chị đánh giá mức độ rõ ràng, minh bạch của thông tin gói cước và chính sách khuyến mãi do nhân viên Sales tư vấn như thế nào? | 1. Rất mập mờ; 2. Chưa rõ ràng; 3. Bình thường; 4. Khá rõ ràng; 5. Rất minh bạch, dễ hiểu |
+| **Q2** | Kỹ thuật viên (TNC) | Anh/Chị đánh giá mức độ tiện dụng và độ ổn định của ứng dụng di động nội bộ (FoxPro/MyFPT TNC) khi nhận lệnh thi công và cập nhật trạng thái ngoài hiện trường? | 1. Rất khó dùng/thường lỗi; 2. Khó dùng; 3. Dùng được; 4. Dễ dùng, ổn định; 5. Rất trực quan và mượt mà |
+| **Q3** | Kỹ thuật viên Khảo sát | Mức độ tin cậy và khớp thực tế giữa dữ liệu sơ đồ hạ tầng trên phần mềm bản đồ số GIS với hiện trạng cổng ODF tại cột điện đạt mức nào? | 1. Sai lệch rất lớn (>20%); 2. Thường sai lệch; 3. Khớp một phần; 4. Khá chuẩn xác; 5. Khớp hoàn toàn 100% |
+| **Q4** | Khách hàng | Trải nghiệm xác thực ký kết Hợp đồng điện tử (E-Contract) qua mã OTP SMS và thanh toán trực tuyến của Anh/Chị như thế nào? | [A] Rất nhanh chóng và tiện lợi; [B] Hơi phức tạp do không quen công nghệ; [C] Thích ký hợp đồng giấy truyền thống hơn; [D] Gặp lỗi hệ thống khi nhận mã OTP |
+| **Q5** | Thủ kho thiết bị | Hoạt động xuất cấp Modem ONT và vật tư cho KTV vào đầu ca sáng hiện nay được thực hiện chủ yếu qua hình thức nào? | [A] Quét mã vạch tự động trên phần mềm kho WMS; [B] Vừa quét mã vừa ghi sổ tay đối chiếu; [C] Ký nhận trên giấy tờ thủ công; [D] KTV tự lấy thiết bị rồi bổ sung chứng từ sau |
 
-* **Nhóm câu hỏi không có cấu trúc (Unstructured Qualitative Questions):** *(Câu hỏi mở để đối tượng tự do chia sẻ góc nhìn, nguyên nhân gốc rễ và đề xuất giải pháp)*
+* **Nhóm câu hỏi không có cấu trúc (Unstructured Qualitative Questions):** *(Câu hỏi mở để đối tượng tự do phản ánh góc nhìn, đào sâu nguyên nhân gốc rễ và cơ hội cải tiến)*
 
-**Bảng 3.5.6: Bảng câu hỏi phỏng vấn định tính mở (Unstructured Qualitative)**
+**Bảng 3.5.2: Danh sách câu hỏi phỏng vấn định tính mở không có cấu trúc (Unstructured Qualitative Questions)**
 
 | STT | Đối tượng phỏng vấn | Nội dung câu hỏi mở (Không có cấu trúc) | Mục tiêu thu thập thông tin |
 | :---: | :--- | :--- | :--- |
-| **Q6** | Thủ kho chính | Trong quá trình tiếp nhận yêu cầu và xuất hàng vào khung giờ cao điểm buổi sáng, những rào cản hoặc điểm nghẽn lớn nhất gây chậm trễ thời gian nhận hàng của KTV là gì? | Xác định điểm nghẽn vật lý và lỗi hệ thống giờ cao điểm. |
-| **Q7** | Kỹ thuật viên thi công | Anh/Chị gặp những khó khăn gì trong việc bảo quản và hoàn trả vật tư dôi dư (cáp quang, đầu nối, modem) sau khi kết thúc ca làm việc ngoài hiện trường? | Nhận diện lý do vật tư chậm hoàn trả hoặc tỷ lệ thất thoát cao. |
-| **Q8** | Bộ phận Mua hàng | Những yếu tố bất khả kháng nào thường dẫn đến tình trạng Nhà cung cấp giao hàng chậm hoặc giao hàng không đạt tiêu chuẩn kiểm định QC? | Phân tích rủi ro chuỗi cung ứng và sự phụ thuộc vào Nhà cung cấp. |
-| **Q9** | Kế toán kho | Theo Anh/Chị, đâu là nguyên nhân chính dẫn đến sự chênh lệch giữa số lượng tồn kho thực tế đếm được trong kho và số liệu tồn ghi nhận trên hệ thống ERP? | Khám phá lỗ hổng quy trình kiểm đếm và sai lệch thời gian hạch toán. |
-| **Q10** | Ban Giám đốc Chi nhánh | Định hướng chiến lược của Chi nhánh trong việc tự động hóa quản lý kho (RFID, mã QR thông minh, tích hợp hệ thống) trong 1–2 năm tới là gì? | Định hình mục tiêu cải tiến và tái thiết kế quy trình To-Be. |
+| **Q6** | Kỹ thuật viên (TNC) | Trong thực tế kéo cáp và lắp đặt tại nhà khách hàng, những yếu tố trở ngại lớn nhất khiến ca thi công bị vượt quá khung giờ cam kết (SLA) là gì? | Xác định điểm nghẽn hiện trường (nhà kín khó luồn dây, thời tiết xấu, khách hẹn dời giờ, vật tư thiếu hụt...). |
+| **Q7** | Kỹ thuật viên Khảo sát | Vì sao vẫn còn xảy ra trường hợp hệ thống GIS ghi nhận còn Port khả dụng nhưng khi KTV ra hiện trường thi công thì hộp ODF thực tế đã hết cổng cắm? | Tìm nguyên nhân gốc rễ của vấn đề ISS-01 (độ trễ khóa Port, KTV tuyến trước không cập nhật...). |
+| **Q8** | Nhân viên Kinh doanh | Anh/Chị gặp những khó khăn gì trong việc theo dõi tiến độ thi công của KTV để kịp thời thông tin, trấn an khách hàng khi xảy ra chậm trễ? | Đánh giá tính liên thông dữ liệu giữa Sales và Đội Kỹ thuật qua hệ thống BPMS. |
+| **Q9** | Quản trị hệ thống BPMS / IT | Những nguyên nhân kỹ thuật nào dẫn đến việc hệ thống kích hoạt thuê bao tự động (Provisioning AAA) bị nghẽn lệnh vào các khung giờ cao điểm cuối ngày? | Khám phá nguyên nhân gốc rễ của vấn đề ISS-03 và hạn chế tích hợp API giữa CRM và AAA. |
+| **Q10** | Trưởng phòng Kỹ thuật | Theo Anh/Chị, việc nâng cấp thuật toán điều phối thông minh (Smart Dispatching) theo vị trí địa lý sẽ mang lại cải tiến đột phá nào cho năng suất thi công? | Định hình giải pháp cải tiến To-Be và lộ trình tối ưu hóa nguồn lực. |
 
 ---
 
-#### **3.5.1.2.2. Danh sách 10 câu hỏi định lượng (Quantitative Questions)**
+##### **3.5.1.2.2. Danh sách 10 câu hỏi định lượng**
 
 * **Nhóm câu hỏi có cấu trúc (Structured Quantitative Questions):** *(Yêu cầu người trả lời cung cấp số liệu đo lường cụ thể với đơn vị tính rõ ràng)*
 
-**Bảng 3.5.7: Bảng câu hỏi khảo sát định lượng có cấu trúc (Structured Quantitative)**
+**Bảng 3.5.3: Danh sách 10 câu hỏi phỏng vấn định lượng có cấu trúc (Structured Quantitative Questions)**
 
 | STT | Đối tượng phỏng vấn | Nội dung câu hỏi định lượng có cấu trúc | Đơn vị đo lường |
 | :---: | :--- | :--- | :---: |
-| **Q11** | Thủ kho | Thời gian trung bình để thực hiện trọn vẹn thao tác quét Serial, MAC, kiểm tra ngoại quan và in phiếu xuất cho 01 đơn hàng là bao nhiêu phút? | Phút / đơn vị |
-| **Q12** | Thủ kho | Trung bình một ngày, kho chi nhánh thực hiện xuất vật tư cho bao nhiêu lượt Kỹ thuật viên đến nhận hàng? | Lượt KTV / ngày |
-| **Q13** | Kỹ thuật viên | Trong một tháng qua, trung bình có bao nhiêu lần Anh/Chị phải chờ đợi tại kho trên 15 phút mới nhận được đầy đủ thiết bị thi công? | Số lần / tháng |
-| **Q14** | Bộ phận Mua hàng | Trong quý gần nhất, tỷ lệ các lô hàng từ Nhà cung cấp bị bộ phận QC từ chối nhập kho do không đạt chuẩn kỹ thuật là bao nhiêu phần trăm? | Tỷ lệ phần trăm (%) |
-| **Q15** | Kế toán kho | Số lượng chênh lệch bình quân (thiếu hoặc thừa) giữa kiểm kê vật lý và phần mềm WMS được phát hiện trong các kỳ kiểm kê tháng là bao nhiêu thiết bị? | Số lượng thiết bị / tháng |
+| **Q11** | Kỹ thuật viên (TNC) | Thời gian trung bình để thực hiện trọn vẹn thao tác kỹ thuật hiện trường (rải cáp, bấm Fast Connector, cài đặt Wi-Fi và đo suy hao quang) cho 01 ca tiêu chuẩn là bao nhiêu phút? | Phút / ca |
+| **Q12** | Kỹ thuật viên Khảo sát | Thời gian trung bình để bộ phận Kỹ thuật kiểm tra trên bản đồ GIS và trả kết quả tính khả thi hạ tầng cho 01 yêu cầu đăng ký là bao lâu? | Phút / hồ sơ |
+| **Q13** | Kỹ thuật viên (TNC) | Trong 100 mối hàn nối cáp quang hoặc bấm đầu Fast Connector tại hiện trường, trung bình có bao nhiêu trường hợp suy hao vượt chuẩn phải cắt bấm lại? | Tỷ lệ phần trăm (%) |
+| **Q14** | Nhân viên Sales & Kỹ thuật | Trong tổng số các yêu cầu đăng ký mới trong tháng, tỷ lệ hồ sơ bị từ chối do không đủ điều kiện hạ tầng (hết port ODF hoặc khoảng cách kéo cáp > 300m) là bao nhiêu? | Tỷ lệ phần trăm (%) |
+| **Q15** | Kỹ thuật viên (TNC) | Trung bình trong một ngày làm việc tiêu chuẩn (ca 8 tiếng), một Kỹ thuật viên TNC hoàn thành được bao nhiêu ca lắp đặt mạng thành công? | Ca hoàn tất / ngày / KTV |
 
 * **Nhóm câu hỏi không có cấu trúc (Unstructured Quantitative Questions):** *(Khảo sát khoảng biến thiên, dữ liệu phân bổ xác suất và ước lượng thiệt hại tài chính)*
 
-**Bảng 3.5.8: Bảng câu hỏi khảo sát định lượng mở (Unstructured Quantitative)**
+**Bảng 3.5.4: Danh sách câu hỏi phỏng vấn định lượng mở không có cấu trúc (Unstructured Quantitative Questions)**
 
 | STT | Đối tượng phỏng vấn | Nội dung câu hỏi mở định lượng (Không có cấu trúc) | Dữ liệu định lượng kỳ vọng thu thập |
 | :---: | :--- | :--- | :--- |
-| **Q16** | Bộ phận Mua hàng | Khi kho chạm ngưỡng hết hàng, thời gian chờ Nhà cung cấp giao hàng bổ sung dao động trong khoảng từ bao nhiêu ngày đến bao nhiêu ngày (ngắn nhất và dài nhất)? | Khoảng thời gian (Best-case / Worst-case) tính bằng ngày. |
-| **Q17** | Thủ kho | Tỷ lệ phần trăm giữa các đơn hàng xuất thiết bị chuẩn GPON thông thường so với thiết bị cao cấp XGS-PON/Wi-Fi 6 hiện đang phân bổ như thế nào? | Cơ cấu tỷ lệ phần trăm (%) của từng chủng loại thiết bị. |
-| **Q18** | Kỹ thuật viên | Trung bình một tuần, tỷ lệ thiết bị Modem/ONT bị phát hiện lỗi kỹ thuật tại hiện trường chiếm khoảng bao nhiêu phần trăm trên tổng số thiết bị đã xuất? | Tỷ lệ lỗi hiện trường (%) và số giờ lãng phí do chờ đổi thiết bị. |
-| **Q19** | Kế toán kho | Ước tính tổng chi phí thiệt hại tài chính phát sinh hàng tháng do tình trạng hư hỏng thiết bị, tồn kho quá hạn bảo hành và thất thoát vật tư là bao nhiêu? | Giá trị tiền tệ ước tính (VNĐ / tháng). |
-| **Q20** | Ban Giám đốc | Chi nhánh sẵn sàng phân bổ khoảng ngân sách bao nhiêu để đầu tư nâng cấp hệ thống phần mềm WMS và thiết bị quét mã tự động nhằm rút ngắn 50% thời gian xuất kho? | Khung ngân sách đầu tư khả thi (Triệu VNĐ). |
+| **Q16** | Kỹ thuật viên (TNC) | Trong trường hợp khách hàng vắng nhà hoặc yêu cầu dời lịch hẹn đột xuất, thời gian KTV phải chờ đợi tại chỗ hoặc hoãn ca dao động trong khoảng bao lâu? | Khoảng thời gian (phút) Best-case đến Worst-case. |
+| **Q17** | Kỹ thuật viên (TNC) | Chiều dài đoạn dây cáp quang bị cắt dôi dư hoặc hao hụt dã chiến trong quá trình kéo từ cột điện vào nhà khách hàng bình quân dao động khoảng bao nhiêu mét? | Số mét cáp quang hao hụt bình quân trên mỗi ca. |
+| **Q18** | Quản trị hệ thống BPMS | Vào các khung giờ cao điểm (17h00 – 19h00), thời gian phản hồi của lệnh kích hoạt mạng lõi AAA Server bị kéo dài từ bao nhiêu phút lên bao nhiêu phút? | Khoảng thời gian nghẽn lệnh (phút). |
+| **Q19** | Kế toán & Vận hành | Ước tính chi phí thiệt hại tài chính trực tiếp (xăng xe, công thợ, lãng phí ca làm việc) cho FPT khi phát sinh 01 ca khảo sát ảo (đến nơi mới phát hiện hết Port) là bao nhiêu? | Giá trị chi phí ước tính (VNĐ / ca). |
+| **Q20** | Ban Giám đốc Chi nhánh | Sau khi số hóa quy trình và tích hợp thuật toán điều phối thông minh, Chi nhánh kỳ vọng cắt giảm tổng thời gian chu kỳ toàn quy trình (Cycle Time) khoảng bao nhiêu phần trăm? | Tỷ lệ cắt giảm thời gian kỳ vọng (%). |
 
 ---
 
-#### **3.5.1.3. Workshop (Hội thảo khám phá quy trình - Workshop-based Discovery)**
+##### **3.5.1.2.3. Ma trận đối chiếu giữa kết quả phỏng vấn và mô hình định lượng**
 
-Phương pháp Workshop được tổ chức nhằm tập hợp toàn bộ các bên liên quan chủ chốt vào một phiên làm việc tập trung để cùng nhau thảo luận, giải quyết các xung đột quan điểm (ví dụ: KTV cho rằng kho xuất chậm, Thủ kho cho rằng KTV đến dồn dập vào một thời điểm), và thống nhất một bức tranh toàn cảnh chính xác về quy trình hiện tại.
+Các dữ liệu thu thập được từ bộ câu hỏi phỏng vấn định tính và định lượng được sử dụng trực tiếp để thiết lập và kiểm chứng các tham số trong mô hình phân tích thời gian chu kỳ, chi phí vận hành và bảng Issue Register của quy trình:
 
-#### **3.5.1.3.1. Biểu mẫu tổ chức cuộc họp (Meeting Agenda & Setup Form)**
+**Bảng 3.5.5: Ma trận đối chiếu giữa kết quả phỏng vấn và các tham số mô hình định lượng**
 
-* **Tên cuộc họp:** Hội thảo Khám phá và Chuẩn hóa Quy trình Quản lý kho & Xuất vật tư (Process Discovery Workshop)
-* **Thời gian tổ chức:** 08:30 – 11:30, Ngày 25 tháng 08 năm 2026
-* **Địa điểm:** Phòng họp Sapphire, Tòa nhà FPT Telecom Chi nhánh & Trực tuyến qua Microsoft Teams
-* **Mục tiêu cuộc họp:**
-  1. Thống nhất ranh giới bắt đầu và kết thúc của quy trình Quản lý kho và xuất vật tư.
-  2. Xác định chi tiết từng bước công việc thực tế (Happy Path) và các nhánh ngoại lệ.
-  3. Chỉ ra các nguyên nhân gây nghẽn tại kho và thống nhất ma trận trách nhiệm RACI.
-* **Thành phần tham gia cuộc họp:**
+| STT | Tham số / Chỉ số trong Mô hình 3.5 | Giá trị định lượng áp dụng trong bài | Căn cứ câu hỏi phỏng vấn | Ý nghĩa nghiệp vụ và cơ sở đối chiếu |
+| :---: | :--- | :---: | :---: | :--- |
+| 1 | **Xác suất Khảo sát hạ tầng khả thi ($p_1$)** | **90%** (0.90) | **Q14, Q7** | Xác định nhánh rẽ thành công (Go) tại Exclusive Gateway GW1 trong sơ đồ BPMN. |
+| 2 | **Xác suất Khảo sát hạ tầng không đạt ($p_2$)** | **10%** (0.10) | **Q14, Q3** | Xác định nhánh rẽ dừng quy trình (No-Go) khi hộp ODF hết port hoặc ngoài cự ly 300m. |
+| 3 | **Thời gian thi công kéo cáp & cấu hình ($T_8$)** | **60 phút** | **Q11, Q15** | Hoạt động VA trọng yếu nhất; được xác nhận bởi KTV thi công (1 KTV làm 4-5 ca/ngày). |
+| 4 | **Tỷ lệ làm lại đầu nối quang ($r$)** | **$r = 5\%$** | **Q13** | Cơ sở tính hệ số vòng lặp làm lại: $T_{8(\text{hiệu chỉnh})} = \frac{60}{1 - 0.05} \approx 63.16$ phút. |
+| 5 | **Thời gian khảo sát Port & tuyến cáp ($T_2$)** | Chu kỳ: **30 phút**<br>Xử lý: **20 phút** | **Q12, Q3** | Đo lường độ trễ từ lúc nhận ticket GIS đến lúc KTV thẩm định xong tính khả thi. |
+| 6 | **Thời gian di chuyển & Chờ khách ($T_7$)** | **35 phút** | **Q16, Q6** | Cơ sở định lượng hoạt động lãng phí NVA (10p di chuyển thực + 25p chờ xác nhận lịch hẹn). |
+| 7 | **Tổn thất tài chính do sai lệch Port (ISS-01)** | **~30.000 VNĐ / ca** | **Q19, Q7** | Chi phí công KTV và nhiên liệu di chuyển vô ích cho 8% số ca khảo sát sai trên GIS. |
+| 8 | **Độ trễ kích hoạt mạng lõi giờ cao điểm (ISS-03)** | Tăng từ **10 phút lên 30 phút** | **Q18, Q9** | Căn cứ nhận diện điểm nghẽn hệ thống AAA Server trong Bảng Issue Register và Pareto. |
+| 9 | **Tỷ lệ hao hụt vật tư cáp dã chiến (ISS-04)** | **~3%** tổng chiều dài cáp | **Q17, Q5** | Căn cứ định lượng lãng phí Over-production và sai số quyết toán vật tư cuối tháng. |
+| 10 | **Mục tiêu cải tiến thời gian chu kỳ (To-Be)** | Rút ngắn từ **3.58h xuống < 2h** | **Q20, Q10** | Mục tiêu định lượng làm tiền đề cho việc xây dựng kiến trúc To-Be tối ưu hóa. |
 
-**Bảng 3.5.9: Danh sách nhân sự tham gia hội thảo chuyên sâu khám phá quy trình**
+---
 
-| Họ và tên | Chức danh / Phòng ban | Vai trò trong buổi Workshop |
+##### **3.5.1.2.4. Liên kết kết quả phỏng vấn với việc nhận diện lãng phí và vấn đề quy trình**
+
+**Bảng 3.5.6: Liên kết kết quả phỏng vấn với nhận diện lãng phí Lean và mã vấn đề Issue Register**
+
+| Nhóm câu hỏi | Vấn đề phát hiện trên thực tế | Phân loại lãng phí Lean liên quan | Mã vấn đề trong Issue Register |
+|---|---|---|---|
+| **Q1, Q4, Q8** | Tiếp nhận thông tin chậm, vướng mắc hợp đồng & thanh toán | Overprocessing, Waiting | **ISS-08, ISS-09** |
+| **Q3, Q7, Q12, Q14** | Dữ liệu hạ tầng GIS lệch thực địa, hết Port bất ngờ | Defect / Rework, Waiting | **ISS-01** |
+| **Q5, Q17** | Thủ tục xuất kho thủ công, hao hụt vật tư cáp | Inventory, Overproduction | **ISS-04, ISS-07** |
+| **Q2, Q6, Q11, Q15, Q16** | KTV nhận lệnh chậm, khách vắng nhà, di chuyển xa | Waiting, Transportation, Motion | **ISS-02** |
+| **Q13** | Lỗi bấm Fast Connector, suy hao quang cao | Defect / Rework | **ISS-05** |
+| **Q9, Q18** | Nghẽn lệnh kích hoạt AAA Radius giờ cao điểm | Waiting, Customer Dissatisfaction | **ISS-03** |
+| **Q10, Q19, Q20** | Chi phí vận hành cao, điều phối thủ công chưa tối ưu | Unused Talent, Cost Inefficiency | **Mục tiêu To-Be** |
+
+---
+
+#### **3.5.1.3. Phương pháp hội thảo chuyên sâu (Workshop-based Discovery)**
+
+Nhằm giải quyết triệt để các xung đột quan điểm giữa các bộ phận (ví dụ: Sales phản ánh Kỹ thuật khảo sát chậm làm mất khách, Kỹ thuật phản ánh Sales ký hợp đồng khi chưa rõ hạ tầng cáp, Kho phàn nàn KTV đến lĩnh vật tư dồn dập), một phiên Workshop đã được tổ chức với sự tham gia của các bên liên quan.
+
+##### **3.5.1.3.1. Biểu mẫu tổ chức cuộc họp (Meeting Agenda & Setup Form)**
+
+* **Tên cuộc họp:** Hội thảo Khám phá và Chuẩn hóa Quy trình Lắp đặt Mạng Wi-Fi FTTH (Process Discovery Workshop)
+* **Thời gian tổ chức:** 08:30 – 12:00, Ngày 15 tháng 08 năm 2026
+* **Địa điểm:** Phòng họp Lotus, Trung tâm Kỹ thuật FPT Telecom Chi nhánh & Trực tuyến qua Microsoft Teams.
+* **Thành phần tham gia theo ma trận vai trò (RACI Role Setup):**
+
+**Bảng 3.5.7: Ma trận phân công trách nhiệm RACI trong phiên hội thảo chuyên sâu (Process Workshop)**
+
+| Vai trò trong Workshop | Chức danh đại diện | Trách nhiệm chính trong phiên làm việc |
 | :--- | :--- | :--- |
-| **Nguyễn Hoàng Long** | Chuyên viên Phân tích Quy trình (BPM Lead) | **Người điều phối chính (Facilitator)** – Dẫn dắt thảo luận, giữ vững thời lượng |
-| **Trần Văn Bình** | Trưởng bộ phận Kho & Vật tư | **Chủ sở hữu quy trình (Process Owner)** – Cung cấp thông tin nghiệp vụ kho |
-| **Lê Thị Mai** | Phó Giám đốc Vận hành Chi nhánh | Đại diện Ban Giám đốc – Định hướng chính sách và phê duyệt ranh giới |
-| **Phạm Quốc Toàn** | Trưởng bộ phận Mua hàng & Cung ứng | Thành viên tham gia – Cung cấp dữ liệu làm việc với Nhà cung cấp |
-| **Đỗ Minh Tuấn** | Đội trưởng Đội Kỹ thuật viên Thi công | Đại diện người dùng nội bộ – Phản ánh thực tế hiện trường thi công |
-| **Ngô Thanh Trúc** | Kế toán trưởng chi nhánh | Đại diện khối Tài chính – Đảm bảo tính tuân thủ hạch toán ERP |
-| **Hoàng Anh Thư** | Chuyên viên BA (Business Analyst) | **Thư ký (Scribe)** – Ghi chép biên bản và vẽ phác thảo luồng trực tiếp |
+| **Facilitator (Người điều phối)** | Chuyên viên Phân tích Quy trình (Lead BA) | Định hướng thảo luận, giữ vững phạm vi BPMN, khơi gợi các ngoại lệ và trung lập hóa các tranh luận. |
+| **Process Owner (Chủ quy trình)** | Trưởng phòng Quản lý Vận hành Dịch vụ | Xác nhận mục tiêu chiến lược, thời gian cam kết SLA và chuẩn đầu ra toàn chuỗi quy trình. |
+| **Đại diện Khối Kinh doanh** | Trưởng nhóm Sales D2D & Trưởng VPGD | Làm rõ cách thức tiếp nhận Lead, tư vấn gói cước và rào cản ký E-Contract. |
+| **Đại diện Đội Kỹ thuật Khảo sát** | Trưởng nhóm Giám sát mạng cáp GIS | Làm rõ tiêu chuẩn cự ly cáp ($\le 300\text{m}$), quy định số Port an toàn trên hộp ODF. |
+| **Đại diện Kỹ thuật viên Hiện trường** | Nhóm trưởng Kỹ thuật TNC | Trình bày thực tế thi công, lỗi bấm Fast Connector dã chiến và tình trạng khách vắng nhà. |
+| **Đại diện Bộ phận Kho vật tư** | Quản lý Kho chi nhánh | Phản ánh quy trình quét mã Serial/MAC và đối soát vật tư cáp thu hồi. |
+| **Đại diện Bộ phận Kế toán** | Kế toán Doanh thu chi nhánh | Làm rõ việc thu cước hòa mạng, tiền trả trước và đối soát công nợ ban đầu. |
+| **Đại diện Vận hành Hệ thống** | Kỹ sư Trưởng hệ thống BPMS / CRM | Giải trình cơ chế phân bổ Work Order và độ trễ giao tiếp API với AAA Radius Server. |
+| **Scribe (Thư ký ghi biên bản)** | Thành viên nhóm phân tích (BA) | Ghi chép chi tiết biên bản, tổng hợp danh mục vấn đề phát sinh và vẽ phác thảo luồng BPMN. |
+
+##### **3.5.1.3.2. Kịch bản điều phối và các kết quả thống nhất quan trọng**
+
+* **Giai đoạn 1 – Thống nhất ranh giới quy trình (Boundary Setting):** 
+  - *Điểm bắt đầu:* Phát sinh nhu cầu đăng ký dịch vụ của khách hàng qua website/hotline/sales.
+  - *Điểm kết thúc:* Kích hoạt thành công trên hệ thống mạng lõi AAA và thực hiện cuộc gọi/tin nhắn khảo sát NPS sau 24h–48h.
+* **Giai đoạn 2 – Giải quyết xung đột giữa Sales và Kỹ thuật về điểm kiểm soát Khảo sát (Go/No-Go):**
+  - *Xung đột:* Sales muốn ký hợp đồng ngay khi khách có nhu cầu để chốt doanh số; Kỹ thuật yêu cầu phải khảo sát trước vì nếu ký mà không kéo được cáp thì khách hàng rất bức xúc và tốn chi phí hủy hợp đồng.
+  - *Đồng thuận tại Workshop:* Bắt buộc giữ Gateway khảo sát hạ tầng (Bước 3) ngay sau khi tiếp nhận. Tuy nhiên, để hỗ trợ Sales, hệ thống CRM/Mobisale phải cung cấp tính năng tra cứu nhanh sơ bộ (Quick Check GIS) trong vòng 3 phút; các ca giáp ranh mới điều phối KTV khảo sát hiện trường.
+* **Giai đoạn 3 – Thống nhất luồng thi công và nghiệm thu điện tử:**
+  - Chấm dứt việc ký biên bản giấy; 100% ca lắp đặt nghiệm thu qua chữ ký số trên app của KTV và kiểm tra tốc độ thực tế qua Speedtest trước sự chứng kiến của khách hàng.
+* **Giai đoạn 4 – Chốt danh mục vấn đề ưu tiên (Issue Register):**
+  - Thống nhất các vấn đề nghiêm trọng nhất cần giải quyết: Lệch dữ liệu Port GIS (ISS-01), Khách vắng nhà (ISS-02), Nghẽn server AAA kích hoạt giờ cao điểm (ISS-03), Thao tác ghi chép vật tư thủ công (ISS-04), và Tỷ lệ làm lại đầu nối quang (ISS-05).
 
 ---
 
-#### **3.5.1.3.2. Kịch bản điều phối cuộc họp và các kết quả thống nhất quan trọng**
+### **3.5.2. Mô hình hóa quy trình (BPMN 2.0 As-Is Model)**
 
-Kịch bản điều phối phiên Workshop kéo dài 180 phút được thiết kế theo cấu trúc 5 giai đoạn chặt chẽ:
+> **Tóm tắt 4 trụ cột cốt lõi của quy trình:**
+> 1. **Chủ thể thực hiện (Actors):** FPT Telecom với sự phối hợp chặt chẽ, liên phòng ban qua 7 Lane chức năng (Kinh doanh, Kỹ thuật Khảo sát, Quản lý Bán hàng, Điều hành Kỹ thuật, Thủ kho Vật tư, Kỹ thuật viên Thi công, Chăm sóc Khách hàng).
+> 2. **Khách hàng của quy trình (Customers):** Khách hàng cá nhân, hộ gia đình và doanh nghiệp vừa/nhỏ có nhu cầu đăng ký mới và sử dụng dịch vụ Internet FTTH & Truyền hình FPT.
+> 3. **Luồng nghiệp vụ chính (Process Flow):** Chuỗi hoạt động khép kín từ Tiếp nhận nhu cầu $\rightarrow$ Khảo sát hạ tầng ODF $\rightarrow$ Ký hợp đồng & Thanh toán $\rightarrow$ Điều phối ca $\rightarrow$ Xuất vật tư $\rightarrow$ Kéo cáp & Cấu hình Wi-Fi $\rightarrow$ Nghiệm thu & Khảo sát CSAT.
+> 4. **Kết quả đầu ra (Outcomes):** Đường truyền Internet Wi-Fi hoạt động ổn định đạt chuẩn suy hao $\le -20\text{ dBm}$, biên bản nghiệm thu điện tử được xác nhận, hệ thống CRM/Billing ghi nhận doanh thu và thuê bao được kích hoạt dịch vụ thành công.
 
-* **Giai đoạn 1: Khai mạc và Thống nhất phạm vi (08:30 – 08:50 | 20 phút)**  
-  * *Người điều phối (Facilitator):* Trình bày mục tiêu buổi làm việc; giới thiệu nguyên tắc tương tác tôn trọng, không đổ lỗi cá nhân; thống nhất ranh giới: Quy trình bắt đầu từ khi nhận Work Order từ BPMS và kết thúc khi toàn bộ vật tư được quyết toán trên WMS/ERP.  
-  * *Kết quả đầu ra:* Toàn bộ người tham dự đồng thuận với phạm vi khảo sát.
+#### **3.5.2.1. Các tác nhân tham gia quy trình (Roles & Swimlanes)**
 
-* **Giai đoạn 2: Vẽ luồng quy trình chính - Happy Path (08:50 – 09:40 | 50 phút)**  
-  * *Hoạt động:* Facilitator sử dụng bảng trắng kỹ thuật số (Miro/Mural) mời Thủ kho và KTV từng bước dán giấy ghi chú (Sticky Notes) mô tả trình tự từ: Nhận thông tin $\rightarrow$ Kiểm kho $\rightarrow$ Lấy hàng $\rightarrow$ Quét Serial/MAC $\rightarrow$ Bàn giao $\rightarrow$ Quyết toán.  
-  * *Thư ký (Scribe):* Sắp xếp các bước thành chuỗi tuần tự; ghi nhận ý kiến phản hồi về thời gian trung bình của từng bước.  
-  * *Kết quả đầu ra:* Bản thảo luồng quy trình tiêu chuẩn khi mọi điều kiện đều thuận lợi (Tồn kho đủ, thiết bị chuẩn).
+Mô hình quy trình được tổ chức theo chuẩn BPMN 2.0 gồm 2 Pool chính: **Khách hàng** (Pool đối tác bên ngoài) và **FPT Telecom** (Pool nội bộ tổ chức). Trong Pool FPT Telecom, trách nhiệm được phân chia thành **7 Lane chức năng** (tổng cộng 8 tác nhân tham gia tương ứng):
 
-* **Giai đoạn 3: Nhận diện và Xử lý các luồng ngoại lệ & Điểm nghẽn (09:40 – 10:40 | 60 phút)**  
-  * *Hoạt động trọng tâm:* Facilitator đặt câu hỏi kích thích tranh luận: *"Điều gì tồi tệ nhất xảy ra nếu...?"*  
-    - *Ngoại lệ 1 (Thiếu hàng):* Thủ kho phản ánh việc tồn kho an toàn bị tính toán sai dẫn đến hết hàng đột ngột. Đại diện Mua hàng giải thích thời gian giao hàng của Nhà cung cấp mất từ 1–5 ngày. Thống nhất: Cần bổ sung cổng kiểm tra hạn mức mua sắm và Event-Driven Gateway để xử lý sự kiện giao trễ.  
-    - *Ngoại lệ 2 (Lỗi thiết bị tại hiện trường):* Đội trưởng KTV phản ánh việc đổi thiết bị hỏng mất nhiều thời gian, ảnh hưởng chỉ số hài lòng của khách hàng. Thống nhất bổ sung thủ tục đổi nhanh thiết bị dự phòng.  
-    - *Ngoại lệ 3 (Hàng nhập không đạt QC):* Thống nhất quy tắc bắt buộc kiểm định ngẫu nhiên trước khi nhập kho.  
-  * *Kết quả đầu ra:* Xác định được toàn bộ 8 điểm rẽ nhánh (Gateways) cần mô hình hóa trong sơ đồ BPMN.
+**Bảng 3.5.8: Danh mục các tác nhân và phân chia Swimlane trong quy trình lắp đặt mạng Wi-Fi**
 
-* **Giai đoạn 4: Thống nhất Ma trận phân công trách nhiệm RACI (10:40 – 11:10 | 30 phút)**  
-  * *Hoạt động:* Rà soát từng bước công việc và phân định rõ ai là người làm trực tiếp (R), ai phê duyệt (A), ai hỗ trợ (C), ai nhận báo cáo (I) nhằm loại bỏ sự đùn đẩy trách nhiệm giữa Kho và Đội Kỹ thuật.  
-  * *Kết quả đầu ra:* Bảng ma trận RACI được toàn thể các trưởng bộ phận ký nháy đồng thuận.
-
-* **Giai đoạn 5: Tổng kết, Phê duyệt biên bản và Kế hoạch tiếp theo (11:10 – 11:30 | 20 phút)**  
-  * *Hoạt động:* Scribe đọc lại toàn bộ biên bản ghi nhớ; Process Owner (Trưởng bộ phận Kho) và Đại diện Ban Giám đốc phát biểu xác nhận tính chuẩn xác của dữ liệu; Facilitator công bố lộ trình: Hoàn thiện sơ đồ BPMN As-Is trong vòng 3 ngày làm việc để các bên ký duyệt chính thức.
+| STT | Tác nhân / Swimlane | Loại Pool/Lane | Trách nhiệm chính trong quy trình |
+| :---: | :--- | :--- | :--- |
+| 1 | **Khách hàng** | Pool ngoài (Black Box / White Box) | Phát sinh nhu cầu, cung cấp giấy tờ định danh, lựa chọn gói cước, ký E-Contract, thanh toán phí ban đầu, nghiệm thu dịch vụ và đánh giá CSAT/NPS. |
+| 2 | **Nhân viên Kinh doanh (Sales)** | Lane nội bộ (FPT Telecom) | Tiếp nhận nhu cầu, tư vấn gói cước, tạo ticket khảo sát hạ tầng, thu thập ảnh CCCD (eKYC) và thực hiện ký hợp đồng điện tử. |
+| 3 | **Bộ phận Kỹ thuật Khảo sát** | Lane nội bộ (FPT Telecom) | Thẩm định bản đồ mạng GIS, kiểm tra cự ly kéo cáp ($\le 300\text{m}$) và số Port khả dụng trên hộp cáp ODF; xác định Go/No-Go. |
+| 4 | **Hệ thống BPMS / CRM** | Lane hệ thống (Automated System) | Trung tâm điều phối tự động; xử lý dữ liệu hồ sơ, tự động khởi tạo Work Order, phân công ca làm việc, điều phối lệnh kích hoạt mạng lõi Radius và gửi thông báo SMS/Email. |
+| 5 | **Bộ phận Kho & Vật tư** | Lane nội bộ (FPT Telecom) | Quản lý thiết bị; tiếp nhận lệnh xuất kho điện tử, quét mã Serial/MAC và xuất cấp Modem ONT, Router Mesh, dây cáp quang, phụ kiện cho KTV. |
+| 6 | **Kỹ thuật viên Lắp đặt (TNC)** | Lane nội bộ (Field Engineer) | Nhận lệnh trên Mobile App, liên hệ hẹn giờ khách hàng, di chuyển, kéo cáp, hàn quang, cài đặt Wi-Fi, đo suy hao quang, thu phí trực tiếp (nếu có) và lập biên bản nghiệm thu điện tử. |
+| 7 | **Bộ phận Kế toán** | Lane nội bộ (FPT Telecom) | Tiếp nhận thông tin phí lắp đặt/cước đóng trước, đối soát thanh toán trực tuyến hoặc gạch nợ phiếu thu tiền mặt do KTV nộp về, xuất hóa đơn điện tử. |
+| 8 | **Bộ phận Chăm sóc Khách hàng (CSKH)** | Lane nội bộ (FPT Telecom) | Kích hoạt kịch bản khảo sát NPS tự động sau 24–48h, tiếp nhận phản ánh sau lắp đặt, hỗ trợ kỹ thuật và đóng hồ sơ ca làm việc. |
 
 ---
 
----
+#### **3.5.2.2. Khách hàng của quy trình**
 
-### **3.5.2. Mô tả và Mô hình hóa quy trình hiện tại (BPMN 2.0 As-Is Model)**
-
-#### **3.5.2.1. Mô tả quy trình (4 đặc trưng cốt lõi theo chuẩn Rubric)**
-
-Nhằm đáp ứng chuẩn mực đánh giá quy trình nghiệp vụ và tiêu chí Rubric, mô tả quy trình Quản lý kho và xuất vật tư tại FPT Telecom được cấu trúc chặt chẽ qua 4 khía cạnh cốt lõi:
-
-* **1. Tác nhân tham gia (Actors & Roles):** Quy trình có sự tham gia phối hợp liên chức năng của 8 tác nhân chính, bao gồm cả các hệ thống phần mềm tự động (BPMS/CRM, WMS/ERP) và nhân sự nghiệp vụ chuyên trách (Thủ kho, Kỹ thuật viên thi công, Bộ phận Mua hàng & Cung ứng, Ban Giám đốc Chi nhánh, Nhà cung cấp vật tư, Kế toán kho).
-
-* **2. Khách hàng của quy trình (Customers & Value Proposition):**
-  * *Khách hàng nội bộ (Internal Customer):* Đội ngũ Kỹ thuật viên thi công (cần vật tư đúng chủng loại, sẵn sàng đúng giờ ca trực) và Bộ phận Kinh doanh (cần giữ đúng SLA hẹn khách).
-  * *Khách hàng bên ngoài (External Customer - gián tiếp):* Thuê bao đăng ký Internet/Truyền hình FPT (thụ hưởng đường truyền ổn định, thiết bị chính hãng, lắp đặt đúng hẹn trong 24–48h).
-  * *Giá trị cốt lõi mang lại:* Bảo đảm chuỗi cung ứng vật tư liên tục không đứt gãy; quản lý tài sản chính xác qua định danh Serial Number / MAC Address; tối ưu hóa chi phí vốn lưu động và tồn kho an toàn.
-
-* **3. Luồng quy trình tổng quan (Process Flow):** Chuỗi 10 bước nghiệp vụ chuẩn từ lúc tiếp nhận Work Order tự động từ CRM/BPMS, kiểm tra tồn kho WMS, chuẩn bị chủng loại modem ONT, quét mã Serial/MAC định danh, bàn giao KTV ký nhận, xử lý đổi trả thiết bị lỗi ngoại lệ tại hiện trường, thu hồi cáp/phụ kiện dôi dư, đến hạch toán kế toán ERP và đóng lệnh thi công.
-
-* **4. Kết quả đầu ra (Outcomes - Thành công, Thất bại & Cơ chế xử lý ngoại lệ):**
-  * *Kịch bản thành công (Happy Path):* Xuất cấp vật tư đủ - đúng - chuẩn, KTV hoàn thành lắp đặt đúng SLA cam kết.
-  * *Kịch bản thất bại / Chờ mua sắm:* Thiếu tồn kho cục bộ phải kích hoạt quy trình mua hàng bổ sung khẩn cấp hoặc điều chuyển kho tổng.
-  * *Kịch bản xử lý ngoại lệ:* Đổi thiết bị phát sinh lỗi kỹ thuật tại chỗ; nhập trả vật tư dôi dư sau ca thi công; hủy Work Order do hạ tầng cáp không tương thích.
+- **Khách hàng bên ngoài:** Các cá nhân, hộ gia đình và doanh nghiệp có nhu cầu hòa mạng Internet băng rộng. Họ là người thụ hưởng trực tiếp kết quả cốt lõi của dịch vụ và trả tiền cho giá trị sử dụng.
+- **Khách hàng nội bộ:**
+  - *Bộ phận Kế toán – Tài chính:* Tiếp nhận dữ liệu hợp đồng điện tử chuẩn hóa, dòng tiền thu cước chính xác để hạch toán doanh thu và đối soát công nợ.
+  - *Trung tâm Vận hành Mạng (NOC):* Tiếp nhận dữ liệu thiết bị (MAC Address, Serial), thông số cổng quang và tài khoản PPPoE để giám sát chất lượng đường truyền.
+  - *Bộ phận Quản lý Chất lượng:* Thu thập dữ liệu khảo sát NPS để liên tục cải tiến quy trình.
 
 ---
 
-Quy trình Quản lý kho và xuất vật tư tại FPT Telecom là quy trình hỗ trợ sống còn, có nhiệm vụ đảm bảo cung ứng đầy đủ, chính xác và kịp thời các thiết bị đầu cuối viễn thông (Modem/ONT, Mesh Wi-Fi, Router) và vật tư cáp quang cho đội ngũ kỹ thuật viên triển khai dịch vụ lắp đặt Internet cho khách hàng. Quy trình hiện tại được vận hành qua chuỗi **10 bước nghiệp vụ liên tục** như sau:
+#### **3.5.2.3. Giá trị mà quy trình mang lại**
 
-* **Bước 1: Tiếp nhận yêu cầu xuất vật tư từ hệ thống:**  
-  Khi khách hàng hoàn tất ký kết hợp đồng điện tử (E-Contract), hệ thống BPMS/CRM tự động tạo Lệnh thi công (Work Order) và đẩy thông tin yêu cầu xuất vật tư sang hệ thống Quản lý kho (WMS). Dữ liệu bao gồm: mã Work Order, gói cước đăng ký, địa chỉ lắp đặt, chủng loại thiết bị cần xuất và thông tin Kỹ thuật viên (KTV) được điều phối.
-
-* **Bước 2: Kiểm tra tồn kho khả dụng và đối chiếu ngưỡng an toàn (Safety Stock):**  
-  Thủ kho truy cập WMS để kiểm tra số lượng tồn kho khả dụng của các thiết bị và phụ kiện yêu cầu. Tại đây phát sinh điểm kiểm soát: Nếu số lượng tồn kho đáp ứng nhu cầu và vẫn cao hơn mức tồn kho an toàn (*Safety Stock*), quy trình chuyển thẳng sang bước chuẩn bị hàng. Nếu tồn kho dưới ngưỡng an toàn hoặc thiếu hàng, hệ thống kích hoạt luồng xử lý mua sắm bổ sung.
-
-* **Bước 3: Xử lý đề xuất mua sắm và đặt hàng bổ sung:**  
-  Thủ kho tạo Phiếu đề xuất mua sắm bổ sung trên WMS. Nếu giá trị đơn hàng vượt hạn mức chi nhánh (> 50 triệu đồng), phiếu phải chuyển đến Ban Giám đốc Chi nhánh phê duyệt. Sau khi được duyệt, Bộ phận Mua hàng & Cung ứng gửi đơn đặt hàng chính thức (Purchase Order) đến Nhà cung cấp hoặc làm lệnh điều chuyển từ Kho tổng trung tâm.
-
-* **Bước 4: Tiếp nhận hàng và kiểm tra chất lượng đầu vào (QC Incoming):**  
-  Khi Nhà cung cấp giao hàng đến kho, Thủ kho phối hợp cùng nhân viên kiểm soát chất lượng thực hiện nghiệm thu ngoại quan, quy cách đóng gói và kiểm tra ngẫu nhiên thông số kỹ thuật (đèn tín hiệu, cổng quang, nguồn điện).  
-  * *Trường hợp không đạt:* Lập biên bản từ chối, trả hàng lại cho Nhà cung cấp và yêu cầu giao bù khẩn cấp.  
-  * *Trường hợp đạt chuẩn:* Ký biên bản giao nhận và tiến hành nhập kho trên WMS.
-
-* **Bước 5: Phân loại chủng loại thiết bị quang và chuẩn bị hàng:**  
-  Thủ kho căn cứ vào gói cước của khách hàng trên Work Order để lấy đúng thiết bị: phân biệt giữa thiết bị chuẩn GPON (cho gói Internet gia đình thông thường) và chuẩn cao cấp XGS-PON / Wi-Fi 6 (cho doanh nghiệp hoặc gói cước cao cấp).
-
-* **Bước 6: Quét mã định danh (Serial Number / MAC Address) và in phiếu xuất kho:**  
-  Thủ kho sử dụng máy quét mã vạch chuyên dụng để quét Serial Number và địa chỉ MAC của Modem/ONT vào hệ thống WMS, liên kết trực tiếp thiết bị với mã Work Order và tài khoản thuê bao khách hàng. Sau đó, Thủ kho in Phiếu xuất kho kiêm biên bản bàn giao thiết bị.
-
-* **Bước 7: Xuất kho và bàn giao vật tư cho Kỹ thuật viên:**  
-  KTV phụ trách ca thi công đến kho kiểm đếm số lượng, chủng loại, tình trạng niêm phong của thiết bị và ký biên bản giao nhận (chữ ký số trên ứng dụng FoxPro hoặc ký giấy). Trách nhiệm bảo quản thiết bị chính thức chuyển giao sang KTV.
-
-* **Bước 8: Thi công lắp đặt và xử lý ngoại lệ đổi thiết bị lỗi kỹ thuật:**  
-  KTV di chuyển đến địa chỉ khách hàng để thi công kéo cáp quang và đấu nối thiết bị. Nếu phát hiện thiết bị bị lỗi không thể kích hoạt tín hiệu quang tại hiện trường, KTV liên hệ kho qua hotline nội bộ để kích hoạt thủ tục đổi thiết bị khẩn cấp, nhận modem thay thế để đảm bảo không làm gián đoạn cam kết lắp đặt.
-
-* **Bước 9: Thu hồi, kiểm đếm và nhập trả vật tư sau thi công:**  
-  Sau khi hoàn tất nghiệm thu với khách hàng, KTV quay trở về kho để quyết toán:  
-  * Hoàn trả cuộn cáp quang dư thừa, phụ kiện chưa dùng hết.  
-  * Bàn giao thiết bị lỗi phát sinh trong thi công hoặc thiết bị cũ thu hồi từ khách hàng nâng cấp gói cước.  
-  Thủ kho kiểm tra, cập nhật trạng thái phân loại trên WMS (hàng tái nhập kho / hàng chờ bảo hành / hàng thanh lý).
-
-* **Bước 10: Đồng bộ dữ liệu kế toán ERP và đóng Work Order:**  
-  Hệ thống WMS tự động đồng bộ giá trị xuất kho và quyết toán vật tư sang phân hệ Kế toán ERP để ghi nhận chi phí giá vốn dịch vụ. Đồng thời, WMS gửi tín hiệu xác nhận hoàn tất sang hệ thống BPMS để đóng Work Order thi công.
+- **Đối với Khách hàng:** Thủ tục đăng ký nhanh gọn, ký hợp đồng và thanh toán trực tuyến minh bạch, thời gian chờ lắp đặt được rút ngắn tối đa, chất lượng kết nối Wi-Fi ổn định và được nghiệm thu tốc độ thực tế tại chỗ.
+- **Đối với FPT Telecom:** Tự động hóa phân công công việc qua BPMS giúp giảm thiểu thao tác thủ công; điểm kiểm soát khảo sát hạ tầng (Go/No-Go) ngay từ đầu giúp loại bỏ rủi ro chi phí triển khai ảo; chuẩn hóa chất lượng kỹ thuật đường truyền cáp quang và nâng cao năng lực cạnh tranh thương hiệu.
 
 ---
 
-**Các tác nhân tham gia quy trình (Actors):**
+#### **3.5.2.4. Kịch bản thành công và Kịch bản thất bại / Xử lý ngoại lệ**
 
-**Bảng 3.5.10: Danh mục các tác nhân tham gia quy trình Quản lý kho và xuất vật tư**
+##### **3.5.2.4.1. Kịch bản thành công tiêu chuẩn (13 mốc kiểm soát)**
+Quy trình được xem là hoàn tất thành công khi thỏa mãn chuỗi 13 mốc kiểm soát chất lượng:
+1. Khách hàng gửi yêu cầu đăng ký dịch vụ thành công qua các kênh.
+2. Thông tin khách hàng và tọa độ địa chỉ lắp đặt được ghi nhận chuẩn xác trên CRM.
+3. Địa điểm lắp đặt đáp ứng điều kiện hạ tầng: cự ly $\le 300\text{m}$ và hộp ODF còn cổng kết nối khả dụng.
+4. Khách hàng đồng thuận gói cước, hoàn tất eKYC và ký số Hợp đồng điện tử (E-Contract).
+5. Phí lắp đặt/cước đóng trước được thanh toán trực tuyến hoặc xác nhận thu sau.
+6. Hệ thống BPMS tự động tạo Work Order và phân bổ KTV phù hợp.
+7. Thiết bị Modem ONT, Router Mesh và vật tư cáp được quét mã và xuất kho đầy đủ.
+8. KTV liên hệ thành công và có mặt đúng khung giờ đã hẹn với khách hàng.
+9. Tuyến cáp quang được kéo đạt chuẩn, mối nối quang có độ suy hao quang đạt tiêu chuẩn ($\le -24\text{ dBm}$), thiết bị Wi-Fi được cấu hình tối ưu.
+10. Khách hàng kiểm tra tốc độ thực tế qua Speedtest, đạt cam kết và ký nghiệm thu điện tử.
+11. Dịch vụ được kích hoạt tự động thành công trên hệ thống mạng lõi AAA/Radius Server.
+12. Khách hàng nhận thông báo tài khoản quản trị mạng qua SMS/Email và bắt đầu sử dụng.
+13. Bộ phận CSKH thực hiện khảo sát NPS sau 24h, ghi nhận đánh giá hài lòng và đóng hồ sơ ca lắp đặt.
 
-| STT | Tác nhân | Vai trò và trách nhiệm trong quy trình |
-| :---: | :--- | :--- |
-| **1** | **Hệ thống BPMS / CRM** | Tự động tạo Work Order; điều phối yêu cầu xuất vật tư sang WMS; nhận xác nhận hoàn thành để đóng lệnh thi công. |
-| **2** | **Hệ thống WMS / ERP** | Quản lý dữ liệu tồn kho theo thời gian thực (Real-time); quản lý vị trí kho; liên kết mã Serial/MAC; hạch toán chi phí sang ERP. |
-| **3** | **Thủ kho / NV Kho & Vật tư** | Tiếp nhận yêu cầu; kiểm kho; chuẩn bị hàng; quét mã vạch Serial/MAC; bàn giao thiết bị; tiếp nhận hoàn trả và kiểm kê kho. |
-| **4** | **Kỹ thuật viên thi công (KTV)** | Nhận vật tư; kiểm đếm và ký nhận; thi công kéo cáp và cài đặt modem tại nhà khách hàng; bàn giao vật tư thừa/hỏng về kho. |
-| **5** | **Bộ phận Mua hàng & Cung ứng** | Tiếp nhận đề xuất thiếu hàng; tìm kiếm và thương thảo đơn hàng với Nhà cung cấp; theo dõi tiến độ giao hàng về kho. |
-| **6** | **Ban Giám đốc Chi nhánh** | Xem xét và phê duyệt các đề xuất mua sắm vượt hạn mức ngân sách tự quyết của chi nhánh. |
-| **7** | **Nhà cung cấp** | Cung ứng thiết bị Modem quang, Router, dây cáp quang và phụ kiện viễn thông đạt chuẩn kỹ thuật đã cam kết trong hợp đồng. |
-| **8** | **Bộ phận Kế toán kho** | Đối soát chứng từ xuất nhập kho; quản lý giá trị kho; kiểm tra tính hợp lệ của biên bản giao nhận và báo cáo tồn kho định kỳ. |
+##### **3.5.2.4.2. Kịch bản thất bại và Cơ chế xử lý ngoại lệ tại 5 Cổng điều kiện (Exclusive Gateways)**
+Trong thực tế vận hành As-Is, quy trình có thể phát sinh 8 tình huống ngoại lệ hoặc thất bại. Để phản ánh chính xác nghiệp vụ thực địa, mô hình As-Is được thiết kế với **5 Cổng điều kiện (Exclusive Gateways)** xử lý triệt để:
 
----
-
-**Khách hàng của quy trình (Customer):**
-* **Khách hàng nội bộ (Internal Customer):** Đội ngũ Kỹ thuật viên thi công lắp đặt và Bộ phận Kinh doanh. Họ cần thiết bị sẵn sàng, đúng chuẩn, đủ số lượng để hoàn thành chỉ tiêu lắp đặt đúng hẹn.
-* **Khách hàng bên ngoài (External Customer - gián tiếp):** Thuê bao đăng ký dịch vụ Internet FPT. Tiến độ và độ chính xác của quy trình kho ảnh hưởng trực tiếp đến thời gian chờ lắp đặt (SLA 24–48h) và độ ổn định của đường truyền Internet.
-
-**Giá trị mang lại (Value Proposition):**
-* **Đảm bảo tính liên tục của chuỗi cung ứng:** Ngăn ngừa tình trạng thiếu hụt thiết bị làm đứt gãy lịch hẹn thi công với khách hàng.
-* **Kiểm soát tài sản chặt chẽ:** Việc định danh từng chiếc Modem qua Serial Number và MAC Address giúp chống thất thoát, hỗ trợ bảo hành chính hãng và theo dõi vòng đời thiết bị.
-* **Tối ưu hóa vốn lưu động:** Kiểm soát tồn kho theo mô hình Reorder Point và Safety Stock giúp giảm thiểu chi phí lưu kho, tránh ứ đọng vốn nhưng vẫn duy trì độ sẵn sàng cao.
-
-**Những kết quả có thể đạt được (Possible Outcomes):**
-
-**Bảng 3.5.11: Các kịch bản kết quả đầu ra và cơ chế xử lý ngoại lệ quy trình kho**
-
-| Kết quả đầu ra | Diễn giải chi tiết |
-| :--- | :--- |
-| **Xuất kho thành công (Happy Path)** | Vật tư có sẵn đủ số lượng, chuẩn bị đúng chủng loại, KTV nhận hàng đúng giờ và hoàn thành lắp đặt cho khách hàng trong ngày. |
-| **Chờ mua sắm bổ sung** | Tồn kho thiếu hụt buộc phải kích hoạt đơn đặt hàng khẩn cấp đến Nhà cung cấp; Work Order có thể bị dời lại và cần hẹn lại khách hàng. |
-| **Thu hồi và đổi trả thiết bị** | Thiết bị phát sinh lỗi kỹ thuật hoặc vật tư dôi dư sau thi công được phân loại, nhập kho bảo hành hoặc tái nhập kho an toàn. |
-| **Hủy Work Order do không tương thích hạ tầng** | Khách hàng chuyển địa điểm hoặc hạ tầng thực tế không phù hợp chuẩn thiết bị được cấp, dẫn đến hủy lệnh xuất và thu hồi vật tư. |
-
----
+* **Cổng điều kiện 1 (GW1: Hạ tầng & Port có khả thi?):**
+  - *Kịch bản thất bại:* Khu vực chưa có hạ tầng cáp quang hoặc hộp ODF đã hết port cắm, hoặc cự ly kéo cáp $> 300\text{m}$.
+  - *Cơ chế xử lý:* Hệ thống CRM tự động gửi SMS/Email từ chối lịch sự, giải thích rõ lý do, ghi nhận nhu cầu vào danh sách chờ mở rộng hạ tầng và đóng hồ sơ ngay sau Bước 3 (tránh phát sinh chi phí triển khai ảo).
+* **Cổng điều kiện 2 (GW2: Thông tin & Lịch hẹn có hợp lệ?):**
+  - *Kịch bản thất bại:* Khách hàng cung cấp thiếu CCCD, sai lệch địa chỉ hoặc hai bên không thống nhất được thời gian thi công.
+  - *Cơ chế xử lý:* Sales liên hệ lại để bổ sung hồ sơ hoặc đàm phán lại khung giờ hẹn trước khi phát hành Work Order.
+* **Cổng điều kiện 3 (GW3: Thanh toán ban đầu hợp lệ?):**
+  - *Kịch bản thất bại:* Khách hàng chọn trả trước nhưng giao dịch thanh toán trực tuyến bị lỗi trừ tiền, hoặc khách hàng thay đổi ý định thanh toán.
+  - *Cơ chế xử lý:* Hệ thống tạm dừng phát lệnh thi công, thông báo Sales hỗ trợ đối soát hoặc chuyển sang hình thức thu tiền mặt khi kỹ thuật viên đến lắp đặt.
+* **Cổng điều kiện 4 (GW4: Chất lượng đo kiểm cáp & Wi-Fi đạt chuẩn?):**
+  - *Kịch bản thất bại:* Mối hàn quang bị lỗi suy hao cao ($> -24\text{ dBm}$), đầu bấm Fast Connector bị bẩn, hoặc cáp đứt ngầm trong quá trình kéo rải.
+  - *Cơ chế xử lý:* KTV bắt buộc phải cắt gọt và thực hiện lại mối nối quang (vòng lặp Rework $r = 5\%$) cho đến khi máy đo công suất quang báo đạt chuẩn kỹ thuật mới chuyển sang bước bàn giao.
+* **Cổng điều kiện 5 (GW5: Khách hàng xác nhận nghiệm thu?):**
+  - *Kịch bản thất bại:* Sóng Wi-Fi tại các góc khuất bị yếu, khách hàng chưa hài lòng về vị trí đặt modem hoặc tốc độ Speedtest chưa đạt cam kết.
+  - *Cơ chế xử lý:* KTV tư vấn điều chỉnh lại vị trí đặt modem, hướng dẫn kết nối dải tần 5GHz hoặc đề xuất lắp thêm thiết bị Mesh phụ trợ. Nếu khách hàng kiên quyết không nghiệm thu, lập biên bản bảo lưu và chuyển bộ phận giám sát xử lý.
 
 ---
 
-#### **3.5.2.2. Phân tích độ phức tạp và Các phần tử chuẩn BPMN 2.0**
+#### **3.5.2.5. Mô hình hóa quy trình chi tiết bằng BPMN 2.0 (AS-IS Model)**
 
-Mô hình quy trình đáp ứng chuẩn mực phân tầng độ phức tạp nâng cao (Mức 7 cổng điều kiện) nhằm bao quát toàn diện chuỗi cung ứng vật tư viễn thông:
+![Sơ đồ BPMN 2.0 quy trình lắp đặt mạng Wi-Fi tại FPT Telecom theo chuẩn Pools & Lanes](./assets/diagrams/lap_dat_mang/hinh-3-2-bpmn-quy-trinh-lap-dat-mang.png)
 
-**Hệ thống 7 Cổng điều kiện (Gateways) chuẩn hóa:**
-1. **Gateway 1 (Exclusive XOR Gateway - Tồn kho khả dụng?):**  
-   Kiểm tra số lượng tồn kho thực tế có đủ đáp ứng Work Order và vẫn duy trì trên ngưỡng an toàn (*Safety Stock*) hay không.  
-   * *Nhánh Đủ (Yes):* Chuyển thẳng sang Gateway 3 để phân loại thiết bị xuất kho.  
-   * *Nhánh Thiếu (No):* Chuyển sang bước lập đề xuất mua sắm bổ sung.
-2. **Gateway 2 (Exclusive XOR Gateway - Vượt hạn mức tự quyết chi nhánh?):**  
-   Đề xuất mua sắm bổ sung có giá trị vượt quá hạn mức ngân sách tự quyết của chi nhánh (> 50 triệu đồng) hay không.  
-   * *Nhánh Vượt (Yes):* Trình hồ sơ lên Ban Giám đốc Chi nhánh phê duyệt.  
-   * *Nhánh Không vượt (No):* Chuyển trực tiếp sang Bộ phận Mua hàng để phát hành đơn PO.
-3. **Gateway 3 (Exclusive XOR Gateway - Phân loại chuẩn công nghệ thiết bị?):**  
-   Căn cứ vào gói cước hợp đồng của khách hàng để lấy đúng chủng loại thiết bị quang tương thích hạ tầng:  
-   * *Nhánh GPON:* Lấy Modem ONT tiêu chuẩn băng rộng cho hộ gia đình.  
-   * *Nhánh XGS-PON:* Lấy Modem cao cấp đối xứng 10Gbps và thiết bị mở rộng Mesh Wi-Fi 6 cho doanh nghiệp.
-4. **Gateway 4 (Event-Driven Gateway - Chờ Nhà cung cấp giao hàng):**  
-   Cổng rẽ nhánh theo sự kiện ngoại vi, xử lý 2 kịch bản độc quyền:  
-   * *Nhánh Message Event (Nhận hàng):* Nhà cung cấp giao hàng đến kho $\rightarrow$ Kích hoạt tiếp nhận và kiểm định chất lượng (QC).  
-   * *Nhánh Timer Event (Timeout > 48 giờ):* Quá 48h chưa nhận được hàng $\rightarrow$ Phát cảnh báo trễ hạn SLA và kích hoạt điều chuyển khẩn cấp từ kho lân cận.
-5. **Gateway 5 (Exclusive XOR Gateway - Kiểm định chất lượng QC đầu vào đạt?):**  
-   Kiểm tra chất lượng mẫu ngẫu nhiên của lô hàng nhập từ Nhà cung cấp:  
-   * *Nhánh Đạt (Yes):* Thủ kho xác nhận nhập kho WMS và quay lại Gateway 3 để cấp phát cho KTV.  
-   * *Nhánh Không đạt (No):* Lập biên bản từ chối nhận hàng và trả hàng về Nhà cung cấp.
-6. **Gateway 6 (Exclusive XOR Gateway - Thiết bị có bị lỗi kỹ thuật trong thi công?):**  
-   KTV kiểm tra tín hiệu quang và cấu hình Wi-Fi tại địa chỉ khách hàng:  
-   * *Nhánh Không lỗi (No):* Tiến hành nghiệm thu dịch vụ cùng khách hàng.  
-   * *Nhánh Có lỗi (Yes):* KTV gọi điện về kho xin đổi thiết bị mới khẩn cấp $\rightarrow$ Thủ kho cấp đổi thiết bị thay thế.
-7. **Gateway 7 (Exclusive XOR Gateway - Có phát sinh vật tư dôi dư sau thi công?):**  
-   Sau khi hoàn tất thi công tại hiện trường, kiểm tra xem có thừa cuộn cáp quang hoặc phụ kiện không:  
-   * *Nhánh Có (Yes):* KTV mang vật tư thừa về kho để Thủ kho kiểm đếm và nhập trả WMS.  
-   * *Nhánh Không (No):* Chuyển thẳng sang bước đồng bộ kế toán ERP và đóng Work Order.
+_Hình 3.5.2: Sơ đồ BPMN 2.0 quy trình lắp đặt mạng Wi-Fi tại FPT Telecom theo chuẩn Pools & Lanes_
+
+Quy trình As-Is được tổ chức xuyên suốt qua **4 giai đoạn vận hành chính**:
+- **Giai đoạn 1: Tiếp nhận và Thẩm định khả thi:** Nhu cầu khách hàng $\rightarrow$ Sales tiếp nhận $\rightarrow$ Khảo sát GIS $\rightarrow$ Rẽ nhánh tại GW1 (Đủ điều kiện tiếp tục / Không đủ điều kiện dừng quy trình).
+- **Giai đoạn 2: Ký hợp đồng và Điều phối Work Order:** Sales tư vấn và ký E-Contract $\rightarrow$ Xác nhận lịch hẹn (GW2) $\rightarrow$ Khách hàng thanh toán phí (GW3) $\rightarrow$ BPMS tự động tạo Work Order và chuyển giao ca thi công.
+- **Giai đoạn 3: Xuất kho và Thi công hiện trường:** Kho xuất vật tư theo WO $\rightarrow$ KTV liên hệ hẹn giờ và di chuyển $\rightarrow$ Kéo cáp, bấm đầu quang, lắp modem $\rightarrow$ Đo kiểm suy hao quang (GW4: Đạt thì nghiệm thu, Chưa đạt thì cắt nối lại).
+- **Giai đoạn 4: Nghiệm thu, Kích hoạt và Hậu mãi:** Khách hàng Speedtest và ký nghiệm thu điện tử (GW5) $\rightarrow$ KTV thu cước ban đầu (nếu có) $\rightarrow$ BPMS gửi lệnh Provisioning kích hoạt mạng lõi $\rightarrow$ Gửi thông báo hoàn tất $\rightarrow$ Chờ 24h $\rightarrow$ CSKH khảo sát NPS và đóng hồ sơ.
 
 ---
 
-**Áp dụng các phần tử chuẩn BPMN 2.0 theo cẩm nang BA (Mota.docx):**
+#### **3.5.2.6. Đặc tả chi tiết các phần tử trong mô hình BPMN 2.0**
 
-* **1. Swimlanes (Pools & Lanes):**  
-  * **Pool FPT Telecom (Nội bộ):** Gồm 4 phân làn chức năng (Lanes):
-    - *Lane Hệ thống BPMS / WMS:* Tự động hóa tạo Work Order, đồng bộ ERP và đóng lệnh thi công.
-    - *Lane Bộ phận Kho & Vật tư:* Quản lý hiện vật, kiểm kho, quét mã Serial/MAC, bàn giao và tiếp nhận hoàn trả.
-    - *Lane Kỹ thuật viên thi công (KTV):* Kiểm đếm vật tư, thi công kéo cáp, cài đặt Wi-Fi và nghiệm thu.
-    - *Lane Bộ phận Mua hàng & Cung ứng:* Lập đơn đặt hàng PO và phối hợp với Nhà cung cấp.
-  * **Pool Nhà cung cấp (Bên ngoài):** Thể hiện sự phối hợp chuỗi cung ứng độc lập thông qua luồng thông điệp (*Message Flow nét đứt*).
+**Bảng 3.5.9: Đặc tả chi tiết các phần tử trong mô hình BPMN 2.0 As-Is**
 
-* **2. Phân loại Task Types chuẩn mực:**  
-  * **User Task:** Thao tác của con người trên phần mềm (*Thủ kho tiếp nhận yêu cầu trên WMS, Quét mã Serial/MAC, Lập đề xuất mua sắm*).
-  * **Manual Task:** Hoạt động vật lý thủ công (*Lấy thiết bị từ kệ, Kiểm đếm hàng, Thi công kéo cáp quang, Nghiệm thu cùng khách hàng*).
-  * **Service Task:** Hệ thống tự động thực hiện hoàn toàn (*Tạo yêu cầu xuất kho tự động, Đồng bộ số liệu WMS sang ERP, Đóng Work Order trên BPMS*).
-  * **Send Task:** Bộ phận Mua hàng phát hành và gửi đơn PO sang Nhà cung cấp.
-  * **External Task:** Các tác vụ xử lý độc lập trong Pool Nhà cung cấp.
-
-* **3. Activity Markers:**  
-  * **Multi-Instance Task (Ký hiệu 3 vạch song song):** Áp dụng cho bước *Quét mã Serial/MAC cho tập hợp nhiều thiết bị* (Modem, Mesh Wi-Fi) trong cùng một Work Order.  
-  * **Loop Task:** Áp dụng cho bước *Kiểm tra công suất cổng quang dã chiến*, lặp lại nhiều lần cho đến khi đạt thông số suy hao chuẩn.
-
-* **4. Events & Boundary Events:**  
-  * *Start Event:* Nhận tín hiệu kích hoạt từ hợp đồng khách hàng.  
-  * *Intermediate Message Event:* Nhận tín hiệu hàng đến từ Nhà cung cấp.  
-  * *Intermediate Timer Event:* Bộ đếm thời gian 48 giờ chờ giao hàng.  
-  * *End Event:* Đóng quy trình hoàn tất thành công.
-
-* **5. Information Artifacts:**  
-  * **Data Object:** *Phiếu xuất kho kiêm biên bản giao nhận*, *Phiếu đề xuất mua sắm*, *Biên bản kiểm tra QC*.  
-  * **Data Store:** *Cơ sở dữ liệu kho WMS* và *Cơ sở dữ liệu kế toán ERP*.
+| STT | Thành phần BPMN | Loại ký hiệu | Nhãn phần tử (Label) | Diễn giải chức năng nghiệp vụ |
+| :---: | :--- | :--- | :--- | :--- |
+| 1 | Start Event | None Start Event | Nhu cầu lắp đặt Wi-Fi phát sinh | Khởi phát quy trình từ phía khách hàng khi có nhu cầu sử dụng Internet. |
+| 2 | User Task | Task (Human) | Gửi yêu cầu đăng ký | Khách hàng cung cấp thông tin liên hệ và địa chỉ qua Web/App/Hotline. |
+| 3 | User Task | Task (Human) | Tiếp nhận thông tin khách hàng | Nhân viên Sales kiểm tra, chuẩn hóa thông tin và tạo Ticket trên CRM. |
+| 4 | User Task | Task (Human) | Khảo sát hạ tầng & Cổng kết nối | Kỹ thuật viên khảo sát tra cứu bản đồ GIS và kiểm tra số Port ODF. |
+| 5 | Exclusive Gateway | XOR Split (GW1) | Hạ tầng có khả thi? | Rẽ nhánh: Nếu không đủ port/ngoài cự ly thì từ chối; nếu đủ thì tiếp tục. |
+| 6 | Service Task | Task (Automated) | Gửi thông báo từ chối dịch vụ | Hệ thống CRM tự động gửi tin nhắn SMS/Email thông báo không thể cung cấp. |
+| 7 | End Event | None End Event | Kết thúc (Không khả thi) | Kết thúc sớm quy trình do nguyên nhân bất khả kháng về hạ tầng. |
+| 8 | User Task | Task (Human) | Tư vấn gói cước & Ký E-Contract | Sales tư vấn gói cước, thu thập eKYC và gửi mã OTP cho khách ký số. |
+| 9 | Exclusive Gateway | XOR Split (GW2) | Thông tin & Lịch hẹn hợp lệ? | Kiểm tra tính đầy đủ của hồ sơ và sự thống nhất về lịch thi công. |
+| 10 | User Task | Task (Human) | Thanh toán phí cước ban đầu | Khách hàng thanh toán qua ngân hàng/ví điện tử hoặc xác nhận thanh toán sau. |
+| 11 | Service Task | Task (Automated) | Khởi tạo & Phân bổ Work Order | Hệ thống BPMS tự động tạo lệnh thi công và gán kỹ thuật viên theo tuyến. |
+| 12 | User Task | Task (Human) | Chuẩn bị & Xuất kho vật tư | Thủ kho quét mã vạch/Serial xuất Modem ONT, cáp quang và phụ kiện. |
+| 13 | User Task | Task (Human) | Liên hệ xác nhận lịch hẹn | KTV gọi điện thoại cho khách hàng xác nhận thời gian có mặt thi công. |
+| 14 | User Task | Task (Human) | Thi công kéo cáp & Cài đặt Wi-Fi | KTV rải cáp, bấm Fast Connector, gắn modem và cấu hình SSID/Password. |
+| 15 | Exclusive Gateway | XOR Split (GW4) | Chất lượng đo kiểm đạt chuẩn? | Kiểm tra suy hao quang $\le -24\text{ dBm}$; nếu lỗi phải cắt bấm hàn lại. |
+| 16 | User Task | Task (Human) | Nghiệm thu & Ký biên bản điện tử | Khách hàng test tốc độ Speedtest và ký xác nhận trên mobile app của KTV. |
+| 17 | User Task | Task (Human) | Thu cước hòa mạng trực tiếp | KTV thu tiền mặt (đối với đơn trả sau) và gửi biên lai điện tử. |
+| 18 | Service Task | Task (Automated) | Kích hoạt dịch vụ trên mạng lõi | BPMS tự động gửi lệnh Provisioning kích hoạt tài khoản PPPoE lên AAA Server. |
+| 19 | Catch Timer Event | Intermediate Timer | Chờ 24 giờ sau nghiệm thu | Thiết lập khoảng chờ 24h trước khi gửi kịch bản khảo sát đánh giá. |
+| 20 | User Task / Service | Send Task / Human | Khảo sát hài lòng NPS & Đóng ca | CSKH gửi tin nhắn/gọi điện khảo sát chất lượng dịch vụ và đóng hồ sơ ca. |
+| 21 | End Event | None End Event | Quy trình hoàn tất thành công | Kết thúc toàn bộ quy trình lắp đặt mạng Wi-Fi thành công. |
 
 ---
 
----
+### **3.5.3. Phân tích định tính quy trình**
 
-#### **3.5.2.3. Sơ đồ BPMN 2.0 As-Is - Quy trình Quản lý kho và xuất vật tư**
+#### **3.5.3.1. Phân tích giá trị gia tăng (Value-Added Analysis)**
 
-Sơ đồ BPMN dưới đây thể hiện toàn diện 4 phân làn trách nhiệm (Swimlanes), 20 hoạt động nghiệp vụ và **đúng 7 cổng điều kiện (Gateways = 7)** được đánh số từ **GW1 đến GW7** khớp chuẩn xác với mô tả nghiệp vụ:
+Phân tích giá trị gia tăng được thực hiện theo tiêu chuẩn môn học, chia hoạt động thành **3 nhóm**:
+* **VA (Value Added - Giá trị gia tăng):** Hoạt động trực tiếp tạo ra sự biến đổi vật lý/thông tin của sản phẩm dịch vụ mà khách hàng nhận thấy, mong muốn và sẵn sàng chi trả.
+* **BVA (Business Value Added - Giá trị gia tăng doanh nghiệp):** Hoạt động không trực tiếp tạo ra giá trị cho khách hàng nhưng bắt buộc phải có để phục vụ quản trị, kiểm soát rủi ro, tuân thủ pháp luật hoặc hỗ trợ quy trình vận hành.
+* **NVA (Non-Value Added - Không tạo giá trị / Lãng phí):** Hoạt động tiêu tốn thời gian, chi phí và nguồn lực nhưng không mang lại lợi ích cho cả khách hàng lẫn doanh nghiệp; cần ưu tiên loại bỏ hoặc giảm thiểu tối đa.
 
-![Sơ đồ BPMN 2.0 As-is: Quy trình Quản lý kho và xuất vật tư tại FPT Telecom](./assets/diagrams/quan_ly_kho/SoDo.jpg)
+**Bảng 3.5.10: Bảng phân tích phân loại giá trị gia tăng (VA - BVA - NVA) các bước công việc As-Is**
 
-_Hình 3.5.2: Sơ đồ BPMN 2.0 quy trình Quản lý kho và xuất vật tư tại FPT Telecom (As-Is)_
-
----
-
----
-
-#### **3.5.2.4. Diễn giải chi tiết các luồng quy trình As-Is**
-
-##### **3.5.2.4.1. Luồng chính - Happy Path (Tồn kho đủ & Không phát sinh lỗi):**
-1. **BPMS/CRM:** Khởi tạo Work Order $\rightarrow$ Tạo yêu cầu xuất vật tư tự động $\rightarrow$ Đẩy yêu cầu sang WMS.
-2. **Kho & Vật tư:** Thủ kho tiếp nhận yêu cầu trên WMS $\rightarrow$ **Gateway 1 (XOR):** Tồn kho khả dụng $\ge$ Safety Stock? $\rightarrow$ **Nhánh Đủ:**
-3. **Kho & Vật tư:** **Gateway 3 (XOR):** Phân loại chuẩn thiết bị $\rightarrow$ Chọn lấy Modem GPON hoặc XGS-PON/Mesh $\rightarrow$ Lấy thiết bị ra khỏi kệ hàng $\rightarrow$ Quét mã Serial Number và MAC Address (User Task) $\rightarrow$ In Phiếu xuất kho kiêm biên bản bàn giao thiết bị $\rightarrow$ Bàn giao vật tư cho KTV ca thi công.
-4. **Kỹ thuật viên:** KTV đến kho kiểm đếm thiết bị $\rightarrow$ Ký xác nhận biên bản bàn giao $\rightarrow$ Vận chuyển thiết bị đến nhà khách hàng $\rightarrow$ Kéo cáp, hàn quang và cài đặt Wi-Fi.
-5. **Kỹ thuật viên:** **Gateway 6 (XOR):** Thiết bị có bị lỗi không? $\rightarrow$ **Nhánh Không:** Nghiệm thu dịch vụ cùng khách hàng.
-6. **Kỹ thuật viên:** **Gateway 7 (XOR):** Có vật tư dôi dư không? $\rightarrow$ **Nhánh Không:** Hoàn tất thi công tại chỗ.
-7. **Hệ thống BPMS / WMS:** Phân hệ WMS tự động đồng bộ giá trị xuất kho sang ERP để ghi nhận giá vốn $\rightarrow$ BPMS đóng Work Order thi công $\rightarrow$ Kết thúc thành công.
-
-##### **3.5.2.4.2. Luồng phụ 1 - Kịch bản thiếu tồn kho & Đặt hàng Nhà cung cấp:**
-1. **Kho & Vật tư:** Tại Gateway 1, phát hiện tồn kho thiếu hụt hoặc dưới mức Safety Stock $\rightarrow$ Thủ kho lập Phiếu đề xuất mua sắm bổ sung trên WMS.
-2. **Kho & Vật tư:** **Gateway 2 (XOR):** Giá trị đơn hàng có vượt hạn mức tự quyết chi nhánh (> 50 triệu)?
-   * *Nhánh Vượt (> 50tr):* Gửi hồ sơ lên Ban Giám đốc Chi nhánh phê duyệt $\rightarrow$ Ban Giám đốc ký duyệt điện tử.
-   * *Nhánh Không vượt ($\le$ 50tr):* Chuyển thẳng đơn đề xuất sang Bộ phận Mua hàng.
-3. **Bộ phận Mua hàng:** Lập đơn đặt hàng (PO) và gửi sang Nhà cung cấp $\rightarrow$ Hệ thống đi vào **Gateway 4 (Event-Driven Gateway)** để chờ phản hồi:
-   * *Nhánh Sự kiện A (Timer Event 48h):* Nếu quá 48 giờ Nhà cung cấp chưa giao hàng $\rightarrow$ Phát cảnh báo trễ hạn SLA, điều chuyển gấp từ chi nhánh lân cận.
-   * *Nhánh Sự kiện B (Message Event nhận hàng):* Nhà cung cấp giao hàng đến kho FPT $\rightarrow$ Kích hoạt tiếp nhận hàng.
-4. **Kho & Vật tư:** Tiếp nhận lô hàng $\rightarrow$ Thực hiện kiểm định chất lượng đầu vào (QC) $\rightarrow$ **Gateway 5 (XOR):** Đạt tiêu chuẩn QC?
-   * *Nhánh Không đạt (Lỗi):* Lập biên bản từ chối $\rightarrow$ Trả hàng lại cho Nhà cung cấp $\rightarrow$ Yêu cầu giao bù khẩn cấp.
-   * *Nhánh Đạt:* Xác nhận nhập kho trên WMS $\rightarrow$ Cập nhật lại số lượng tồn kho khả dụng $\rightarrow$ Chuyển sang Gateway 3 để chuẩn bị xuất kho cho KTV.
-
-##### **3.5.2.4.3. Luồng phụ 2 - Kịch bản phát hiện thiết bị lỗi trong quá trình thi công:**
-1. **Kỹ thuật viên:** Tại Gateway 6, trong quá trình đấu nối tại nhà khách hàng, KTV phát hiện modem bị lỗi nguồn hoặc suy hao cổng quang $\rightarrow$ KTV gọi điện về hotline kho yêu cầu đổi thiết bị khẩn cấp.
-2. **Kho & Vật tư:** Thủ kho lấy thiết bị dự phòng mới $\rightarrow$ Quét Serial/MAC mới để đính chính Work Order $\rightarrow$ Bàn giao thiết bị mới cho KTV.
-3. **Kỹ thuật viên:** KTV nhận thiết bị mới $\rightarrow$ Tiếp tục lắp đặt và nghiệm thu hoàn tất với khách hàng $\rightarrow$ Mang thiết bị lỗi về kho cuối ngày.
-4. **Kho & Vật tư:** Tiếp nhận thiết bị hỏng $\rightarrow$ Dán tem "Hỏng – Chờ bảo hành" $\rightarrow$ Nhập dữ liệu lên WMS $\rightarrow$ Chuyển vào khu vực kho hàng lỗi chờ trả bảo hành.
-
-##### **3.5.2.4.4. Luồng phụ 3 - Kịch bản hoàn trả và thu hồi vật tư dôi dư sau thi công:**
-1. **Kỹ thuật viên:** Tại Gateway 7, KTV kiểm tra thấy còn dư thừa cuộn cáp quang dã chiến hoặc phụ kiện đầu nối $\rightarrow$ Mang toàn bộ về kho lúc cuối ca.
-2. **Kho & Vật tư:** Thủ kho kiểm đếm thực tế $\rightarrow$ Lập Phiếu nhập trả vật tư trên WMS $\rightarrow$ Cập nhật lại thẻ kho tài sản $\rightarrow$ Chuyển sang bước đồng bộ hệ thống ERP và đóng Work Order.
-
----
-
----
-
-### **3.5.3. Phân tích định tính**
-
-#### **3.5.3.1. Phân tích giá trị gia tăng**
-
-- **VA (Value-Added):** Trực tiếp tạo ra giá trị cho khách hàng.
-- **BVA (Business Value-Added):** Cần thiết cho hoạt động của doanh nghiệp (kiểm soát, đối soát, ghi nhận kế toán).
-- **NVA (Non-Value-Added):** Không tạo ra giá trị, cần được giảm thiểu hoặc loại bỏ.
-
-**Bảng 3.5.12: Bảng phân loại giá trị gia tăng (VA / BVA / NVA) các bước quy trình As-Is**
-
-| STT | Hoạt động | Người thực hiện | Phân loại | Lập luận theo tiêu chuẩn phân loại |
+| STT | Bước công việc (Step) | Tác nhân thực hiện | Phân loại | Lập luận theo tiêu chuẩn phân loại |
 | :---: | :--- | :--- | :---: | :--- |
-| 1 | Nhận Work Order từ hệ thống CRM | Hệ thống BPMS | **BVA** | Bước khởi tạo nội bộ tự động, cần thiết cho điều phối hệ thống nhưng khách hàng không nhận ra trực tiếp. |
-| 2 | Tạo yêu cầu xuất vật tư tự động | Hệ thống BPMS/WMS | **BVA** | Điều phối công việc nội bộ giữa các hệ thống; không tạo giá trị trực tiếp nhưng bắt buộc để kích hoạt quy trình. |
-| 3 | Tiếp nhận yêu cầu xuất trên WMS | Thủ kho | **BVA** | Bước xác nhận và tiếp nhận nhiệm vụ; cần thiết cho kiểm soát quy trình nội bộ. |
-| 4 | Kiểm tra tồn kho khả dụng | Thủ kho | **BVA** | Đảm bảo tính chính xác của xuất kho; tránh thiếu hàng gây gián đoạn Work Order — bắt buộc về mặt vận hành. |
-| 5 | Lập phiếu đề xuất mua sắm (khi tồn kho thiếu) | Thủ kho | **NVA** | Phát sinh do tồn kho không được dự báo đủ; nếu Safety Stock được duy trì tốt, bước này không cần xảy ra. |
-| 6 | Đặt hàng Nhà cung cấp hoặc điều chuyển kho tổng | Bộ phận Mua hàng | **NVA** | Hành động khắc phục hậu quả do lập kế hoạch tồn kho kém — không tạo giá trị, tốn thời gian và chi phí. |
-| 7 | Chờ Nhà cung cấp giao hàng | — | **NVA** | Thời gian chờ thuần túy (1–5 ngày), không có hoạt động nào được thực hiện, gây trễ Work Order trực tiếp. |
-| 8 | Tiếp nhận hàng và kiểm tra chất lượng đầu vào (QC) | Thủ kho | **BVA** | Bắt buộc để đảm bảo chất lượng thiết bị trước khi nhập kho; kiểm soát rủi ro về sau cho khách hàng. |
-| 9 | Nhập kho trên WMS sau khi đạt QC | Thủ kho | **BVA** | Cập nhật dữ liệu tồn kho chính xác; cần thiết cho hạch toán và quản lý tài sản nội bộ. |
-| 10 | Trả hàng lại Nhà cung cấp (khi không đạt QC) | Thủ kho | **NVA** | Hoạt động sửa lỗi do Nhà cung cấp giao hàng kém chất lượng; không tạo giá trị, gây lãng phí thời gian và nguồn lực. |
-| 11 | Lấy thiết bị ra kho | Thủ kho | **VA** | Trực tiếp chuẩn bị thiết bị cho khách hàng sử dụng; khách hàng nhận giá trị khi thiết bị đến tay đúng loại. |
-| 12 | Quét mã Serial Number / địa chỉ MAC / QR Code | Thủ kho | **VA** | Gắn định danh thiết bị với thuê bao khách hàng; nền tảng cho bảo hành và truy xuất tài sản. |
-| 13 | Kiểm tra ngoại quan thiết bị | Thủ kho | **VA** | Đảm bảo thiết bị không bị hỏng hóc trước khi trao tay KTV; khách hàng nhận thiết bị trong tình trạng tốt. |
-| 14 | Chuẩn bị vật tư tiêu hao theo định mức | Thủ kho | **VA** | Đảm bảo đủ phụ kiện để KTV hoàn tất thi công trong một lượt, tránh phải quay lại lấy thêm. |
-| 15 | In Phiếu xuất kho | Thủ kho | **BVA** | Chứng từ nội bộ để xác nhận trách nhiệm bàn giao; cần thiết cho kế toán kho và kiểm toán. |
-| 16 | Kiểm đếm vật tư & ký xác nhận Phiếu xuất kho | Kỹ thuật viên | **VA** | Khách hàng được đảm bảo rằng KTV nhận đủ thiết bị đúng chủng loại trước khi thi công. |
-| 17 | Thực hiện thi công lắp đặt tại nhà khách hàng | Kỹ thuật viên | **VA** | Hoạt động cốt lõi tạo ra sản phẩm dịch vụ Internet cho khách hàng; khách hàng trực tiếp nhận giá trị. |
-| 18 | Hoàn trả vật tư thừa về kho sau thi công | Kỹ thuật viên | **NVA** | Thao tác vận chuyển ngược chiều không tạo giá trị; cần được giảm thiểu bằng cách xuất đúng định mức ngay từ đầu. |
-| 19 | Kiểm đếm & phân loại vật tư hoàn trả | Thủ kho | **BVA** | Bắt buộc để cập nhật tồn kho chính xác và phân loại tài sản (dùng lại / bảo hành / thanh lý). |
-| 20 | Nhập trả vật tư / thiết bị trên WMS | Thủ kho | **BVA** | Cập nhật số liệu tồn kho real-time; cần thiết cho hạch toán kế toán và quản lý tài sản. |
-| 21 | Đồng bộ dữ liệu WMS → ERP | Hệ thống WMS/ERP | **BVA** | Đảm bảo số liệu tài chính chính xác; bắt buộc theo quy trình hạch toán nội bộ doanh nghiệp. |
-| 22 | Đóng Work Order trên BPMS | Hệ thống BPMS | **BVA** | Kết thúc vòng đời Work Order; cần thiết cho báo cáo và đánh giá hiệu suất vận hành nội bộ. |
+| 1 | Nhập thông tin & Gửi yêu cầu đăng ký | Khách hàng | **VA** | Bước bắt buộc do khách hàng khởi phát để yêu cầu cung cấp dịch vụ. |
+| 2 | Tiếp nhận & Nhập thông tin yêu cầu | Nhân viên Sales | **BVA** | Cần thiết cho công tác quản trị nội bộ và khởi tạo đơn hàng trên CRM. |
+| 3 | Khảo sát hạ tầng & Cổng kết nối (Port) | Kỹ thuật Khảo sát | **BVA** | Đảm bảo tính khả thi kỹ thuật, tránh rủi ro chi phí triển khai ảo cho công ty. |
+| 4 | Gửi thông báo không đủ điều kiện | Hệ thống CRM | **BVA** | Đảm bảo tính minh bạch thông tin và giữ gìn hình ảnh thương hiệu khi từ chối. |
+| 5 | Tư vấn gói cước & Chọn phương án | Nhân viên Sales | **VA** | Khách hàng trực tiếp nhận giá trị tư vấn chuyên môn để chọn gói cước tối ưu. |
+| 6 | Ký hợp đồng điện tử (E-Contract) | Khách hàng / Sales | **BVA** | Thỏa thuận pháp lý ràng buộc bắt buộc theo Luật Viễn thông và quy định công ty. |
+| 7 | Thanh toán phí lắp đặt / cước đóng trước | Khách hàng / Kế toán | **BVA** | Thu hồi dòng tiền doanh thu cho doanh nghiệp, thủ tục tài chính cần thiết. |
+| 8 | Tự động tạo Work Order & Phân ca | Hệ thống BPMS | **BVA** | Điều phối công việc tự động nội bộ trong hệ thống tổ chức doanh nghiệp. |
+| 9 | Chuẩn bị & Xuất kho thiết bị, vật tư | Thủ kho | **BVA** | Hoạt động hậu cần chuẩn bị vật tư thiết bị mạng đạt chuẩn phục vụ thi công. |
+| 10 | Gọi điện hẹn giờ & Xác nhận địa điểm | Kỹ thuật viên (KTV) | **NVA** | Thao tác bàn giao trung gian, có thể tự động hóa bằng tin nhắn thông minh/App. |
+| 11 | Di chuyển đến địa chỉ khách hàng | Kỹ thuật viên (KTV) | **NVA** | Thời gian di chuyển vật lý thuần túy không tạo giá trị trực tiếp cho khách hàng. |
+| 12 | Kéo rải cáp quang thuê bao | Kỹ thuật viên (KTV) | **VA** | Hoạt động thi công vật lý cốt lõi tạo nên tuyến cáp kết nối vào nhà khách hàng. |
+| 13 | Hàn nối quang / Bấm đầu Fast Connector | Kỹ thuật viên (KTV) | **VA** | Hoạt động cốt lõi đảm bảo truyền dẫn tín hiệu quang học đạt tiêu chuẩn. |
+| 14 | Lắp đặt Modem ONT & Cấu hình Wi-Fi | Kỹ thuật viên (KTV) | **VA** | Hoạt động trực tiếp tạo ra sóng Wi-Fi và mạng Internet cho khách hàng sử dụng. |
+| 15 | Kiểm tra suy hao quang & Đo Speedtest | Kỹ thuật viên (KTV) | **BVA** | Kiểm soát chất lượng kỹ thuật nội bộ trước khi chính thức bàn giao cho khách hàng. |
+| 16 | Khách hàng nghiệm thu & Ký biên bản | Khách hàng / KTV | **VA** | Khách hàng trực tiếp trải nghiệm tốc độ mạng và nhận bàn giao quyền sử dụng. |
+| 17 | Kích hoạt thuê bao trên mạng lõi | Hệ thống BPMS | **VA** | Mở cổng Internet thương mại chính thức cho khách hàng bắt đầu truy cập. |
+| 18 | Khảo sát mức độ hài lòng (NPS) | Bộ phận CSKH | **BVA** | Đánh giá chất lượng phục vụ, kiểm soát vận hành và phục vụ cải tiến quy trình. |
 
-**Tổng hợp phân loại:**
+_Bảng 3.1: Bảng phân loại giá trị gia tăng quy trình lắp đặt mạng Wi-Fi_
 
-**Bảng 3.5.13: Bảng tổng hợp tỷ lệ phân loại giá trị gia tăng các hoạt động kho**
-
-| Loại giá trị | Số lượng hoạt động | Tỉ lệ |
-| :---: | :---: | :---: |
-| **VA** | 6 | 27,3% |
-| **BVA** | 12 | 54,5% |
-| **NVA** | 4 | 18,2% |
-| **Tổng** | **22** | **100%** |
-
-> **Nhận xét:** Tỉ lệ NVA chiếm 18,2% — chủ yếu phát sinh ở kịch bản tồn kho thiếu (mua sắm qua Nhà cung cấp) và thời gian hoàn trả vật tư thừa. Đây là các điểm cần ưu tiên tối ưu hóa nhằm nâng cao hiệu quả quy trình.
+**Nhận xét tổng quan phân tích VA/BVA/NVA:**
+* **Nhóm VA (6 bước):** Tập trung chủ yếu vào các hoạt động tư vấn gói cước, thi công kéo cáp, hàn quang, cấu hình Wi-Fi, nghiệm thu và kích hoạt dịch vụ. Đây là những hoạt động khách hàng nhìn thấy và sẵn sàng chi trả.
+* **Nhóm BVA (10 bước):** Chiếm số lượng lớn do ngành viễn thông đòi hỏi sự kiểm soát nghiêm ngặt về hạ tầng mạng, hồ sơ pháp lý thuê bao, quản lý tài chính và điều phối kho bãi. Hướng tối ưu là tự động hóa các bước này qua hệ thống phần mềm để giảm thời gian xử lý con người.
+* **Nhóm NVA (2 bước):** Bao gồm thời gian gọi điện thoại xác nhận thủ công và thời gian di chuyển ngoài đường của KTV. Mặc dù di chuyển là bắt buộc đối với dịch vụ hiện trường, nhưng các chuyến đi lòng vòng do lộ trình không tối ưu hoặc đến nơi khách vắng nhà chính là lãng phí thuần túy cần triệt tiêu bằng thuật toán định tuyến (Routing).
 
 ---
 
+#### **3.5.3.2. Phân tích 7 loại lãng phí (Lean Waste Analysis)**
 
-#### **3.5.3.2. Phân tích lãng phí**
+Áp dụng mô hình Quản trị Tinh gọn (Lean Management), 7 loại lãng phí trong quy trình thi công lắp đặt mạng Wi-Fi được nhận diện và phân nhóm cụ thể:
 
-Dựa trên 7 loại lãng phí (7 Wastes) theo phương pháp Lean, bảng dưới đây xác định các lãng phí hiện diện trong quy trình Quản lý kho và xuất vật tư tại FPT Telecom:
+##### **3.5.3.2.1. Nhóm Di chuyển (Move)**
+- **Vận chuyển không cần thiết (Transportation):** KTV phải di chuyển về kho trung tâm chi nhánh nhiều lần trong ngày để lấy bổ sung vật tư do không dự trù đủ cáp hoặc thiết bị cho các ca phát sinh. Quãng đường di chuyển giữa các ca lắp đặt bị phân tán xa nhau do điều phối thủ công.
+- **Thao tác / Chuyển động thừa (Motion):** KTV ghi thông số suy hao quang và số mét cáp ra giấy biên bản rồi sau đó mới dùng điện thoại mở app chụp ảnh và gõ lại lần thứ hai; việc tìm kiếm vật tư trong cốp xe không được sắp xếp khoa học.
 
-**Bảng 3.5.14: Bảng nhận diện và phân tích 7 loại lãng phí (Lean Waste) trong quy trình kho**
+##### **3.5.3.2.2. Nhóm Tồn đọng & Trì hoãn (Hold)**
+- **Tồn kho dữ liệu & Thiết bị (Inventory):** Hợp đồng đã ký điện tử bị treo trên hệ thống chờ phân bổ Work Order; modem và vật tư bị giam giữ tại kho chi nhánh do phân bổ theo định mức cứng nhắc thay vì điều phối động theo nhu cầu thực tế.
+- **Thời gian chờ đợi (Waiting):** Đây là lãng phí nghiêm trọng nhất: KTV đến nơi phải chờ khách hàng do khách bận đột xuất; khách hàng chờ KTV do KTV bị trễ ca trước; KTV và khách hàng cùng phải chờ từ 10 - 30 phút tại chỗ để hệ thống AAA Radius kích hoạt tài khoản mạng lõi vào giờ cao điểm.
 
-| Loại lãng phí | Biểu hiện trong quy trình FPT Telecom |
-| :--- | :--- |
-| **Hold (Chờ đợi)** | 1 Chờ Nhà cung cấp giao hàng khi tồn kho dưới Safety Stock (1–5 ngày làm việc); 2 Chờ kỹ thuật viên xác nhận thiết bị lỗi và liên hệ kho; 3 Chờ hệ thống BPMS đẩy Work Order sang WMS vào giờ cao điểm. |
-| **Move (Vận chuyển không cần thiết)** | 1 Vận chuyển thiết bị từ kho trung tâm ra kho điểm khi phải điều chuyển nội bộ; 2 Kỹ thuật viên phải quay lại kho để đổi thiết bị lỗi thay vì được giao thay thế trực tiếp tại công trình. |
-| **Over-do (Xử lý thừa / Làm quá mức)** | 1 Nhập liệu Serial/MAC thủ công song song với quét QR tự động trên WMS — thực hiện dữ liệu trùng lặp; 2 Kiểm tra ngoại quan thiết bị nhiều lần (tại kho và tại công trình); 3 In Phiếu xuất kho giấy khi hệ thống WMS đã có chữ ký điện tử của KTV. |
-| **Defects (Lỗi / Làm lại)** | 1 Xuất nhầm model Modem/ONT không phù hợp hạ tầng GPON/XGS-PON → KTV phải quay lại kho đổi; 2 QC đầu vào từ Nhà cung cấp không đạt → trả hàng và đặt lại, gây trễ Work Order; 3 Ghi sai Serial Number trên WMS → phải tra cứu và đính chính sau. |
-| **Over-production (Sản xuất/Xử lý thừa)** | 1 Tạo đề xuất mua sắm khi tồn kho thực tế vẫn còn hàng nhưng WMS chưa cập nhật real-time; 2 In dư Phiếu xuất kho giấy nhiều bản. |
-| **Inventory (Lưu kho thừa)** | 1 Tồn kho Modem/ONT vượt ngưỡng Safety Stock do dự báo nhu cầu chưa chính xác, gây đọng vốn; 2 Thiết bị thu hồi từ khách hàng tồn lâu ở khu hàng lỗi chờ phân loại (dùng lại / bảo hành / thanh lý). |
-| **Motion (Thao tác thừa)** | 1 Thủ kho phải tra cứu thủ công danh sách tồn kho trên giấy thay vì xem dashboard real-time trên WMS; 2 Nhân viên Mua hàng phải liên hệ Nhà cung cấp qua điện thoại/email thủ công thay vì thông qua cổng đặt hàng tích hợp. |
-
-> **Nhận xét:** Lãng phí **Hold** và **Defects** có mức độ tác động cao nhất vì ảnh hưởng trực tiếp đến thời gian hoàn thành Work Order và SLA lắp đặt 24–48 giờ của FPT Telecom.
+##### **3.5.3.2.3. Nhóm Làm quá mức (Over-do)**
+- **Sai lỗi và làm lại (Defects / Rework):** Dữ liệu cổng Port trên bản đồ GIS không đồng bộ với thực tế cột điện, dẫn đến việc KTV kéo dây cáp đến nơi nhưng không có cổng cắm, phải rút cáp về (lãng phí 100% công sức); lỗi thao tác bấm đầu Fast Connector bị suy hao cao phải cắt bấm lại ($r = 5\%$).
+- **Xử lý quá mức (Over-processing):** Nhân viên Sales in thêm biên bản nghiệm thu bằng giấy để lưu hồ sơ nội bộ dù khách hàng đã ký số trên ứng dụng di động; kiểm tra đối soát thủ công lặp lại giữa Kế toán và Sales.
+- **Sản xuất dư thừa (Over-production):** Kỹ thuật viên kéo cắt dôi dư chiều dài dây cáp quang dã chiến quá nhiều so với thực tế thiết kế (hao hụt bình quân ~3% tổng chiều dài dây cáp).
+- **Lãng phí tiềm năng con người (Unused Talent):** Kỹ sư mạng và nhân sự kỹ thuật lành nghề phải dành nhiều thời gian xử lý các biểu mẫu giấy tờ hành chính và gọi điện nhắc hẹn thủ công thay vì tập trung nâng cao chất lượng đường truyền.
 
 ---
 
 #### **3.5.3.3. Phân tích các bên liên quan (Stakeholder Analysis)**
 
-**Bảng 3.5.15: Ma trận phân tích kỳ vọng và mức độ ảnh hưởng của các bên liên quan**
+**Bảng 3.5.11: Ma trận phân tích các bên liên quan trong quy trình (Stakeholder Analysis)**
 
-| Bên liên quan | Mức độ ảnh hưởng | Vai trò & Kỳ vọng | Rủi ro nếu quy trình không hiệu quả |
-| :--- | :---: | :--- | :--- |
-| **Kỹ thuật viên thi công (KTV)** | Rất cao | Nhận đúng thiết bị, đủ số lượng, kịp thời để hoàn thành Work Order đúng hẹn. | Trễ lịch lắp đặt, phải di chuyển đổi thiết bị, ảnh hưởng KPI cá nhân. |
-| **Thủ kho / NV Kho & Vật tư** | Rất cao | Thực hiện xuất/nhập chính xác, cập nhật WMS real-time; kiểm soát tồn kho an toàn. | Sai lệch tồn kho, thiếu hàng đột ngột, áp lực xử lý đổi trả lớn. |
-| **Bộ phận Mua hàng & Cung ứng** | Cao | Đảm bảo chuỗi cung ứng thông suốt; đặt hàng Nhà cung cấp đúng số lượng và thời hạn. | Tồn kho gián đoạn, phải xử lý đơn khẩn cấp với chi phí cao hơn. |
-| **Nhà cung cấp** | Trung bình đến cao | Cung cấp Modem/ONT, Router Wi-Fi đúng chất lượng và đúng hạn giao. | Bị trả hàng khi QC không đạt, mất uy tín và hợp đồng dài hạn. |
-| **Ban Kỹ thuật FPT Telecom** | Cao | Phê duyệt thiết bị chuyên dụng GPON/XGS-PON; đảm bảo tương thích hạ tầng. | Work Order bị hoãn khi thiếu thiết bị đặc thù, ảnh hưởng SLA toàn hệ thống. |
-| **Hệ thống BPMS/WMS/ERP** | Rất cao | Tự động hóa luồng Work Order; quản lý tồn kho real-time; đồng bộ hạch toán. | Dữ liệu tồn kho sai lệch; không đóng được Work Order; mất khả năng truy xuất tài sản. |
-| **Khách hàng cuối (Người dùng Internet)** | Trung bình (gián tiếp) | Được lắp đặt đúng hẹn, thiết bị hoạt động ổn định ngay từ đầu. | Không hài lòng, khiếu nại, hủy hợp đồng nếu lắp đặt trễ hoặc thiết bị lỗi. |
-
----
-
-#### **3.5.3.4. Sổ đăng ký vấn đề (Issue Register)**
-
-Dựa trên kết quả phân tích VA/BVA/NVA, bảng phân tích 7 lãng phí và phân tích các bên liên quan, nhóm tổng hợp **9 vấn đề trọng tâm** của quy trình Quản lý kho và xuất vật tư As-Is vào Sổ đăng ký vấn đề dưới đây:
-
-**Bảng 3.5.16: Sổ theo dõi vấn đề toàn diện (Issue Register) quy trình Quản lý kho**
-
-| **ID** | **Vấn đề phát sinh** | **Nguyên nhân gốc rễ** | **Tác động đến quy trình** | **Mức độ ưu tiên** |
-| :---: | :--- | :--- | :--- | :---: |
-| **IR-01** | Tồn kho xuống dưới ngưỡng Safety Stock đột ngột | Dự báo nhu cầu vật tư chưa chính xác theo mùa cao điểm; WMS chưa tích hợp cảnh báo tự động khi tiếp cận Reorder Point | Work Order bị hoãn từ 1–5 ngày làm việc; SLA lắp đặt 24–48 giờ bị phá vỡ hoàn toàn | **Cao** |
-| **IR-02** | Lô hàng từ Nhà cung cấp không đạt tiêu chuẩn kiểm định QC | Nhà cung cấp giao hàng kém chất lượng hoặc sai quy cách; quy trình kiểm định QC đầu vào chỉ lấy mẫu ngẫu nhiên tỷ lệ thấp, dễ bỏ sót lỗi theo lô | Phải trả hàng, đặt lại từ đầu, gây trễ lịch thi công chuỗi Work Order phía sau | **Cao** |
-| **IR-03** | Xuất nhầm chủng loại thiết bị quang (GPON thay vì XGS-PON hoặc ngược lại) | Phân loại thiết bị theo gói cước thực hiện thủ công; Work Order đôi khi thiếu ghi chú chuẩn công nghệ rõ ràng; Thủ kho phải đọc và phán đoán dựa trên kinh nghiệm | KTV phải mang thiết bị sai về kho đổi; lãng phí 2–4 giờ thi công; SLA không đạt | **Cao** |
-| **IR-04** | Chênh lệch số liệu tồn kho giữa WMS và kiểm kê thực tế | Quét mã Serial/MAC bỏ sót hoặc nhập liệu sai khi nhập trả vật tư cuối ngày; KTV trễ quyết toán; WMS chưa cập nhật real-time theo giao dịch | Báo cáo tồn kho sai lệch dẫn đến quyết định mua sắm không chính xác; thiếu hụt tồn kho ảo | **Trung bình** |
-| **IR-05** | Kỹ thuật viên chờ đợi lâu tại kho vào giờ cao điểm buổi sáng | Nhiều KTV đến lấy hàng cùng lúc (ca sáng 07:30–08:30); Thủ kho xử lý tuần tự thủ công; máy quét mã vạch không đủ số lượng cho giờ cao điểm | Trễ giờ khởi hành thi công từ 20–45 phút/KTV; dồn ứ lịch hẹn khách hàng buổi sáng | **Trung bình** |
-| **IR-06** | Thiết bị bị phát hiện lỗi kỹ thuật tại hiện trường thi công | Quy trình QC đầu vào chưa kiểm tra 100% chức năng hoạt động của từng thiết bị; thiết bị bị va đập trong vận chuyển từ kho đến nhà khách hàng | KTV phải dừng thi công, gọi về kho xin đổi, chờ thiết bị mới; SLA bị phá vỡ; khách hàng bất bình | **Cao** |
-| **IR-07** | Vật tư tiêu hao (cáp quang, đầu nối) không được hoàn trả kho đúng hạn cuối ngày | KTV không quyết toán về kho sau ca làm việc do trễ thi công hoặc bận xử lý ngoại lệ; thiếu quy trình nhắc nhở tự động; không có chế tài cụ thể | Tồn kho ảo trên WMS cao hơn thực tế; gây thiếu hụt giả khi kiểm kê; hao hụt vật tư khó kiểm soát | **Trung bình** |
-| **IR-08** | Đề xuất mua sắm bổ sung bị trễ phê duyệt từ Ban Giám đốc | Quy trình phê duyệt phụ thuộc vào sự có mặt trực tiếp của BGĐ; phê duyệt qua Zalo/giấy không có SLA rõ ràng; các đề xuất không khẩn cấp bị xử lý theo lô | Hàng tiếp tục thiếu trong thời gian chờ phê duyệt; Work Order dồn ứ; áp lực lên chuỗi thi công | **Cao** |
-| **IR-09** | Thiết bị thu hồi và hàng lỗi tồn lâu ở khu chờ phân loại trong kho | Thiếu quy trình phân loại định kỳ bắt buộc (tái sử dụng / bảo hành hãng / thanh lý); nhân lực kho ưu tiên xuất hàng hơn xử lý hàng thu hồi | Đọng vốn tài sản; chiếm diện tích kho; dữ liệu WMS có "tồn kho chết" không dùng được | **Trung bình** |
-
-> **Nhận xét tổng hợp:** Trong 9 vấn đề trên, **IR-01, IR-02, IR-03, IR-06 và IR-08** được xếp mức độ **Cao** vì ảnh hưởng trực tiếp đến khả năng hoàn thành Work Order đúng SLA 24–48 giờ — chỉ số cam kết then chốt của FPT Telecom với khách hàng. Đây là nhóm vấn đề cần được ưu tiên xử lý trong giai đoạn thiết kế To-Be.
+| Bên liên quan | Vai trò trong quy trình | Mức độ ảnh hưởng | Mối quan tâm / Kỳ vọng chính | Rủi ro tiềm ẩn nếu quy trình kém | Chiến lược quản lý & Phối hợp |
+| :--- | :--- | :---: | :--- | :--- | :--- |
+| **Khách hàng** | Người đăng ký, nghiệm thu và trả cước | Rất cao | Lắp đặt nhanh chóng, đúng giờ hẹn, sóng Wi-Fi ổn định khắp nhà, thủ tục minh bạch | Khiếu nại gay gắt, từ chối nghiệm thu, hủy hợp đồng, đánh giá NPS thấp | Cung cấp ứng dụng theo dõi tiến độ thời gian thực, nhắc lịch hẹn tự động qua SMS/Zalo kèm định vị KTV |
+| **Nhân viên Sales** | Tiếp cận, tư vấn và phát triển thuê bao | Cao | Chốt hợp đồng nhanh, thủ tục eKYC mượt mà, hoa hồng ghi nhận chính xác | Nhập sai thông tin khách hàng, tư vấn sai gói cước gây xung đột với Kỹ thuật | Chuẩn hóa quy trình E-Contract, tính năng tự động kiểm tra Port trên Mobisale |
+| **Kỹ thuật viên Khảo sát** | Thẩm định hạ tầng mạng cáp | Cao | Bản đồ GIS chính xác, cự ly cáp thực tế khớp hệ thống, giảm tải đi lại | Dữ liệu sai lệch dẫn đến cấp Port ảo, gây xung đột nội bộ với Sales | Cập nhật dữ liệu Port thời gian thực, chụp ảnh định danh hộp ODF sau mỗi lần đấu nối |
+| **Kỹ thuật viên Lắp đặt (TNC)** | Thi công hiện trường và cấu hình thiết bị | Rất cao | Lịch phân bổ tập trung theo cụm, đầy đủ vật tư, ứng dụng mượt, kích hoạt nhanh | Thi công trễ giờ cam kết, lỗi suy hao quang, quá tải ca làm việc | Ứng dụng Mobile tối ưu lộ trình chỉ đường, trang bị kìm bấm quang chuyên dụng, thưởng theo năng suất |
+| **Thủ kho Vật tư** | Quản lý và cấp phát thiết bị | Trung bình | Phiếu xuất kho rõ ràng, tồn kho khớp thực tế, quét mã Serial nhanh | Cấp sai mã modem/router, ùn ứ KTV vào đầu ca sáng | Ứng dụng mã vạch/QR Code quản lý thiết bị, tích hợp tự động với Work Order của BPMS |
+| **Bộ phận Kế toán** | Đối soát công nợ và ghi nhận doanh thu | Trung bình | Dòng tiền khớp đúng, gạch nợ tức thời, hóa đơn điện tử phát hành chuẩn xác | Treo giao dịch thanh toán, lệch số liệu giữa tiền mặt và phần mềm | Tích hợp cổng thanh toán trực tuyến tự động đối soát, hạn chế tối đa thu tiền mặt |
+| **Bộ phận CSKH** | Khảo sát NPS và chăm sóc sau bán hàng | Trung bình | Tiếp nhận dữ liệu nghiệm thu đầy đủ, chỉ số NPS cao, phản hồi được xử lý sớm | Bỏ sót khách hàng không hài lòng, xử lý khiếu nại trễ hạn | Tự động hóa gửi khảo sát NPS đa kênh (SMS, Zalo ZNS, App MyFPT), phân luồng ticket tự động |
+| **Ban Giám đốc** | Kiểm soát hiệu quả và định hướng | Rất cao | Tối ưu hóa chi phí trên từng đơn hàng, tăng trưởng thuê bao ròng, nâng cao CSAT | Chi phí vận hành ca lắp đặt cao, tỷ lệ khách hàng rời mạng tăng | Bảng điều khiển KPI thời gian thực (Tactical & Strategic Dashboards) giám sát SLA toàn chi nhánh |
 
 ---
 
----
+#### **3.5.3.4. Bảng theo dõi vấn đề toàn diện (Issue Register)**
 
-#### **3.5.3.5. Sơ đồ xương cá 6M phân tích nguyên nhân gốc rễ (Fishbone & 5 Whys Analysis)**
+Dựa trên kết quả khám phá bằng chứng, phỏng vấn phân tầng và hội thảo chuyên sâu, nhóm đã tổng hợp và chuẩn hóa **9 vấn đề nghiệp vụ trọng yếu (ISS-01 đến ISS-09)** trong quy trình As-Is:
 
-Để xác định chính xác căn nguyên phát sinh các điểm nghẽn vận hành nghiêm trọng nhất được nhận diện trong Issue Register (IR-01 và IR-05), nhóm nghiên cứu áp dụng kỹ thuật **Biểu đồ xương cá Ishikawa 6M** kết hợp phương pháp đào sâu **5 Whys (5 Tại sao)**. Mô hình tập trung phân tích điểm nghẽn cốt lõi: **"Thời gian chuẩn bị xuất kho kéo dài và sai lệch tồn kho vật tư thi công"**.
+**Bảng 3.5.12: Bảng theo dõi và quản lý vấn đề quy trình toàn diện (Issue Register)**
 
-![Sơ đồ xương cá 6M phân tích nguyên nhân gốc rễ quy trình kho](./assets/diagrams/quan_ly_kho/hinh-3-5-so-do-xuong-ca-6m.png)
-
-_Hình 3.5.3: Sơ đồ xương cá (Fishbone 6M) phân tích nguyên nhân gốc rễ chậm trễ xuất kho và sai lệch tồn kho vật tư_
-
-Sơ đồ xương cá chỉ ra rằng sự cộng hưởng của các yếu tố thủ công ở cả 6 khía cạnh (Con người, Phương pháp, Máy móc/IT, Vật tư, Đo lường, Môi trường) là nguồn cơn trực tiếp làm suy giảm hiệu suất kho. Nhằm làm rõ cơ chế phát sinh vấn đề, nhóm tiến hành phân tích 5 Whys cho 2 vấn đề trọng điểm:
-
-##### **Phân tích 5 Whys cho Vấn đề 1: Thời gian chuẩn bị và bàn giao vật tư cho KTV bị kéo dài (IR-01)**
-* **Why 1:** Tại sao KTV phải chờ trung bình 35–45 phút tại kho trước mỗi ca thi công?  
-  $
-ightarrow$ Do Thủ kho phải kiểm tra sổ sách, tìm kiếm vật tư trên kệ và quét mã Serial/MAC từng thiết bị một cách thủ công.
-* **Why 2:** Tại sao Thủ kho phải mất nhiều thời gian tìm kiếm vật tư trên kệ?  
-  $
-ightarrow$ Do vị trí lưu kho (Bin Location) chưa được hệ thống WMS chỉ dẫn tự động theo thuật toán tối ưu lộ trình nhặt hàng.
-* **Why 3:** Tại sao việc quét mã vạch Serial/MAC lại diễn ra chậm chạp và dễ ách tắc?  
-  $
-ightarrow$ Do chi nhánh chỉ trang bị 01 đầu đọc barcode cố định tại bàn làm việc của Thủ kho, không có thiết bị di động quét tại kệ.
-* **Why 4:** Tại sao không trang bị thiết bị kiểm soát di động quét mã tức thời?  
-  $
-ightarrow$ Do hệ thống WMS hiện tại chưa phát triển phiên bản Mobile App / PDA cầm tay cho nhân viên kho hiện trường.
-* **Why 5:** Tại sao ứng dụng WMS chưa được hiện đại hóa di động?  
-  $
-ightarrow$ Do quy trình kho trước đây chủ yếu được xem là hoạt động hỗ trợ thứ yếu, chưa được ưu tiên đầu tư giải pháp Smart Warehouse đồng bộ.
-
-##### **Phân tích 5 Whys cho Vấn đề 2: Tỷ lệ sai lệch số liệu tồn kho thực tế so với phần mềm WMS/ERP cao (IR-05)**
-* **Why 1:** Tại sao số lượng modem ONT thực tế trong kho thường xuyên vênh lệch so với số liệu hiển thị trên WMS?  
-  $
-ightarrow$ Do các giao dịch xuất đổi thiết bị lỗi và thu hồi vật tư dôi dư sau ca thi công không được hạch toán ngay lập tức.
-* **Why 2:** Tại sao các giao dịch hoàn trả không được cập nhật tức thời?  
-  $
-ightarrow$ Do KTV khi hoàn trả vật tư vào cuối ngày chỉ ghi sổ bàn giao giấy tạm thời, Thủ kho gom chứng từ nhập lại vào ngày hôm sau.
-* **Why 3:** Tại sao lại cho phép sử dụng sổ tay ghi nhận tạm thay vì cập nhật trực tiếp vào hệ thống?  
-  $
-ightarrow$ Do ứng dụng FoxPro của KTV chưa tích hợp tính năng quét trả vật tư trực tiếp ngoài hiện trường về phân hệ kho.
-* **Why 4:** Tại sao không phát hiện sớm các sai lệch này trong ngày?  
-  $
-ightarrow$ Do kho chỉ áp dụng hình thức kiểm kê định kỳ toàn diện vào cuối tháng, hoàn toàn thiếu cơ chế kiểm đếm chu kỳ liên tục (Cycle Counting).
-* **Why 5 (Root Cause):** Tại sao cơ chế kiểm đếm chu kỳ chưa được áp dụng?  
-  $
-ightarrow$ Do thiếu công cụ tự động phân loại hàng hóa ABC và hệ thống WMS chưa có tính năng tự động sinh lệnh kiểm kê ngẫu nhiên hàng ngày.
+| ID | Tên vấn đề | Giả định / Tình huống phát sinh | Tác động định tính | Tác động định lượng | Mức độ | Hành động cải tiến đề xuất |
+| :---: | :--- | :--- | :--- | :--- | :---: | :--- |
+| **ISS-01** | Khảo sát sai lệch tình trạng Port thực tế | Dữ liệu GIS không đồng bộ với thực địa hộp cáp ODF | KTV đến nơi không có cổng đấu nối; khách hàng bức xúc; xung đột nội bộ | Mất 45 phút/ca vô ích; lãng phí ~30.000 VNĐ chi phí công thợ và xăng xe | **Cao** | Bắt buộc quét mã QR Port và chụp ảnh hiện trạng ODF cập nhật trực tiếp lên hệ thống sau mỗi ca |
+| **ISS-02** | Khách hàng vắng nhà vào giờ hẹn thi công | Không có cơ chế nhắc hẹn thông minh và tự động | KTV bị gián đoạn lịch trình, giảm hiệu suất làm việc trong ngày | Kéo dài Lead Time thêm 120 – 240 phút do phải dời sang ca sau | **Trung bình** | Hệ thống tự động gửi tin nhắn SMS/Zalo kèm định vị của KTV trước 30 phút khi đến nơi |
+| **ISS-03** | Nghẽn lệnh kích hoạt dịch vụ mạng lõi (AAA) | Hệ thống Radius Server xử lý chậm vào giờ cao điểm (17h - 19h) | KTV và khách hàng phải chờ đợi tại chỗ sau khi đã lắp đặt xong; ức chế tâm lý | Thời gian chờ đợi tại chỗ tăng từ 10 lên 30 phút/ca | **Cao** | Nâng cấp API tích hợp giữa BPMS và AAA Server; cơ chế xếp hàng tin nhắn (Message Queue) tự động retry |
+| **ISS-04** | Nhập liệu và kiểm soát vật tư thủ công | KTV ghi chép số mét dây cáp và Serial ra sổ tay rồi báo cáo lại | Dễ sai lệch số liệu tồn kho, chậm quyết toán vật tư cuối tháng | Mất 20 phút nhập liệu thủ công mỗi ngày/KTV; sai số vật tư ~3% | **Trung bình** | Bắt buộc quét mã Barcode cuộn cáp và nhập số mét dây trực tiếp trên Mobile App |
+| **ISS-05** | Sai sót kỹ thuật bấm đầu quang (Rework) | Thao tác bấm Fast Connector dã chiến bị lỗi, suy hao $> -24\text{ dBm}$ | Mạng chập chờn, KTV phải cắt bỏ đầu bấm và thực hiện lại từ đầu | Chi phí làm lại ~24.000 VNĐ/đơn; tăng thêm 15–20 phút thi công | **Cao** | Trang bị kìm bấm quang chuyên dụng chuẩn mực; bắt buộc chụp màn hình máy đo suy hao quang để nghiệm thu |
+| **ISS-06** | Khách hàng từ chối nghiệm thu dịch vụ | Sóng Wi-Fi góc khuất yếu, vị trí đặt modem chưa tối ưu | Chậm hoàn tất ca làm việc, giảm chỉ số NPS, tranh chấp phương án kéo dây | Kéo dài thêm 30–60 phút tư vấn và dịch chuyển thiết bị | **Trung bình** | Sử dụng tính năng Wi-Fi Heatmap trên app để đo vùng phủ sóng thực tế trước khi khách ký số |
+| **ISS-07** | Xuất kho thiết bị chậm, thiếu phụ kiện | Quy trình chuẩn bị vật tư đầu ca sáng bị ùn tắc tại kho | KTV xuất phát trễ giờ cam kết với khách hàng, phát sinh chuyến đi lấy bổ sung | Làm trễ lịch hẹn từ 15–30 phút đối với các ca sáng | **Cao** | Liên kết Work Order với kho tự động; chuẩn bị sẵn gói vật tư (Kitting) từ chiều hôm trước theo lịch hẹn |
+| **ISS-08** | Vướng mắc thu phí và đối soát thanh toán | Khách hàng thanh toán tiền mặt hoặc chuyển khoản sai cú pháp | KTV phải mang tiền mặt về nộp; Kế toán đối soát thủ công vất vả | KTV mất 30 phút về nộp tiền cuối ngày; Kế toán mất 45 phút đối soát | **Trung bình** | Tích hợp mã VietQR động trực tiếp trên hợp đồng điện tử; tự động gạch nợ Real-time |
+| **ISS-09** | Sai lệch thông tin đơn hàng giữa các bộ phận | Nhập liệu lặp lại giữa Sales, CRM và phân hệ điều phối kỹ thuật | KTV nhận lệnh sai địa chỉ, nhầm gói cước, phải gọi điện xác minh nhiều lần | Tăng thời gian chờ xử lý thông tin thêm 15–20 phút/đơn | **Cao** | Thống nhất một nguồn dữ liệu (Single Source of Truth) đồng bộ tự động giữa CRM, BPMS và Mobile App |
 
 ---
 
-### **3.5.4. Phân tích định lượng**
+#### **3.5.3.5. Phân tích nguyên nhân gốc rễ (Root-Cause Analysis - 5 Whys & Fishbone)**
 
-#### **3.5.4.1. Định lượng thời gian**
+![Sơ đồ xương cá 6M phân tích các nhóm nguyên nhân gây chậm trễ quy trình](./assets/diagrams/lap_dat_mang/hinh-3-4-so-do-xuong-ca-6m.png)
 
-Bảng thời gian xử lý của từng hoạt động trong **luồng chính (Happy Path — Tồn kho đủ)**:
+_Hình 3.5.3: Sơ đồ xương cá 6M phân tích các nhóm nguyên nhân gây chậm trễ quy trình_
 
-**Bảng 3.5.17: Bảng thời gian xử lý các bước trong luồng chính (Happy Path As-Is)**
+##### **3.5.3.5.1. Phân tích 5 Whys cho Vấn đề 1: Kỹ thuật viên đến hiện trường nhưng không thể thi công do hết cổng Port (ISS-01)**
+- **Why 1:** Tại sao KTV không thể đấu nối cáp quang? $\rightarrow$ Do hộp chia quang (ODF) tại cột điện thực tế đã kín cổng cắm khả dụng.
+- **Why 2:** Tại sao trước đó hệ thống GIS báo vẫn còn cổng trống? $\rightarrow$ Do dữ liệu trên phần mềm quản lý hạ tầng mạng không được cập nhật kịp thời.
+- **Why 3:** Tại sao dữ liệu hạ tầng không được cập nhật? $\rightarrow$ Do các ca thi công hoặc chuyển đổi mạng trước đó sử dụng Port nhưng KTV không thực hiện thủ tục khóa Port trên hệ thống.
+- **Why 4:** Tại sao KTV không thực hiện thủ tục khóa Port? $\rightarrow$ Do quy trình trước đây cho phép cập nhật thủ công bằng sổ sách cuối tuần thay vì bắt buộc cập nhật tức thời ngoài hiện trường.
+- **Why 5:** Tại sao không bắt buộc cập nhật thời gian thực? $\rightarrow$ Do ứng dụng di động nội bộ chưa tích hợp tính năng quét mã QR định danh của từng Port trên hộp cáp ODF.
 
-| STT | Hoạt động | Người thực hiện | Loại | TG ngắn nhất (phút) | TG dài nhất (phút) |
-| :---: | :--- | :--- | :---: | :---: | :---: |
-| 1 | Nhận WO & Tạo yêu cầu xuất vật tư | Hệ thống BPMS/WMS | BVA | 1 | 3 |
-| 2 | Tiếp nhận yêu cầu trên WMS | Thủ kho | BVA | 2 | 5 |
-| 3 | Kiểm tra tồn kho khả dụng | Thủ kho | BVA | 3 | 10 |
-| 4 | Lấy thiết bị ra kho | Thủ kho | VA | 5 | 15 |
-| 5 | Quét mã Serial/MAC & QR Code | Thủ kho | VA | 5 | 15 |
-| 6 | Kiểm tra ngoại quan thiết bị | Thủ kho | VA | 3 | 10 |
-| 7 | Chuẩn bị vật tư tiêu hao theo định mức | Thủ kho | VA | 5 | 15 |
-| 8 | In Phiếu xuất kho | Thủ kho | BVA | 2 | 5 |
-| 9 | Kiểm đếm & ký xác nhận Phiếu xuất kho | Kỹ thuật viên | VA | 5 | 15 |
-| 10 | Thực hiện thi công lắp đặt tại công trình | Kỹ thuật viên | VA | 60 | 120 |
-| 11 | Hoàn trả vật tư thừa về kho | Kỹ thuật viên | NVA | 10 | 30 |
-| 12 | Kiểm đếm & phân loại vật tư hoàn trả | Thủ kho | BVA | 5 | 15 |
-| 13 | Nhập trả WMS & Đồng bộ ERP, đóng WO | Hệ thống WMS/ERP | BVA | 2 | 5 |
-
-**Thời gian xử lý (Process Time — VA + BVA):**
-
-$$
-\begin{aligned}
-\text{Ngắn nhất: } & 1+2+3+5+5+3+5+2+5+60+5+2 = 98 \text{ phút} \\
-\text{Dài nhất: } & 3+5+10+15+15+10+15+5+15+120+15+5 = 233 \text{ phút}
-\end{aligned}
-$$
-
-**Thời gian chu kỳ (Cycle Time — VA + BVA + NVA):**
-
-Có **20%** trường hợp tồn kho thiếu → phải qua quy trình Nhà cung cấp (thời gian chờ NVA: 480 phút best-case / 2.400 phút worst-case):
-
-$$
-\begin{aligned}
-\text{CT ngắn nhất} &= 98 + 10_{\text{(NVA hoàn trả)}} + 0{,}20 \times (15 + 30 + 480 + 15 + 10) = 108 + 110 = 218 \text{ phút} \\
-\text{CT dài nhất} &= 233 + 30_{\text{(NVA hoàn trả)}} + 0{,}20 \times (30 + 60 + 2.400 + 30 + 20) = 263 + 508 = 771 \text{ phút}
-\end{aligned}
-$$
-
-**Thời gian xử lý thực tế (bao gồm xác suất luồng phụ):**
-
-$$
-\begin{aligned}
-\text{PT ngắn nhất} &= 98 + 0{,}20 \times (15 + 10) = 98 + 5 = 103 \text{ phút} \\
-\text{PT dài nhất} &= 233 + 0{,}20 \times (30 + 20) = 233 + 10 = 243 \text{ phút}
-\end{aligned}
-$$
-
-**Hiệu suất thời gian (Time Efficiency):**
-
-**Bảng 3.5.18: Bảng tổng hợp hiệu suất thời gian chu kỳ (Time Efficiency As-Is)**
-
-| Trường hợp | Process Time | Cycle Time | Hiệu suất |
-| :---: | :---: | :---: | :---: |
-| **Best-case** | 103 phút | 218 phút | **47,2%** |
-| **Worst-case** | 243 phút | 771 phút | **31,5%** |
-
-> **Nhận xét:** Hiệu suất thời gian thấp (31,5% – 47,2%) chủ yếu do thời gian chờ Nhà cung cấp giao hàng trong kịch bản tồn kho thiếu chiếm tỉ trọng lớn trong Cycle Time. Cải thiện việc dự báo nhu cầu và duy trì Safety Stock sẽ giúp tăng hiệu suất đáng kể.
+##### **3.5.3.5.2. Phân tích 5 Whys cho Vấn đề 2: Tỷ lệ khách hàng khiếu nại về thời gian chờ lắp đặt kéo dài (ISS-02)**
+- **Why 1:** Tại sao thời gian từ lúc đăng ký đến lúc có mạng bị trễ cam kết? $\rightarrow$ Do ca thi công bị dồn ứ và phải dời lịch hẹn sang ngày hôm sau.
+- **Why 2:** Tại sao ca thi công bị dồn ứ? $\rightarrow$ Do KTV mất nhiều thời gian di chuyển lòng vòng giữa các khu vực địa bàn xa nhau.
+- **Why 3:** Tại sao KTV phải di chuyển quãng đường xa giữa các ca? $\rightarrow$ Do việc phân ca thi công được thực hiện thủ công dựa trên phân công ngẫu nhiên của điều phối viên.
+- **Why 4:** Tại sao điều phối viên phân công ngẫu nhiên? $\rightarrow$ Do thiếu công cụ tự động gom nhóm đơn hàng theo cụm địa lý (Geographic Clustering).
+- **Why 5:** Tại sao thiếu công cụ gom nhóm tự động? $\rightarrow$ Do hệ thống CRM chưa tích hợp thuật toán định tuyến thông minh (Smart Dispatching & Route Optimization Engine).
 
 ---
 
-#### **3.5.4.2. Định lượng chi phí**
+### **3.5.4. Phân tích định lượng quy trình**
 
-**Mức lương tham chiếu (tháng 22 ngày, 8 giờ/ngày):**
+#### **3.5.4.1. Phân tích định lượng thời gian (Time Analysis)**
 
-**Bảng 3.5.19: Bảng mức lương tham chiếu nhân sự theo giờ làm việc**
+Nhóm tiến hành phân tích định lượng thời gian dưới hai góc nhìn bổ trợ cho nhau: **Phân tích dòng thời gian chu kỳ (Flow Analysis)** và **Phân tích thời gian chờ vĩ mô (Macro Lead Time & Waiting Ratio)**.
 
-| Bộ phận | Lương tháng (VNĐ) | Chi phí / phút (VNĐ) |
-| :--- | :---: | :---: |
-| Thủ kho / NV Kho & Vật tư | 8.000.000 | **758** *(~750 VNĐ/phút theo Bảng 3.4)* |
-| Kỹ thuật viên thi công | 10.000.000 | **947** |
-| NV Bộ phận Mua hàng & Cung ứng | 9.000.000 | **852** |
+##### **3.5.4.1.1. Phân tích dòng trạng thái công việc (Flow Analysis of Cycle Time)**
 
-**Thời gian của từng tác nhân trong quy trình (VA+BVA và NVA):**
+![Sơ đồ BPMN định lượng thời gian và xác suất rẽ nhánh quy trình](./assets/diagrams/lap_dat_mang/hinh-3-5-bpmn-dinh-luong-thoi-gian.png)
 
-**Bảng 3.5.20: Bảng thời gian tham gia của từng tác nhân theo các kịch bản**
+_Hình 3.5.4: Sơ đồ BPMN định lượng thời gian và xác suất rẽ nhánh quy trình_
 
-| Bộ phận | Trường hợp | Thời gian VA+BVA | Thời gian NVA |
+**Bảng 3.5.13: Bảng phân tích dòng trạng thái chu kỳ thời gian (Cycle Time Flow Analysis)**
+
+| STT | Bước công việc trong chuỗi phân tích dòng | Thời gian chu kỳ ($T_i$) | Thời gian xử lý thực ($T_p$) | Phân loại |
+| :---: | :--- | :---: | :---: | :---: |
+| 1 | Tiếp nhận thông tin & Khởi tạo đơn | 15 phút | 15 phút | BVA |
+| 2 | Khảo sát Port và tuyến cáp trên GIS | 30 phút | 20 phút | BVA |
+| 3 | [Nhánh Thất bại $p_2 = 10\%$]: Thông báo từ chối | 5 phút | 5 phút | BVA |
+| 4 | [Nhánh Thành công $p_1 = 90\%$]: Tư vấn & Ký E-Contract | 20 phút | 20 phút | VA |
+| 5 | Hệ thống BPMS tạo Work Order & Phân bổ | 5 phút | 5 phút | BVA |
+| 6 | Xuất kho thiết bị & Vật tư cáp | 20 phút | 15 phút | BVA |
+| 7 | Liên hệ hẹn giờ & Di chuyển hiện trường | 35 phút | 10 phút | NVA |
+| 8 | Kéo cáp, hàn quang & Cấu hình Modem | 60 phút | 60 phút | VA |
+| 9 | Nghiệm thu & Đo kiểm sóng Wi-Fi | 15 phút | 15 phút | VA |
+| 10 | Thu cước ban đầu & Gửi biên nhận điện tử | 10 phút | 10 phút | BVA |
+| 11 | Kích hoạt hệ thống mạng lõi (Provisioning) | 10 phút | 5 phút | VA |
+| 12 | Khảo sát NPS sau 24h & Đóng hồ sơ | 10 phút | 5 phút | BVA |
+
+_Bảng 3.2: Bảng định lượng thời gian các bước trong quy trình As-Is_
+
+**Tính toán các chỉ số thời gian chu kỳ theo công thức chuẩn môn học:**
+
+1. **Thời gian chu kỳ nhánh Không khả thi ($CT_{\text{fail}}$):**
+   $$CT_{\text{fail}} = T_1 + T_2 + T_3 = 15 + 30 + 5 = 50\text{ phút}.$$
+
+2. **Thời gian chu kỳ nhánh Thành công ($CT_{\text{success}}$):**
+   - Bước thi công kéo cáp (bước 8) có tỷ lệ làm lại đầu nối quang $r = 5\%$:
+     $$T_{8(\text{hiệu chỉnh})} = \frac{T_8}{1 - r} = \frac{60}{1 - 0.05} \approx 63.16\text{ phút}.$$
+   - Tổng thời gian chu kỳ nhánh thành công:
+     $$CT_{\text{success}} = (15 + 30) + 20 + 5 + 20 + 35 + 63.16 + 15 + 10 + 10 + 10 = 233.16\text{ phút} \approx 3.88\text{ giờ}.$$
+
+3. **Tổng thời gian chu kỳ trung bình toàn quy trình ($CT_{\text{avg}}$):**
+   $$CT_{\text{avg}} = (p_1 \times CT_{\text{success}}) + (p_2 \times CT_{\text{fail}}) = (0.90 \times 233.16) + (0.10 \times 50) = 209.84 + 5 = 214.84\text{ phút} \approx 3.58\text{ giờ}.$$
+
+4. **Tổng thời gian xử lý thực tế trung bình ($PT_{\text{avg}}$):**
+   - $PT_{\text{fail}} = 15 + 20 + 5 = 40\text{ phút}.$
+   - $PT_{\text{success}} = 15 + 20 + 20 + 5 + 15 + 10 + 60 + 15 + 10 + 5 + 5 = 180\text{ phút}.$
+   - $PT_{\text{avg}} = (0.90 \times 180) + (0.10 \times 40) = 162 + 4 = 166\text{ phút} \approx 2.77\text{ giờ}.$
+
+5. **Hiệu suất thời gian chu kỳ (Cycle Time Efficiency - CTE):**
+   $$CTE = \left(\frac{PT_{\text{avg}}}{CT_{\text{avg}}}\right) \times 100\% = \left(\frac{166}{214.84}\right) \times 100\% \approx 77.27\%.$$
+
+---
+
+##### **3.5.4.1.2. Phân tích thời gian chờ vĩ mô (Macro Lead Time & Waiting Ratio)**
+
+Xét trên toàn bộ vòng đời của 01 đơn hàng thực tế (bao gồm cả các khoảng chờ giữa các phòng ban và thời gian chờ khách hàng sắp xếp thời gian), nhóm tổng hợp bảng đo thời gian theo 11 công đoạn vĩ mô As-Is:
+
+**Bảng 3.5.14: Bảng định lượng thời gian xử lý và thời gian chờ theo 11 công đoạn vĩ mô As-Is**
+
+| STT | Công đoạn vĩ mô (11 bước macro) | Processing Time $T$ (phút) | Waiting Time $W$ (phút) | Tổng thời gian (phút) |
+| :---: | :--- | :---: | :---: | :---: |
+| 1 | Khách hàng phát sinh nhu cầu & Đăng ký | 10 | 30 | 40 |
+| 2 | Tiếp nhận & Kiểm tra thông tin | 15 | 20 | 35 |
+| 3 | Kiểm tra hạ tầng & Port trên GIS | 20 | 60 | 80 |
+| 4 | Tư vấn gói cước & Ký hợp đồng | 20 | 30 | 50 |
+| 5 | Tạo Work Order & Phân bổ kỹ thuật | 10 | 15 | 25 |
+| 6 | Chuẩn bị & Xuất kho thiết bị | 25 | 45 | 70 |
+| 7 | Kỹ thuật viên liên hệ & Chờ hẹn khách | 15 | 120 | 135 |
+| 8 | Tiến hành thi công lắp đặt tại chỗ | 120 | 0 | 120 |
+| 9 | Nghiệm thu & Đo kiểm Speedtest | 15 | 10 | 25 |
+| 10 | Kích hoạt dịch vụ trên mạng lõi | 5 | 5 | 10 |
+| 11 | Khảo sát chăm sóc sau bán hàng | 10 | 20 | 30 |
+| | **TỔNG CỘNG TOÀN QUY TRÌNH** | **265 phút** | **355 phút** | **620 phút** |
+
+_Bảng 3.5.14: Bảng đo thời gian xử lý và thời gian chờ toàn quy trình As-Is_
+
+* **Tổng thời gian xử lý (Cycle Time / Processing Time):**
+  $$\text{Cycle Time} = \sum T = 265\text{ phút} = 4\text{ giờ } 25\text{ phút}.$$
+* **Tổng thời gian chờ đợi (Waiting Time):**
+  $$\text{Wait Time} = \sum W = 355\text{ phút} = 5\text{ giờ } 55\text{ phút}.$$
+* **Tổng thời gian đáp ứng toàn quy trình (Lead Time):**
+  $$\text{Lead Time} = \text{Cycle Time} + \text{Wait Time} = 265 + 355 = 620\text{ phút} = 10\text{ giờ } 20\text{ phút}.$$
+* **Tỷ lệ thời gian chờ (Waiting Ratio):**
+  $$\text{Waiting Ratio} = \left(\frac{\text{Wait Time}}{\text{Lead Time}}\right) \times 100\% = \left(\frac{355}{620}\right) \times 100\% \approx 57.26\%.$$
+
+> **Nhận xét quan trọng:** Kết quả định lượng cho thấy trong quy trình As-Is, **thời gian chờ chiếm tới 57.26% tổng Lead Time** của khách hàng. Trong đó, 3 điểm nghẽn gây lãng phí thời gian chờ lớn nhất là:
+> 1. KTV liên hệ hẹn giờ và chờ khách hàng: **120 phút**.
+> 2. Chờ phê duyệt khảo sát hạ tầng: **60 phút**.
+> 3. Chờ chuẩn bị và xuất kho vật tư: **45 phút**.
+> Đây chính là cơ sở khoa học để thiết kế mô hình To-Be tập trung tự động hóa và triệt tiêu thời gian chờ.
+
+---
+
+#### **3.5.4.2. Phân tích định lượng chi phí (Cost Analysis)**
+
+Nhóm xây dựng mô hình định lượng chi phí toàn diện gồm 2 cấu phần: **Chi phí nhân công trực tiếp theo thời gian** và **Tổng chi phí vận hành toàn diện trên 01 đơn hàng**.
+
+##### **3.5.4.2.1. Chi phí nhân công trực tiếp theo thời gian tham gia từng Lane chức năng**
+
+![Sơ đồ BPMN định lượng chi phí nhân công theo từng Lane chức năng](./assets/diagrams/lap_dat_mang/hinh-3-6-bpmn-dinh-luong-chi-phi.png)
+
+_Hình 3.5.5: Sơ đồ BPMN định lượng chi phí nhân công theo từng Lane chức năng_
+
+**Bảng 3.5.15: Bảng định lượng chi phí nhân công trực tiếp theo từng Swimlane chức năng**
+
+| Tác nhân thực hiện | Tổng thời gian tham gia | Đơn giá nhân công quy đổi | Chi phí thành phần (VNĐ) |
 | :--- | :---: | :---: | :---: |
-| **Thủ kho** | Best-case | 24 phút | 0 phút |
-| | Worst-case | 65 phút | 0 phút |
-| **Kỹ thuật viên** | Best-case | 65 phút | 10 phút |
-| | Worst-case | 135 phút | 30 phút |
-| **NV Mua hàng** (p=0,20) | Best-case | 0,20 × 25 = 5 phút | 0,20 × 45 = 9 phút |
-| | Worst-case | 0,20 × 50 = 10 phút | 0,20 × 90 = 18 phút |
+| **Nhân viên Sales** | 35 phút | 833 VNĐ/phút (50.000 VNĐ/giờ) | 29.155 VNĐ |
+| **Kỹ thuật Khảo sát** | 30 phút | 1.000 VNĐ/phút (60.000 VNĐ/giờ) | 30.000 VNĐ |
+| **Thủ kho Vật tư** | 20 phút | 750 VNĐ/phút (45.000 VNĐ/giờ) | 15.000 VNĐ |
+| **Kỹ thuật viên Lắp đặt (TNC)** | 130 phút | 1.167 VNĐ/phút (70.000 VNĐ/giờ) | 151.710 VNĐ |
+| **Điện thoại viên CSKH** | 10 phút | 750 VNĐ/phút (45.000 VNĐ/giờ) | 7.500 VNĐ |
+| **Khấu hao vận hành CRM/BPMS** | - | Tự động hóa | 5.000 VNĐ |
+| **TỔNG CHI PHÍ NHÂN CÔNG TRỰC TIẾP** | | | **238.365 VNĐ** |
 
-**Chi phí của từng tác nhân (trên 1 Work Order):**
+_Bảng 3.4: Bảng phân tích chi phí nhân công trực tiếp cho một ca lắp đặt thành công_
 
-**Bảng 3.5.21: Bảng chi phí nhân công của từng tác nhân trên 01 Work Order**
+##### **3.5.4.2.2. Tổng chi phí vận hành toàn diện cho 01 đơn hàng (Total Cost of Order)**
 
-| Bộ phận | CP/phút (VNĐ) | Trường hợp | Chi phí VA+BVA | Chi phí NVA | Tổng chi phí |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **Thủ kho** | 758 | Best-case | 24 × 758 = **18.192 VNĐ** | 0 | **18.192 VNĐ** |
-| | | Worst-case | 65 × 758 = **49.270 VNĐ** | 0 | **49.270 VNĐ** |
-| **Kỹ thuật viên** | 947 | Best-case | 65 × 947 = **61.555 VNĐ** | 10 × 947 = **9.470 VNĐ** | **71.025 VNĐ** |
-| | | Worst-case | 135 × 947 = **127.845 VNĐ** | 30 × 947 = **28.410 VNĐ** | **156.255 VNĐ** |
-| **NV Mua hàng** | 852 | Best-case | 5 × 852 = **4.260 VNĐ** | 9 × 852 = **7.668 VNĐ** | **11.928 VNĐ** |
-| | | Worst-case | 10 × 852 = **8.520 VNĐ** | 18 × 852 = **15.336 VNĐ** | **23.856 VNĐ** |
+Trong thực tế viễn thông, chi phí để hoàn thành 01 hợp đồng lắp đặt mạng không chỉ có nhân công mà còn bao gồm phần cứng thiết bị viễn thông, vật tư cáp, chi phí xăng xe đi lại và dự phòng rủi ro sai lỗi (Rework):
 
-**Tổng chi phí cho 1 Work Order:**
+**Bảng 3.5.16: Bảng tổng hợp chi phí vận hành toàn diện cho 01 đơn hàng lắp đặt mạng**
 
-**Bảng 3.5.22: Bảng tổng hợp chi phí nhân công cho 01 Work Order (Best-case vs Worst-case)**
-
-| Trường hợp | Tổng chi phí (VA+BVA) | Tổng chi phí (NVA) | Tổng cộng |
-| :---: | :---: | :---: | :---: |
-| **Best-case** | 18.192 + 61.555 + 4.260 = **84.007 VNĐ** | 9.470 + 7.668 = **17.138 VNĐ** | **101.145 VNĐ** |
-| **Worst-case** | 49.270 + 127.845 + 8.520 = **185.635 VNĐ** | 28.410 + 15.336 = **43.746 VNĐ** | **229.381 VNĐ** |
-
-**Hiệu suất chi phí (Cost Efficiency):**
-
-**Bảng 3.5.23: Bảng tổng hợp chi phí và hiệu suất chi phí (Cost Efficiency As-Is)**
-
-| Trường hợp | Chi phí VA+BVA | Tổng chi phí | Hiệu suất chi phí |
-| :---: | :---: | :---: | :---: |
-| **Best-case** | 84.007 VNĐ | 101.145 VNĐ | **83,1%** |
-| **Worst-case** | 185.635 VNĐ | 229.381 VNĐ | **80,9%** |
-
-> **Nhận xét:** Hiệu suất chi phí đạt khoảng **81–83%**, cho thấy phần lớn chi phí nhân công được sử dụng cho các hoạt động có giá trị (VA + BVA). Chi phí lãng phí (NVA ~17–19%) tập trung ở thời gian chờ Nhà cung cấp và thao tác hoàn trả vật tư sau thi công — đây là 2 điểm có thể cải thiện trong giai đoạn tái thiết kế quy trình (To-be process).
-
----
-
-#### **3.5.4.3. Các chỉ tiêu đánh giá quy trình (Baseline KPIs As-Is)**
-
-Bảng tổng hợp các chỉ số hiệu suất vận hành As-Is của quy trình Quản lý kho và xuất vật tư, đối chiếu với mục tiêu To-Be cần đạt sau cải tiến:
-
-**Bảng 3.5.24: Bảng tổng hợp các chỉ số hiệu suất vận hành cơ sở (Baseline KPIs As-Is)**
-
-| **KPI** | **As-Is (Best-case)** | **As-Is (Worst-case)** | **To-Be mục tiêu** | **Mức cải thiện** |
+| Hạng mục chi phí | Khối lượng định mức / đơn | Đơn giá tham chiếu | Thành tiền (VNĐ/đơn) | Ghi chú nghiệp vụ |
 | :--- | :---: | :---: | :---: | :--- |
-| **Process Time** | 103 phút | 243 phút | 55–90 phút | Giảm ~45–63% |
-| **Cycle Time** | 218 phút | 771 phút | 100–150 phút | Giảm ~54–80% |
-| **Waiting Time** | 115 phút | 528 phút | ≤ 30 phút | Giảm ~74–94% |
-| **Waiting Ratio** | 52,8% | 68,5% | ≤ 20% | Giảm 33–49 điểm % |
-| **Cost/Work Order** | 101.145 VNĐ | 229.381 VNĐ | 70.000–120.000 VNĐ | Giảm ~25–35% |
-| **On-time Rate (giao đúng ca)** | ~72% | ~48% | ≥ 95% | +23–47 điểm % |
-| **Rework Rate (xuất nhầm/lỗi thiết bị)** | ~8% | ~15% | ≤ 2% | Giảm ~75–87% |
-| **Inventory Accuracy (WMS vs thực tế)** | ~92% | ~85% | ≥ 99,5% | +7,5–14,5 điểm % |
-| **Supplier Lead Time (trung bình)** | 3 ngày | 5 ngày | ≤ 1 ngày (Supplier Portal) | Giảm ~67–80% |
-| **KTV Satisfaction Score (nội bộ)** | ~68% | ~52% | ≥ 90% | +22–38 điểm % |
+| **Nhân công trực tiếp** | Toàn bộ các bộ phận | Theo Bảng 3.5.15 | **238.365 VNĐ** | Kế thừa trực tiếp từ Bảng 3.4 (chi phí nhân sự theo Swimlanes) |
+| **Modem Wi-Fi 6 GPON ONT** | 01 bộ thiết bị | 550.000 VNĐ/bộ | **550.000 VNĐ** | Thiết bị chính trang bị cho khách hàng |
+| **Router Mesh Wi-Fi 6 phụ** | 01 bộ thiết bị | 450.000 VNĐ/bộ | **450.000 VNĐ** | Thiết bị mở rộng vùng phủ sóng |
+| **Dây cáp quang thuê bao 1FO** | 30 mét dây | 3.000 VNĐ/mét | **90.000 VNĐ** | Cáp quang dã chiến ngoài trời |
+| **Phụ kiện thi công** | 01 gói vật tư | 50.000 VNĐ/bộ | **50.000 VNĐ** | Fast Connector, kẹp treo, nở, ốc vít |
+| **Chi phí nhiên liệu di chuyển** | 25 km / ca (2 chiều) | 4.000 VNĐ/km | **100.000 VNĐ** | Xăng xe KTV di chuyển hiện trường |
+| **Chi phí phân bổ hệ thống IT** | 01 lượt đơn hàng | 120.000 VNĐ/đơn | **120.000 VNĐ** | Bản quyền, máy chủ CRM/BPMS/AAA |
+| **Chi phí rủi ro làm lại (Rework)** | Tỷ lệ lỗi 12% | 200.000 VNĐ/lần | **24.000 VNĐ** | Kỳ vọng: $12\% \times 200.000\text{ VNĐ}$ |
+| **TỔNG CHI PHÍ TOÀN DIỆN AS-IS** | | | **1.622.365 VNĐ** | Chi phí cấu thành toàn diện cho 01 đơn |
 
-> **Lưu ý:** Các số liệu As-Is trong bảng trên là giá trị tham chiếu tổng hợp từ bộ câu hỏi phỏng vấn định lượng (Mục 3.5.1.2) và kết quả Workshop (Mục 3.5.1.3). Các con số To-Be là mục tiêu thiết kế cần được kiểm chứng bằng dữ liệu pilot sau khi triển khai.
-
----
+_Bảng 3.5: Bảng tổng hợp chi phí toàn diện cho một đơn hàng lắp đặt As-Is_
 
 ---
 
-### **3.5.5. Kết luận phân tích quy trình As-Is**
+#### **3.5.4.3. Bảng tổng hợp các chỉ số hiệu suất vận hành As-Is (Baseline KPIs)**
 
-Quy trình Quản lý kho và xuất vật tư của FPT Telecom hiện tại sở hữu một nền tảng vận hành tương đối bài bản với hệ thống WMS tích hợp, quy trình kiểm kê định kỳ và các biểu mẫu nghiệp vụ đầy đủ. Tuy nhiên, phân tích chuyên sâu theo chuẩn BPM và Lean cho thấy quy trình As-Is đang đối mặt với các điểm yếu có tính hệ thống ảnh hưởng trực tiếp đến cam kết SLA 24–48 giờ với khách hàng.
+**Bảng 3.5.17: Bảng tổng hợp các chỉ số hiệu suất vận hành As-Is (Baseline KPIs)**
 
-**Điểm mạnh của quy trình hiện tại:**
-* Hệ thống WMS được tích hợp với BPMS/CRM, cho phép tự động tiếp nhận Work Order và kích hoạt luồng xuất kho.
-* Quy trình phân loại thiết bị theo chuẩn GPON/XGS-PON giúp đảm bảo tương thích hạ tầng kỹ thuật.
-* Cơ chế định danh thiết bị qua Serial Number và MAC Address giúp truy xuất tài sản chặt chẽ.
-* Quy trình kiểm định chất lượng đầu vào (QC Incoming) và kiểm kê xoay vòng (Cycle Counting) đã được thiết lập.
-
-**Điểm yếu và vấn đề trọng tâm cần cải thiện:**
-
-* **Nhóm 1 — Vấn đề tồn kho và chuỗi cung ứng (IR-01, IR-02, IR-08):** Đây là nhóm có tác động lan rộng nhất. Khi tồn kho thiếu hoặc hàng NCC không đạt QC, toàn bộ chuỗi Work Order bị đình trệ trong thời gian chờ từ 1–5 ngày. Quy trình phê duyệt mua sắm phụ thuộc vào BGĐ và không có SLA rõ ràng làm trầm trọng thêm vấn đề. Lãng phí Hold chiếm tỷ lệ cao nhất trong Cycle Time worst-case (~68,5% Waiting Ratio).
-
-* **Nhóm 2 — Vấn đề xuất kho và hiện trường (IR-03, IR-05, IR-06):** Xuất nhầm thiết bị và lỗi thiết bị phát hiện tại hiện trường là các điểm Defect nghiêm trọng. Giờ cao điểm buổi sáng gây tắc nghẽn (Bottleneck) tại kho, trực tiếp trễ giờ khởi hành của hàng chục KTV mỗi ngày.
-
-* **Nhóm 3 — Vấn đề dữ liệu và kiểm soát tài sản (IR-04, IR-07, IR-09):** Chênh lệch tồn kho, vật tư hoàn trả chậm và thiết bị thu hồi tồn lâu gây mất độ chính xác của WMS, tạo ra vòng lặp sai lệch trong dữ liệu quản lý kho — ảnh hưởng đến chất lượng quyết định điều phối dài hạn.
-
-**Kết luận định hướng:** Để đạt mục tiêu Waiting Ratio ≤ 20% và On-time Rate ≥ 95%, giai đoạn cải tiến To-Be cần tập trung vào **ba hướng chiến lược**: (1) Tự động hóa dự báo và kiểm soát tồn kho thông minh; (2) Số hóa và tăng tốc quy trình xuất kho; (3) Chuẩn hóa dòng chảy thông tin từ WMS đến KTV và ngược lại.
+| Chỉ số KPI | Giá trị Baseline As-Is | Đơn vị tính | Ý nghĩa nghiệp vụ |
+| :--- | :---: | :---: | :--- |
+| **Lead Time** | **620** | Phút (10h20p) | Tổng thời gian từ lúc khách đăng ký đến khi hoàn tất có mạng |
+| **Cycle Time** | **265** | Phút (4h25p) | Tổng thời gian các tác nhân thực sự làm việc trên đơn |
+| **Wait Time** | **355** | Phút (5h55p) | Tổng thời gian đơn hàng nằm chờ giữa các công đoạn |
+| **Waiting Ratio** | **57.3%** | Phần trăm (%) | Tỷ lệ thời gian chết không tạo giá trị trong tổng Lead Time |
+| **Cycle Time Efficiency (CTE)** | **77.27%** | Phần trăm (%) | Tỷ lệ thời gian xử lý thực tế trên thời gian chu kỳ luồng |
+| **Tổng chi phí / Đơn hàng** | **1.622.365** | VNĐ / đơn | Chi phí toàn diện cấu thành một ca hoàn tất |
+| **Tỷ lệ hoàn thành đúng hẹn (On-time Rate)**| **78%** | Phần trăm (%) | Tỷ lệ ca lắp đặt đúng khung giờ cam kết với khách hàng |
+| **Tỷ lệ làm lại (Rework Rate)** | **12%** | Phần trăm (%) | Tỷ lệ ca phát sinh lỗi kỹ thuật, sai Port hoặc hẹn lại |
+| **Chỉ số hài lòng khách hàng (CSAT)** | **88%** | Phần trăm (%) | Điểm số hài lòng trung bình ghi nhận sau lắp đặt |
 
 ---
 
-### **3.5.6. Mô hình hóa quy trình tương lai (BPMN 2.0 To-Be)**
+### **3.5.5. Kết luận phân tích quy trình As-is**
+
+Quy trình thi công và lắp đặt mạng Wi-Fi hiện tại của FPT Telecom đã hình thành được bộ khung vận hành tương đối bài bản, có sự chuyên môn hóa rõ rệt giữa các phòng ban, có ứng dụng công nghệ trong việc phân bổ Work Order và có bước kiểm soát hạ tầng Go/No-Go nhằm tránh rủi ro triển khai.
+
+Tuy nhiên, dưới góc độ Quản trị Quy trình Nghiệp vụ (BPM), quy trình As-Is còn bộc lộ những điểm nghẽn nghiêm trọng:
+1. **Lãng phí thời gian chờ áp đảo:** Thời gian chờ chiếm tới **57.3%** tổng Lead Time (355/620 phút), chủ yếu do việc liên hệ hẹn khách thủ công và độ trễ thẩm định hạ tầng.
+2. **Dữ liệu phân mảnh, thiếu đồng bộ thời gian thực:** Tình trạng dữ liệu Port trên GIS không khớp thực địa dẫn đến các ca khảo sát ảo gây lãng phí chi phí công thợ (~30.000 VNĐ/ca) và bức xúc cho khách hàng.
+3. **Phân bổ điều phối chưa thông minh:** Việc gán ca chưa tối ưu hóa theo lộ trình địa lý khiến KTV phải di chuyển quãng đường xa (bình quân 25 km/ca), tăng chi phí xăng xe và rủi ro trễ hẹn.
+4. **Thao tác thủ công còn tồn đọng:** Hoạt động xuất kho vật tư, thu tiền mặt và ký nghiệm thu biên bản vẫn còn những mắt xích thủ công, làm chậm tiến độ kích hoạt dịch vụ mạng lõi.
+
+Những hạn chế trên là động lực bắt buộc FPT Telecom phải tái thiết kế quy trình sang mô hình **To-Be số hóa và tự động hóa toàn diện**.
+
+---
+
+### **3.5.6. Mô hình hóa quy trình tương lai (BPMN 2.0 To-Be Model)**
 
 #### **3.5.6.1. Mục tiêu và nguyên tắc tái thiết kế quy trình To-Be**
 
-Mô hình quy trình To-Be được thiết kế trên cơ sở giải quyết triệt để 9 vấn đề trong Issue Register và tối ưu hóa 3 hướng chiến lược đã xác định trong phần kết luận As-Is. Các nguyên tắc chủ đạo bao gồm:
-
-* **Tự động hóa dự báo tồn kho:** Tích hợp mô hình dự báo nhu cầu theo chuỗi thời gian (Time-series Forecasting) vào WMS, kết hợp với hệ thống cảnh báo Reorder Point tự động — loại bỏ hoàn toàn tình trạng thiếu hàng đột ngột (IR-01).
-* **Số hóa quy trình xuất kho bằng RFID/QR Code thế hệ mới:** Thay thế quét mã Serial/MAC thủ công bằng đầu đọc RFID tự động, tốc độ xử lý nhanh hơn 5–8 lần, cho phép nhiều KTV xuất kho song song trong giờ cao điểm (IR-05).
-* **Cổng đặt hàng Nhà cung cấp tích hợp (Supplier Portal):** Nhà cung cấp chủ động cập nhật lịch giao hàng và chứng nhận chất lượng qua cổng điện tử; WMS tự động đối chiếu và kích hoạt nhập kho khi xác nhận — rút ngắn Supplier Lead Time từ 3–5 ngày xuống dưới 1 ngày (IR-02, IR-08).
-* **Phê duyệt mua sắm điện tử trên BPMS:** Loại bỏ phê duyệt qua giấy/Zalo; BGĐ phê duyệt trực tiếp trên ứng dụng di động với SLA phản hồi tối đa 2 giờ (IR-08).
-* **Ứng dụng di động cho KTV (KTV App):** KTV xác nhận vật tư điện tử ngay tại kho qua App; nhận Work Order kèm thông số thiết bị chuẩn hóa; giảm nguy cơ xuất nhầm loại thiết bị (IR-03, IR-06).
-* **Kiểm định QC đầu vào toàn diện:** Kết hợp kiểm tra chức năng bắt buộc 100% cho thiết bị cao cấp (XGS-PON, Mesh Wi-Fi 6) và kiểm tra ngẫu nhiên AQL đối với vật tư tiêu hao — đẩy lùi lỗi thiết bị tại hiện trường (IR-02, IR-06).
-* **Quy trình thu hồi và phân loại thiết bị tự động:** Thiết lập lịch phân loại hàng lỗi định kỳ 2 lần/tuần; tích hợp nhắc nhở tự động cho KTV qua App để đảm bảo quyết toán đúng hạn (IR-07, IR-09).
+Mô hình To-Be được thiết kế dựa trên nguyên lý Quản trị Tinh gọn (Lean) kết hợp tự động hóa quy trình nghiệp vụ (Business Process Automation - BPA), hướng tới các mục tiêu:
+- **Tự động kiểm tra hạ tầng bằng API Real-time:** Tích hợp API kiểm tra Port và cự ly cáp tự động ngay khi khách hàng nhập địa chỉ trên Website/App, trả kết quả trong 3 giây.
+- **Số hóa hợp đồng và thanh toán không tiền mặt:** Ký E-Contract xác thực OTP SMS và thanh toán qua cổng Payment Gateway tích hợp mã VietQR động, triệt tiêu việc thu tiền mặt.
+- **Tự động hóa điều phối thông minh (Smart Dispatching Engine):** Hệ thống BPMS tự động phân ca và tối ưu hóa lộ trình di chuyển của KTV theo thuật toán định tuyến GPS.
+- **Quản lý kho số hóa bằng mã Barcode/QR Code:** Tự động hóa khâu chuẩn bị vật tư (Kitting) theo Work Order từ chiều hôm trước, KTV chỉ cần quét mã nhận gói vật tư trong 3 phút.
+- **Ứng dụng hiện trường toàn diện (Mobile App KTV):** Tích hợp checklist kỹ thuật số, đo kiểm vùng phủ sóng Wi-Fi Heatmap, chụp ảnh suy hao quang và lấy chữ ký số nghiệm thu trên màn hình điện thoại.
+- **Tự động kích hoạt mạng lõi (Instant Provisioning):** Khi khách hàng ký nghiệm thu trên app, hệ thống tự động bắn Webhook kích hoạt tài khoản trên Radius AAA trong vòng 30 giây.
+- **Khảo sát CSAT đa kênh tự động:** Hệ thống tự động gửi tin nhắn Zalo ZNS/SMS khảo sát mức độ hài lòng tức thì, hỗ trợ xử lý khiếu nại tự động qua Chatbot AI.
 
 ---
 
-#### **3.5.6.2. Sơ đồ BPMN 2.0 To-Be**
+#### **3.5.6.2. Sơ đồ quy trình To-Be (BPMN 2.0 To-Be Diagram)**
 
-Mô hình To-Be tổ chức theo 3 Pool và 5 Lane chức năng, với **5 Cổng điều kiện (Gateways)** và **15 Hoạt động nghiệp vụ (Activities)**:
+![Sơ đồ BPMN 2.0 To-Be quy trình lắp đặt mạng Wi-Fi](./assets/diagrams/lap_dat_mang/hinh-3-7-bpmn-to-be.png)
+
+_Hình 3.5.6: Sơ đồ BPMN 2.0 To-Be quy trình lắp đặt mạng Wi-Fi FPT Telecom_
 
 ```mermaid
 flowchart LR
 
-  subgraph NCC["NHÀ CUNG CẤP (POOL NGOÀI)"]
-    N1["Cập nhật lịch giao\ntrên Supplier Portal"]
-    N2["Giao hàng + chứng nhận\nchất lượng điện tử"]
+  subgraph KH["KHÁCH HÀNG"]
+    A((Bắt đầu))
+    B["Đăng ký dịch vụ\nWebsite / App Hi FPT / Hotline"]
+    C["Cung cấp thông tin & Định vị GPS"]
+    D["Ký E-Contract qua OTP"]
+    E["Thanh toán trực tuyến\nVietQR / Ví Foxpay"]
+    F["Xác nhận lịch hẹn trên App"]
+    G["Speedtest & Nghiệm thu điện tử"]
+    H["Nhận thông báo kích hoạt"]
+    I["Trải nghiệm Internet Wi-Fi"]
+    J((Kết thúc))
+    A --> B --> C
   end
 
-  subgraph FPT["FPT TELECOM (POOL NỘI BỘ)"]
-
-    subgraph SYS["Hệ thống BPMS / WMS / ERP"]
-      S1["WMS nhận Work Order\ntừ BPMS tự động"]
-      S2{"Tồn kho ≥\nReorder Point?"}
-      S3["WMS phát cảnh báo thiếu hàng\n+ Auto-generate PO đề xuất"]
-      S4["ERP đồng bộ hạch toán\n+ BPMS đóng Work Order"]
-    end
-
-    subgraph KHO["Kho & Vật tư"]
-      K1["RFID/QR tự động xác định\nvị trí và số lượng tồn kho"]
-      K2{"QC đầu vào\nđạt chuẩn?"}
-      K3["Trả hàng NCC +\nyêu cầu giao bù khẩn cấp"]
-      K4["Nhập kho WMS\n(RFID tự động)"]
-      K5["Chuẩn bị vật tư\ntheo Work Order + RFID tag"]
-    end
-
-    subgraph MH["Mua hàng & Cung ứng"]
-      M1["BPMS gửi đề xuất PO\ncho BGĐ qua App"]
-      M2{"BGĐ phê duyệt\ntrên App (SLA ≤ 2h)?"}
-      M3["Phát PO qua\nSupplier Portal"]
-    end
-
-    subgraph KTV["Kỹ thuật viên"]
-      T1["Nhận Work Order + danh sách\nvật tư trên KTV App"]
-      T2["Quét RFID xác nhận\nnhận đủ vật tư"]
-      T3["Thi công lắp đặt\ntại nhà khách hàng"]
-      T4{"Thiết bị lỗi\ntại hiện trường?"}
-      T5["Yêu cầu đổi thiết bị\nqua KTV App (GPS location)"]
-      T6["Hoàn tất nghiệm thu;\nApp tự nhắc quyết toán vật tư"]
-    end
-
+  subgraph SALES["KHỐI KINH DOANH (SALES)"]
+    S1["Tiếp nhận / Hỗ trợ tư vấn gói cước"]
+    S2["Xác nhận đơn trên CRM"]
   end
 
-  S1 --> S2
-  S2 -- "Đủ" --> K5
-  S2 -- "Thiếu / Dưới ROP" --> S3 --> M1 --> M2
-  M2 -- "Từ chối / Timeout" --> M1
-  M2 -- "Phê duyệt" --> M3 --> N1 --> N2 --> K2
-  K2 -- "Không đạt QC" --> K3 --> N2
-  K2 -- "Đạt" --> K4 --> K1 --> K5
-  K5 --> T1 --> T2 --> T3 --> T4
-  T4 -- "Có lỗi" --> T5 --> K5
-  T4 -- "Không lỗi" --> T6 --> S4
+  subgraph TECH["KỸ THUẬT KHẢO SÁT & GIS"]
+    T1["API tự động tra cứu\nhạ tầng cáp & Port GIS"]
+    X1{"Hạ tầng khả thi?"}
+    T2["Thông báo từ chối lịch sự\n& Ghi nhận mở rộng mạng"]
+  end
+
+  subgraph CRM["HỆ THỐNG BPMS / CRM"]
+    R1["Tự động tạo Work Order"]
+    R2["Smart Dispatching\nPhân bổ theo vị trí GPS"]
+    R3["Đồng bộ lệnh xuống App KTV"]
+    R4["Tiếp nhận kết quả thi công\n& Dữ liệu nghiệm thu"]
+    X4{"Đo kiểm đạt?"}
+    R5["Instant Provisioning\nKích hoạt mạng lõi AAA"]
+    R6["Tự động gửi SMS/Email/App"]
+  end
+
+  subgraph WH["KHO & VẬT TƯ"]
+    W1["Quét Barcode/QR Code\nđóng gói vật tư (Kitting)"]
+    W2["Bàn giao gói vật tư\ntheo Work Order"]
+  end
+
+  subgraph TNC["KỸ THUẬT VIÊN HIỆN TRƯỜNG (TNC)"]
+    N1["Nhận Work Order trên App"]
+    N2["Smart Routing\nTối ưu lộ trình di chuyển"]
+    N3["Thông báo tự động đến khách"]
+    N4["Đến hiện trường đúng giờ"]
+    N5["Kéo cáp quang thuê bao"]
+    N6["Lắp Modem ONT & Mesh Wi-Fi"]
+    N7["Cấu hình Wi-Fi + Đo suy hao quang"]
+    N8["Checklist điện tử\n+ Chụp ảnh hiện trường"]
+    N9["Đồng bộ biên bản lên hệ thống"]
+  end
+
+  subgraph ACCOUNT["BỘ PHẬN KẾ TOÁN"]
+    K1["Tự động đối soát Webhook"]
+    K2["Tự động phát hành E-Invoice"]
+  end
+
+  subgraph CSKH["CSKH & HỆ THỐNG AI"]
+    C1["Khảo sát CSAT/NPS tự động qua Zalo ZNS"]
+    C2["AI Chatbot hỗ trợ kỹ thuật tức thì"]
+  end
+
+  C --> S1 --> S2 --> T1 --> X1
+  X1 -- "Không" --> T2 --> J
+  X1 -- "Có" --> D --> E --> K1 --> R1
+  R1 --> R2 --> R3 --> W1 --> W2 --> N1
+  N1 --> N2 --> N3 --> F --> N4 --> N5 --> N6 --> N7 --> N8 --> N9 --> R4 --> X4
+  X4 -- "Không" --> N7
+  X4 -- "Có" --> G --> R5 --> R6 --> H --> I --> C1 --> C2 --> J
+  K1 --> K2
 ```
 
-_Hình 3.5.4: Sơ đồ kiến trúc luồng dữ liệu và quy trình kho thông minh To-Be (BPMN 2.0 To-Be Model)_
+---
+
+#### **3.5.6.3. Bảng so sánh và phân tích thay đổi toàn diện As-Is vs To-Be**
+
+**Bảng 3.5.18: Bảng so sánh và phân tích thay đổi toàn diện giữa quy trình As-Is và To-Be**
+
+| Hạng mục nghiệp vụ | Quy trình hiện tại (As-Is) | Quy trình tương lai (To-Be) | Hiệu quả cải tiến đạt được |
+| :--- | :--- | :--- | :---: |
+| **Khảo sát hạ tầng & Port** | Thẩm định bán thủ công, mất 20–30 phút, dễ lệch dữ liệu | Tích hợp API kiểm tra tự động trên GIS trong 3 giây | **Rút ngắn 99% thời gian**, loại bỏ 100% ca khảo sát ảo |
+| **Ký hợp đồng** | Ký giấy hoặc eKYC phân tán, Sales nhập liệu thủ công | 100% E-Contract xác thực OTP SMS tập trung | **Tiết kiệm 50% thời gian**, chuẩn hóa dữ liệu pháp lý |
+| **Hình thức thanh toán** | 35% thu tiền mặt tại chỗ, KTV nộp tiền về kho | Thanh toán trực tuyến 100% qua VietQR / Foxpay | **Triệt tiêu rủi ro tiền mặt**, tự động gạch nợ tức thì |
+| **Khởi tạo Work Order** | Nhân viên điều phối duyệt và phân công thủ công | BPMS tự động tạo lệnh và gán theo thuật toán thông minh | **Loại bỏ hoàn toàn độ trễ điều phối** (từ 15p xuống 0p) |
+| **Điều phối tuyến thi công** | Phân công ngẫu nhiên theo kinh nghiệm điều phối | Smart Dispatching & Routing tối ưu hóa quãng đường GPS | **Giảm 40% quãng đường**, tiết kiệm xăng xe và công thợ |
+| **Chuẩn bị vật tư tại kho** | KTV đến kho xếp hàng bốc vật tư vào đầu ca sáng | Kitting sẵn từ chiều hôm trước, quét mã Barcode nhận gói | **Giảm thời gian chờ tại kho từ 45p xuống 5p** |
+| **Giao tiếp hẹn giờ khách** | KTV tự gọi điện thoại thủ công, dễ trùng giờ | SMS/Zalo tự động gửi định vị và thời gian dự kiến đến | **Giảm 80% tỷ lệ khách vắng nhà** hoặc hoãn ca |
+| **Thi công & Kiểm tra** | Ghi chép thông số ra giấy, đo kiểm tùy ý | Bắt buộc chụp ảnh máy đo suy hao và checklist trên App | **Giảm tỷ lệ Rework từ 12% xuống dưới 4%** |
+| **Biên bản nghiệm thu** | Ký biên bản giấy hoặc app đơn giản | Nghiệm thu điện tử Speedtest trực tiếp cùng khách hàng | **Minh bạch hóa chất lượng**, nâng cao trải nghiệm |
+| **Kích hoạt mạng lõi (AAA)** | KTV gọi tổng đài hoặc chờ hệ thống xử lý (10–30p) | Instant Provisioning qua Webhook tự động trong 30 giây | **Rút ngắn thời gian kích hoạt tới 95%** |
+| **Phát hành hóa đơn GTGT** | Kế toán xuất hóa đơn lô thủ công định kỳ | Tự động xuất Hóa đơn điện tử (e-Invoice) có mã CQT | **Chuẩn hóa 100% theo Nghị định 123** |
+| **Khảo sát đánh giá CSAT** | Điện thoại viên gọi ngẫu nhiên sau vài ngày | Tự động gửi Zalo ZNS/SMS khảo sát NPS sau 24h | **Tăng tỷ lệ phản hồi từ 25% lên trên 75%** |
 
 ---
 
-#### **3.5.6.3. Bảng so sánh và phân tích thay đổi As-Is vs To-Be**
-
-**Bảng 3.5.25: Bảng so sánh và phân tích thay đổi toàn diện quy trình As-Is vs To-Be**
-
-| **Bước / Điểm so sánh** | **Quy trình As-Is (Hiện tại)** | **Quy trình To-Be (Đề xuất)** | **Lợi ích kỳ vọng** |
-| :--- | :--- | :--- | :--- |
-| **Giám sát tồn kho** | Thủ kho kiểm tra thủ công; cảnh báo thiếu hàng phụ thuộc vào kinh nghiệm | WMS tự động theo dõi real-time; cảnh báo khi chạm Reorder Point; AI dự báo nhu cầu theo lịch sử | Loại bỏ IR-01; giảm Hold NVA ≥ 70% |
-| **Phê duyệt mua sắm** | Phê duyệt qua giấy/Zalo, không có SLA cụ thể | BPMS gửi thông báo App cho BGĐ; SLA phê duyệt tối đa 2 giờ; leo thang tự động nếu hết hạn | Giải quyết IR-08; giảm thời gian chờ phê duyệt từ 1–2 ngày xuống ≤ 2 giờ |
-| **Đặt hàng Nhà cung cấp** | Email/điện thoại thủ công; NCC tự cập nhật lịch giao | Cổng Supplier Portal tích hợp; PO được gửi điện tử; NCC cập nhật lịch giao và chứng nhận chất lượng real-time | Giải quyết IR-02, IR-08; giảm Supplier Lead Time ≥ 67% |
-| **Kiểm định QC đầu vào** | Lấy mẫu ngẫu nhiên tỷ lệ thấp; kiểm tra ngoại quan thủ công | Kiểm tra chức năng 100% thiết bị cao cấp; QC bán tự động kết hợp camera; nhập kho tự động qua RFID khi đạt | Giải quyết IR-02, IR-06; giảm Defect Rate ≥ 75% |
-| **Xuất kho & Phân loại thiết bị** | Quét mã Serial/MAC thủ công; phân loại GPON/XGS-PON dựa vào kinh nghiệm Thủ kho | KTV nhận Work Order qua App với thông số thiết bị chuẩn hóa; RFID đọc mã tự động, so khớp với WMS | Giải quyết IR-03, IR-05; giảm thời gian xuất kho ≥ 60% |
-| **Xử lý giờ cao điểm** | Thủ kho phục vụ tuần tự; KTV xếp hàng chờ | Nhiều trạm RFID hoạt động song song; KTV tự xác nhận vật tư qua App + quét RFID; không cần qua Thủ kho | Giải quyết IR-05; xóa bỏ Bottleneck giờ cao điểm |
-| **Phát hiện thiết bị lỗi** | Phát hiện tại hiện trường → gọi điện về kho → chờ 1–3 giờ | KTV báo lỗi qua App kèm GPS → Kho chuẩn bị thiết bị thay thế trước khi KTV về → gặp nhau tại điểm trung gian | Giải quyết IR-06; giảm Waiting Time xử lý lỗi ≥ 60% |
-| **Quyết toán vật tư** | KTV tự nhớ hoặc ghi giấy; hoàn trả không đúng hạn | App tự động nhắc nhở KTV quyết toán vật tư sau 30 phút kết thúc ca; cảnh báo leo thang nếu quá 2 giờ | Giải quyết IR-07; Inventory Accuracy đạt ≥ 99,5% |
-| **Phân loại hàng thu hồi** | Không có lịch cố định; nhân lực ưu tiên xuất hàng | Lịch phân loại 2 lần/tuần tự động tạo trên WMS; RFID tracking khu hàng lỗi | Giải quyết IR-09; giảm "tồn kho chết" ≥ 80% |
-
----
-
-### **3.5.7. Đề xuất giải pháp cải tiến quy trình**
+### **3.5.7. Đề xuất giải pháp cải tiến quy trình (Process Improvement Solutions)**
 
 #### **3.5.7.1. Ma trận giải pháp cải tiến theo Issue Register**
 
-**Bảng 3.5.26: Ma trận giải pháp cải tiến quy trình kho theo Issue Register**
+**Bảng 3.5.19: Ma trận đề xuất giải pháp cải tiến quy trình theo danh mục Issue Register**
 
-| **Mã vấn đề** | **Vấn đề cốt lõi** | **Giải pháp cải tiến đề xuất** | **Công nghệ / Phương pháp** | **Lợi ích kỳ vọng** |
+| Mã vấn đề | Vấn đề As-Is | Giải pháp cải tiến cụ thể | Công nghệ / Phương pháp ứng dụng | Lợi ích định lượng kỳ vọng |
 | :---: | :--- | :--- | :--- | :--- |
-| **IR-01** | Tồn kho xuống Safety Stock đột ngột | Tích hợp AI Demand Forecasting vào WMS; thiết lập Reorder Point tự động theo từng SKU và mùa vụ | AI/ML Time-series Forecasting + WMS API | Loại bỏ Hold NVA do thiếu hàng; On-time Rate ≥ 95% |
-| **IR-02** | Lô hàng NCC không đạt QC | Yêu cầu NCC cung cấp chứng nhận chất lượng điện tử qua Supplier Portal; tăng tỷ lệ kiểm định mẫu cho lô đầu | Supplier Portal + Digital COQ (Certificate of Quality) | Giảm Defect Rate QC đầu vào ≥ 80% |
-| **IR-03** | Xuất nhầm chủng loại thiết bị | Work Order tự động gắn mã định danh thiết bị tương thích (GPON/XGS-PON) trước khi đến tay Thủ kho; RFID so khớp trước khi xuất | BPMS + WMS Integration + RFID matching | Loại bỏ lỗi xuất nhầm; giảm Rework Rate |
-| **IR-04** | Chênh lệch tồn kho WMS vs thực tế | RFID tracking real-time thay thế quét mã thủ công; cycle counting hàng tuần tự động so khớp | RFID + WMS Real-time Dashboard | Inventory Accuracy ≥ 99,5% |
-| **IR-05** | KTV chờ lâu tại kho giờ cao điểm | Triển khai nhiều trạm RFID tự phục vụ; KTV xác nhận vật tư qua KTV App; đặt lịch nhận hàng trước qua App | Multi-station RFID + KTV Mobile App | Xóa bỏ Bottleneck; giảm thời gian chờ ≥ 80% |
-| **IR-06** | Thiết bị lỗi phát hiện tại hiện trường | Kiểm tra chức năng 100% thiết bị cao cấp trước khi xuất kho; KTV báo lỗi qua GPS App để kho chuẩn bị trước | Functional Testing Protocol + GPS-based Exchange | Giảm Defect tại hiện trường ≥ 75% |
-| **IR-07** | Vật tư hoàn trả không đúng hạn | KTV App tự động nhắc quyết toán sau 30 phút kết thúc ca; cảnh báo leo thang cho Trưởng KTV nếu quá 2 giờ | Push Notification + Escalation Workflow | Hoàn trả đúng hạn ≥ 95% |
-| **IR-08** | Phê duyệt mua sắm trễ | BPMS gửi đề xuất mua sắm qua App cho BGĐ với SLA 2 giờ; leo thang tự động cho cấp trên nếu timeout | BPMS Mobile Approval + Escalation Matrix | Giảm thời gian chờ phê duyệt từ 1–2 ngày xuống ≤ 2 giờ |
-| **IR-09** | Hàng thu hồi tồn lâu khu chờ phân loại | Lịch phân loại 2 lần/tuần tự động trên WMS; RFID tracking riêng cho khu hàng lỗi/bảo hành | WMS Scheduled Task + RFID Zone Tracking | Giảm tồn kho chết ≥ 80%; thu hồi vốn nhanh hơn |
+| **ISS-01** | Lệch dữ liệu Port GIS | Bắt buộc quét mã QR Port và chụp ảnh hiện trạng sau mỗi ca | Dynamic QR Code, GIS Mobile SDK | Triệt tiêu 100% ca khảo sát ảo; tiết kiệm 30.000 VNĐ/ca |
+| **ISS-02** | Khách vắng nhà | Tự động gửi SMS/Zalo kèm định vị thời gian thực của KTV trước 30p | Zalo ZNS API, GPS Real-time Tracking | Giảm tỷ lệ trễ hẹn từ 12% xuống dưới 3% |
+| **ISS-03** | Nghẽn lệnh kích hoạt AAA | Nâng cấp Webhook API và cơ chế hàng đợi bất đồng bộ | Message Queue (RabbitMQ/Kafka), Webhook | Rút ngắn thời gian kích hoạt từ 30p xuống dưới 30 giây |
+| **ISS-04** | Kiểm soát vật tư thủ công | Quét Barcode cuộn cáp và nhập số mét trực tiếp trên app | Barcode Scanner, WMS Integration | Giảm hao hụt vật tư cáp từ 3% xuống dưới 0.8% |
+| **ISS-05** | Sai sót kỹ thuật làm lại | Trang bị kìm bấm quang chuyên dụng, chụp ảnh suy hao quang | Standard Work SOP, Optical Power Meter | Giảm tỷ lệ Rework từ 12% xuống 4% |
+| **ISS-06** | Khách không nghiệm thu | Sử dụng phần mềm đo vùng phủ sóng Wi-Fi Heatmap tại chỗ | Wi-Fi Heatmap Tool, Mobile Speedtest | Tăng tỷ lệ nghiệm thu lần đầu (FPY) lên 98% |
+| **ISS-07** | Xuất kho vật tư chậm | Chuẩn bị sẵn gói vật tư (Kitting) từ chiều hôm trước | Lean Kitting, Warehouse Management System | Tiết kiệm 40 phút chờ đợi tại kho mỗi buổi sáng |
+| **ISS-08** | Vướng mắc thanh toán | Tạo mã VietQR động gắn kèm số tiền và mã hợp đồng | VietQR Napas 247, Payment Gateway API | Tăng tỷ lệ thanh toán không tiền mặt lên $\ge 95\%$ |
+| **ISS-09** | Sai lệch dữ liệu nội bộ | Thống nhất cơ sở dữ liệu dùng chung duy nhất | Master Data Management, BPMS Engine | Loại bỏ 100% việc nhập liệu lặp lại giữa các khâu |
 
 ---
 
-#### **3.5.7.2. Phân loại và ưu tiên giải pháp (Prioritization Matrix)**
+#### **3.5.7.2. Phân loại ưu tiên giải pháp (Prioritization Matrix)**
 
-Phân loại theo mức độ **Tác động (Impact)** và **Độ khó triển khai (Effort)**:
-
-**Ưu tiên 1 — Tác động cao, triển khai khả thi trong ngắn hạn (0–3 tháng):**
-* **BPMS Mobile Approval** cho phê duyệt mua sắm (IR-08) — tích hợp nhanh vào hệ thống BPMS hiện có.
-* **KTV Mobile App** với danh sách vật tư chuẩn hóa và thông báo quyết toán (IR-03, IR-05, IR-07).
-* **Supplier Portal cơ bản** cho đặt hàng và theo dõi giao hàng điện tử (IR-02, IR-08).
-
-**Ưu tiên 2 — Tác động cao, triển khai trong trung hạn (3–6 tháng):**
-* **RFID tự động hóa xuất kho** và nhiều trạm RFID song song (IR-03, IR-04, IR-05).
-* **Giao thức kiểm định QC toàn diện** kết hợp camera nhận diện ngoại quan (IR-02, IR-06).
-* **Chính sách phê duyệt theo cấp** với SLA rõ ràng và cơ chế leo thang (IR-08).
-
-**Ưu tiên 3 — Chiến lược dài hạn (6–12 tháng):**
-* **AI/ML Demand Forecasting** tích hợp WMS (IR-01).
-* **RFID tracking toàn kho** bao gồm khu hàng lỗi/bảo hành (IR-04, IR-09).
-* **Dashboard KPI kho real-time** cho Ban quản lý chi nhánh.
-* **Predictive Analytics** cho tối ưu Safety Stock theo từng chi nhánh.
+* **Nhóm Ưu tiên 1 (Tác động cốt lõi - Triển khai ngay):**
+  - Tích hợp API kiểm tra Port và hạ tầng tự động trên CRM.
+  - Tự động tạo và điều phối Work Order trên BPMS.
+  - Tích hợp mã thanh toán VietQR động và ký E-Contract qua OTP SMS.
+  - Xây dựng tính năng chữ ký số và nghiệm thu Speedtest trên Mobile App.
+* **Nhóm Ưu tiên 2 (Tối ưu hóa vận hành hiện trường - Triển khai trung hạn):**
+  - Nâng cấp thuật toán định tuyến Smart Routing theo vị trí GPS cho KTV.
+  - Quản lý đóng gói vật tư kho bằng mã Barcode/QR Code.
+  - Tự động gửi định vị KTV và nhắc hẹn khách hàng qua Zalo ZNS.
+  - Xây dựng cơ chế Instant Provisioning kích hoạt mạng lõi qua Webhook.
+* **Nhóm Ưu tiên 3 (Nâng cao thông minh & Phân tích dự báo - Triển khai dài hạn):**
+  - Ứng dụng AI Chatbot hỗ trợ xử lý sự cố mạng tức thời sau bán hàng.
+  - Mô hình máy học phân tích dự báo nhu cầu bảo trì và nâng cấp hạ tầng ODF.
+  - Bảng điều khiển chiến lược (Strategic Dashboard) theo dõi toàn diện chỉ số SLA và NPS.
 
 ---
 
-### **3.5.8. Kế hoạch chuyển đổi & Lộ trình thực thi**
+### **3.5.8. Kế hoạch chuyển đổi & Lộ trình thực thi (Implementation Plan)**
 
 #### **3.5.8.1. Mục tiêu chuyển đổi số**
 
-Chuyển đổi quy trình Quản lý kho và xuất vật tư từ mô hình vận hành **thủ công - phụ thuộc kinh nghiệm** sang mô hình **số hóa - thời gian thực - tự động hóa**, nhằm:
-1. Đảm bảo **On-time Rate ≥ 95%** cho toàn bộ Work Order trong SLA 24–48 giờ.
-2. Đưa **Inventory Accuracy** lên ≥ 99,5% và **Rework Rate** xuống ≤ 2%.
-3. Giảm **Cycle Time** trung bình xuống còn 100–150 phút (từ mức 218–771 phút hiện tại).
-4. Giải phóng năng lực nhân sự kho để tập trung vào kiểm soát chất lượng thay vì thao tác thủ công.
-
----
+Chuyển đổi toàn diện quy trình thi công lắp đặt mạng Wi-Fi từ mô hình thủ công, phân tán sang mô hình vận hành số hóa khép kín, định hướng dữ liệu (Data-driven) và lấy trải nghiệm khách hàng làm trọng tâm.
 
 #### **3.5.8.2. Lộ trình thực thi 5 giai đoạn (Implementation Roadmap)**
 
-**Bảng 3.5.27: Lộ trình thực thi 5 giai đoạn triển khai mô hình Smart Warehouse**
+**Bảng 3.5.20: Lộ trình thực thi chuyển đổi số quy trình 5 giai đoạn (Implementation Roadmap)**
 
-| **Giai đoạn** | **Thời gian tham chiếu** | **Mục tiêu trọng tâm** | **Nhiệm vụ chính** | **KPI đầu ra** |
-| :--- | :---: | :--- | :--- | :--- |
-| **GĐ 0 – Kiểm toán & Chuẩn hóa dữ liệu** | Tuần 0–2 | Xây dựng baseline chính xác | Kiểm kê toàn bộ kho; chuẩn hóa danh mục SKU trên WMS; xác nhận dữ liệu Safety Stock và Reorder Point từng loại thiết bị | Baseline KPI được phê duyệt; Master Data 100% chính xác |
-| **GĐ 1 – Số hóa luồng thông tin** | Tuần 3–6 | Loại bỏ giao tiếp thủ công | Triển khai BPMS Mobile Approval; ra mắt KTV App phiên bản 1.0 (Work Order + danh sách vật tư); khai trương Supplier Portal cơ bản | Phê duyệt mua sắm trong ≤ 2 giờ; KTV nhận WO qua App ≥ 80% |
-| **GĐ 2 – Tự động hóa xuất/nhập kho** | Tuần 7–12 | Tăng tốc và chính xác hóa xuất kho | Lắp đặt 3–5 trạm RFID tại khu vực xuất kho; cập nhật WMS hỗ trợ RFID real-time; triển khai quy trình QC toàn diện | Thời gian xuất kho/Work Order ≤ 10 phút; Inventory Accuracy ≥ 97% |
-| **GĐ 3 – Tích hợp chuỗi cung ứng** | Tuần 13–18 | Kết nối toàn bộ chuỗi NCC-Kho-KTV | Nâng cấp Supplier Portal với chứng nhận QC điện tử; tích hợp GPS-based Equipment Exchange; lịch phân loại hàng thu hồi tự động | Supplier Lead Time ≤ 24 giờ; Defect Rate ≤ 3% |
-| **GĐ 4 – Tối ưu hóa thông minh** | Từ tuần 19 | Tự học và dự báo liên tục | Triển khai AI Demand Forecasting; Dashboard KPI real-time cho Ban quản lý; Predictive Analytics Safety Stock | On-time Rate ≥ 95%; Cycle Time ≤ 120 phút; Waiting Ratio ≤ 20% |
+| Giai đoạn | Khung thời gian | Mục tiêu trọng tâm | Nhiệm vụ kỹ thuật chính | Kết quả đầu ra (Deliverables) |
+| :---: | :---: | :--- | :--- | :--- |
+| **GĐ 0** | Tuần 0 – 2 | Khảo sát hiện trạng & Chuẩn hóa baseline | Rà soát SOP, chuẩn hóa cơ sở dữ liệu khách hàng, chốt bộ chỉ số đo lường KPI | Tài liệu đặc tả yêu cầu nghiệp vụ (BRD) được phê duyệt |
+| **GĐ 1** | Tuần 3 – 6 | Tự động hóa luồng lõi CRM & Hợp đồng | Xây dựng API kiểm tra Port GIS, tích hợp VietQR, E-Contract, auto Work Order | 100% đơn đủ điều kiện được tạo Work Order tự động |
+| **GĐ 2** | Tuần 7 – 12 | Số hóa hiện trường & Quản lý kho | Nâng cấp Mobile App KTV, tích hợp GPS Smart Routing, quét mã Barcode kho | Ứng dụng Mobile App mới được đưa vào thử nghiệm |
+| **GĐ 3** | Tuần 13 – 16 | Tự động hóa đầu cuối & Nghiệm thu | Triển khai Instant Provisioning AAA, ký số nghiệm thu, khảo sát Zalo ZNS | Lead Time giảm $\ge 40\%$, tỷ lệ nghiệm thu đạt $96\%$ |
+| **GĐ 4** | Sau tuần 16 | Tối ưu hóa liên tục & Mở rộng diện rộng | Vận hành toàn diện, triển khai Dashboard KPI, ứng dụng AI hỗ trợ | Triển khai thành công trên toàn bộ hệ thống chi nhánh |
 
 ---
 
 #### **3.5.8.3. Kế hoạch hành động 10 bước triển khai cụ thể**
 
-1. **Bước 1:** Kiểm kê toàn diện kho (Physical Count) và chuẩn hóa Master Data SKU, Serial/MAC trên WMS — xây dựng baseline chính xác trước mọi thay đổi.
-2. **Bước 2:** Xác định Reorder Point và Safety Stock cho từng SKU dựa trên dữ liệu lịch sử 12 tháng và dự báo tăng trưởng thuê bao.
-3. **Bước 3:** Tích hợp module phê duyệt điện tử vào BPMS; cấu hình ma trận leo thang và thông báo push notification cho BGĐ.
-4. **Bước 4:** Phát triển và triển khai KTV App (Work Order, danh sách vật tư, nhắc quyết toán, báo lỗi thiết bị GPS) — thử nghiệm với đội KTV thí điểm 20 người.
-5. **Bước 5:** Khai trương Supplier Portal; đào tạo 3–5 Nhà cung cấp chính nộp chứng nhận QC điện tử và cập nhật lịch giao hàng.
-6. **Bước 6:** Lắp đặt hạ tầng RFID tại khu vực xuất kho; cập nhật WMS để nhận tín hiệu RFID và xử lý xuất/nhập kho tự động.
-7. **Bước 7:** Nâng cấp quy trình QC đầu vào: bổ sung bước kiểm tra chức năng bắt buộc 100% cho thiết bị cao cấp; chuẩn hóa biên bản QC điện tử trên WMS.
-8. **Bước 8:** Thiết lập lịch phân loại hàng thu hồi 2 lần/tuần tự động; tích hợp RFID tracking cho khu hàng lỗi/bảo hành.
-9. **Bước 9:** Triển khai module AI Demand Forecasting; kết nối với WMS và cấu hình tham số mô hình theo dữ liệu lịch sử chi nhánh.
-10. **Bước 10:** Thiết lập Dashboard KPI real-time; vận hành chu kỳ cải tiến liên tục (Monthly KPI Review + Action Plan) với sự tham gia của tất cả trưởng bộ phận liên quan.
+1. Thành lập Ban Chỉ đạo Dự án Chuyển đổi Quy trình (đại diện Kinh doanh, Kỹ thuật, IT, Kho, Kế toán).
+2. Hoàn thiện việc chuẩn hóa mã định danh (QR Code) cho toàn bộ các hộp cáp ODF trên bản đồ GIS.
+3. Lập trình module API kết nối thời gian thực giữa hệ thống bán hàng CRM và phần mềm quản lý hạ tầng GIS.
+4. Tích hợp cổng thanh toán trực tuyến VietQR Napas 247 và luồng xác thực E-Contract qua SMS OTP.
+5. Nâng cấp thuật toán phân bổ công việc tự động (Smart Dispatching) trên hệ thống BPMS.
+6. Phát triển tính năng chỉ đường thông minh và checklist kỹ thuật số trên ứng dụng FoxPro/MyFPT TNC.
+7. Triển khai quy trình xuất kho vật tư theo gói Kitting quét mã vạch tại các chi nhánh.
+8. Kết nối Webhook tự động kích hoạt tài khoản thuê bao giữa BPMS và Radius AAA Server.
+9. Tổ chức đào tạo tập trung và diễn tập vận hành thực tế cho toàn bộ nhân sự các phòng ban.
+10. Triển khai thí điểm (Pilot) tại 02 Chi nhánh trọng điểm trong 4 tuần, đánh giá KPI trước khi nhân rộng toàn quốc.
 
 ---
 
-#### **3.5.8.4. Quản trị thay đổi & Kế hoạch đào tạo (Change Management)**
+#### **3.5.8.4. Quản trị thay đổi & Kế hoạch đào tạo (Change Management & Training)**
 
-**Bảng 3.5.28: Kế hoạch đào tạo và truyền thông quản trị thay đổi (Change Management)**
+**Bảng 3.5.21: Kế hoạch quản trị thay đổi và chương trình đào tạo theo từng nhóm đối tượng**
 
-| **Nhóm nhân sự** | **Nội dung đào tạo trọng tâm** | **Hình thức** | **Thời lượng** |
-| :--- | :--- | :---: | :---: |
-| **Thủ kho / NV Kho** | Vận hành trạm RFID; nhập/xuất kho trên WMS mới; quy trình QC điện tử; phân loại hàng thu hồi | Thực hành tại kho | 3 ngày |
-| **Kỹ thuật viên (KTV)** | Sử dụng KTV App; xác nhận RFID nhận vật tư; báo lỗi thiết bị GPS; quyết toán vật tư điện tử | Đào tạo nhóm + thực hành | 1 ngày |
-| **Bộ phận Mua hàng** | Vận hành Supplier Portal; theo dõi PO điện tử; phối hợp với NCC upload chứng nhận QC | Workshop + hướng dẫn tự học | 2 ngày |
-| **Ban Giám đốc Chi nhánh** | Phê duyệt đề xuất mua sắm trên BPMS App; đọc Dashboard KPI real-time | Đào tạo cá nhân (1:1) | 2 giờ |
-| **Kế toán kho** | Đối soát WMS-ERP tự động; xử lý hóa đơn điện tử từ Supplier Portal | Đào tạo hệ thống | 1 ngày |
+| Nhóm đối tượng | Nội dung đào tạo nghiệp vụ | Hình thức đào tạo | Đánh giá hoàn thành |
+| :--- | :--- | :--- | :--- |
+| **Nhân viên Sales** | Quy trình tư vấn mới, thao tác tạo E-Contract, hướng dẫn khách quét VietQR | Đào tạo tập trung + Video bài giảng E-learning | Bài kiểm tra thực hành thao tác trên CRM đạt 100% |
+| **Kỹ thuật Khảo sát** | Quản trị bản đồ GIS, xử lý ngoại lệ hạ tầng, đối soát Port định kỳ | Workshop chuyên sâu | Thẩm định chuẩn xác 100% ca khảo sát thử nghiệm |
+| **Kỹ thuật viên (TNC)** | Sử dụng Mobile App mới, thao tác checklist, đo Wi-Fi Heatmap, nghiệm thu điện tử | Thực hành cầm tay chỉ việc tại phòng Lab hiện trường | Vượt qua bài sát hạch thi công chuẩn thời gian SLA |
+| **Thủ kho Vật tư** | Quy trình đóng gói Kitting, sử dụng máy quét Barcode/QR Code trên WMS | Thực hành tại kho chi nhánh | Thao tác xuất kho đạt chuẩn $\le 5$ phút/gói vật tư |
+| **Điện thoại viên CSKH** | Theo dõi dashboard CSAT, vận hành kịch bản tin nhắn tự động, xử lý khiếu nại | Đào tạo tình huống (Role-play) | Tỷ lệ xử lý thành công khiếu nại đạt $\ge 95\%$ |
+| **Nhân viên Kế toán** | Đối soát giao dịch trực tuyến qua Webhook, quy trình xuất e-Invoice tự động | Hướng dẫn hệ thống ERP | Đối soát khớp đúng 100% số liệu sao kê hàng ngày |
 
 ---
 
 #### **3.5.8.5. Quản trị rủi ro triển khai và giải pháp giảm thiểu (Risk Management Matrix)**
 
-**Bảng 3.5.29: Ma trận quản trị rủi ro triển khai và biện pháp giảm thiểu (Risk Matrix)**
+**Bảng 3.5.22: Ma trận nhận diện rủi ro triển khai và kế hoạch kiểm soát giảm thiểu (Risk Matrix)**
 
-| **Rủi ro** | **Khả năng xảy ra** | **Tác động** | **Giải pháp giảm thiểu** |
-| :--- | :---: | :---: | :--- |
-| RFID đọc sai tín hiệu do nhiễu kim loại trong kho | Trung bình | Cao | Khảo sát vật liệu kho và lựa chọn tần số RFID phù hợp; lắp đặt thử nghiệm trước khi triển khai toàn bộ |
-| KTV không sử dụng App đều đặn sau giai đoạn đầu | Cao | Trung bình | Tích hợp KPI sử dụng App vào đánh giá KTV; ban đầu chạy song song App và giấy; hỗ trợ tại chỗ trong 2 tuần đầu |
-| Nhà cung cấp không hợp tác sử dụng Supplier Portal | Trung bình | Cao | Đưa điều khoản Supplier Portal vào hợp đồng mới; hỗ trợ đào tạo NCC miễn phí; ưu tiên NCC đã dùng EDI |
-| AI Demand Forecasting dự báo sai do dữ liệu lịch sử chưa sạch | Cao | Trung bình | Hoàn thành chuẩn hóa Master Data (Bước 1) trước khi triển khai AI; chạy mô hình song song với phương pháp cũ 2 tháng |
-| WMS quá tải khi tích hợp RFID real-time | Thấp | Cao | Nâng cấp hạ tầng server trước GĐ 2; thiết kế buffer queue cho giao dịch RFID; có kế hoạch fallback về quét mã QR |
-| Dữ liệu Master Data không đồng nhất sau kiểm kê | Trung bình | Cao | Dành đủ thời gian cho GĐ 0 (tối thiểu 2 tuần); quy trình phê duyệt dữ liệu 2 cấp trước khi go-live |
+| Rủi ro tiềm ẩn | Mức độ | Tác động vận hành | Biện pháp phòng ngừa & Giảm thiểu (Mitigation & Fallback) |
+| :--- | :---: | :--- | :--- |
+| **API kiểm tra hạ tầng bị nghẽn** | Cao | Không tra cứu được Port tự động, chậm ký hợp đồng | Thiết lập cơ chế bộ nhớ đệm (Cache) và Fallback sang nhân viên khảo sát duyệt thủ công trong 15p |
+| **KTV không quen dùng App mới** | Trung bình | Ghi nhận sai sót hiện trường, thao tác lúng túng | Bố trí nhóm Hỗ trợ Kỹ thuật tại chỗ (On-site Support) đồng hành trong 2 tuần đầu pilot |
+| **Mất kết nối 4G tại hiện trường** | Trung bình | KTV không gửi được kết quả nghiệm thu điện tử | Ứng dụng hỗ trợ chế độ Offline-first: Lưu tạm dữ liệu và chữ ký trên máy, tự động đồng bộ khi có mạng |
+| **Lỗi giao dịch thanh toán VietQR** | Thấp | Đơn hàng bị treo trạng thái chưa thanh toán | Hệ thống tự động chuyển đổi sang hình thức thu sau qua KTV; đối soát bù vào cuối ngày |
+| **Thuật toán chỉ đường chưa tối ưu** | Thấp | KTV di chuyển vào đường cấm hoặc ùn tắc | Cho phép KTV chủ động điều chỉnh thứ tự ưu tiên các ca thi công theo kinh nghiệm thực địa |
 
 ---
 
@@ -1040,64 +888,52 @@ Chuyển đổi quy trình Quản lý kho và xuất vật tư từ mô hình v�
 
 #### **3.5.9.1. Tác động đến thời gian (Lead Time & Waiting Ratio)**
 
-Sau khi triển khai đầy đủ 5 giai đoạn To-Be, mô hình định lượng dự báo các cải thiện sau:
-
-* **Process Time** giảm từ 103–243 phút xuống còn **55–90 phút** — nhờ RFID tự động hóa quét mã (loại bỏ 15–25 phút thủ công/Work Order) và KTV App loại bỏ thao tác xác nhận giấy.
-* **Waiting Time** giảm mạnh nhất: từ 115–528 phút xuống còn **≤ 30 phút** — nhờ loại bỏ thời gian chờ NCC (Supplier Portal + Auto-reorder), phê duyệt mua sắm (BPMS App), và KTV xếp hàng (RFID song song).
-* **Cycle Time** giảm từ 218–771 phút xuống còn **85–120 phút** trong Best-case và **100–180 phút** trong Worst-case.
-* **Waiting Ratio** giảm từ 52,8–68,5% xuống còn **≤ 20%** — tiệm cận chuẩn World-class Lean Warehouse (≤ 15%).
+* **Tổng thời gian đáp ứng (Lead Time):** Giảm từ **620 phút xuống còn 360 phút** (giảm **41.94%**), giúp khách hàng được phục vụ và có mạng sử dụng chỉ trong vòng chưa đầy 6 giờ kể từ khi đăng ký.
+* **Thời gian xử lý thực (Cycle Time):** Tối ưu từ **265 phút xuống còn 250 phút** (giảm **5.66%**).
+* **Thời gian chờ đợi (Wait Time):** Giảm mạnh từ **355 phút xuống còn 110 phút** (giảm **69.01%**), triệt tiêu phần lớn thời gian chết trong khâu chờ duyệt khảo sát, chờ xuất kho và chờ kích hoạt mạng lõi.
+* **Tỷ lệ thời gian chờ (Waiting Ratio):** Giảm ngoạn mục từ **57.26% xuống còn 30.56%** (giảm 26.7 điểm phần trăm), đưa quy trình đạt chuẩn vận hành tinh gọn.
 
 ---
 
 #### **3.5.9.2. Tác động đến chi phí vận hành (Cost Reduction)**
 
-**Bảng 3.5.30: Bảng so sánh chi phí vận hành cho 01 đơn hàng As-Is vs To-Be**
-
-| **Hạng mục chi phí** | **As-Is/Work Order** | **To-Be/Work Order** | **Tiết kiệm** |
-| :--- | :---: | :---: | :---: |
-| Chi phí nhân công kho (VA+BVA) | 18.192–49.270 VNĐ | 10.000–22.000 VNĐ | ~40–55% |
-| Chi phí nhân công KTV tại kho | 61.555–127.845 VNĐ | 12.000–25.000 VNĐ | ~80% (RFID) |
-| Chi phí NVA (hoàn trả, chờ đợi) | 17.138–43.746 VNĐ | 2.000–8.000 VNĐ | ~80–82% |
-| **Tổng chi phí/Work Order** | **101.145–229.381 VNĐ** | **~40.000–80.000 VNĐ** | **~55–65%** |
-
-> **Ghi chú:** Số liệu To-Be là ước tính dựa trên benchmark ngành logistics viễn thông ASEAN và kết quả pilot của các doanh nghiệp tương đương đã triển khai RFID + WMS real-time. Cần pilot thực tế để xác nhận con số chính xác.
+* **Chi phí toàn diện trên 01 đơn hàng:** Giảm từ **1.622.365 VNĐ xuống còn 1.350.000 VNĐ** (tiết kiệm **16.79%**, tương đương giảm **272.365 VNĐ trên mỗi đơn hàng**).
+* **Nguồn tiết kiệm chi phí chủ yếu đến từ:**
+  - Giảm chi phí nhiên liệu di chuyển nhờ thuật toán Smart Routing (tiết kiệm ~35.000 VNĐ/ca).
+  - Giảm chi phí rủi ro làm lại (Rework) nhờ checklist chuẩn và máy đo chuyên dụng (tiết kiệm ~16.000 VNĐ/đơn).
+  - Triệt tiêu chi phí in ấn giấy tờ hợp đồng và biên bản nghiệm thu (tiết kiệm ~15.000 VNĐ/đơn).
+  - Giảm thiểu hao hụt vật tư cáp quang dã chiến nhờ quản lý Barcode (tiết kiệm ~20.000 VNĐ/đơn).
+  - Tối ưu hóa năng suất lao động của đội ngũ Sales, Kỹ thuật và Kế toán (tiết kiệm ~186.365 VNĐ chi phí nhân công gián tiếp/đơn).
 
 ---
 
 #### **3.5.9.3. Tác động đến chất lượng dịch vụ và Khách hàng**
 
-**Bảng tổng hợp đối chiếu chỉ số KPI As-Is và To-Be:**
+* **Tỷ lệ hoàn thành đúng hẹn (On-time Delivery Rate):** Tăng vọt từ **78% lên 96%** (+18 điểm phần trăm), giải quyết dứt điểm tình trạng dời lịch hẹn gây phiền hà cho khách hàng.
+* **Tỷ lệ làm lại (Rework Rate):** Giảm mạnh từ **12% xuống còn 4%** (-8 điểm phần trăm), bảo đảm đường truyền cáp quang đạt suy hao chuẩn ngay từ lần hàn nối đầu tiên.
+* **Chỉ số hài lòng khách hàng (CSAT):** Tăng từ **88% lên 95%** (+7 điểm phần trăm); chỉ số đo lường mức độ giới thiệu (NPS) đạt mức xuất sắc ($> 70$).
 
-**Bảng 3.5.31: Bảng tổng hợp đối chiếu chỉ số KPI As-Is và To-Be sau cải tiến**
 
-| **Chỉ số KPI** | **As-Is (Best-case)** | **As-Is (Worst-case)** | **To-Be mục tiêu** | **Cải thiện (%)** |
+
+**Bảng 3.5.23: Bảng tổng hợp đối chiếu chỉ số hiệu suất KPI giữa hiện trạng As-Is và mục tiêu To-Be**
+
+| Chỉ số hiệu suất (KPI) | Hiện trạng As-Is | Mục tiêu To-Be | Mức độ cải thiện | Đánh giá hiệu quả |
 | :--- | :---: | :---: | :---: | :--- |
-| Process Time | 103 phút | 243 phút | 55–90 phút | Giảm 45–63% |
-| Cycle Time | 218 phút | 771 phút | 85–120 phút | Giảm 54–84% |
-| Waiting Ratio | 52,8% | 68,5% | ≤ 20% | Giảm ≥ 33 điểm % |
-| On-time Rate | ~72% | ~48% | ≥ 95% | +23–47 điểm % |
-| Rework Rate | ~8% | ~15% | ≤ 2% | Giảm ≥ 75% |
-| Inventory Accuracy | ~92% | ~85% | ≥ 99,5% | +7,5–14,5 điểm % |
-| Supplier Lead Time | 3 ngày | 5 ngày | ≤ 1 ngày | Giảm ≥ 67% |
-| Cost/Work Order | 101.145 VNĐ | 229.381 VNĐ | 40.000–80.000 VNĐ | Giảm ≥ 55% |
-| KTV Satisfaction Score | ~68% | ~52% | ≥ 90% | +22–38 điểm % |
-| CSAT Khách hàng cuối | ~75% | ~60% | ≥ 92% | +17–32 điểm % |
-
-> **Nhận xét:** Những cải thiện trên không chỉ tác động đến vận hành kho mà lan tỏa trực tiếp đến trải nghiệm của hai nhóm khách hàng: **KTV thi công** (nhận vật tư nhanh hơn, ít vấn đề hơn) và **Khách hàng cuối** (lắp đặt đúng hẹn hơn, thiết bị hoạt động ổn định ngay từ đầu). Đây là cơ sở để FPT Telecom củng cố lợi thế cạnh tranh về tốc độ triển khai dịch vụ trên thị trường viễn thông băng rộng.
+| **Lead Time** | 620 phút | **360 phút** | **-41.9%** | Rút ngắn gần một nửa thời gian chờ đợi |
+| **Cycle Time** | 265 phút | **250 phút** | **-5.7%** | Tinh giản các thao tác xử lý dư thừa |
+| **Wait Time** | 355 phút | **110 phút** | **-69.0%** | Triệt tiêu thời gian chết và chờ đợi |
+| **Waiting Ratio** | 57.3% | **30.6%** | **-26.7%** | Cải thiện vượt bậc hiệu quả tinh gọn |
+| **Chi phí / Đơn hàng** | 1.622.365 VNĐ | **1.350.000 VNĐ** | **-16.8%** | Tiết kiệm hàng trăm triệu đồng/tháng/chi nhánh |
+| **Tỷ lệ đúng hẹn (On-time)** | 78% | **96%** | **+18.0%** | Nâng cao uy tín cam kết thương hiệu FPT |
+| **Tỷ lệ làm lại (Rework)** | 12% | **4%** | **-8.0%** | Chuẩn hóa chất lượng kỹ thuật đường truyền |
+| **Chỉ số hài lòng (CSAT)** | 88% | **95%** | **+7.0%** | Khách hàng có trải nghiệm công nghệ vượt trội |
 
 ---
 
-### **3.5.10. Kết luận toàn chương**
+### **3.5.10. Kết luận toàn chương (Conclusion)**
 
-Quy trình Quản lý kho và xuất vật tư tại FPT Telecom (Mục 3.5) là mắt xích hậu cần then chốt, đóng vai trò quyết định đến khả năng hoàn thành cam kết SLA 24–48 giờ với từng khách hàng. Qua quá trình khám phá quy trình toàn diện bằng 3 phương pháp (Evidence-based, Interview, Workshop) và phân tích chuyên sâu theo chuẩn BPM và Lean, mục 3.5 đã làm rõ bức tranh As-Is với đầy đủ chiều sâu kỹ thuật nghiệp vụ, định lượng hiệu suất và nhận diện điểm nghẽn hệ thống.
+Quy trình thi công và lắp đặt mạng Wi-Fi tại Công ty Cổ phần Viễn thông FPT (FPT Telecom) là mạch máu cốt lõi chuyển hóa nhu cầu khách hàng thành doanh thu và giá trị thương hiệu. 
 
-**Những phát hiện cốt lõi từ phân tích As-Is:**
-* Quy trình hiện tại đang vận hành với **Waiting Ratio cao (52,8–68,5%)** do phụ thuộc vào phê duyệt thủ công, thời gian chờ NCC giao hàng và bottleneck giờ cao điểm.
-* **5 trong 9 vấn đề Issue Register** được xếp mức độ Cao vì ảnh hưởng trực tiếp đến SLA, đặc biệt IR-01 (thiếu hàng), IR-03 (xuất nhầm thiết bị), IR-06 (lỗi tại hiện trường) và IR-08 (phê duyệt chậm).
-* **Cost/Work Order hiện tại (101.145–229.381 VNĐ)** có tiềm năng giảm 55–65% khi loại bỏ các hoạt động NVA qua tự động hóa.
+Bằng việc kết hợp chặt chẽ giữa **3 phương pháp khám phá quy trình** (Bằng chứng tài liệu, Phỏng vấn phân tầng định tính/định lượng, và Hội thảo chuyên sâu), áp dụng mô hình **BPMN 2.0 có độ phức tạp cao với 5 Cổng điều kiện (Gateways)** bao phủ trọn vẹn các kịch bản thành công và ngoại lệ nghiệp vụ, cùng các công cụ phân tích hiện đại (VA/BVA/NVA, 7 Lãng phí Lean, Stakeholder RACI, Issue Register, Pareto 80/20, Fishbone 6M, Flow Analysis, Lead Time & Waiting Ratio, Cost Breakdown), nghiên cứu đã làm sáng tỏ toàn diện bức tranh vận hành hiện tại.
 
-**Định hướng To-Be và lộ trình chuyển đổi:**
-
-Mô hình To-Be đã đề xuất lộ trình 5 giai đoạn triển khai trong 19+ tuần, tập trung vào 4 giải pháp trụ cột: (1) **RFID tự động hóa xuất kho** — giải quyết tắc nghẽn và sai sót; (2) **KTV App và BPMS Mobile Approval** — số hóa giao tiếp giữa các bên; (3) **Supplier Portal và AI Demand Forecasting** — chủ động hóa chuỗi cung ứng; (4) **Dashboard KPI real-time và chu kỳ cải tiến liên tục** — duy trì hiệu suất bền vững.
-
-**Tầm nhìn dài hạn:** Khi toàn bộ lộ trình To-Be được triển khai, quy trình Quản lý kho và xuất vật tư của FPT Telecom sẽ chuyển đổi thành mô hình kho thông minh (Smart Warehouse) — nơi mà từng thiết bị được theo dõi từ khi nhập kho đến tay khách hàng trong thời gian thực, tỷ lệ lỗi gần bằng không và năng suất kho tăng gấp đôi mà không cần tăng nhân lực. Đây là nền tảng vững chắc để FPT Telecom duy trì vị thế dẫn đầu về tốc độ triển khai dịch vụ Internet cáp quang tại Việt Nam.
+Mô hình To-Be đề xuất với kiến trúc **Event-Driven & Smart Automation** (kết hợp API kiểm tra Port thời gian thực, Hợp đồng điện tử, Thanh toán VietQR Napas, Điều phối thông minh Smart Routing, Mobile App hiện trường và Instant Provisioning mạng lõi) là lời giải toàn diện, khả thi và mang lại giá trị kinh tế to lớn. Đây không chỉ là một bài tập học thuật chuẩn mực mà còn là bản thiết kế chuyển đổi số có giá trị ứng dụng thực tiễn cao, giúp FPT Telecom củng cố vững chắc vị thế dẫn đầu về chất lượng dịch vụ viễn thông tại Việt Nam.
