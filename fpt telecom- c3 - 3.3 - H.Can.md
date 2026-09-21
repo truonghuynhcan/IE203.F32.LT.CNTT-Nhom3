@@ -1,73 +1,25 @@
-# 3.3. Quy trình quản lý 2: Quản lý và mở rộng hạ tầng viễn thông (Cáp quang & Port)
+## 3.3. Quy trình quản lý 2: Quản lý và mở rộng hạ tầng viễn thông (Cáp quang & Port)
 
-## Tóm tắt điều hành
+### 3.3.1. Mô tả quy trình
 
-Phần 3.3 được xây dựng theo đúng logic và mức độ chi tiết của phần 3.2 mà nhóm đã thực hiện: **mô tả quy trình → BPMN As-is → phân tích định tính → phân tích định lượng → kết luận/cải tiến**. Cách xử lý Gateway cũng kế thừa nguyên tắc của 3.2: nhánh ngoại lệ được kết thúc rõ ràng, không tạo vòng lặp vô hạn trong cùng một process instance.
+**Tác nhân tham gia – Actor**  
+**Bộ phận Kinh doanh – Sales / Kỹ thuật triển khai thuê bao – TNC**: Gửi nhu cầu, ticket hoặc phản ánh khu vực không còn năng lực triển khai; là khách hàng nội bộ sử dụng kết quả mở rộng.  
+**Quản lý kỹ thuật hạ tầng – INF**: Process Owner; xác minh cảnh báo, khảo sát, thiết kế sơ bộ, điều phối thi công, nghiệm thu và xác nhận cập nhật GIS.  
+**Bộ phận Kế hoạch & Đầu tư / Tài chính**: Kiểm tra dự toán, nguồn vốn, hiệu quả đầu tư và tính đầy đủ của hồ sơ.  
+**Kho / Quản lý vật tư**: Kiểm kê tồn kho, xác nhận vật tư khả dụng, giữ/chuyển vật tư và đối soát xuất dùng.  
+**Ban Giám đốc / Cấp có thẩm quyền**: Phê duyệt hoặc từ chối đề xuất đầu tư theo hạn mức.  
+**Đối tác thi công / Kỹ thuật viên hiện trường**: Kéo cáp, lắp hộp/ODF, hàn nối, đo kiểm và sửa lỗi thi công.  
+**Cơ quan/đơn vị quản lý hạ tầng bên ngoài**: Xử lý giấy phép, quyền thi công, quyền sử dụng tuyến/cột/ống cống khi phát sinh.  
+**Hệ thống GIS / Inventory / NOC**: Ghi nhận trạng thái hạ tầng, số Port khả dụng, vị trí tài sản và bằng chứng nghiệm thu.
 
-Về chuẩn mô hình hóa, BPMN 2.0.2 của Object Management Group là đặc tả chính thức cho Business Process Model and Notation; OMG mô tả BPMN như một ký pháp đồ họa tiêu chuẩn nhằm làm cho quy trình có thể được hiểu bởi cả người dùng nghiệp vụ và người triển khai kỹ thuật.
+**Khách hàng mục tiêu**  
+**Khách hàng nội bộ – Sales:** Bộ phận Sales cần biết chính xác khu vực nào đã đủ điều kiện để bán và triển khai dịch vụ, đồng thời biết thời điểm Port và hạ tầng mạng sẵn sàng. Kết quả của quy trình giúp Sales hạn chế tiếp nhận hoặc cam kết lắp đặt tại những khu vực chưa đủ năng lực hạ tầng.  
+**Khách hàng nội bộ – TNC/Kỹ thuật triển khai:** Đội ngũ kỹ thuật cần Port, tuyến cáp và các thông tin hạ tầng thực tế phù hợp với dữ liệu được ghi nhận trên hệ thống. Khi hạ tầng đã được mở rộng và cập nhật chính xác, kỹ thuật viên có thể triển khai thuê bao mà không phải xử lý lại do thiếu Port, thiếu tuyến cáp hoặc sai lệch dữ liệu.  
+**Khách hàng ngoại bộ – người dùng Internet:** Người đăng ký dịch vụ là đối tượng hưởng lợi cuối cùng từ việc mở rộng hạ tầng. Khi khu vực trước đó thiếu Port hoặc chưa đủ năng lực mạng được bổ sung hạ tầng, khách hàng có thể được cung cấp dịch vụ sớm hơn và giảm thời gian chờ lắp đặt.  
+**Quản lý doanh nghiệp:** Ban quản lý cần kết quả của quy trình để theo dõi hiệu quả sử dụng vốn đầu tư hạ tầng, kiểm soát CAPEX, tiến độ triển khai, chất lượng công trình và mức độ khai thác tài sản sau đầu tư. Qua đó, doanh nghiệp có cơ sở đánh giá liệu việc mở rộng hạ tầng có đáp ứng đúng nhu cầu thực tế và mang lại hiệu quả vận hành hay không.
 
-Về nền tảng kỹ thuật cáp quang, ITU-T G.652 mô tả các thuộc tính hình học, cơ học và truyền dẫn của sợi quang đơn mode; phiên bản hiện hành G.652 được ITU-T phê duyệt tháng 8/2024. ITU-T G.657 tập trung vào sợi đơn mode có khả năng giảm tổn hao do uốn, đặc biệt phù hợp cho mạng truy nhập và các môi trường mật độ cáp cao. Với mạng truy nhập PON, ITU-T G.984.2 quy định các yêu cầu lớp vật lý của GPON, còn ITU-T G.9807.1 mô tả XGS-PON và kiến trúc truy nhập quang điểm-đa điểm.
 
-FPT Telecom tiếp tục công khai định hướng đầu tư hạ tầng và nâng cao chất lượng kết nối trong năm 2026; tuy nhiên, không có SOP công khai đủ chi tiết để khẳng định đây là quy trình nội bộ chính thức của doanh nghiệp. Vì vậy, **toàn bộ vai trò chi tiết, Gateway, thời gian, chi phí, xác suất và KPI bên dưới được xây dựng như giả thiết học thuật phục vụ môn BPM**, không phải số liệu vận hành chính thức.
-
-Kết quả định lượng của kịch bản giả thiết cho một dự án mở rộng quy mô nhỏ:
-
-| Chỉ tiêu chính | Kết quả |
-| --- | ---: |
-| Cycle Time | **20,75 ngày (giả thiết)** |
-| Processing Time theo đường găng | **10,05 ngày (giả thiết)** |
-| Wait Time | **10,70 ngày (giả thiết)** |
-| Cycle Time Efficiency | **48,43% (giả thiết)** |
-| Tổng chi phí dự án | **74.400.000 VNĐ (giả thiết)** |
-| Bottleneck lớn nhất | **Permit/quyền thi công: WT 4,50 ngày (giả thiết)** |
-| Bottleneck thứ hai | **Phê duyệt ngân sách: WT 2,60 ngày (giả thiết)** |
-
-### Mục lục
-
-- [3.3.1. Mô tả quy trình](#331-mô-tả-quy-trình)
-- [3.3.2. Mô hình hóa quy trình hiện tại BPMN As-is](#332-mô-hình-hóa-quy-trình-hiện-tại-bpmn-as-is)
-- [3.3.3. Phân tích định tính](#333-phân-tích-định-tính)
-- [3.3.4. Phân tích định lượng](#334-phân-tích-định-lượng)
-- [3.3.5. Đề xuất To-be và kế hoạch hành động](#335-đề-xuất-to-be-và-kế-hoạch-hành-động)
-- [Tài liệu tham khảo](#tài-liệu-tham-khảo)
-
-## 3.3.1. Mô tả quy trình
-
-**3.3.1.1. Mục tiêu**
-
-Quy trình quản lý và mở rộng hạ tầng viễn thông nhằm phát hiện khu vực có nguy cơ thiếu năng lực phục vụ, xác minh nhu cầu, khảo sát hiện trường, lập phương án kỹ thuật và tài chính, xin phê duyệt, tổ chức thi công, nghiệm thu và cập nhật dữ liệu Port lên hệ thống quản lý/GIS. Đầu ra cuối cùng của quy trình là **hạ tầng sẵn sàng cung cấp dịch vụ** và **dữ liệu Port khả dụng được đồng bộ để các bộ phận liên quan có thể sử dụng**.
-
-Trong mô hình này, “Port” được hiểu ở mức nghiệp vụ là **đơn vị năng lực kết nối khả dụng mà hệ thống quản lý hạ tầng sử dụng để đáp ứng yêu cầu triển khai thuê bao**. Tùy kiến trúc thực tế, Port có thể liên quan tới OLT/PON, splitter, ODF/hộp phối quang hoặc điểm đấu nối được quản lý trên GIS. Báo cáo không cố định một cấu hình PON cụ thể nhằm tránh gán sai kiến trúc nội bộ của doanh nghiệp.
-
-Khái niệm ODN trong các chuẩn ITU mô tả hạ tầng quang điểm-đa điểm có thể bao gồm sợi quang, splitter, combiner, filter và các thành phần quang thụ động khác; điều này phù hợp với việc mô hình hóa quy trình ở mức quản trị tài sản và năng lực thay vì buộc quy trình phải phụ thuộc một cấu hình thiết bị duy nhất.
-
-**3.3.1.2. Tác nhân tham gia – Actor**
-
-| Actor | Vai trò trong quy trình |
-| --- | --- |
-| **Bộ phận Kinh doanh – Sales / Kỹ thuật triển khai thuê bao – TNC** | Gửi nhu cầu, ticket hoặc phản ánh khu vực không còn năng lực triển khai; là khách hàng nội bộ sử dụng kết quả mở rộng. |
-| **Quản lý kỹ thuật hạ tầng – INF** | Process Owner; xác minh cảnh báo, khảo sát, thiết kế sơ bộ, điều phối thi công, nghiệm thu và xác nhận cập nhật GIS. |
-| **Bộ phận Kế hoạch & Đầu tư / Tài chính** | Kiểm tra dự toán, nguồn vốn, hiệu quả đầu tư và tính đầy đủ của hồ sơ. |
-| **Kho / Quản lý vật tư** | Kiểm kê tồn kho, xác nhận vật tư khả dụng, giữ/chuyển vật tư và đối soát xuất dùng. |
-| **Ban Giám đốc / Cấp có thẩm quyền** | Phê duyệt hoặc từ chối đề xuất đầu tư theo hạn mức. |
-| **Đối tác thi công / Kỹ thuật viên hiện trường** | Kéo cáp, lắp hộp/ODF, hàn nối, đo kiểm và sửa lỗi thi công. |
-| **Cơ quan/đơn vị quản lý hạ tầng bên ngoài** | Xử lý giấy phép, quyền thi công, quyền sử dụng tuyến/cột/ống cống khi phát sinh. |
-| **Hệ thống GIS / Inventory / NOC** | Ghi nhận trạng thái hạ tầng, số Port khả dụng, vị trí tài sản và bằng chứng nghiệm thu. |
-
-Sự phụ thuộc vào đơn vị quản lý cột/tuyến là một giả thiết hợp lý về mặt nghiệp vụ. FPT từng công khai thỏa thuận với EVN Telecom cho phép sử dụng hạ tầng cột điện và phối hợp trong khảo sát, xây lắp, quản lý và vận hành hệ thống viễn thông. Nguồn này có tính lịch sử, nên báo cáo chỉ sử dụng để minh họa **sự tồn tại hợp lý của dependency bên ngoài**, không xem đó là cơ chế hiện hành của FPT Telecom.
-
-**3.3.1.3. Khách hàng mục tiêu – Customer**
-
-| Nhóm Customer | Nhu cầu nhận được từ quy trình |
-| --- | --- |
-| **Khách hàng nội bộ – Sales** | Biết khu vực có thể bán/lắp mới và thời điểm Port sẵn sàng. |
-| **Khách hàng nội bộ – TNC/Kỹ thuật triển khai** | Có Port và tuyến cáp thực tế phù hợp với dữ liệu trên hệ thống để triển khai thuê bao. |
-| **Khách hàng ngoại bộ – người dùng Internet** | Được rút ngắn thời gian chờ khi khu vực trước đó thiếu năng lực hạ tầng. |
-| **Quản lý doanh nghiệp** | Có cơ sở kiểm soát CAPEX, tiến độ, chất lượng và mức sử dụng tài sản sau đầu tư. |
-
-FPT Telecom hiện vẫn mô tả bước kiểm tra hạ tầng như một phần của quá trình cung cấp dịch vụ Internet tại một số khu vực, cho thấy tính hợp lý của việc coi trạng thái hạ tầng là điều kiện đầu vào quan trọng đối với Sales và triển khai thuê bao.
-
-**3.3.1.4. Luồng các bước thực hiện – Workflow**
+###### Bảng 3. : Luồng các bước thực hiện
 
 | STT | Bước thực hiện | Actor chính | Nội dung |
 | ---: | --- | --- | --- |
@@ -84,26 +36,23 @@ FPT Telecom hiện vẫn mô tả bước kiểm tra hạ tầng như một ph�
 | 11 | Đo kiểm và nghiệm thu | INF / Nhà thầu | Kiểm tra tuyến, mối nối, suy hao, nhãn, hồ sơ hoàn công và chất lượng lắp đặt. |
 | 12 | Cập nhật GIS/Port và đóng yêu cầu | INF / GIS | Đồng bộ số Port/tài sản/tuyến mới; thông báo Sales/TNC và đóng hồ sơ. |
 
-Bước thiết kế và kiểm kê vật tư được mô hình hóa song song để phản ánh một cơ hội giảm Cycle Time. Về mặt kỹ thuật, việc sử dụng sợi đơn mode và kiểm soát chất lượng đường truyền phù hợp với phạm vi mà ITU-T G.652/G.657 đặt ra cho sợi/cáp quang đơn mode và mạng truy nhập.
 
-**3.3.1.5. Kịch bản thành công**
+**Kịch bản thành công**
 
 Một process instance được xem là hoàn thành thành công khi:
 
-1. Nhu cầu mở rộng được xác minh hợp lệ.
-2. Không còn giải pháp tái phân bổ Port hiện hữu phù hợp.
-3. Khảo sát và phương án kỹ thuật đạt yêu cầu.
-4. Vật tư và ngân sách được bảo đảm.
-5. Quyền thi công cần thiết được chấp thuận.
-6. Thi công và đo kiểm đạt tiêu chí nghiệm thu.
-7. Dữ liệu GIS/Inventory khớp với hiện trạng vật lý.
-8. Sales/TNC nhận được thông báo Port đã sẵn sàng.
+- Nhu cầu mở rộng được xác minh hợp lệ.
+- Không còn giải pháp tái phân bổ Port hiện hữu phù hợp.
+- Khảo sát và phương án kỹ thuật đạt yêu cầu.
+- Vật tư và ngân sách được bảo đảm.
+- Quyền thi công cần thiết được chấp thuận.
+- Thi công và đo kiểm đạt tiêu chí nghiệm thu.
+- Dữ liệu GIS/Inventory khớp với hiện trạng vật lý.
+- Sales/TNC nhận được thông báo Port đã sẵn sàng.
 
-**3.3.1.6. Kịch bản thất bại/ngoại lệ**
+**Kịch bản thất bại/ngoại lệ**
 
-Để đồng nhất với cách mô hình hóa của 3.2, phiên bản As-is này **không tạo vòng lặp vô hạn trong cùng một process instance**. Khi một Gateway không đạt, quy trình đi vào Task xử lý ngoại lệ một chiều rồi kết thúc instance; nếu sau đó doanh nghiệp quyết định lập lại hồ sơ, trường hợp đó được xem là một instance mới.
-
-Các trường hợp ngoại lệ chính:
+Các trường hợp ngoại lệ:
 
 - Cảnh báo thiếu Port không đúng hoặc dữ liệu nhu cầu không đủ.
 - Vẫn còn Port hiện hữu có thể tái phân bổ nên không cần mở rộng.
@@ -115,7 +64,7 @@ Các trường hợp ngoại lệ chính:
 - Nghiệm thu không đạt.
 - GIS/Inventory không khớp với hồ sơ hoàn công.
 
-**3.3.1.7. Business Value**
+**Business Value**
 
 Quy trình tạo ra năm nhóm giá trị chính:
 
@@ -125,9 +74,7 @@ Quy trình tạo ra năm nhóm giá trị chính:
 - **Chất lượng và khả năng truy vết:** hạ tầng được nghiệm thu trước khi đưa vào trạng thái khả dụng.
 - **Độ tin cậy dữ liệu:** GIS/Inventory được coi là một đầu ra bắt buộc, giảm chênh lệch giữa hạ tầng vật lý và dữ liệu điều phối.
 
-FPT Telecom công khai trong năm 2026 rằng đầu tư hạ tầng và làm chủ công nghệ là nền tảng để nâng cao chất lượng kết nối và phát triển hạ tầng số. Điều này hỗ trợ việc lựa chọn “quản lý và mở rộng hạ tầng” như một quy trình quản lý phù hợp để phân tích trong bài học, nhưng không được dùng để suy diễn SOP nội bộ cụ thể.
-
-## 3.3.2. Mô hình hóa quy trình hiện tại BPMN As-is
+### 3.3.2. Mô hình hóa quy trình hiện tại BPMN As-is
 
 **Quy ước mô hình**
 
@@ -287,7 +234,7 @@ flowchart TB
 
 Việc tách kiểm kê vật tư và thiết kế thành hai nhánh song song phản ánh một cơ hội thực tế để rút ngắn Cycle Time. Các nhánh thất bại đều có điểm kết thúc rõ ràng, bám cùng nguyên tắc thiết kế với phần 3.2 của nhóm.
 
-## 3.3.3. Phân tích định tính
+### 3.3.3. Phân tích định tính
 
 **3.3.3.1. Phân tích giá trị gia tăng – VA/BVA/NVA**
 
@@ -398,7 +345,7 @@ Biện pháp xử lý ở tầng nguyên nhân gốc không phải chỉ “nh�
 
 Biện pháp xử lý là phân loại tuyến ngay tại bước khảo sát, sử dụng checklist theo từng loại quyền thi công và chuẩn bị permit sớm thay vì chỉ bắt đầu sau khi toàn bộ hồ sơ đầu tư đã hoàn tất.
 
-## 3.3.4. Phân tích định lượng
+### 3.3.4. Phân tích định lượng
 
 **3.3.4.1. Phạm vi và nguyên tắc giả thiết**
 
@@ -806,7 +753,7 @@ WT=7,10\text{ ngày (giả thiết)}
 
 Do đó, từ góc nhìn BPM, **giảm thời gian chờ ra quyết định và chờ quyền thi công có giá trị cải tiến lớn hơn việc chỉ tối ưu tốc độ kéo cáp**.
 
-## 3.3.5. Đề xuất To-be và kế hoạch hành động
+### 3.3.5. Đề xuất To-be và kế hoạch hành động
 
 **3.3.5.1. Nguyên tắc thiết kế To-be**
 
@@ -952,9 +899,9 @@ Khi đó, mô hình 3.3 sẽ chuyển từ một **mô hình học thuật để
 **[cite: 8]** FPT, thông tin lịch sử về hợp tác FPT Telecom–EVN Telecom liên quan sử dụng hệ thống cột điện và phối hợp khảo sát, xây lắp, vận hành hạ tầng. Nguồn chỉ được dùng để minh họa tính hợp lý của dependency bên ngoài, không được coi là mô tả SOP hiện hành.
 
 
-# 3.3. Quy trình quản lý 2: Quản lý và mở rộng hạ tầng viễn thông (Cáp quang & Port)
+## 3.3. Quy trình quản lý 2: Quản lý và mở rộng hạ tầng viễn thông (Cáp quang & Port)
 
-## 3.3.1. Mô tả quy trình
+### 3.3.1. Mô tả quy trình
 - **Tác nhân tham gia (Actor):** Bộ phận Kế hoạch & Đầu tư, Quản lý kỹ thuật hạ tầng (INF), Đối tác thi công/Kỹ thuật viên, Ban Giám đốc[cite: 1, 3].
 - **Khách hàng mục tiêu (Customer):** Khách hàng nội bộ (Bộ phận Kinh doanh - Sales, Bộ phận Kỹ thuật triển khai - TNC) và Khách hàng ngoại bộ (Người dùng Internet tại khu vực hết port)[cite: 3, 11].
 - **Luồng các bước thực hiện (Workflow):** Hệ thống ghi nhận cảnh báo thiếu hụt Port/vượt ngưỡng lưu lượng -> Khảo sát năng lực hạ tầng khu vực -> Lập phương án đầu tư và dự toán chi phí -> Trình duyệt ngân sách lên Ban Giám đốc -> Triển khai thi công (kéo cáp, lắp tủ ODF mới) -> Nghiệm thu chất lượng và cập nhật số lượng Port mới lên hệ thống bản đồ GIS[cite: 1, 8].
@@ -962,28 +909,28 @@ Khi đó, mô hình 3.3 sẽ chuyển từ một **mô hình học thuật để
   - *Kết quả tích cực (Positive Outcome):* Hạ tầng cáp quang và Port được mở rộng đúng tiến độ; hệ thống GIS cập nhật chính xác số lượng Port khả dụng, giải quyết triệt để lỗi thiếu Port (ISS-01) cho Đội thi công[cite: 1, 3, 11].
   - *Kết quả tiêu cực (Negative Outcome):* Dự án bị từ chối do quá ngân sách; thi công chậm trễ do vướng giấy phép ngầm hóa/treo cáp điện lực; cập nhật sai lệch dữ liệu Port lên GIS gây lỗi điều phối[cite: 1, 11].
 
-## 3.3.2. Mô hình hóa quy trình hiện tại (Sơ đồ BPMN - As-is)
+### 3.3.2. Mô hình hóa quy trình hiện tại (Sơ đồ BPMN - As-is)
 *(Ghi chú cho nhóm: Chèn hình ảnh sơ đồ BPMN chi tiết tại đây. Nhớ thiết kế >7 Gateways, ví dụ: Gateway duyệt ngân sách, Gateway kiểm tra giấy phép thi công, Gateway kết quả nghiệm thu)*[cite: 3, 12].
 
-## 3.3.3. Phân tích định tính
-### 3.3.3.1. Phân tích giá trị gia tăng (VA, BVA, NVA)
+### 3.3.3. Phân tích định tính
+#### 3.3.3.1. Phân tích giá trị gia tăng (VA, BVA, NVA)
 - **Value-Adding (VA):** Thi công kéo cáp quang dã chiến/ngầm, Lắp đặt và hàn nối hộp ODF[cite: 3].
 - **Business Value-Adding (BVA):** Khảo sát hiện trạng, Lập dự toán vật tư, Trình duyệt hồ sơ, Nghiệm thu hạ tầng[cite: 3].
 - **Non-Value Adding (NVA):** Thời gian chờ đợi phê duyệt nhiều cấp, Thời gian chờ giấy phép thi công từ cơ quan nhà nước, Di chuyển qua lại giữa kho và hiện trường để bù vật tư thiếu[cite: 3].
 
-### 3.3.3.2. Phân tích lãng phí (Lean 7 Wastes)
+#### 3.3.3.2. Phân tích lãng phí (Lean 7 Wastes)
 - **Thời gian chờ/Hold:** NVA lớn nhất nằm ở độ trễ từ lúc nhận ticket báo hết Port đến lúc có quyết định duyệt ngân sách đầu tư[cite: 3, 4].
 - **Sự vận chuyển (Transportation):** Chuyển vật tư (cáp, bộ chia, tủ ODF) từ kho trung tâm đến các tuyến đường thi công xa[cite: 3].
 - **Làm lỗi/Làm lại (Defects/Rework):** Khảo sát sai lệch vị trí dẫn đến thiết kế dự toán sai, thi công không đạt chuẩn suy hao quang phải hàn lại[cite: 3, 4].
 
-### 3.3.3.3. Phân tích các bên liên quan (Stakeholder Analysis) và Sổ đăng ký vấn đề (Issue Register)
+#### 3.3.3.3. Phân tích các bên liên quan (Stakeholder Analysis) và Sổ đăng ký vấn đề (Issue Register)
 - **Sổ đăng ký vấn đề (Issue Register):**
   - *ISS-01:* Độ trễ cập nhật dữ liệu Port khả dụng lên GIS sau khi thi công xong (Nguyên nhân gốc rễ gây ra khảo sát ảo ở quy trình Core)[cite: 3, 4].
   - *ISS-02:* Hao hụt vật tư cáp dã chiến trong quá trình kéo cáp không sát với dự toán[cite: 4, 8].
   - *ISS-03:* Khó khăn trong việc xin phép hạ tầng cột điện của điện lực địa phương[cite: 8].
 
-## 3.3.4. Phân tích định lượng
-### 3.3.4.1. Định lượng Thời gian (Cycle time, Wait time)
+### 3.3.4. Phân tích định lượng
+#### 3.3.4.1. Định lượng Thời gian (Cycle time, Wait time)
 - Phân tích và đo lường khoảng biến thiên thời gian thực hiện (Process Time) của tác vụ thi công và Thời gian chờ (Wait Time) khi duyệt hồ sơ. Tính tổng thời gian chu kỳ (Cycle Time) hoàn thành 1 dự án mở rộng trạm/port[cite: 3, 4].
-### 3.3.4.2. Định lượng Chi phí
+#### 3.3.4.2. Định lượng Chi phí
 - Ước tính các thành phần chi phí: Chi phí vật tư cố định (Cáp, tủ ODF, Splitter), Chi phí nhân công (công thợ kéo cáp/hàn nối quang), và Tổn thất cơ hội/doanh thu (chi phí mất khách hàng do không có mạng/port để lắp đặt)[cite: 3, 4].
