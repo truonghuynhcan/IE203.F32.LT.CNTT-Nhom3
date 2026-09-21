@@ -2,21 +2,34 @@
 
 ### 3.3.1. Mô tả quy trình
 
-**Tác nhân tham gia – Actor**  
-**Bộ phận Kinh doanh – Sales / Kỹ thuật triển khai thuê bao – TNC**: Gửi nhu cầu, ticket hoặc phản ánh khu vực không còn năng lực triển khai; là khách hàng nội bộ sử dụng kết quả mở rộng.  
-**Quản lý kỹ thuật hạ tầng – INF**: Process Owner; xác minh cảnh báo, khảo sát, thiết kế sơ bộ, điều phối thi công, nghiệm thu và xác nhận cập nhật GIS.  
-**Bộ phận Kế hoạch & Đầu tư / Tài chính**: Kiểm tra dự toán, nguồn vốn, hiệu quả đầu tư và tính đầy đủ của hồ sơ.  
-**Kho / Quản lý vật tư**: Kiểm kê tồn kho, xác nhận vật tư khả dụng, giữ/chuyển vật tư và đối soát xuất dùng.  
-**Ban Giám đốc / Cấp có thẩm quyền**: Phê duyệt hoặc từ chối đề xuất đầu tư theo hạn mức.  
-**Đối tác thi công / Kỹ thuật viên hiện trường**: Kéo cáp, lắp hộp/ODF, hàn nối, đo kiểm và sửa lỗi thi công.  
-**Cơ quan/đơn vị quản lý hạ tầng bên ngoài**: Xử lý giấy phép, quyền thi công, quyền sử dụng tuyến/cột/ống cống khi phát sinh.  
-**Hệ thống GIS / Inventory / NOC**: Ghi nhận trạng thái hạ tầng, số Port khả dụng, vị trí tài sản và bằng chứng nghiệm thu.
+#### 3.3.1.1. Các tác nhân tham gia – Actor
 
-**Khách hàng mục tiêu**  
-**Khách hàng nội bộ – Sales:** Bộ phận Sales cần biết chính xác khu vực nào đã đủ điều kiện để bán và triển khai dịch vụ, đồng thời biết thời điểm Port và hạ tầng mạng sẵn sàng. Kết quả của quy trình giúp Sales hạn chế tiếp nhận hoặc cam kết lắp đặt tại những khu vực chưa đủ năng lực hạ tầng.  
-**Khách hàng nội bộ – TNC/Kỹ thuật triển khai:** Đội ngũ kỹ thuật cần Port, tuyến cáp và các thông tin hạ tầng thực tế phù hợp với dữ liệu được ghi nhận trên hệ thống. Khi hạ tầng đã được mở rộng và cập nhật chính xác, kỹ thuật viên có thể triển khai thuê bao mà không phải xử lý lại do thiếu Port, thiếu tuyến cáp hoặc sai lệch dữ liệu.  
-**Khách hàng ngoại bộ – người dùng Internet:** Người đăng ký dịch vụ là đối tượng hưởng lợi cuối cùng từ việc mở rộng hạ tầng. Khi khu vực trước đó thiếu Port hoặc chưa đủ năng lực mạng được bổ sung hạ tầng, khách hàng có thể được cung cấp dịch vụ sớm hơn và giảm thời gian chờ lắp đặt.  
-**Quản lý doanh nghiệp:** Ban quản lý cần kết quả của quy trình để theo dõi hiệu quả sử dụng vốn đầu tư hạ tầng, kiểm soát CAPEX, tiến độ triển khai, chất lượng công trình và mức độ khai thác tài sản sau đầu tư. Qua đó, doanh nghiệp có cơ sở đánh giá liệu việc mở rộng hạ tầng có đáp ứng đúng nhu cầu thực tế và mang lại hiệu quả vận hành hay không.
+**Bộ phận Kinh doanh (Sales)** là tác nhân khởi tạo nhu cầu của quy trình. Sales ghi nhận nhu cầu phát triển thuê bao, tình trạng thiếu tài nguyên hoặc nhu cầu mở rộng vùng phủ và gửi yêu cầu mở rộng hạ tầng.
+
+**Bộ phận Kỹ thuật hạ tầng (INF)** là tác nhân chịu trách nhiệm chính trong giai đoạn đánh giá kỹ thuật. INF kiểm tra hiện trạng hạ tầng trên hệ thống, khảo sát thực tế, đánh giá khả năng đáp ứng, lập phương án kỹ thuật và xây dựng dự toán đầu tư.
+
+**Kế hoạch & Đầu tư** chịu trách nhiệm thẩm định phương án mở rộng. Bộ phận này đánh giá tính cần thiết, khả thi và ngân sách trước khi đưa ra quyết định cho phép hoặc không cho phép tiếp tục triển khai.
+
+**Kho vật tư** chịu trách nhiệm chuẩn bị vật tư và thiết bị cần thiết theo phương án đã được phê duyệt.
+
+**Bộ phận phụ trách nguồn lực/đội kỹ thuật** chịu trách nhiệm phân công nhân sự và bố trí đội triển khai tại hiện trường.
+
+**Đội thi công/Kỹ thuật viên** trực tiếp thực hiện kéo cáp, đấu nối, lắp đặt thiết bị, kiểm tra tín hiệu, nghiệm thu công trình và xử lý lỗi kỹ thuật khi phát sinh.
+
+**Hệ thống GIS/CRM** hỗ trợ ghi nhận yêu cầu ban đầu, lưu trữ thông tin hạ tầng và cập nhật trạng thái tài nguyên mạng sau khi công trình hoàn thành.
+
+
+#### 3.3.1.2. Khách hàng mục tiêu – Customer
+
+Khách hàng của quy trình quản lý và mở rộng hạ tầng bao gồm cả khách hàng nội bộ và khách hàng ngoại bộ.
+
+**Khách hàng nội bộ – Sales:** Bộ phận Sales cần biết khu vực nào đã đủ điều kiện để bán và triển khai dịch vụ, đồng thời cần biết thời điểm Port và tài nguyên mạng đã sẵn sàng. Khi quy trình hoàn tất, Sales có cơ sở để tiếp tục phát triển thuê bao tại khu vực vừa được mở rộng.
+
+**Khách hàng nội bộ – TNC/Kỹ thuật triển khai:** Đội ngũ kỹ thuật triển khai cần Port, tuyến cáp và thiết bị truy cập thực tế phù hợp với dữ liệu được ghi nhận trên hệ thống. Kết quả của quy trình giúp giảm tình trạng nhận lệnh triển khai nhưng thực tế lại thiếu Port, thiếu tuyến cáp hoặc dữ liệu hệ thống không phù hợp với hiện trường.
+
+**Khách hàng ngoại bộ – người dùng Internet:** Người đăng ký dịch vụ là đối tượng hưởng lợi cuối cùng từ việc mở rộng hạ tầng. Những khu vực trước đây không thể tiếp nhận thêm thuê bao do thiếu năng lực mạng có thể được phục vụ sau khi hạ tầng được mở rộng.
+
+**Quản lý doanh nghiệp:** Ban quản lý sử dụng kết quả của quy trình để kiểm soát nhu cầu đầu tư, CAPEX, tiến độ triển khai, chất lượng công trình và khả năng khai thác tài sản sau đầu tư.
 
 
 ###### Bảng 3. : Luồng các bước thực hiện quy trình quản lý và mở rộng hạ tầng viễn thông
@@ -55,61 +68,64 @@
 | 30 | END - Cập nhật thất bại | Hệ thống GIS/CRM | End Event | Dữ liệu hạ tầng không thể cập nhật thành công sau khi xử lý lỗi. | Kết thúc quy trình. |
 
 
-**Kịch bản thành công**
+### Kịch bản thành công
 
-Một process instance được xem là hoàn thành thành công khi:
+Một process instance được xem là hoàn thành thành công khi nhu cầu mở rộng hạ tầng đã được xác định là cần thiết, phương án đầu tư được phê duyệt, công tác chuẩn bị và thi công được thực hiện đầy đủ, công trình đạt yêu cầu nghiệm thu và dữ liệu hạ tầng được cập nhật thành công trên hệ thống.
 
-- Nhu cầu mở rộng được xác minh hợp lệ.
-- Không còn giải pháp tái phân bổ Port hiện hữu phù hợp.
-- Khảo sát và phương án kỹ thuật đạt yêu cầu.
-- Vật tư và ngân sách được bảo đảm.
-- Quyền thi công cần thiết được chấp thuận.
-- Thi công và đo kiểm đạt tiêu chí nghiệm thu.
-- Dữ liệu GIS/Inventory khớp với hiện trạng vật lý.
-- Sales/TNC nhận được thông báo Port đã sẵn sàng.
+Cụ thể, quy trình phải thỏa mãn các điều kiện sau:
 
-**Kịch bản thất bại/ngoại lệ**
+- Hạ tầng hiện hữu được đánh giá là không còn đủ khả năng đáp ứng nhu cầu.
+- Phương án kỹ thuật và dự toán đầu tư được lập đầy đủ.
+- Kế hoạch mở rộng được Bộ phận Kế hoạch & Đầu tư phê duyệt.
+- Vật tư, thiết bị và nhân lực phục vụ triển khai đã sẵn sàng.
+- Công tác thi công được thực hiện theo phương án đã phê duyệt.
+- Kết quả kiểm tra tín hiệu và chất lượng công trình đạt yêu cầu nghiệm thu.
+- Thông tin về tuyến cáp, thiết bị, Port và trạng thái khai thác được cập nhật thành công trên GIS/CRM.
+- Hạ tầng mới được ghi nhận ở trạng thái sẵn sàng để các bộ phận Sales và Kỹ thuật triển khai tiếp tục khai thác.
 
-Các trường hợp ngoại lệ:
+Khi toàn bộ các điều kiện trên được đáp ứng, process instance kết thúc tại trạng thái **Hoàn tất mở rộng hạ tầng**.
 
-- Cảnh báo thiếu Port không đúng hoặc dữ liệu nhu cầu không đủ.
-- Vẫn còn Port hiện hữu có thể tái phân bổ nên không cần mở rộng.
-- Khảo sát thiếu dữ liệu hoặc phương án không khả thi.
-- Vật tư không đủ và không thể điều chuyển trong phạm vi instance hiện tại.
-- Chi phí vượt hạn mức hoặc hồ sơ không được phê duyệt.
-- Chưa có giấy phép/quyền thi công.
-- Điều kiện thi công không bảo đảm an toàn.
-- Nghiệm thu không đạt.
-- GIS/Inventory không khớp với hồ sơ hoàn công.
+### Kịch bản thất bại/ngoại lệ
 
-**Business Value**
+Trong quá trình thực hiện, process instance có thể kết thúc hoặc chuyển sang nhánh xử lý ngoại lệ tại một số điểm kiểm soát.
 
-Quy trình tạo ra năm nhóm giá trị chính:
+Trường hợp thứ nhất, sau khi kiểm tra và khảo sát, nếu hạ tầng hiện tại vẫn đáp ứng nhu cầu thì quy trình kết thúc tại trạng thái **Không cần mở rộng hạ tầng**. Đây không phải lỗi kỹ thuật mà là trường hợp yêu cầu mở rộng không còn cần thiết sau khi được đánh giá.
 
-- **Khả năng phục vụ khách hàng:** chuyển khu vực “không đủ Port” thành khu vực có thể triển khai dịch vụ.
-- **Giảm lead time triển khai thuê bao:** Sales/TNC có thông tin rõ về năng lực và tiến độ mở rộng.
-- **Kiểm soát CAPEX:** đầu tư được gắn với nhu cầu, thiết kế và dự toán trước khi giải ngân.
-- **Chất lượng và khả năng truy vết:** hạ tầng được nghiệm thu trước khi đưa vào trạng thái khả dụng.
-- **Độ tin cậy dữ liệu:** GIS/Inventory được coi là một đầu ra bắt buộc, giảm chênh lệch giữa hạ tầng vật lý và dữ liệu điều phối.
+Trường hợp thứ hai, nếu hạ tầng không đáp ứng nhưng phương án kỹ thuật hoặc ngân sách không được Bộ phận Kế hoạch & Đầu tư phê duyệt thì quy trình kết thúc tại trạng thái **Không được phê duyệt đầu tư**.
 
+Trường hợp thứ ba, trong giai đoạn thi công và nghiệm thu, nếu công trình không đạt yêu cầu thì Đội thi công/Kỹ thuật viên phải thực hiện xử lý lỗi kỹ thuật. Nếu lỗi không thể khắc phục, quy trình kết thúc tại trạng thái **Không đạt nghiệm thu**.
+
+Trường hợp thứ tư, công trình đã đạt yêu cầu nghiệm thu nhưng quá trình cập nhật thông tin hạ tầng trên GIS/CRM phát sinh lỗi. Hệ thống thực hiện xử lý lỗi dữ liệu; nếu vẫn không thể cập nhật thành công, quy trình kết thúc tại trạng thái **Cập nhật thất bại**.
+
+Ngoài các trạng thái kết thúc trên, một số vấn đề có thể phát sinh trong quá trình thực hiện như dữ liệu hiện trạng chưa đầy đủ, kết quả khảo sát chưa chính xác, vật tư hoặc nhân lực chưa sẵn sàng, lỗi kỹ thuật trong thi công hoặc sai lệch giữa dữ liệu hệ thống và hiện trạng thực tế. Các trường hợp này cần được xử lý trước khi quy trình có thể tiếp tục sang bước tiếp theo.
+
+### Business Value
+
+Quy trình quản lý và mở rộng hạ tầng tạo ra các nhóm giá trị chính cho hoạt động kinh doanh và vận hành của doanh nghiệp.
+
+**Khả năng phục vụ khách hàng:** Quy trình giúp chuyển các khu vực đang thiếu năng lực hạ tầng, thiếu Port hoặc chưa đủ vùng phủ thành khu vực có khả năng tiếp nhận và triển khai thuê bao mới. Qua đó, doanh nghiệp có thể mở rộng khả năng cung cấp dịch vụ tại những khu vực có nhu cầu thực tế.
+
+**Hỗ trợ hoạt động Sales và triển khai kỹ thuật:** Sau khi quy trình hoàn tất, Sales và đội ngũ kỹ thuật có cơ sở rõ ràng để xác định khu vực đã sẵn sàng triển khai. Điều này giúp hạn chế tình trạng tiếp nhận yêu cầu bán hàng nhưng hạ tầng thực tế chưa đáp ứng.
+
+**Kiểm soát CAPEX:** Việc đầu tư không được thực hiện ngay khi phát sinh nhu cầu mà phải trải qua kiểm tra hiện trạng, khảo sát, lập phương án kỹ thuật, dự toán và phê duyệt. Cơ chế này giúp doanh nghiệp gắn quyết định đầu tư với nhu cầu thực tế và kiểm soát chi phí trước khi triển khai.
+
+**Kiểm soát chất lượng hạ tầng:** Công trình sau thi công phải được kiểm tra tín hiệu và chất lượng trước khi được xem là hoàn thành. Nếu không đạt, quy trình chuyển sang nhánh xử lý lỗi kỹ thuật thay vì đưa tài nguyên chưa đạt chuẩn vào khai thác.
+
+**Đảm bảo độ tin cậy của dữ liệu:** Việc cập nhật GIS/CRM được xem là một đầu ra bắt buộc của quy trình. Hạ tầng chỉ được coi là hoàn tất khi thông tin tuyến cáp, thiết bị, Port và trạng thái khai thác đã được ghi nhận thành công trên hệ thống. Điều này giúp giảm chênh lệch giữa hạ tầng vật lý thực tế và dữ liệu được sử dụng cho bán hàng, điều phối và triển khai kỹ thuật.
 ### 3.3.2. Mô hình hóa quy trình hiện tại BPMN As-is
 
+###### Bảng 3. : Danh sách Gateway và logic kiểm soát
 
-**Danh sách Gateway và logic kiểm soát**
+| Gateway | Loại Gateway | Điểm kiểm soát | Logic kiểm soát | Nhánh/Kết quả |
+|---|---|---|---|---|
+| **GW1 – Hạ tầng hiện tại đáp ứng?** | Exclusive Gateway (XOR) | Sau bước đánh giá khả năng đáp ứng hạ tầng | Kiểm tra hạ tầng hiện hữu có đủ tài nguyên mạng, Port và khả năng phục vụ nhu cầu phát sinh hay không. | **Có:** kết thúc quy trình tại “Không cần mở rộng hạ tầng”. **Không:** tiếp tục lập phương án kỹ thuật và dự toán đầu tư. |
+| **GW2 – Kế hoạch được phê duyệt?** | Exclusive Gateway (XOR) | Sau bước thẩm định kế hoạch mở rộng | Kiểm soát quyết định đầu tư dựa trên tính cần thiết, tính khả thi của phương án và ngân sách dự kiến. | **Có:** chuyển sang chuẩn bị vật tư và nguồn lực. **Không:** kết thúc tại “Không được phê duyệt đầu tư”. |
+| **GW3 – Phân tách chuẩn bị triển khai** | Parallel Gateway (AND – Split) | Sau bước chuẩn bị vật tư và nguồn lực | Tách một luồng thực hiện thành hai luồng song song nhằm rút ngắn thời gian chuẩn bị trước thi công. Cả hai nhánh đều được kích hoạt đồng thời. | **Nhánh 1:** Chuẩn bị thiết bị. **Nhánh 2:** Phân công nhân lực. |
+| **GW4 – Hoàn tất chuẩn bị triển khai** | Parallel Gateway (AND – Join) | Sau hai hoạt động chuẩn bị song song | Đồng bộ hai luồng được tạo từ GW3. Quy trình chỉ được tiếp tục khi cả hai hoạt động chuẩn bị thiết bị và phân công nhân lực đều hoàn thành. | Khi **cả hai nhánh hoàn tất**, quy trình chuyển sang thi công mở rộng hạ tầng. |
+| **GW5 – Nghiệm thu đạt?** | Exclusive Gateway (XOR) | Sau bước kiểm tra tín hiệu và chất lượng công trình | Kiểm soát chất lượng công trình sau thi công, xác định kết quả có đáp ứng yêu cầu kỹ thuật và điều kiện nghiệm thu hay không. | **Đạt:** chuyển sang cập nhật dữ liệu hạ tầng trên GIS/CRM. **Không:** chuyển sang xử lý lỗi kỹ thuật. |
+| **GW6 – Cập nhật dữ liệu thành công?** | Exclusive Gateway (XOR) | Sau bước cập nhật dữ liệu hạ tầng trên GIS/CRM | Kiểm tra dữ liệu về tuyến cáp, thiết bị, Port và trạng thái khai thác đã được ghi nhận thành công trên hệ thống hay chưa. | **Có:** kết thúc thành công tại “Hoàn tất mở rộng hạ tầng”. **Không:** chuyển sang xử lý lỗi dữ liệu, sau đó kết thúc tại “Cập nhật thất bại” nếu không thể hoàn tất trong instance hiện tại. |
+| **GW7 – Tình trạng khắc phục lỗi?** | Exclusive Gateway (XOR) | Sau bước xử lý lỗi kỹ thuật | Đánh giá khả năng khắc phục các lỗi được phát hiện trong quá trình kiểm tra và nghiệm thu công trình. | **Đã khắc phục:** chuyển sang xác nhận kết quả khắc phục. **Không thể khắc phục:** kết thúc tại “Không đạt nghiệm thu”. |
 
-| Gateway | Loại | Điều kiện | Nhánh đạt | Nhánh không đạt |
-| --- | --- | --- | --- | --- |
-| GW1 | XOR | Cảnh báo/nhu cầu hợp lệ? | Kiểm tra năng lực | Terminate |
-| GW2 | XOR | Port hiện hữu còn đủ? | Không cần mở rộng, kết thúc | Tiếp tục khảo sát |
-| GW3 | XOR | Khảo sát đầy đủ? | AND Split | Ghi nhận thiếu dữ liệu → Terminate |
-| GW4 | XOR | Phương án khả thi kỹ thuật? | AND Join | Ghi nhận không khả thi → Terminate |
-| GW5 | XOR | Vật tư đủ? | AND Join | Ghi nhận thiếu vật tư → Terminate |
-| GW6 | XOR | Chi phí/nguồn vốn phù hợp? | Trình phê duyệt | Terminate |
-| GW7 | XOR | Ngân sách được duyệt? | Xin phép/quyền thi công | Terminate |
-| GW8 | XOR | Quyền thi công được chấp thuận? | Xuất vật tư | Terminate |
-| GW9 | XOR | Điều kiện thi công an toàn? | Thi công | Terminate |
-| GW10 | XOR | Nghiệm thu đạt? | Cập nhật GIS | Terminate |
-| GW11 | XOR | GIS khớp hoàn công? | Hoàn thành | Terminate |
 
 **Nhận xét mô hình As-is**
 
@@ -124,12 +140,6 @@ Việc tách kiểm kê vật tư và thiết kế thành hai nhánh song song p
 ### 3.3.3. Phân tích định tính
 
 **3.3.3.1. Phân tích giá trị gia tăng – VA/BVA/NVA**
-
-Quy ước sử dụng trong bài:
-
-- **VA – Value-Adding:** trực tiếp tạo thêm khả năng cung cấp dịch vụ cho khách hàng.
-- **BVA – Business Value-Adding:** không trực tiếp làm tăng giá trị sử dụng của dịch vụ nhưng cần cho quản trị, tài chính, an toàn, pháp lý hoặc chất lượng.
-- **NVA – Non-Value-Adding:** không tạo thêm giá trị và cần giảm hoặc loại bỏ nếu có thể.
 
 | STT | Hoạt động | Phân loại | Lý do | Hướng xử lý |
 | ---: | --- | --- | --- | --- |
@@ -479,51 +489,6 @@ Sơ đồ BPMN thứ hai copy đường đi chính của As-is nhưng tập trun
 - Bước kiểm kê kho/vật tư.
 - Hai bottleneck được tô nổi.
 - Tổng chi phí node bằng tổng chi phí dự án.
-
-```mermaid
-flowchart LR
-    classDef normal fill:#ffffff,stroke:#333,stroke-width:1px;
-    classDef bottleneck fill:#ffe0e0,stroke:#b30000,stroke-width:3px;
-    classDef value fill:#e9f7ef,stroke:#2d7d46,stroke-width:2px;
-    classDef event fill:#ffffff,stroke:#333,stroke-width:2px;
-
-    S([Start]):::event
-
-    T1["Xác minh cảnh báo<br/>CT: 0,50 ngày (giả thiết)<br/>Cost: 150.000 VNĐ (giả thiết)"]:::normal
-
-    T2["Khảo sát hiện trường<br/>CT: 2,00 ngày (giả thiết)<br/>Cost: 1.500.000 VNĐ (giả thiết)"]:::normal
-
-    A1{"AND"}:::normal
-
-    T3["Kiểm kê kho/vật tư<br/>CT: 1,00 ngày (giả thiết)<br/>Cost: 250.000 VNĐ (giả thiết)"]:::normal
-
-    T4["Thiết kế phương án<br/>CT: 2,00 ngày (giả thiết)<br/>Cost: 1.800.000 VNĐ (giả thiết)"]:::normal
-
-    A2{"AND"}:::normal
-
-    T5["Lập dự toán/hồ sơ<br/>CT: 1,50 ngày (giả thiết)<br/>Cost: 1.000.000 VNĐ (giả thiết)"]:::normal
-
-    T6["PHÊ DUYỆT NGÂN SÁCH<br/>CT: 3,00 ngày (giả thiết)<br/>Cost: 500.000 VNĐ (giả thiết)<br/>WT: 2,60 ngày (giả thiết)"]:::bottleneck
-
-    T7["PERMIT / QUYỀN THI CÔNG<br/>CT: 5,00 ngày (giả thiết)<br/>Cost: 4.000.000 VNĐ (giả thiết)<br/>WT: 4,50 ngày (giả thiết)"]:::bottleneck
-
-    T8["Xuất vật tư<br/>CT: 1,00 ngày (giả thiết)<br/>Cost: 52.400.000 VNĐ (giả thiết)"]:::normal
-
-    T9["Thi công kéo cáp/lắp/hàn<br/>CT: 4,00 ngày (giả thiết)<br/>Cost: 8.500.000 VNĐ (giả thiết)"]:::value
-
-    T10["Đo kiểm & nghiệm thu<br/>CT: 1,00 ngày (giả thiết)<br/>Cost: 3.500.000 VNĐ (giả thiết)"]:::normal
-
-    T11["Cập nhật GIS/Port<br/>CT: 0,50 ngày (giả thiết)<br/>Cost: 400.000 VNĐ (giả thiết)"]:::normal
-
-    T12["Thông báo Sales/TNC<br/>CT: 0,25 ngày (giả thiết)<br/>Cost: 400.000 VNĐ (giả thiết)"]:::normal
-
-    E([End: Port sẵn sàng]):::event
-
-    S --> T1 --> T2 --> A1
-    A1 --> T3 --> A2
-    A1 --> T4 --> A2
-    A2 --> T5 --> T6 --> T7 --> T8 --> T9 --> T10 --> T11 --> T12 --> E
-```
 
 **Kiểm tra tổng chi phí ghi trên các node**
 
