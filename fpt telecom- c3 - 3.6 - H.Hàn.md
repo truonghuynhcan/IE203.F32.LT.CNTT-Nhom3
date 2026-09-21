@@ -500,7 +500,7 @@ Mô hình quy trình đáp ứng chuẩn mực phân tầng độ phức tạp n
 
 #### **3.6.2.2. Sơ đồ BPMN 2.0 As-Is - Quy trình Quản lý kho và xuất vật tư**
 
-![Sơ đồ BPMN 2.0 As-Is Quy trình Quản lý kho và xuất vật tư](./assets/diagrams/quan_ly_kho/SoDo.jpg)
+![Sơ đồ BPMN 2.0 As-Is Quy trình Quản lý kho và xuất vật tư](./assets/diagrams/quan_ly_kho/SoDo.png)
 
 ---
 
