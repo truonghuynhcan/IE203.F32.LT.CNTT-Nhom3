@@ -229,661 +229,244 @@ Nguyên nhân chính khiến quy trình chưa đạt hiệu quả tối ưu là 
 | Khảo sát lặp lại nhiều lần | Sử dụng dữ liệu hiện trạng hạ tầng số để hỗ trợ quyết định |
 | Khó theo dõi tiến độ | Xây dựng dashboard giám sát trạng thái mở rộng hạ tầng |
 
-#### 3.3.2.3. Phân tích định lượng
+## 3.3.2.3. Phân tích định lượng
 
-hình sơ đồ
+Phân tích định lượng được thực hiện nhằm đánh giá hiệu quả vận hành của quy trình **quản lý và mở rộng hạ tầng** thông qua các chỉ số đo lường cụ thể bao gồm thời gian xử lý, chất lượng quyết định, hiệu suất quy trình và chi phí nguồn lực.
 
-# 3.3.2.3.1. Phân tích thời gian (Time Analysis)
+Các số liệu trong phần phân tích được xây dựng theo hướng giả định mô phỏng dựa trên đặc điểm vận hành của doanh nghiệp viễn thông, nhằm phục vụ mục đích phân tích mô hình BPMN, nhận diện điểm nghẽn và đề xuất cải tiến quy trình.
 
-Quy trình mở rộng hạ tầng bao gồm nhiều giai đoạn từ khảo sát nhu cầu, đánh giá hiện trạng, lập kế hoạch đầu tư, phê duyệt, thi công và cập nhật dữ liệu.
+---
 
-| STT | Hoạt động trong quy trình | Thời gian xử lý (Processing Time) | Thời gian chờ (Waiting Time) | Tổng thời gian (Cycle Time) |
+# 3.3.2.3.1. Phạm vi và giả định
+
+Phân tích được thực hiện trên một **instance mở rộng hạ tầng mạng cho một khu vực mới**. Quy trình bắt đầu từ bước khảo sát nhu cầu mở rộng, đánh giá khả năng đáp ứng hạ tầng hiện tại, lập kế hoạch đầu tư, phê duyệt, triển khai thi công và kết thúc khi cập nhật trạng thái hạ tầng trên hệ thống GIS.
+
+Các giả định trong mô hình:
+
+| Nội dung | Giả định |
+|---|---|
+| Phạm vi phân tích | Một dự án mở rộng hạ tầng mạng tại một khu vực mới |
+| Quy mô | Mở rộng tuyến cáp quang và bổ sung khả năng cung cấp dịch vụ |
+| Dữ liệu thời gian | Số liệu giả định dựa trên đặc điểm vận hành doanh nghiệp viễn thông |
+| Vòng lặp xử lý | Không có vòng lặp trong cùng một instance |
+| Xử lý lại | Không tính chi phí và thời gian rework trong cùng instance |
+| Kết quả quy trình | Instance hoàn thành khi hạ tầng được nghiệm thu và cập nhật GIS |
+
+---
+
+# 3.3.2.3.2. Phân tích thời gian (Time Analysis)
+
+Thời gian của quy trình được phân tích dựa trên hai thành phần:
+
+- **Processing Time (PT):** thời gian thực hiện công việc thực tế.
+- **Waiting Time (WT):** thời gian chờ giữa các bước xử lý.
+- **Cycle Time (CT):** tổng thời gian từ khi bắt đầu đến khi kết thúc hoạt động.
+
+| STT | Hoạt động trong quy trình | Processing Time (PT) | Waiting Time (WT) | Cycle Time (CT) |
 |---|---|---:|---:|---:|
 | 1 | Khảo sát nhu cầu mở rộng khu vực | 3 ngày | 1 ngày | 4 ngày |
-| 2 | Đánh giá độ phủ cáp quang và Port hiện tại | 2 ngày | 1 ngày | 3 ngày |
+| 2 | Đánh giá độ phủ cáp quang và số lượng Port hiện tại | 2 ngày | 1 ngày | 3 ngày |
 | 3 | Lập dự án đầu tư mở rộng hạ tầng | 5 ngày | 3 ngày | 8 ngày |
 | 4 | Phê duyệt kế hoạch triển khai | 2 ngày | 7 ngày | 9 ngày |
 | 5 | Chuẩn bị nguồn lực và vật tư | 3 ngày | 2 ngày | 5 ngày |
 | 6 | Thi công mở rộng hạ tầng mạng | 10 ngày | 2 ngày | 12 ngày |
 | 7 | Kiểm tra nghiệm thu và cập nhật GIS | 3 ngày | 1 ngày | 4 ngày |
-| **Tổng** | | **28 ngày** | **17 ngày** | **45 ngày** |
+| **Tổng cộng** | | **28 ngày** | **17 ngày** | **45 ngày** |
 
-### Nhận xét:
+## Tính toán thời gian
 
-Qua phân tích thời gian, tổng Cycle Time của quy trình mở rộng hạ tầng là khoảng **45 ngày**, trong đó thời gian xử lý thực tế chiếm **28 ngày**, còn thời gian chờ chiếm **17 ngày**.
+Tổng Cycle Time:
+
+\[
+CT = PT + WT
+\]
+
+\[
+CT = 28 + 17 = 45 \text{ ngày}
+\]
 
 Tỷ lệ thời gian chờ:
 
-$$
-Waiting\ Time\ Ratio = \frac{17}{45} \times 100\% = 37.8\%
-$$
+\[
+Waiting\ Ratio = \frac{WT}{CT} \times 100\%
+\]
 
-Kết quả cho thấy phần lớn thời gian lãng phí tập trung ở các bước phê duyệt dự án và chờ phối hợp giữa các bộ phận.
-
-### Đề xuất cải thiện:
-
-| Vấn đề | Giải pháp |
-|---|---|
-| Thời gian phê duyệt kéo dài | Áp dụng workflow phê duyệt điện tử trên BPMS |
-| Chờ đồng bộ dữ liệu hạ tầng | Tích hợp GIS với hệ thống quản lý tài sản |
-| Thiếu theo dõi tiến độ | Xây dựng dashboard quản lý trạng thái dự án |
-
----
-
-# 3.3.2.3.2. Phân tích chất lượng (Quality Analysis)
-
-Chất lượng quy trình được đánh giá thông qua số lượng lỗi phát sinh trong quá trình khảo sát, triển khai và nghiệm thu.
-
-Giả định trong 100 dự án mở rộng hạ tầng:
-
-| Loại lỗi | Số lượng phát sinh | Tỷ lệ | Nguyên nhân |
-|---|---:|---:|---|
-| Sai lệch dữ liệu khảo sát hiện trạng | 8 | 8% | Dữ liệu GIS chưa cập nhật kịp thời |
-| Thiếu vật tư khi triển khai | 5 | 5% | Dự báo nhu cầu vật tư chưa chính xác |
-| Thi công phải thực hiện lại | 7 | 7% | Sai sót trong quá trình triển khai |
-| Chậm bàn giao dữ liệu sau hoàn thành | 10 | 10% | Cập nhật thủ công giữa các bộ phận |
-
-Tổng tỷ lệ phát sinh vấn đề:
-
-$$
-Error\ Rate = \frac{8+5+7+10}{100}=30\%
-$$
+\[
+Waiting\ Ratio = \frac{17}{45} \times 100\% = 37,8\%
+\]
 
 ### Nhận xét:
 
-Tỷ lệ phát sinh vấn đề trong quy trình khoảng **30%**, trong đó nhóm lỗi liên quan đến dữ liệu và bàn giao thông tin chiếm tỷ lệ cao nhất.
+Kết quả cho thấy quy trình mất tổng cộng **45 ngày** để hoàn thành một instance mở rộng hạ tầng. Trong đó, thời gian chờ chiếm khoảng **37,8%**, tập trung chủ yếu tại bước phê duyệt kế hoạch triển khai và quá trình phối hợp giữa các bộ phận.
 
-### Đề xuất cải thiện:
+Điểm gây ảnh hưởng lớn nhất là bước:
 
-| Vấn đề | Giải pháp |
-|---|---|
-| Sai lệch dữ liệu khảo sát | Đồng bộ dữ liệu GIS theo thời gian thực |
-| Thiếu vật tư | Tích hợp quản lý kho với kế hoạch triển khai |
-| Thi công lại | Chuẩn hóa checklist trước thi công |
-| Chậm cập nhật trạng thái | Tự động cập nhật trạng thái trên hệ thống |
+**Phê duyệt kế hoạch triển khai**
+
+- Processing Time: 2 ngày
+- Waiting Time: 7 ngày
+- Cycle Time: 9 ngày
+
+Đây là vị trí có khả năng gây chậm tiến độ cao nhất trong toàn bộ quy trình.
 
 ---
 
-# 3.3.2.3.3. Phân tích chi phí (Cost Analysis)
+# 3.3.2.3.3. Phân tích chất lượng (Quality Analysis)
 
-Chi phí được tính dựa trên các nguồn lực chính tham gia vào quy trình mở rộng hạ tầng.
+Chất lượng quy trình được đánh giá thông qua khả năng hoàn thành các điểm kiểm soát quan trọng mà không phát sinh lỗi hoặc phải xử lý bổ sung.
 
-Giả định một dự án mở rộng hạ tầng quy mô nhỏ:
+Các Gateway kiểm soát chính trong quy trình:
 
-| Hoạt động | Nhân sự tham gia | Chi phí nhân sự | Chi phí khác | Tổng chi phí |
+| Gateway | Điều kiện kiểm tra | Xác suất đạt |
+|---|---|---:|
+| GW1 | Khu vực có nhu cầu mở rộng phù hợp | 90% |
+| GW2 | Hạ tầng hiện tại đủ điều kiện mở rộng | 85% |
+| GW3 | Dự án đầu tư được phê duyệt | 80% |
+| GW4 | Hạ tầng thi công đạt yêu cầu nghiệm thu | 90% |
+
+Xác suất hoàn thành toàn bộ quy trình:
+
+\[
+FPY = 0,9 \times 0,85 \times 0,8 \times 0,9
+\]
+
+\[
+FPY = 55,1\%
+\]
+
+### Nhận xét:
+
+Theo mô hình giả định, khoảng **55,1% instance** có thể hoàn thành toàn bộ quy trình ngay từ lần đầu tiên mà không gặp vấn đề tại các điểm kiểm soát.
+
+Các nguyên nhân chính làm giảm tỷ lệ hoàn thành:
+
+| Nguyên nhân | Ảnh hưởng |
+|---|---|
+| Dữ liệu hiện trạng hạ tầng chưa cập nhật | Có thể sai lệch khi đánh giá Port/cáp quang |
+| Kế hoạch đầu tư chưa được phê duyệt kịp thời | Làm kéo dài thời gian triển khai |
+| Sai sót trong quá trình thi công | Phát sinh kiểm tra và xử lý bổ sung |
+| Chậm cập nhật dữ liệu sau nghiệm thu | Ảnh hưởng khả năng khai thác dịch vụ |
+
+---
+
+# 3.3.2.3.4. Phân tích Processing Time và Process Efficiency
+
+Processing Time được sử dụng để đánh giá tỷ lệ thời gian thực sự tạo ra giá trị trong tổng thời gian hoàn thành quy trình.
+
+| Bước | Hoạt động | Cycle Time (CT) | Tỷ lệ xử lý | Processing Time (PT) |
 |---|---|---:|---:|---:|
-| Khảo sát nhu cầu và hiện trạng | Kỹ thuật khảo sát | 5.000.000 VNĐ | 2.000.000 VNĐ | 7.000.000 VNĐ |
-| Đánh giá và lập kế hoạch đầu tư | Kỹ thuật + Quản lý | 8.000.000 VNĐ | 3.000.000 VNĐ | 11.000.000 VNĐ |
-| Phê duyệt dự án | Quản lý các cấp | 4.000.000 VNĐ | 1.000.000 VNĐ | 5.000.000 VNĐ |
-| Thi công mở rộng hạ tầng | Đội kỹ thuật thi công | 40.000.000 VNĐ | 80.000.000 VNĐ | 120.000.000 VNĐ |
-| Kiểm tra nghiệm thu và cập nhật hệ thống | Kỹ thuật + Vận hành | 6.000.000 VNĐ | 2.000.000 VNĐ | 8.000.000 VNĐ |
-| **Tổng cộng** | | | | **151.000.000 VNĐ** |
+| 1 | Khảo sát nhu cầu mở rộng khu vực | 4 ngày | 75% | 3 ngày |
+| 2 | Đánh giá độ phủ cáp quang và Port | 3 ngày | 67% | 2 ngày |
+| 3 | Lập dự án đầu tư mở rộng | 8 ngày | 62,5% | 5 ngày |
+| 4 | Phê duyệt kế hoạch triển khai | 9 ngày | 22% | 2 ngày |
+| 5 | Chuẩn bị nguồn lực và vật tư | 5 ngày | 60% | 3 ngày |
+| 6 | Thi công mở rộng hạ tầng | 12 ngày | 83% | 10 ngày |
+| 7 | Kiểm tra nghiệm thu và cập nhật GIS | 4 ngày | 75% | 3 ngày |
+| **Tổng cộng** | | **45 ngày** | | **28 ngày** |
+
+Hiệu suất quy trình:
+
+\[
+Process\ Efficiency = \frac{PT}{CT}\times100\%
+\]
+
+\[
+Process\ Efficiency = \frac{28}{45}\times100\%
+\]
+
+\[
+Process\ Efficiency = 62,2\%
+\]
 
 ### Nhận xét:
 
-Chi phí lớn nhất tập trung tại giai đoạn thi công mở rộng hạ tầng, chiếm:
-
-$$
-\frac{120}{151}\times100\%=79.5\%
-$$
-
-Do đó, việc tối ưu hóa khảo sát, lập kế hoạch và giảm lỗi thi công có thể giúp giảm đáng kể chi phí phát sinh.
+Hiệu suất xử lý của quy trình đạt khoảng **62,2%**. Phần thời gian còn lại chủ yếu đến từ hoạt động chờ phê duyệt, chờ phối hợp và đồng bộ thông tin giữa các bộ phận.
 
 ---
 
-# 3.3.2.3.4. Tổng hợp kết quả phân tích định lượng
+# 3.3.2.3.5. Phân tích chi phí (Cost Analysis)
 
-| Chỉ số | Kết quả hiện tại | Vấn đề phát hiện | Hướng cải thiện |
-|---|---:|---|---|
-| Cycle Time | 45 ngày | Thời gian chờ chiếm 37.8% | Tự động hóa phê duyệt |
-| Error Rate | 30% | Sai lệch dữ liệu, cập nhật chậm | Đồng bộ hệ thống GIS |
-| Process Cost | 151 triệu VNĐ/dự án | Chi phí thi công chiếm tỷ trọng lớn | Tối ưu kế hoạch triển khai |
-
-### Kết luận:
-
-Phân tích định lượng cho thấy các vấn đề chính của quy trình mở rộng hạ tầng tập trung vào thời gian chờ phê duyệt, sai lệch dữ liệu và chi phí thi công lớn. Các giải pháp cải tiến cần tập trung vào số hóa quy trình phê duyệt, đồng bộ dữ liệu hạ tầng và tăng khả năng kiểm soát tiến độ triển khai.
-
-### 3.3.4. Phân tích định lượng
-
-**3.3.4.1. Phạm vi và nguyên tắc giả thiết**
-
-Toàn bộ số liệu trong phần 3.3.4 là **giả thiết phục vụ việc học và phân tích BPM**, không phải dữ liệu vận hành chính thức của FPT Telecom.
-
-Kịch bản định lượng giả định một dự án mở rộng quy mô nhỏ tại một khu vực đã xác nhận thiếu Port, gồm khoảng:
-
-- **2,0 km cáp quang (giả thiết)**.
-- **2 bộ ODF/hộp phối quang 48FO (giả thiết)**.
-- Một số splitter, măng xông/closure và phụ kiện đi kèm **(giả thiết)**.
-- Một đội triển khai hiện trường quy mô nhỏ **(giả thiết)**.
-
-Để đồng nhất với 3.2, thời gian được tính trên **đường đi thành công**; không cộng một chuỗi vòng lặp xử lý lại vô hạn.
-
-Hai bước:
-
-> Thiết kế phương án kỹ thuật
-
-và
-
-> Kiểm kê vật tư
-
-được chạy song song. Vì vậy Cycle Time của nhóm này sử dụng **max()**, không phải phép cộng.
-
-**3.3.4.2. Cycle Time, Processing Time và Wait Time**
-
-| Bước | Hoạt động | CT | PT | WT = CT − PT | Ghi chú |
-| ---: | --- | ---: | ---: | ---: | --- |
-| 1 | Xác minh cảnh báo/nhu cầu | **0,50 ngày (giả thiết)** | **0,25 ngày (giả thiết)** | **0,25 ngày (giả thiết)** | Đối chiếu ticket/GIS |
-| 2 | Khảo sát hiện trường | **2,00 ngày (giả thiết)** | **1,20 ngày (giả thiết)** | **0,80 ngày (giả thiết)** | Gồm lịch hẹn/di chuyển |
-| 3 | Kiểm kê vật tư | **1,00 ngày (giả thiết)** | **0,35 ngày (giả thiết)** | **0,65 ngày (giả thiết)** | Chạy song song bước 4 |
-| 4 | Thiết kế phương án | **2,00 ngày (giả thiết)** | **1,50 ngày (giả thiết)** | **0,50 ngày (giả thiết)** | Chạy song song bước 3 |
-| 5 | Lập dự toán/hồ sơ đầu tư | **1,50 ngày (giả thiết)** | **1,00 ngày (giả thiết)** | **0,50 ngày (giả thiết)** | |
-| 6 | Phê duyệt ngân sách | **3,00 ngày (giả thiết)** | **0,40 ngày (giả thiết)** | **2,60 ngày (giả thiết)** | **Bottleneck 1** |
-| 7 | Xin phép/quyền thi công | **5,00 ngày (giả thiết)** | **0,50 ngày (giả thiết)** | **4,50 ngày (giả thiết)** | **Bottleneck 2** |
-| 8 | Xuất vật tư/chuẩn bị | **1,00 ngày (giả thiết)** | **0,50 ngày (giả thiết)** | **0,50 ngày (giả thiết)** | |
-| 9 | Thi công kéo cáp/lắp/hàn | **4,00 ngày (giả thiết)** | **3,50 ngày (giả thiết)** | **0,50 ngày (giả thiết)** | VA chính |
-| 10 | Đo kiểm/nghiệm thu | **1,00 ngày (giả thiết)** | **0,75 ngày (giả thiết)** | **0,25 ngày (giả thiết)** | |
-| 11 | Cập nhật GIS/Port | **0,50 ngày (giả thiết)** | **0,30 ngày (giả thiết)** | **0,20 ngày (giả thiết)** | |
-| 12 | Thông báo Sales/TNC & đóng hồ sơ | **0,25 ngày (giả thiết)** | **0,15 ngày (giả thiết)** | **0,10 ngày (giả thiết)** | |
-
-**Tính Cycle Time**
-
-Do bước 3 và bước 4 chạy song song:
+Chi phí quy trình được tính dựa trên công thức:
 
 \[
-T_{3-4}=\max(1,00;\;2,00)
+Cost = \sum(Time_i \times Cost/day_i)
 \]
 
-\[
-T_{3-4}=2,00\text{ ngày (giả thiết)}
-\]
+Chi phí nhân sự giả định:
 
-Do đó:
+| Nhóm nguồn lực | Chi phí/ngày |
+|---|---:|
+| Kỹ thuật & Hạ tầng | 700.000 VNĐ |
+| Đội thi công | 1.000.000 VNĐ |
+| Quản lý dự án | 1.500.000 VNĐ |
+| Ban Giám đốc | 2.000.000 VNĐ |
 
-\[
-CT_{total}
-=
+Chi phí theo từng hoạt động:
 
-0,50+2,00+2,00+1,50+3,00+5,00+1,00+4,00+1,00+0,50+0,25
-\]
+| Hoạt động | Nguồn lực | Thời gian | Chi phí |
+|---|---|---:|---:|
+| Khảo sát và đánh giá hiện trạng | Kỹ thuật & Hạ tầng | 5 ngày | 3.500.000 VNĐ |
+| Lập dự án đầu tư | Kỹ thuật + Quản lý | 5 ngày | 7.500.000 VNĐ |
+| Phê duyệt dự án | Ban Giám đốc | 2 ngày | 4.000.000 VNĐ |
+| Chuẩn bị vật tư và nguồn lực | Kỹ thuật & Hạ tầng | 3 ngày | 2.100.000 VNĐ |
+| Thi công mở rộng hạ tầng | Đội thi công | 10 ngày | 10.000.000 VNĐ |
+| Nghiệm thu và cập nhật GIS | Kỹ thuật & Vận hành | 3 ngày | 2.100.000 VNĐ |
+| **Tổng cộng** | | | **29.200.000 VNĐ** |
 
-\[
-\boxed{CT_{total}=20,75\text{ ngày (giả thiết)}}
-\]
+### Nhận xét:
 
-**Tính Processing Time theo đường găng**
+Chi phí lớn nhất tập trung ở giai đoạn thi công mở rộng hạ tầng do sử dụng nhiều nguồn lực trực tiếp.
 
-Đối với cụm chạy song song:
+Tuy nhiên, các chi phí gián tiếp phát sinh do thời gian chờ phê duyệt và sai lệch dữ liệu cũng cần được kiểm soát nhằm giảm tổng chi phí vận hành.
 
-\[
-PT_{3-4}=\max(0,35;\;1,50)
-\]
+---
 
-\[
-PT_{3-4}=1,50\text{ ngày (giả thiết)}
-\]
+# 3.3.2.3.6. Tổng hợp kết quả phân tích định lượng
 
-Tổng PT:
+| Chỉ tiêu | Kết quả | Ý nghĩa |
+|---|---:|---|
+| Cycle Time | 45 ngày | Thời gian hoàn thành một instance |
+| Processing Time | 28 ngày | Thời gian thực sự xử lý công việc |
+| Waiting Time | 17 ngày | Thời gian chờ trong quy trình |
+| Waiting Ratio | 37,8% | Tỷ lệ thời gian không tạo giá trị |
+| Process Efficiency | 62,2% | Hiệu suất sử dụng thời gian |
+| FPY | 55,1% | Khả năng hoàn thành ngay lần đầu |
+| Chi phí cơ bản | 29,2 triệu VNĐ | Chi phí nguồn lực trực tiếp |
 
-\[
-PT_{total}
-=
+---
 
-0,25+1,20+1,50+1,00+0,40+0,50+0,50+3,50+0,75+0,30+0,15
-\]
+# 3.3.2.3.7. Nhận xét kết quả định lượng
 
-\[
-\boxed{PT_{total}=10,05\text{ ngày (giả thiết)}}
-\]
+Qua phân tích định lượng, quy trình quản lý và mở rộng hạ tầng có Cycle Time khoảng **45 ngày**, trong đó thời gian chờ chiếm tỷ lệ lớn do các hoạt động phê duyệt và phối hợp giữa nhiều bộ phận.
 
-**Tính Wait Time**
+Hiệu suất xử lý của quy trình đạt khoảng **62,2%**, cho thấy vẫn còn khoảng thời gian chưa tạo giá trị do chờ đợi và xử lý thủ công.
 
-\[
-WT_{total}=CT_{total}-PT_{total}
-\]
+Bên cạnh đó, tỷ lệ hoàn thành ngay từ lần đầu (FPY) đạt **55,1%**, cho thấy các điểm kiểm soát như đánh giá hiện trạng, phê duyệt đầu tư và nghiệm thu cần được cải thiện.
 
-\[
-WT_{total}=20,75-10,05
-\]
+Các hướng cải tiến trọng tâm bao gồm:
 
-\[
-\boxed{WT_{total}=10,70\text{ ngày (giả thiết)}}
-\]
+| Vấn đề | Giải pháp |
+|---|---|
+| Thời gian phê duyệt dài | Xây dựng workflow phê duyệt điện tử trên BPMS |
+| Dữ liệu hạ tầng chưa đồng bộ | Tích hợp GIS với hệ thống quản lý tài sản mạng |
+| Sai lệch khi khảo sát | Chuẩn hóa dữ liệu hiện trạng trước triển khai |
+| Khó theo dõi tiến độ | Xây dựng dashboard quản lý trạng thái dự án |
 
-**Cycle Time Efficiency**
 
-\[
-Cycle\ Time\ Efficiency
-=
+## 3.3.2.4. Kết luận phân tích quy trình quản lý và mở rộng hạ tầng
 
-\frac{PT_{total}}{CT_{total}}\times100\%
-\]
+Qua quá trình phân tích định tính và định lượng, quy trình quản lý và mở rộng hạ tầng của FPT Telecom đã được đánh giá trên các khía cạnh về giá trị tạo ra, sự lãng phí, thời gian xử lý, hiệu suất vận hành và chi phí nguồn lực.
 
-\[
-=
+Kết quả phân tích định tính cho thấy quy trình hiện tại đã đảm bảo được các hoạt động quan trọng nhằm tạo giá trị cho doanh nghiệp, trong đó nổi bật là hoạt động **thi công mở rộng hạ tầng mạng** và **cập nhật trạng thái hạ tầng sau triển khai**. Các hoạt động này góp phần trực tiếp nâng cao khả năng cung cấp dịch vụ và đảm bảo dữ liệu hạ tầng được quản lý chính xác.
 
-\frac{10,05}{20,75}\times100\%
-\]
+Tuy nhiên, quy trình vẫn tồn tại một số hoạt động chưa tạo ra giá trị trực tiếp như thời gian chờ phê duyệt hồ sơ, nhập lại dữ liệu thủ công từ nhiều nguồn và sự phụ thuộc vào việc trao đổi thông tin giữa các bộ phận. Các yếu tố này làm tăng thời gian hoàn thành quy trình và ảnh hưởng đến khả năng triển khai hạ tầng trong thực tế.
 
-\[
-\boxed{Cycle\ Time\ Efficiency\approx48,43\%\text{ (giả thiết)}}
-\]
+Phân tích sự lãng phí cho thấy các vấn đề chính tập trung vào ba nhóm gồm **Move**, **Hold** và **Overdo**. Trong đó, nhóm lãng phí Hold có ảnh hưởng lớn nhất do thời gian chờ phê duyệt kế hoạch triển khai và chờ đồng bộ dữ liệu giữa các bộ phận chiếm tỷ trọng đáng kể trong toàn bộ chu trình xử lý.
 
-Phần thời gian không xử lý trực tiếp:
+Đối với phân tích định lượng, quy trình có tổng thời gian hoàn thành (**Cycle Time**) là **45 ngày**, bao gồm **28 ngày Processing Time** và **17 ngày Waiting Time**. Tỷ lệ thời gian chờ chiếm khoảng **37,8%**, cho thấy quy trình vẫn còn nhiều khoảng thời gian chưa trực tiếp tạo ra giá trị. Điểm nghẽn lớn nhất tập trung tại bước **phê duyệt kế hoạch triển khai** với thời gian xử lý thực tế 2 ngày nhưng thời gian chờ lên đến 7 ngày.
 
-\[
-100\%-48,43\%=51,57\%\text{ (giả thiết)}
-\]
+Hiệu suất quy trình (**Process Efficiency**) đạt khoảng **62,2%**, phản ánh mức độ sử dụng thời gian hiện tại vẫn còn khả năng cải thiện thông qua việc giảm các hoạt động chờ và tối ưu hóa sự phối hợp giữa các bộ phận. Về chi phí, nguồn lực tập trung chủ yếu tại giai đoạn thi công mở rộng hạ tầng do đây là hoạt động yêu cầu nhiều nhân sự và công việc triển khai thực tế.
 
-Hai bottleneck phê duyệt ngân sách và permit tạo tổng Wait Time:
+Từ kết quả phân tích, các hướng cải tiến trọng tâm của quy trình bao gồm số hóa quy trình phê duyệt thông qua hệ thống BPMS, tích hợp dữ liệu GIS với hệ thống quản lý hạ tầng nhằm giảm sai lệch thông tin, chuẩn hóa dữ liệu khảo sát để hạn chế các hoạt động kiểm tra lặp lại, đồng thời xây dựng cơ chế theo dõi tiến độ tập trung để nâng cao khả năng kiểm soát toàn bộ quá trình triển khai.
 
-\[
-2,60+4,50=7,10\text{ ngày (giả thiết)}
-\]
-
-Tỷ trọng trong tổng Wait Time:
-
-\[
-\frac{7,10}{10,70}\times100\%
-\approx66,36\%\text{ (giả thiết)}
-\]
-
-Như vậy, theo bộ giả thiết, **hai bottleneck này chiếm khoảng 66,36% tổng Wait Time**. Phép tính được kiểm tra trực tiếp từ các tham số của mô hình.
-
-**Nhận xét:** nếu mục tiêu là giảm Cycle Time, can thiệp vào workflow phê duyệt và permit có khả năng mang lại hiệu quả lớn hơn việc chỉ yêu cầu đội thi công kéo cáp nhanh hơn.
-
-**3.3.4.3. Phân tích chi phí**
-
-Tất cả đơn giá trong phần này là **giá mô phỏng (giả thiết)** và không phải báo giá mua sắm thực tế.
-
-**Chi phí vật tư**
-
-| Hạng mục | Khối lượng | Đơn giá | Thành tiền |
-| --- | ---: | ---: | ---: |
-| Cáp quang 24FO | **2.000 m (giả thiết)** | **12.500 VNĐ/m (giả thiết)** | **25.000.000 VNĐ (giả thiết)** |
-| ODF/hộp phối quang 48FO | **2 bộ (giả thiết)** | **3.500.000 VNĐ/bộ (giả thiết)** | **7.000.000 VNĐ (giả thiết)** |
-| Splitter quang | **6 bộ (giả thiết)** | **450.000 VNĐ/bộ (giả thiết)** | **2.700.000 VNĐ (giả thiết)** |
-| Măng xông/closure/hộp đấu | **8 bộ (giả thiết)** | **650.000 VNĐ/bộ (giả thiết)** | **5.200.000 VNĐ (giả thiết)** |
-| Pigtail, adapter, patch cord | **1 lô (giả thiết)** | **4.000.000 VNĐ/lô (giả thiết)** | **4.000.000 VNĐ (giả thiết)** |
-| Phụ kiện treo/ống/neo/bảo vệ tuyến | **1 lô (giả thiết)** | **6.000.000 VNĐ/lô (giả thiết)** | **6.000.000 VNĐ (giả thiết)** |
-| Vật tư tiêu hao | **1 lô (giả thiết)** | **2.500.000 VNĐ/lô (giả thiết)** | **2.500.000 VNĐ (giả thiết)** |
-| **Tổng vật tư** | | | **52.400.000 VNĐ (giả thiết)** |
-
-Các chủng loại cáp/sợi thực tế phải được chọn theo thiết kế mạng, tiêu chuẩn doanh nghiệp và điều kiện lắp đặt. ITU-T G.652 là khuyến nghị nền tảng về sợi đơn mode, trong khi G.657 đưa ra các đặc tính cho sợi có khả năng chịu uốn tốt hơn và đặc biệt phù hợp với mạng truy nhập hoặc các khu vực có không gian hạn chế.
-
-**Chi phí nhân công**
-
-| Hạng mục | Thành tiền |
-| --- | ---: |
-| Khảo sát + thiết kế | **3.500.000 VNĐ (giả thiết)** |
-| Nhân công kéo cáp/lắp đặt | **5.500.000 VNĐ (giả thiết)** |
-| Hàn nối + đo kiểm | **3.000.000 VNĐ (giả thiết)** |
-| Giám sát/nghiệm thu hiện trường | **2.000.000 VNĐ (giả thiết)** |
-| **Tổng nhân công** | **14.000.000 VNĐ (giả thiết)** |
-
-**Chi phí thủ tục và quản lý**
-
-| Hạng mục | Thành tiền |
-| --- | ---: |
-| Phí/hồ sơ/quyền thi công | **4.000.000 VNĐ (giả thiết)** |
-| Quản lý dự án, hồ sơ, cập nhật dữ liệu | **4.000.000 VNĐ (giả thiết)** |
-| **Tổng** | **8.000.000 VNĐ (giả thiết)** |
-
-**Tổng chi phí dự án**
-
-\[
-C_{total}
-=
-
-C_{vật\ tư}
-+
-C_{nhân\ công}
-+
-C_{permit}
-+
-C_{quản\ lý}
-\]
-
-\[
-=
-
-52.400.000
-+
-14.000.000
-+
-4.000.000
-+
-4.000.000
-\]
-
-\[
-\boxed{C_{total}=74.400.000\text{ VNĐ (giả thiết)}}
-\]
-
-Tỷ trọng chi phí vật tư:
-
-\[
-\frac{52.400.000}{74.400.000}\times100\%
-=
-
-70,43\%\text{ (giả thiết)}
-\]
-
-Chi phí cơ hội do khách hàng chờ lắp chưa đưa vào tổng chi phí vì không có dữ liệu thực tế về số khách hàng chờ, ARPU và contribution margin. Khi có dữ liệu, có thể mở rộng bằng:
-
-\[
-Opportunity\ Loss
-=
-
-N_{khách\ chờ}
-\times
-Contribution\ Margin_{tháng}
-\times
-\frac{Số\ ngày\ chờ}{30}
-\]
-
-**3.3.4.4. BPMN định lượng thời gian và chi phí tại từng Task**
-
-Sơ đồ BPMN thứ hai copy đường đi chính của As-is nhưng tập trung vào:
-
-- Thời gian tại từng Task.
-- Chi phí tại từng Task.
-- Bước kiểm kê kho/vật tư.
-- Hai bottleneck được tô nổi.
-- Tổng chi phí node bằng tổng chi phí dự án.
-
-**Kiểm tra tổng chi phí ghi trên các node**
-
-Đơn vị: triệu VNĐ.
-
-\[
-0,15
-+1,50
-+0,25
-+1,80
-+1,00
-+0,50
-+4,00
-+52,40
-+8,50
-+3,50
-+0,40
-+0,40
-\]
-
-\[
-=\boxed{74,40\text{ triệu VNĐ (giả thiết)}}
-\]
-
-Lưu ý: phân bổ chi phí theo node được thiết kế để phục vụ việc **đọc BPMN định lượng**. Chi phí vật tư được tập trung tại Task “Xuất vật tư”; nhân công và quản lý được phân bổ vào các Task tương ứng.
-
-**3.3.4.5. Quality KPIs**
-
-| KPI | Baseline | Mục tiêu To-be | Công thức/ý nghĩa |
-| --- | ---: | ---: | --- |
-| First Pass Acceptance | **88% (giả thiết)** | **≥95% (giả thiết)** | Dự án đạt nghiệm thu lần đầu / Tổng dự án nghiệm thu |
-| GIS Update ≤ 1 ngày làm việc | **80% (giả thiết)** | **≥98% (giả thiết)** | Dự án cập nhật GIS đúng SLA / Tổng dự án hoàn tất |
-| Sai lệch Port vật lý–GIS | **7% (giả thiết)** | **≤2% (giả thiết)** | Port sai lệch / Tổng Port kiểm tra |
-| Đo kiểm quang đạt lần đầu | **90% (giả thiết)** | **≥97% (giả thiết)** | Tuyến/mối nối đạt lần đầu / Tổng đo kiểm |
-| Schedule Adherence | **75% (giả thiết)** | **≥90% (giả thiết)** | Dự án hoàn tất đúng/trước kế hoạch / Tổng dự án |
-| Material Variance | **8% (giả thiết)** | **≤3% (giả thiết)** | \|Thực dùng − BOM\| / BOM |
-| Safety Incident | **1 sự cố/100 dự án (giả thiết)** | **0 sự cố (giả thiết)** | Số sự cố an toàn phải báo cáo |
-
-Báo cáo không tự đặt một ngưỡng suy hao quang tuyệt đối áp dụng cho mọi trường hợp, bởi giá trị nghiệm thu phải phụ thuộc kiến trúc ODN, optical budget, thiết bị, bước sóng, splitter và tiêu chuẩn nội bộ. ITU-T G.984.2 mô tả yêu cầu lớp PMD và các optical budget của GPON; ITU-T G.9807.1 cũng mô tả quan hệ giữa công suất phát, độ nhạy thu, optical path loss và path penalty trong XGS-PON.
-
-**3.3.4.6. Timeline dự án – Mermaid Gantt**
-
-Mốc thời gian dưới đây là **lịch minh họa hoàn toàn giả thiết**, bắt đầu ngày **05/10/2026 (giả thiết)**; không đại diện cho một dự án FPT Telecom thực tế.
-
-```mermaid
-gantt
-    title Timeline dự án mở rộng Port – kịch bản minh họa (giả thiết)
-    dateFormat  YYYY-MM-DD
-    axisFormat  %d/%m
-
-    section Khởi tạo & khảo sát
-    Xác minh cảnh báo          :a1, 2026-10-05, 1d
-    Khảo sát hiện trường       :a2, after a1, 2d
-
-    section Thiết kế & vật tư
-    Thiết kế phương án         :a3, after a2, 2d
-    Kiểm kê kho/vật tư         :a4, after a2, 1d
-    Lập dự toán                :a5, after a3, 2d
-
-    section Phê duyệt & quyền tuyến
-    Phê duyệt ngân sách        :crit, a6, after a5, 3d
-    Permit/quyền thi công      :crit, a7, after a6, 5d
-
-    section Triển khai
-    Xuất vật tư                :a8, after a7, 1d
-    Thi công                   :a9, after a8, 4d
-    Đo kiểm/nghiệm thu         :a10, after a9, 1d
-    Cập nhật GIS & đóng hồ sơ  :a11, after a10, 1d
-```
-
-Gantt sử dụng ngày nguyên để dễ đọc, nên các công việc dưới một ngày đã được làm tròn. Vì vậy biểu đồ timeline không cần trùng tuyệt đối với Cycle Time chi tiết **20,75 ngày (giả thiết)**.
-
-**3.3.4.7. Tổng hợp kết quả định lượng**
-
-| Chỉ tiêu | Kết quả |
-| --- | ---: |
-| Cycle Time đường đi thành công | **20,75 ngày (giả thiết)** |
-| Processing Time đường găng | **10,05 ngày (giả thiết)** |
-| Wait Time | **10,70 ngày (giả thiết)** |
-| Cycle Time Efficiency | **48,43% (giả thiết)** |
-| WT tại phê duyệt ngân sách | **2,60 ngày (giả thiết)** |
-| WT tại permit/quyền thi công | **4,50 ngày (giả thiết)** |
-| Tỷ trọng hai bottleneck trong tổng WT | **66,36% (giả thiết)** |
-| Tổng chi phí dự án | **74.400.000 VNĐ (giả thiết)** |
-| Tỷ trọng vật tư trong tổng chi phí | **70,43% (giả thiết)** |
-
-**Nhận xét định lượng**
-
-Theo bộ giả thiết, bottleneck lớn nhất **không phải bản thân hoạt động kéo cáp**.
-
-Thi công có:
-
-- CT = **4,00 ngày (giả thiết)**.
-- PT = **3,50 ngày (giả thiết)**.
-- WT = **0,50 ngày (giả thiết)**.
-
-Trong khi phê duyệt + permit có:
-
-\[
-CT=3,00+5,00=8,00\text{ ngày (giả thiết)}
-\]
-
-nhưng Processing Time chỉ:
-
-\[
-PT=0,40+0,50=0,90\text{ ngày (giả thiết)}
-\]
-
-và Wait Time:
-
-\[
-WT=7,10\text{ ngày (giả thiết)}
-\]
-
-Do đó, từ góc nhìn BPM, **giảm thời gian chờ ra quyết định và chờ quyền thi công có giá trị cải tiến lớn hơn việc chỉ tối ưu tốc độ kéo cáp**.
-
-### 3.3.5. Đề xuất To-be và kế hoạch hành động
-
-**3.3.5.1. Nguyên tắc thiết kế To-be**
-
-Quy trình To-be không nên loại bỏ các điểm kiểm soát về tài chính, an toàn và chất lượng chỉ để làm Cycle Time “đẹp hơn”. Mục tiêu hợp lý là:
-
-> **giữ kiểm soát nhưng giảm Waiting, giảm thao tác thủ công, giảm nhập liệu lặp lại và tăng First Pass Quality.**
-
-**Các đề xuất cải tiến**
-
-| Mã | Đề xuất | Vấn đề xử lý | Kết quả kỳ vọng |
-| --- | --- | --- | --- |
-| **IMP-01** | Cảnh báo năng lực Port theo ngưỡng + forecast nhu cầu | Chỉ phản ứng khi đã hết Port | Khởi động mở rộng sớm |
-| **IMP-02** | Single source of truth giữa Ticket–GIS–Inventory | ISS-01, Over-processing | Giảm sai lệch và nhập lại |
-| **IMP-03** | E-approval + SLA theo hạn mức đầu tư | Waiting tại GW6/GW7 | Rút ngắn phê duyệt |
-| **IMP-04** | Checklist khảo sát số hóa + ảnh/GPS/bằng chứng bắt buộc | ISS-02, Defects | BOM và thiết kế chính xác hơn |
-| **IMP-05** | Permit playbook theo loại tuyến/cột/mặt bằng | ISS-03 | Khởi động permit sớm, giảm bổ sung hồ sơ |
-| **IMP-06** | Reservation/kitting vật tư theo BOM dự án | Transportation, Motion, Inventory | Giảm quay lại kho và thiếu vật tư |
-| **IMP-07** | Digital acceptance package: ảnh, kết quả đo, biên bản, as-built | Defects/Rework, ISS-01 | Tăng First Pass và truy vết |
-| **IMP-08** | Auto-trigger cập nhật GIS sau nghiệm thu + GW reconcile bắt buộc | ISS-01 | Không đóng dự án khi dữ liệu chưa khớp |
-| **IMP-09** | Dashboard KPI end-to-end | Thiếu minh bạch bottleneck | Quản lý CT, WT, SLA, FPY theo dự án |
-
-Như vậy báo cáo đưa ra **9 đề xuất**, vượt yêu cầu tối thiểu 6 đề xuất.
-
-**3.3.5.2. Kịch bản tác động To-be**
-
-Mục tiêu Cycle Time giả thiết:
-
-\[
-20,75\rightarrow14,00\text{ ngày}
-\]
-
-Tỷ lệ giảm:
-
-\[
-\frac{20,75-14,00}{20,75}\times100\%
-\approx32,53\%\text{ (giả thiết)}
-\]
-
-Các thay đổi mục tiêu:
-
-| Chỉ tiêu | As-is | To-be |
-| --- | ---: | ---: |
-| Phê duyệt ngân sách | **3,00 ngày (giả thiết)** | **1,50 ngày (giả thiết)** |
-| Permit/quyền thi công | **5,00 ngày (giả thiết)** | **2,50 ngày (giả thiết)** |
-| Cập nhật GIS | **0,50 ngày (giả thiết)** | **0,25 ngày (giả thiết)** |
-| First Pass Acceptance | **88% (giả thiết)** | **≥95% (giả thiết)** |
-| Sai lệch Port vật lý–GIS | **7% (giả thiết)** | **≤2% (giả thiết)** |
-
-Đây là **target học thuật**, không phải cam kết vận hành. Khi có process log thực tế, target phải được hiệu chỉnh theo median, P75/P90 và năng lực nguồn lực thực tế.
-
-**3.3.5.3. Kế hoạch hành động ngắn hạn**
-
-| Giai đoạn | Thời gian | Hành động chính | Deliverable |
-| --- | --- | --- | --- |
-| **Bước 1 – Chuẩn hóa** | **Ngày 0–30 (giả thiết)** | Chốt RACI; định nghĩa Port; chuẩn checklist khảo sát, BOM, permit, nghiệm thu; đo baseline CT/WT | Bộ SOP/checklist + baseline KPI |
-| **Bước 2 – Pilot số hóa** | **Ngày 31–60 (giả thiết)** | Pilot e-approval, reservation vật tư, nghiệm thu số và cập nhật GIS có SLA tại một khu vực | Workflow pilot + dữ liệu log |
-| **Bước 3 – Đánh giá và mở rộng** | **Ngày 61–90 (giả thiết)** | So sánh KPI trước/sau, sửa bottleneck, chuẩn hóa To-be và mở rộng phạm vi | Báo cáo pilot + BPMN To-be |
-
-**3.3.5.4. KPIs theo dõi sau cải tiến**
-
-| KPI theo dõi | Baseline | Mục tiêu sau pilot |
-| --- | ---: | ---: |
-| Cycle Time | **20,75 ngày (giả thiết)** | **≤14,00 ngày (giả thiết)** |
-| Wait Time | **10,70 ngày (giả thiết)** | **≤5,00 ngày (giả thiết)** |
-| Cycle Time Efficiency | **48,43% (giả thiết)** | **≥65% (giả thiết)** |
-| Approval SLA đạt | **70% (giả thiết)** | **≥95% (giả thiết)** |
-| Permit đúng kế hoạch | **65% (giả thiết)** | **≥90% (giả thiết)** |
-| First Pass Acceptance | **88% (giả thiết)** | **≥95% (giả thiết)** |
-| GIS Update ≤1 ngày | **80% (giả thiết)** | **≥98% (giả thiết)** |
-| Sai lệch Port vật lý–GIS | **7% (giả thiết)** | **≤2% (giả thiết)** |
-| Material Variance | **8% (giả thiết)** | **≤3% (giả thiết)** |
-
-**3.3.5.5. Kết luận quy trình**
-
-Quy trình quản lý và mở rộng hạ tầng cáp quang & Port là một quy trình liên phòng ban rõ rệt. Nhu cầu có thể xuất phát từ Sales/TNC, nhưng khả năng hoàn thành phụ thuộc đồng thời vào INF, Kho, Kế hoạch & Đầu tư/Tài chính, cấp phê duyệt, đơn vị quản lý hạ tầng bên ngoài, nhà thầu và hệ thống GIS. Vì vậy, hiệu suất quy trình **không thể chỉ được đánh giá bằng thời gian kéo cáp**.
-
-Mô hình As-is sử dụng **11 Gateway XOR cùng một cặp AND Split/Join**, thể hiện các điểm kiểm soát:
-
-> Nhu cầu → Port hiện hữu → Khảo sát → Kỹ thuật → Vật tư → Tài chính → Phê duyệt → Permit → An toàn → Nghiệm thu → GIS.
-
-Cách tổ chức này đồng nhất với triết lý của phần 3.2: Gateway không chỉ được đặt để làm sơ đồ phức tạp hơn, mà phải đại diện cho **một quyết định nghiệp vụ có khả năng làm thay đổi đường đi của process instance**.
-
-Theo bộ dữ liệu giả thiết:
-
-\[
-CT=20,75\text{ ngày}
-\]
-
-\[
-PT=10,05\text{ ngày}
-\]
-
-\[
-WT=10,70\text{ ngày}
-\]
-
-\[
-Efficiency=48,43\%
-\]
-
-và:
-
-\[
-Total\ Cost=74.400.000\text{ VNĐ}
-\]
-
-Hai bottleneck lớn nhất là phê duyệt ngân sách và permit/quyền thi công. Ở khía cạnh chất lượng, ISS-01 chỉ ra một điểm đặc biệt quan trọng: **một dự án mở rộng hạ tầng chưa thực sự tạo giá trị cho Sales/TNC nếu tài sản đã tồn tại ngoài thực địa nhưng GIS vẫn chưa phản ánh chính xác Port mới**.
-
-Vì vậy, trọng tâm To-be nên là:
-
-> **E-approval + Permit Playbook + Digital Survey + Material Reservation + Digital Acceptance + GIS Reconciliation.**
-
-Khi có log thực tế, các con số giả thiết trong bài nên được thay thế bằng:
-
-- Median Cycle Time.
-- P75/P90 Cycle Time.
-- Median Approval Wait Time.
-- Permit lead time thực tế.
-- Tỷ lệ First Pass Acceptance.
-- Sai lệch vật tư.
-- Sai lệch GIS.
-- Chi phí thực tế trên một Port hoặc một dự án.
-- Tỷ lệ dự án hoàn thành đúng SLA.
-
-Khi đó, mô hình 3.3 sẽ chuyển từ một **mô hình học thuật để học BPM** sang một mô hình có thể hỗ trợ **quản trị hiệu suất vận hành**.
-
-## Tài liệu tham khảo
-
-**[cite: 1]** Tài liệu **3.2. Quy trình quản lý: Hoạch định chiến lược kinh doanh** do nhóm cung cấp; được sử dụng làm khung tham chiếu về cấu trúc mô tả, Gateway, VA/BVA/NVA, Issue Register, phân tích thời gian, chi phí và nguyên tắc không tạo infinite loop trong cùng process instance.
-
-**[cite: 2]** Object Management Group, **Business Process Model and Notation – BPMN Version 2.0.2**. OMG công bố BPMN 2.0.2 là phiên bản đặc tả chính thức và mô tả BPMN là ký pháp tiêu chuẩn cho Business Process Diagram.
-
-**[cite: 3]** ITU-T Recommendation **G.652 (08/2024), Characteristics of a single-mode optical fibre and cable**. Phiên bản tháng 8/2024 được ITU-T liệt kê là phiên bản đang có hiệu lực.
-
-**[cite: 4]** ITU-T Recommendation **G.657 (08/2024), Characteristics of a bending-loss insensitive single-mode optical fibre and cable**. Khuyến nghị mô tả các loại sợi đơn mode có đặc tính giảm tổn hao do uốn, trong đó mạng truy nhập là một bối cảnh triển khai quan trọng.
-
-**[cite: 5]** ITU-T Recommendation **G.984.2 – Gigabit-capable Passive Optical Networks: Physical Media Dependent layer specification**. Khuyến nghị mô tả yêu cầu lớp vật lý GPON và các lớp optical budget liên quan.
-
-**[cite: 6]** ITU-T Recommendation **G.9807.1 – 10-Gigabit-capable symmetric passive optical network (XGS-PON)**. ITU mô tả XGS-PON là hệ thống truy nhập quang điểm-đa điểm 10 Gbit/s đối xứng và định nghĩa ODN cùng các quan hệ về optical path loss.
-
-**[cite: 7]** FPT Telecom, thông tin công khai năm 2026 về tiếp tục đầu tư hạ tầng, nâng cao chất lượng kết nối và phát triển hạ tầng số.
-
-**[cite: 8]** FPT, thông tin lịch sử về hợp tác FPT Telecom–EVN Telecom liên quan sử dụng hệ thống cột điện và phối hợp khảo sát, xây lắp, vận hành hạ tầng. Nguồn chỉ được dùng để minh họa tính hợp lý của dependency bên ngoài, không được coi là mô tả SOP hiện hành.
-
-
-## 3.3. Quy trình quản lý 2: Quản lý và mở rộng hạ tầng viễn thông (Cáp quang & Port)
-
-### 3.3.1. Mô tả quy trình
-- **Tác nhân tham gia (Actor):** Bộ phận Kế hoạch & Đầu tư, Quản lý kỹ thuật hạ tầng (INF), Đối tác thi công/Kỹ thuật viên, Ban Giám đốc[cite: 1, 3].
-- **Khách hàng mục tiêu (Customer):** Khách hàng nội bộ (Bộ phận Kinh doanh - Sales, Bộ phận Kỹ thuật triển khai - TNC) và Khách hàng ngoại bộ (Người dùng Internet tại khu vực hết port)[cite: 3, 11].
-- **Luồng các bước thực hiện (Workflow):** Hệ thống ghi nhận cảnh báo thiếu hụt Port/vượt ngưỡng lưu lượng -> Khảo sát năng lực hạ tầng khu vực -> Lập phương án đầu tư và dự toán chi phí -> Trình duyệt ngân sách lên Ban Giám đốc -> Triển khai thi công (kéo cáp, lắp tủ ODF mới) -> Nghiệm thu chất lượng và cập nhật số lượng Port mới lên hệ thống bản đồ GIS[cite: 1, 8].
-- **Kịch bản thành công/thất bại:**
-  - *Kết quả tích cực (Positive Outcome):* Hạ tầng cáp quang và Port được mở rộng đúng tiến độ; hệ thống GIS cập nhật chính xác số lượng Port khả dụng, giải quyết triệt để lỗi thiếu Port (ISS-01) cho Đội thi công[cite: 1, 3, 11].
-  - *Kết quả tiêu cực (Negative Outcome):* Dự án bị từ chối do quá ngân sách; thi công chậm trễ do vướng giấy phép ngầm hóa/treo cáp điện lực; cập nhật sai lệch dữ liệu Port lên GIS gây lỗi điều phối[cite: 1, 11].
-
-### 3.3.2. Mô hình hóa quy trình hiện tại (Sơ đồ BPMN - As-is)
-*(Ghi chú cho nhóm: Chèn hình ảnh sơ đồ BPMN chi tiết tại đây. Nhớ thiết kế >7 Gateways, ví dụ: Gateway duyệt ngân sách, Gateway kiểm tra giấy phép thi công, Gateway kết quả nghiệm thu)*[cite: 3, 12].
-
-### 3.3.3. Phân tích định tính
-#### 3.3.3.1. Phân tích giá trị gia tăng (VA, BVA, NVA)
-- **Value-Adding (VA):** Thi công kéo cáp quang dã chiến/ngầm, Lắp đặt và hàn nối hộp ODF[cite: 3].
-- **Business Value-Adding (BVA):** Khảo sát hiện trạng, Lập dự toán vật tư, Trình duyệt hồ sơ, Nghiệm thu hạ tầng[cite: 3].
-- **Non-Value Adding (NVA):** Thời gian chờ đợi phê duyệt nhiều cấp, Thời gian chờ giấy phép thi công từ cơ quan nhà nước, Di chuyển qua lại giữa kho và hiện trường để bù vật tư thiếu[cite: 3].
-
-#### 3.3.3.2. Phân tích lãng phí (Lean 7 Wastes)
-- **Thời gian chờ/Hold:** NVA lớn nhất nằm ở độ trễ từ lúc nhận ticket báo hết Port đến lúc có quyết định duyệt ngân sách đầu tư[cite: 3, 4].
-- **Sự vận chuyển (Transportation):** Chuyển vật tư (cáp, bộ chia, tủ ODF) từ kho trung tâm đến các tuyến đường thi công xa[cite: 3].
-- **Làm lỗi/Làm lại (Defects/Rework):** Khảo sát sai lệch vị trí dẫn đến thiết kế dự toán sai, thi công không đạt chuẩn suy hao quang phải hàn lại[cite: 3, 4].
-
-#### 3.3.3.3. Phân tích các bên liên quan (Stakeholder Analysis) và Sổ đăng ký vấn đề (Issue Register)
-- **Sổ đăng ký vấn đề (Issue Register):**
-  - *ISS-01:* Độ trễ cập nhật dữ liệu Port khả dụng lên GIS sau khi thi công xong (Nguyên nhân gốc rễ gây ra khảo sát ảo ở quy trình Core)[cite: 3, 4].
-  - *ISS-02:* Hao hụt vật tư cáp dã chiến trong quá trình kéo cáp không sát với dự toán[cite: 4, 8].
-  - *ISS-03:* Khó khăn trong việc xin phép hạ tầng cột điện của điện lực địa phương[cite: 8].
-
-### 3.3.4. Phân tích định lượng
-#### 3.3.4.1. Định lượng Thời gian (Cycle time, Wait time)
-- Phân tích và đo lường khoảng biến thiên thời gian thực hiện (Process Time) của tác vụ thi công và Thời gian chờ (Wait Time) khi duyệt hồ sơ. Tính tổng thời gian chu kỳ (Cycle Time) hoàn thành 1 dự án mở rộng trạm/port[cite: 3, 4].
-#### 3.3.4.2. Định lượng Chi phí
-- Ước tính các thành phần chi phí: Chi phí vật tư cố định (Cáp, tủ ODF, Splitter), Chi phí nhân công (công thợ kéo cáp/hàn nối quang), và Tổn thất cơ hội/doanh thu (chi phí mất khách hàng do không có mạng/port để lắp đặt)[cite: 3, 4].
+Nhìn chung, quy trình quản lý và mở rộng hạ tầng đã có đầy đủ các bước cần thiết để đảm bảo hoạt động mở rộng mạng lưới, tuy nhiên vẫn tồn tại các điểm nghẽn liên quan đến thời gian chờ, dữ liệu chưa đồng bộ và sự phối hợp giữa các tác nhân. Việc áp dụng các giải pháp tự động hóa và quản lý dữ liệu tập trung sẽ giúp quy trình giảm thời gian xử lý, nâng cao hiệu suất vận hành và hỗ trợ khả năng mở rộng dịch vụ trong tương lai.
