@@ -31,6 +31,7 @@ Khách hàng của quy trình quản lý và mở rộng hạ tầng bao gồm c
 
 **Quản lý doanh nghiệp:** Ban quản lý sử dụng kết quả của quy trình để kiểm soát nhu cầu đầu tư, CAPEX, tiến độ triển khai, chất lượng công trình và khả năng khai thác tài sản sau đầu tư.
 
+#### 3.3.1.3. Các bước thực hiện
 
 ###### Bảng 3. : Luồng các bước thực hiện quy trình quản lý và mở rộng hạ tầng viễn thông
 
@@ -112,7 +113,11 @@ Quy trình quản lý và mở rộng hạ tầng tạo ra các nhóm giá trị
 **Kiểm soát chất lượng hạ tầng:** Công trình sau thi công phải được kiểm tra tín hiệu và chất lượng trước khi được xem là hoàn thành. Nếu không đạt, quy trình chuyển sang nhánh xử lý lỗi kỹ thuật thay vì đưa tài nguyên chưa đạt chuẩn vào khai thác.
 
 **Đảm bảo độ tin cậy của dữ liệu:** Việc cập nhật GIS/CRM được xem là một đầu ra bắt buộc của quy trình. Hạ tầng chỉ được coi là hoàn tất khi thông tin tuyến cáp, thiết bị, Port và trạng thái khai thác đã được ghi nhận thành công trên hệ thống. Điều này giúp giảm chênh lệch giữa hạ tầng vật lý thực tế và dữ liệu được sử dụng cho bán hàng, điều phối và triển khai kỹ thuật.
-### 3.3.2. Mô hình hóa quy trình hiện tại BPMN As-is
+
+#### 3.3.1.4 Mô hình hóa quy trình
+
+img
+Hình...
 
 ###### Bảng 3. : Danh sách Gateway và logic kiểm soát
 
@@ -126,121 +131,217 @@ Quy trình quản lý và mở rộng hạ tầng tạo ra các nhóm giá trị
 | **GW6 – Cập nhật dữ liệu thành công?** | Exclusive Gateway (XOR) | Sau bước cập nhật dữ liệu hạ tầng trên GIS/CRM | Kiểm tra dữ liệu về tuyến cáp, thiết bị, Port và trạng thái khai thác đã được ghi nhận thành công trên hệ thống hay chưa. | **Có:** kết thúc thành công tại “Hoàn tất mở rộng hạ tầng”. **Không:** chuyển sang xử lý lỗi dữ liệu, sau đó kết thúc tại “Cập nhật thất bại” nếu không thể hoàn tất trong instance hiện tại. |
 | **GW7 – Tình trạng khắc phục lỗi?** | Exclusive Gateway (XOR) | Sau bước xử lý lỗi kỹ thuật | Đánh giá khả năng khắc phục các lỗi được phát hiện trong quá trình kiểm tra và nghiệm thu công trình. | **Đã khắc phục:** chuyển sang xác nhận kết quả khắc phục. **Không thể khắc phục:** kết thúc tại “Không đạt nghiệm thu”. |
 
+### 3.3.2. Phân tích quy trình
 
-**Nhận xét mô hình As-is**
+#### 3.3.2.1. Bộ câu hỏi phỏng vấn thu thập dữ liệu quy trình
 
-Điểm nổi bật của luồng là hai nhóm kiểm soát:
+####### Bảng 3. : Bộ câu hỏi phỏng vấn định tính có cấu trúc (Structured Qualitative Interview)
 
-**Kiểm soát trước đầu tư:** GW1 → GW8.
+| STT | Đối tượng phỏng vấn | Câu hỏi khảo sát | Các lựa chọn trả lời | Mục đích thu thập dữ liệu |
+|---|---|---|---|---|
+| 1 | Nhân viên vận hành quy trình | Anh/chị đánh giá mức độ rõ ràng của các bước trong quy trình hiện tại như thế nào? | ☐ Rất rõ ràng  ☐ Khá rõ ràng  ☐ Bình thường  ☐ Khó hiểu  ☐ Không có hướng dẫn cụ thể | Đánh giá mức độ chuẩn hóa của quy trình |
+| 2 | Nhân viên thực hiện | Trong quá trình thực hiện quy trình, anh/chị thường gặp vấn đề ở nhóm nguyên nhân nào? | ☐ Thiếu thông tin đầu vào  ☐ Quy trình phức tạp  ☐ Hệ thống lỗi/chậm  ☐ Phối hợp giữa bộ phận chưa tốt  ☐ Khác: ______ | Xác định nhóm nguyên nhân gây ảnh hưởng đến quy trình |
+| 3 | Bộ phận phối hợp | Việc bàn giao thông tin giữa các bộ phận trong quy trình hiện tại được thực hiện như thế nào? | ☐ Rất hiệu quả  ☐ Hiệu quả  ☐ Bình thường  ☐ Chưa hiệu quả  ☐ Thường xuyên xảy ra sai sót | Đánh giá khả năng phối hợp giữa các tác nhân |
+| 4 | Trưởng bộ phận | Theo anh/chị, mức độ cần thiết của việc cải tiến quy trình hiện tại là như thế nào? | ☐ Không cần thiết  ☐ Ít cần thiết  ☐ Cần thiết  ☐ Rất cần thiết | Đánh giá nhu cầu tái thiết kế quy trình |
+| 5 | Người trực tiếp xử lý | Trong quá trình vận hành, các trường hợp ngoại lệ thường xảy ra với tần suất như thế nào? | ☐ Chưa từng xảy ra  ☐ Hiếm khi  ☐ Thỉnh thoảng  ☐ Thường xuyên  ☐ Rất thường xuyên | Xác định các trường hợp ngoại lệ cần bổ sung vào BPMN |
 
-**Kiểm soát chất lượng và đóng vòng dữ liệu sau đầu tư:** GW9 → GW11.
 
-Việc tách kiểm kê vật tư và thiết kế thành hai nhánh song song phản ánh một cơ hội thực tế để rút ngắn Cycle Time. Các nhánh thất bại đều có điểm kết thúc rõ ràng, bám cùng nguyên tắc thiết kế với phần 3.2 của nhóm.
+## Bảng 3.. Bộ câu hỏi phỏng vấn định tính không có cấu trúc
 
-### 3.3.3. Phân tích định tính
+| STT | Đối tượng phỏng vấn | Câu hỏi | Mục đích thu thập dữ liệu |
+|---|---|---|---|
+| 1 | Nhân viên vận hành | Anh/chị có thể chia sẻ những khó khăn thường gặp khi thực hiện quy trình này không? | Khám phá các vấn đề phát sinh trong thực tế vận hành |
+| 2 | Nhân viên có kinh nghiệm | Theo kinh nghiệm của anh/chị, điều gì khiến quy trình hiện tại chưa đạt hiệu quả tối ưu? | Thu thập nhận định chuyên môn từ người vận hành |
+| 3 | Bộ phận liên quan | Anh/chị đánh giá như thế nào về sự phối hợp giữa các bộ phận trong quy trình? | Phân tích sự liên kết giữa các actor |
+| 4 | Người quản lý | Nếu được thay đổi một điểm trong quy trình hiện tại, anh/chị sẽ thay đổi điều gì đầu tiên? Vì sao? | Xác định các khu vực ưu tiên cải tiến |
+| 5 | Người trực tiếp xử lý | Có trường hợp ngoại lệ nào thường xuyên xảy ra nhưng chưa được thể hiện trong quy trình chuẩn không? | Phát hiện các luồng ngoại lệ cần bổ sung vào BPMN |
 
-**3.3.3.1. Phân tích giá trị gia tăng – VA/BVA/NVA**
 
-| STT | Hoạt động | Phân loại | Lý do | Hướng xử lý |
-| ---: | --- | --- | --- | --- |
-| 1 | Xác minh cảnh báo/nhu cầu | BVA | Ngăn đầu tư dựa trên dữ liệu sai | Tự động đối chiếu ticket–GIS |
-| 2 | Kiểm tra Port hiện hữu | BVA | Tránh mở rộng khi có thể tái phân bổ | Dashboard Port thời gian gần thực |
-| 3 | Khảo sát hiện trường | BVA | Cần để xác nhận khả thi và khối lượng | Checklist/mobile form |
-| 4 | Thiết kế phương án kỹ thuật | BVA | Tạo cơ sở triển khai đúng cấu hình | Chuẩn hóa mẫu thiết kế |
-| 5 | Kiểm kê vật tư | BVA | Bảo đảm khả năng thi công | Reservation vật tư theo dự án |
-| 6 | Lập dự toán/hồ sơ đầu tư | BVA | Kiểm soát CAPEX và nguồn lực | Template BOM + đơn giá chuẩn |
-| 7 | Phê duyệt ngân sách | BVA | Kiểm soát đầu tư | SLA + e-approval |
-| 8 | Xin phép/quyền thi công | BVA | Điều kiện pháp lý/vận hành cần thiết | Hồ sơ chuẩn, theo dõi trạng thái |
-| 9 | Xuất vật tư | BVA | Đưa nguồn lực tới công trường | Kitting vật tư theo BOM |
-| 10 | Kéo cáp, lắp ODF/hộp, hàn nối | **VA** | Trực tiếp tạo năng lực hạ tầng mới | Chuẩn hóa thi công |
-| 11 | Đo kiểm/nghiệm thu | BVA | Ngăn đưa hạ tầng lỗi vào khai thác | Biên bản điện tử + evidence |
-| 12 | Cập nhật GIS/Port | BVA | Làm cho năng lực mới có thể được điều phối | Đồng bộ tự động từ nghiệm thu |
-| 13 | Chờ phê duyệt | **NVA** | Không tạo thêm năng lực | Giảm bằng SLA |
-| 14 | Chờ giấy phép/quyền tuyến | **NVA** | Không tạo thêm năng lực | Chuẩn bị hồ sơ sớm |
-| 15 | Di chuyển bổ sung vật tư thiếu | **NVA** | Phát sinh do chuẩn bị/BOM chưa đủ | Kitting và kiểm kê trước xuất |
+## Bảng 3.. Bộ câu hỏi phỏng vấn định lượng có cấu trúc
 
-**Nhận xét:** VA vật lý tập trung chủ yếu tại bước thi công. Phần lớn hoạt động còn lại là BVA để bảo đảm đầu tư đúng, an toàn và có thể vận hành. Vì vậy, cải tiến không nên hiểu là loại bỏ các BVA mà là **rút ngắn thời gian, chuẩn hóa dữ liệu và số hóa việc kiểm soát**.
+| STT | Đối tượng phỏng vấn | Câu hỏi khảo sát | Các lựa chọn trả lời | Mục đích thu thập dữ liệu |
+|---|---|---|---|---|
+| 1 | Nhân viên vận hành quy trình | Thời gian trung bình để hoàn thành toàn bộ quy trình là bao lâu? | ☐ Dưới 30 phút ☐ 30 phút - 1 giờ ☐ 1 - 3 giờ ☐ 3 - 8 giờ ☐ Trên 8 giờ | Xác định Cycle Time của toàn bộ quy trình |
+| 2 | Nhân viên thực hiện từng bước | Thời gian xử lý trung bình của một bước trong quy trình là bao nhiêu? | ☐ Dưới 5 phút ☐ 5 - 15 phút ☐ 15 - 30 phút ☐ 30 phút - 1 giờ ☐ Trên 1 giờ | Xác định Processing Time của từng hoạt động |
+| 3 | Quản lý bộ phận | Trong một tháng, quy trình phát sinh lỗi hoặc phải thực hiện lại bao nhiêu lần? | ☐ 0 lần ☐ 1 - 5 lần ☐ 6 - 10 lần ☐ 11 - 20 lần ☐ Trên 20 lần | Xác định tần suất lỗi và tỷ lệ Rework |
+| 4 | Bộ phận vận hành | Trung bình số lượng yêu cầu được xử lý trong một ngày là bao nhiêu? | ☐ Dưới 10 yêu cầu ☐ 10 - 50 yêu cầu ☐ 51 - 100 yêu cầu ☐ 101 - 500 yêu cầu ☐ Trên 500 yêu cầu | Đo lường Throughput của quy trình |
+| 5 | Quản lý/Bộ phận tài chính | Chi phí trung bình để xử lý một trường hợp trong quy trình là khoảng bao nhiêu? | ☐ Dưới 50.000 VNĐ ☐ 50.000 - 200.000 VNĐ ☐ 200.000 - 500.000 VNĐ ☐ 500.000 - 1.000.000 VNĐ ☐ Trên 1.000.000 VNĐ | Ước lượng Process Cost |
 
-Hai NVA có khả năng chi phối Cycle Time là:
 
-> **Chờ phê duyệt ngân sách**
+## Bảng 3.. Bộ câu hỏi phỏng vấn định lượng không có cấu trúc
 
-và
+| STT | Đối tượng phỏng vấn | Câu hỏi mở | Mục đích thu thập dữ liệu |
+|---|---|---|---|
+| 1 | Nhân viên vận hành | Anh/chị có thể cho biết thời gian thực tế để hoàn thành toàn bộ quy trình trong một trường hợp bình thường là bao lâu không? | Thu thập Cycle Time thực tế của quy trình |
+| 2 | Nhân viên thực hiện | Anh/chị có thể cung cấp thời gian xử lý trung bình của từng bước trong quy trình không? | Xác định Processing Time của từng Activity |
+| 3 | Quản lý bộ phận | Trong thời gian gần đây, trung bình có bao nhiêu trường hợp phát sinh lỗi hoặc cần xử lý lại? | Đánh giá Error Rate và Rework Rate |
+| 4 | Bộ phận vận hành | Trung bình mỗi ngày/tháng bộ phận xử lý được bao nhiêu yêu cầu liên quan đến quy trình này? | Xác định lưu lượng xử lý (Throughput) |
+| 5 | Người quản lý | Anh/chị có thể ước lượng tổng chi phí nhân sự, thời gian và nguồn lực cần thiết để thực hiện một lần quy trình không? | Xác định chi phí vận hành quy trình (Process Cost) |
 
-> **Chờ giấy phép/quyền thi công.**
+#### 3.3.2.2 Phân tích định tính
 
-**3.3.3.2. Phân tích Lean 7 Wastes**
+##### 3.3.2.2.1. Phân tích giá trị gia tăng (Value Added Analysis)
 
-| Waste | Biểu hiện trong quy trình | Tác động | Ưu tiên | Biện pháp |
-| --- | --- | --- | --- | --- |
-| **Transportation** | Chuyển cáp, ODF/hộp và phụ kiện nhiều chuyến từ kho tới công trường | Tăng chi phí logistics, rủi ro thất lạc | Trung bình | Kitting theo BOM, gom chuyến |
-| **Inventory** | Giữ dư cáp/phụ kiện hoặc tồn sai chủng loại so với nhu cầu | Chiếm vốn và diện tích kho | Trung bình | Min–max theo vùng, reservation theo dự án |
-| **Motion** | Kỹ thuật viên phải quay lại kho/điểm khảo sát để lấy thông tin hoặc vật tư thiếu | Tăng PT và chi phí nhân lực | Cao | Mobile checklist, ảnh hiện trường, BOM chuẩn |
-| **Waiting** | Chờ phê duyệt ngân sách và chờ giấy phép/quyền tuyến | Kéo dài Cycle Time | **Rất cao** | SLA, e-approval, permit checklist |
-| **Overproduction** | Mở rộng dung lượng quá sớm so với nhu cầu đã xác minh | CAPEX sử dụng thấp | Trung bình | Ngưỡng đầu tư + forecast |
-| **Over-processing** | Nhập lại cùng thông tin vào ticket, Excel, hồ sơ và GIS | Tăng thao tác, nguy cơ sai dữ liệu | Cao | Single source of truth, API/workflow |
-| **Defects/Rework** | Sai khảo sát, sai BOM, mối hàn/suy hao không đạt, GIS cập nhật sai | Thi công lại, trì hoãn khai thác | **Rất cao** | QA checklist + đo kiểm + xác nhận GIS |
+| Nhóm | Hoạt động trong quy trình | Phân loại | Mô tả giá trị tạo ra | Hướng xử lý |
+|---|---|---|---|---|
+| VA | Thi công mở rộng hạ tầng mạng | Hoạt động tạo giá trị | Tạo thêm khả năng cung cấp dịch vụ Internet đến khu vực mới, giúp tăng khả năng phục vụ khách hàng | Duy trì và tối ưu thời gian triển khai |
+| VA | Cập nhật trạng thái hạ tầng sau triển khai | Hoạt động tạo giá trị | Đảm bảo dữ liệu hạ tầng chính xác, hỗ trợ Sales và vận hành khai thác dịch vụ | Chuẩn hóa dữ liệu và cập nhật tự động |
+| BVA | Khảo sát nhu cầu mở rộng khu vực | Hoạt động tăng giá trị kinh doanh | Giúp doanh nghiệp xác định khu vực có nhu cầu cao để đưa ra quyết định đầu tư phù hợp | Tích hợp dữ liệu thị trường để hỗ trợ phân tích |
+| BVA | Đánh giá độ phủ cáp quang và số lượng Port hiện tại | Hoạt động tăng giá trị kinh doanh | Giúp kiểm soát khả năng đáp ứng của hạ tầng trước khi triển khai mở rộng | Tự động hóa việc kiểm tra dữ liệu GIS |
+| BVA | Lập và phê duyệt dự án đầu tư mở rộng | Hoạt động tăng giá trị kinh doanh | Đảm bảo nguồn lực và ngân sách được kiểm soát trước khi triển khai | Rút ngắn thời gian phê duyệt |
+| NVA | Chờ phê duyệt hồ sơ mở rộng hạ tầng | Hoạt động không tạo giá trị | Không làm thay đổi trạng thái hạ tầng nhưng làm kéo dài thời gian hoàn thành quy trình | Áp dụng phê duyệt điện tử và SLA rõ ràng |
+| NVA | Nhập lại dữ liệu hạ tầng thủ công từ nhiều nguồn | Hoạt động không tạo giá trị | Tăng nguy cơ sai lệch dữ liệu và tiêu tốn thời gian nhân sự | Đồng bộ dữ liệu tự động giữa các hệ thống |
 
-**Kết luận:** hai loại waste cần ưu tiên là **Waiting** và **Defects/Rework**. Waiting kéo dài trực tiếp Cycle Time; Defects/Rework vừa làm tăng thời gian vừa tăng chi phí và ảnh hưởng chất lượng dữ liệu.
+# 3.3.2.2.2. Phân tích sự lãng phí (Waste Analysis)
 
-**3.3.3.3. Stakeholder Analysis**
+| Loại lãng phí | Hoạt động gây lãng phí | Mô tả vấn đề | Hướng khắc phục |
+|---|---|---|---|
+| Move | Kỹ thuật viên phải di chuyển nhiều lần để khảo sát hoặc kiểm tra hiện trạng hạ tầng | Thông tin khu vực chưa đầy đủ khiến nhân viên phải quay lại khảo sát nhiều lần | Sử dụng dữ liệu GIS, bản đồ hạ tầng số để giảm khảo sát lặp lại |
+| Move | Di chuyển hồ sơ giữa các phòng ban để xin xác nhận | Quy trình phụ thuộc nhiều vào trao đổi thủ công | Sử dụng hệ thống quản lý quy trình điện tử BPMS |
+| Hold | Chờ Ban Giám đốc phê duyệt kế hoạch đầu tư | Hồ sơ có thể bị tồn đọng trước khi chuyển sang bước triển khai | Thiết lập SLA phê duyệt và workflow tự động |
+| Hold | Chờ cập nhật dữ liệu giữa bộ phận kỹ thuật và vận hành | Dữ liệu chưa được đồng bộ theo thời gian thực | Tích hợp hệ thống GIS và quản lý tài sản mạng |
+| Overdo | Kiểm tra lại nhiều lần thông tin hạ tầng đã có trên hệ thống | Trùng lặp thao tác kiểm tra dữ liệu | Chuẩn hóa nguồn dữ liệu dùng chung |
+| Overdo | Lập nhiều báo cáo thủ công cho cùng một mục đích | Tiêu tốn thời gian tổng hợp và dễ sai lệch | Xây dựng dashboard theo dõi tự động |
 
-| Stakeholder | Mức ảnh hưởng | Mức quan tâm | Kỳ vọng chính | Rủi ro nếu phối hợp kém | Chiến lược tương tác |
-| --- | --- | --- | --- | --- | --- |
-| INF | Cao | Cao | Dữ liệu đúng, thi công đúng chuẩn, tiến độ rõ | Quy trình bị nghẽn tại nhiều điểm | Manage closely |
-| Sales/TNC | Trung bình–Cao | Cao | Có Port đúng thời điểm, GIS đúng | Mất cơ hội bán/lắp, điều phối sai | Cập nhật ETA và trạng thái |
-| Kế hoạch & Đầu tư/Tài chính | Cao | Cao | CAPEX có căn cứ, kiểm soát vượt ngân sách | Trả hồ sơ/chậm duyệt | Chuẩn BOM–cost–benefit |
-| Ban Giám đốc | Cao | Trung bình–Cao | Quyết định nhanh trên dữ liệu tin cậy | Chờ duyệt kéo dài | Dashboard và SLA |
-| Kho | Trung bình | Cao | BOM rõ, tồn kho chính xác | Thiếu/dư vật tư | Reservation + scan xuất kho |
-| Đối tác thi công | Trung bình | Cao | Mặt bằng, vật tư, bản vẽ rõ | Thi công chậm/rework | Work package chuẩn |
-| Đơn vị quản lý hạ tầng ngoài | Cao tại bước permit | Trung bình | Hồ sơ đầy đủ, tuân thủ điều kiện | Trễ quyền thi công | Chuẩn hồ sơ và đầu mối |
-| Khách hàng ngoại bộ | Thấp về quyền quyết định | Rất cao | Có dịch vụ đúng hẹn | Chờ lắp lâu, hủy nhu cầu | Thông báo ETA qua Sales |
+# 3.3.2.2.3. Phân tích các bên liên quan (Stakeholder Analysis)
 
-**3.3.3.4. Issue Register**
+hình xuong ca....
 
-Các xác suất dưới đây đều là **giả thiết mô hình**, chỉ phục vụ việc so sánh mức độ ưu tiên trong bài học.
 
-| ID | Vấn đề | Biểu hiện | Nguyên nhân sơ bộ | Xác suất | Tác động | Mức ưu tiên |
-| --- | --- | --- | --- | ---: | --- | --- |
-| **ISS-01** | Chậm/sai cập nhật Port lên GIS | Thi công xong nhưng hệ thống chưa phản ánh Port khả dụng | Nhập tay, bàn giao hồ sơ chậm, thiếu bước reconcile | **35% (giả thiết)** | Sales/TNC khảo sát “ảo”, bỏ sót năng lực mới | **Cao** |
-| **ISS-02** | Hao hụt/chênh vật tư so với dự toán | Cáp/phụ kiện thực dùng khác BOM | Khảo sát tuyến chưa chính xác, dự phòng không chuẩn | **25% (giả thiết)** | Tăng chi phí, phát sinh chuyến kho | Trung bình–Cao |
-| **ISS-03** | Chậm giấy phép/quyền sử dụng hạ tầng | Không thể thi công theo lịch | Hồ sơ thiếu, phụ thuộc bên ngoài, lịch xử lý không đồng bộ | **30% (giả thiết)** | Bottleneck lớn, kéo dài Cycle Time | **Cao** |
+| Nhóm nguyên nhân | Nguyên nhân cụ thể |
+|---|---|
+| Con người (People) | Nhân viên giữa các bộ phận chưa thống nhất cách cập nhật thông tin; phụ thuộc nhiều vào kinh nghiệm cá nhân |
+| Quy trình (Process) | Quy trình phê duyệt nhiều bước; chưa có SLA rõ ràng cho từng giai đoạn |
+| Công nghệ (Technology) | Dữ liệu GIS, hệ thống quản lý hạ tầng và hệ thống vận hành chưa đồng bộ hoàn toàn |
+| Dữ liệu (Data) | Thông tin về Port, tuyến cáp và trạng thái hạ tầng có thể chưa được cập nhật kịp thời |
+| Quản lý (Management) | Việc ưu tiên đầu tư mở rộng chưa dựa hoàn toàn trên dữ liệu phân tích nhu cầu |
 
-**3.3.3.5. Root Cause Analysis – 5 Whys cho ISS-01**
+### Nguyên nhân gốc rễ:
 
-**Vấn đề:** Port mới đã được nghiệm thu nhưng chưa sẵn sàng trên GIS/Inventory.
+Nguyên nhân chính khiến quy trình chưa đạt hiệu quả tối ưu là sự phụ thuộc vào thao tác thủ công và sự phối hợp giữa nhiều bộ phận. Việc thiếu dữ liệu đồng bộ theo thời gian thực làm tăng thời gian kiểm tra, phê duyệt và triển khai.
 
-| Why | Câu hỏi | Trả lời phân tích |
-| ---: | --- | --- |
-| 1 | Tại sao GIS chưa có Port mới? | Vì hồ sơ hoàn công chưa được nhập/xác nhận ngay sau nghiệm thu. |
-| 2 | Tại sao hồ sơ chưa được nhập ngay? | Vì thông tin nghiệm thu và cập nhật GIS là hai thao tác tách rời. |
-| 3 | Tại sao hai thao tác tách rời? | Vì chưa có workflow bắt buộc “nghiệm thu → tạo yêu cầu cập nhật → reconcile”. |
-| 4 | Tại sao chưa có workflow bắt buộc? | Vì trách nhiệm và SLA cập nhật dữ liệu chưa được gắn rõ với trạng thái đóng dự án. |
-| 5 | Tại sao trách nhiệm/SLA chưa rõ? | Vì mô hình quản trị ưu tiên hoàn tất thi công vật lý hơn là hoàn tất vòng đời dữ liệu tài sản. |
+### Đề xuất cải thiện:
 
-**Root cause đề xuất:**
+| Vấn đề | Giải pháp đề xuất |
+|---|---|
+| Chậm phê duyệt dự án | Xây dựng workflow phê duyệt điện tử trên BPMS |
+| Dữ liệu hạ tầng chưa đồng bộ | Tích hợp GIS với hệ thống quản lý tài sản mạng |
+| Khảo sát lặp lại nhiều lần | Sử dụng dữ liệu hiện trạng hạ tầng số để hỗ trợ quyết định |
+| Khó theo dõi tiến độ | Xây dựng dashboard giám sát trạng thái mở rộng hạ tầng |
 
-> Thiếu cơ chế **close-the-loop** giữa nghiệm thu vật lý và cập nhật dữ liệu.
+#### 3.3.2.3. Phân tích định lượng
 
-Biện pháp xử lý ở tầng nguyên nhân gốc không phải chỉ “nhắc nhân viên nhập GIS nhanh hơn”, mà là **không cho phép đóng dự án nếu GW11 chưa xác nhận dữ liệu GIS khớp hồ sơ hoàn công**.
+hình sơ đồ
 
-**3.3.3.6. Root Cause Analysis – 5 Whys cho ISS-03**
+# 3.3.2.3.1. Phân tích thời gian (Time Analysis)
 
-**Vấn đề:** dự án bị chậm vì chưa có quyền thi công/quyền tuyến.
+Quy trình mở rộng hạ tầng bao gồm nhiều giai đoạn từ khảo sát nhu cầu, đánh giá hiện trạng, lập kế hoạch đầu tư, phê duyệt, thi công và cập nhật dữ liệu.
 
-| Why | Câu hỏi | Trả lời phân tích |
-| ---: | --- | --- |
-| 1 | Tại sao chưa thể thi công? | Vì quyền sử dụng tuyến/cột/mặt bằng chưa được chấp thuận. |
-| 2 | Tại sao chấp thuận chậm? | Vì hồ sơ phải bổ sung hoặc chờ xác minh hiện trường. |
-| 3 | Tại sao phải bổ sung? | Vì bộ hồ sơ ban đầu chưa chuẩn hóa theo loại tuyến và yêu cầu của đơn vị quản lý. |
-| 4 | Tại sao chưa chuẩn hóa? | Vì dữ liệu permit lịch sử và checklist chưa được quản lý thành bộ mẫu dùng lại. |
-| 5 | Tại sao chưa có bộ mẫu dùng lại? | Vì hoạt động xin phép được xử lý theo từng dự án thay vì quản lý như một capability có SLA và knowledge base. |
+| STT | Hoạt động trong quy trình | Thời gian xử lý (Processing Time) | Thời gian chờ (Waiting Time) | Tổng thời gian (Cycle Time) |
+|---|---|---:|---:|---:|
+| 1 | Khảo sát nhu cầu mở rộng khu vực | 3 ngày | 1 ngày | 4 ngày |
+| 2 | Đánh giá độ phủ cáp quang và Port hiện tại | 2 ngày | 1 ngày | 3 ngày |
+| 3 | Lập dự án đầu tư mở rộng hạ tầng | 5 ngày | 3 ngày | 8 ngày |
+| 4 | Phê duyệt kế hoạch triển khai | 2 ngày | 7 ngày | 9 ngày |
+| 5 | Chuẩn bị nguồn lực và vật tư | 3 ngày | 2 ngày | 5 ngày |
+| 6 | Thi công mở rộng hạ tầng mạng | 10 ngày | 2 ngày | 12 ngày |
+| 7 | Kiểm tra nghiệm thu và cập nhật GIS | 3 ngày | 1 ngày | 4 ngày |
+| **Tổng** | | **28 ngày** | **17 ngày** | **45 ngày** |
 
-**Root cause đề xuất:**
+### Nhận xét:
 
-> Permit management chưa được chuẩn hóa và chưa được khởi động đủ sớm.
+Qua phân tích thời gian, tổng Cycle Time của quy trình mở rộng hạ tầng là khoảng **45 ngày**, trong đó thời gian xử lý thực tế chiếm **28 ngày**, còn thời gian chờ chiếm **17 ngày**.
 
-Biện pháp xử lý là phân loại tuyến ngay tại bước khảo sát, sử dụng checklist theo từng loại quyền thi công và chuẩn bị permit sớm thay vì chỉ bắt đầu sau khi toàn bộ hồ sơ đầu tư đã hoàn tất.
+Tỷ lệ thời gian chờ:
+
+$$
+Waiting\ Time\ Ratio = \frac{17}{45} \times 100\% = 37.8\%
+$$
+
+Kết quả cho thấy phần lớn thời gian lãng phí tập trung ở các bước phê duyệt dự án và chờ phối hợp giữa các bộ phận.
+
+### Đề xuất cải thiện:
+
+| Vấn đề | Giải pháp |
+|---|---|
+| Thời gian phê duyệt kéo dài | Áp dụng workflow phê duyệt điện tử trên BPMS |
+| Chờ đồng bộ dữ liệu hạ tầng | Tích hợp GIS với hệ thống quản lý tài sản |
+| Thiếu theo dõi tiến độ | Xây dựng dashboard quản lý trạng thái dự án |
+
+---
+
+# 3.3.2.3.2. Phân tích chất lượng (Quality Analysis)
+
+Chất lượng quy trình được đánh giá thông qua số lượng lỗi phát sinh trong quá trình khảo sát, triển khai và nghiệm thu.
+
+Giả định trong 100 dự án mở rộng hạ tầng:
+
+| Loại lỗi | Số lượng phát sinh | Tỷ lệ | Nguyên nhân |
+|---|---:|---:|---|
+| Sai lệch dữ liệu khảo sát hiện trạng | 8 | 8% | Dữ liệu GIS chưa cập nhật kịp thời |
+| Thiếu vật tư khi triển khai | 5 | 5% | Dự báo nhu cầu vật tư chưa chính xác |
+| Thi công phải thực hiện lại | 7 | 7% | Sai sót trong quá trình triển khai |
+| Chậm bàn giao dữ liệu sau hoàn thành | 10 | 10% | Cập nhật thủ công giữa các bộ phận |
+
+Tổng tỷ lệ phát sinh vấn đề:
+
+$$
+Error\ Rate = \frac{8+5+7+10}{100}=30\%
+$$
+
+### Nhận xét:
+
+Tỷ lệ phát sinh vấn đề trong quy trình khoảng **30%**, trong đó nhóm lỗi liên quan đến dữ liệu và bàn giao thông tin chiếm tỷ lệ cao nhất.
+
+### Đề xuất cải thiện:
+
+| Vấn đề | Giải pháp |
+|---|---|
+| Sai lệch dữ liệu khảo sát | Đồng bộ dữ liệu GIS theo thời gian thực |
+| Thiếu vật tư | Tích hợp quản lý kho với kế hoạch triển khai |
+| Thi công lại | Chuẩn hóa checklist trước thi công |
+| Chậm cập nhật trạng thái | Tự động cập nhật trạng thái trên hệ thống |
+
+---
+
+# 3.3.2.3.3. Phân tích chi phí (Cost Analysis)
+
+Chi phí được tính dựa trên các nguồn lực chính tham gia vào quy trình mở rộng hạ tầng.
+
+Giả định một dự án mở rộng hạ tầng quy mô nhỏ:
+
+| Hoạt động | Nhân sự tham gia | Chi phí nhân sự | Chi phí khác | Tổng chi phí |
+|---|---|---:|---:|---:|
+| Khảo sát nhu cầu và hiện trạng | Kỹ thuật khảo sát | 5.000.000 VNĐ | 2.000.000 VNĐ | 7.000.000 VNĐ |
+| Đánh giá và lập kế hoạch đầu tư | Kỹ thuật + Quản lý | 8.000.000 VNĐ | 3.000.000 VNĐ | 11.000.000 VNĐ |
+| Phê duyệt dự án | Quản lý các cấp | 4.000.000 VNĐ | 1.000.000 VNĐ | 5.000.000 VNĐ |
+| Thi công mở rộng hạ tầng | Đội kỹ thuật thi công | 40.000.000 VNĐ | 80.000.000 VNĐ | 120.000.000 VNĐ |
+| Kiểm tra nghiệm thu và cập nhật hệ thống | Kỹ thuật + Vận hành | 6.000.000 VNĐ | 2.000.000 VNĐ | 8.000.000 VNĐ |
+| **Tổng cộng** | | | | **151.000.000 VNĐ** |
+
+### Nhận xét:
+
+Chi phí lớn nhất tập trung tại giai đoạn thi công mở rộng hạ tầng, chiếm:
+
+$$
+\frac{120}{151}\times100\%=79.5\%
+$$
+
+Do đó, việc tối ưu hóa khảo sát, lập kế hoạch và giảm lỗi thi công có thể giúp giảm đáng kể chi phí phát sinh.
+
+---
+
+# 3.3.2.3.4. Tổng hợp kết quả phân tích định lượng
+
+| Chỉ số | Kết quả hiện tại | Vấn đề phát hiện | Hướng cải thiện |
+|---|---:|---|---|
+| Cycle Time | 45 ngày | Thời gian chờ chiếm 37.8% | Tự động hóa phê duyệt |
+| Error Rate | 30% | Sai lệch dữ liệu, cập nhật chậm | Đồng bộ hệ thống GIS |
+| Process Cost | 151 triệu VNĐ/dự án | Chi phí thi công chiếm tỷ trọng lớn | Tối ưu kế hoạch triển khai |
+
+### Kết luận:
+
+Phân tích định lượng cho thấy các vấn đề chính của quy trình mở rộng hạ tầng tập trung vào thời gian chờ phê duyệt, sai lệch dữ liệu và chi phí thi công lớn. Các giải pháp cải tiến cần tập trung vào số hóa quy trình phê duyệt, đồng bộ dữ liệu hạ tầng và tăng khả năng kiểm soát tiến độ triển khai.
 
 ### 3.3.4. Phân tích định lượng
 
