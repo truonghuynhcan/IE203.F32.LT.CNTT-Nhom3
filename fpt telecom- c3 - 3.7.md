@@ -349,7 +349,7 @@ Phiên làm việc kéo dài 180 phút được điều phối qua 5 giai đoạ
 
 ### **3.7.2. Mô hình hóa quy trình hiện tại (Sơ đồ BPMN - As-is)**
 
-Tuân thủ chặt chẽ tiêu chí Rubric đánh giá của môn học (**Độ phức tạp quy trình Hỗ trợ: Cổng điều kiện $> 3$**), mô hình BPMN As-is được thiết kế đạt mức độ phức tạp cao với **đúng 6 Cổng điều kiện (Gateways = 6)** và **18 Hoạt động nghiệp vụ** (Activities), phân chia rõ ràng trên các phân làn chức năng (Lanes) theo cẩm nang **Mota.docx**.
+Tuân thủ chặt chẽ tiêu chí Rubric đánh giá của môn học (**Độ phức tạp quy trình Hỗ trợ: Cổng điều kiện $> 3$**), mô hình BPMN As-is được thiết kế đạt mức độ phức tạp cao với **đúng 6 Cổng điều kiện (Gateways = 6)** và **18 Hoạt động nghiệp vụ** (Activities), phân chia rõ ràng trên các phân làn chức năng (Lanes) theo quy chuẩn phân tích quy trình nghiệp vụ.
 
 #### **3.7.2.1. Phân tích các phần tử chuẩn BPMN 2.0**
 
@@ -384,7 +384,7 @@ Tuân thủ chặt chẽ tiêu chí Rubric đánh giá của môn học (**Độ
 
 #### **3.7.2.2. Sơ đồ quy trình BPMN As-is (Bản hiện trạng chuẩn Pools & Lanes)**
 
-![Sơ đồ BPMN 2.0 As-Is Quy trình Quản lý Tài chính – Kế toán FPT Telecom](./assets/diagrams/quan_ly_tai_chinh/SoDoBPMN.jpg)
+![Sơ đồ BPMN 2.0 As-Is Quy trình Quản lý Tài chính – Kế toán FPT Telecom](./assets/diagrams/quan_ly_tai_chinh/SoDoBPMN2.jpg)
 
 ---
 

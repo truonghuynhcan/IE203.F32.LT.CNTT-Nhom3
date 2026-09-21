@@ -441,22 +441,23 @@ Mô hình quy trình đáp ứng chuẩn mực phân tầng độ phức tạp n
    Đề xuất mua sắm bổ sung có giá trị vượt quá hạn mức ngân sách tự quyết của chi nhánh (> 50 triệu đồng) hay không.  
    * *Nhánh Vượt (Yes):* Trình hồ sơ lên Ban Giám đốc Chi nhánh phê duyệt.  
    * *Nhánh Không vượt (No):* Chuyển trực tiếp sang Bộ phận Mua hàng để phát hành đơn PO.
-3. **Gateway 3 (Exclusive XOR Gateway - Phân loại chuẩn công nghệ thiết bị?):**  
+3. **Gateway 3 (Exclusive XOR-split - Phân loại chuẩn công nghệ thiết bị?):**  
    Căn cứ vào gói cước hợp đồng của khách hàng để lấy đúng chủng loại thiết bị quang tương thích hạ tầng:  
    * *Nhánh GPON:* Lấy Modem ONT tiêu chuẩn băng rộng cho hộ gia đình.  
-   * *Nhánh XGS-PON:* Lấy Modem cao cấp đối xứng 10Gbps và thiết bị mở rộng Mesh Wi-Fi 6 cho doanh nghiệp.
+   * *Nhánh XGS-PON:* Lấy Modem cao cấp đối xứng 10Gbps và thiết bị mở rộng Mesh Wi-Fi 6 cho doanh nghiệp.  
+   * *Cổng hội tụ (XOR-join):* Hai nhánh sau khi lấy thiết bị được gom lại qua một **cổng Exclusive Gateway (XOR-join)** trước khi dẫn 1 luồng duy nhất sang bước *Quét mã Serial / MAC và kiểm ngoại quan* (tuân thủ nghiêm ngặt nguyên tắc cấu trúc khối 7PMG Rule G4, tránh lỗi 2 luồng chập vào 1 mà không qua Gateway).
 4. **Gateway 4 (Event-Driven Gateway - Chờ Nhà cung cấp giao hàng):**  
-   Cổng rẽ nhánh theo sự kiện ngoại vi, xử lý 2 kịch bản độc quyền:  
-   * *Nhánh Message Event (Nhận hàng):* Nhà cung cấp giao hàng đến kho $\rightarrow$ Kích hoạt tiếp nhận và kiểm định chất lượng (QC).  
-   * *Nhánh Timer Event (Timeout > 48 giờ):* Quá 48h chưa nhận được hàng $\rightarrow$ Phát cảnh báo trễ hạn SLA và kích hoạt điều chuyển khẩn cấp từ kho lân cận.
+   Cổng rẽ nhánh theo sự kiện ngoại vi, xử lý 2 kịch bản độc quyền với chuẩn cú pháp 1 luồng vào và các luồng sự kiện chuyên biệt:  
+   * *Nhánh Message Intermediate Catch Event (Nhận hàng):* Nhận luồng điều khiển từ Gateway 4 và đón luồng thông điệp (*Message Flow nét đứt*) từ Pool Nhà cung cấp $\rightarrow$ Kích hoạt sang bước *Tiếp nhận hàng và kiểm định chất lượng (QC)*.  
+   * *Nhánh Timer Intermediate Event (Timeout > 48 giờ):* Quá 48h chưa nhận được hàng $\rightarrow$ Phát cảnh báo trễ hạn SLA và kích hoạt điều chuyển khẩn cấp từ kho lân cận.
 5. **Gateway 5 (Exclusive XOR Gateway - Kiểm định chất lượng QC đầu vào đạt?):**  
    Kiểm tra chất lượng mẫu ngẫu nhiên của lô hàng nhập từ Nhà cung cấp:  
-   * *Nhánh Đạt (Yes):* Thủ kho xác nhận nhập kho WMS và quay lại Gateway 3 để cấp phát cho KTV.  
-   * *Nhánh Không đạt (No):* Lập biên bản từ chối nhận hàng và trả hàng về Nhà cung cấp.
+   * *Nhánh Đạt (Yes):* Thủ kho xác nhận nhập kho WMS và chuyển sang Gateway 3 để cấp phát cho KTV.  
+   * *Nhánh Không đạt (No):* Thủ kho thực hiện *Lập biên bản từ chối nhận hàng và gửi thông báo trả hàng về Nhà cung cấp (qua Message Flow nét đứt)* $\rightarrow$ Kết thúc ngay bằng **Terminate End Event (Hủy nhận lô hàng lỗi)** nhằm xử lý dứt điểm trong cùng instance, triệt tiêu hoàn toàn lỗi vòng lặp vượt ranh giới Pool và nguy cơ Livelock.
 6. **Gateway 6 (Exclusive XOR Gateway - Thiết bị có bị lỗi kỹ thuật trong thi công?):**  
    KTV kiểm tra tín hiệu quang và cấu hình Wi-Fi tại địa chỉ khách hàng:  
    * *Nhánh Không lỗi (No):* Tiến hành nghiệm thu dịch vụ cùng khách hàng.  
-   * *Nhánh Có lỗi (Yes):* KTV gọi điện về kho xin đổi thiết bị mới khẩn cấp $\rightarrow$ Thủ kho cấp đổi thiết bị thay thế.
+   * *Nhánh Có lỗi kỹ thuật (Yes):* KTV phát tín hiệu yêu cầu kho cấp đổi $\rightarrow$ Thủ kho thực hiện tác vụ *Xuất đổi Modem mới từ kho dự phòng*. Luồng ra của tác vụ này dẫn ngược về cổng XOR-join trước bước *Đo kiểm và Cài đặt Wi-Fi* để KTV thay thế thiết bị và kiểm thử lại (giải quyết triệt để lỗi tác vụ cụt / thiếu cổng ra).
 7. **Gateway 7 (Exclusive XOR Gateway - Có phát sinh vật tư dôi dư sau thi công?):**  
    Sau khi hoàn tất thi công tại hiện trường, kiểm tra xem có thừa cuộn cáp quang hoặc phụ kiện không:  
    * *Nhánh Có (Yes):* KTV mang vật tư thừa về kho để Thủ kho kiểm đếm và nhập trả WMS.  
@@ -464,7 +465,7 @@ Mô hình quy trình đáp ứng chuẩn mực phân tầng độ phức tạp n
 
 ---
 
-**Áp dụng các phần tử chuẩn BPMN 2.0 theo cẩm nang BA (Mota.docx):**
+**Áp dụng các phần tử chuẩn BPMN 2.0 theo chuẩn phân tích nghiệp vụ và giáo trình môn học:**
 
 * **1. Swimlanes (Pools & Lanes):**  
   * **Pool FPT Telecom (Nội bộ):** Gồm 4 phân làn chức năng (Lanes):
@@ -497,12 +498,6 @@ Mô hình quy trình đáp ứng chuẩn mực phân tầng độ phức tạp n
 
 ---
 
----
-
-
-
----
-
 #### **3.6.2.2. Sơ đồ BPMN 2.0 As-Is - Quy trình Quản lý kho và xuất vật tư**
 
 ![Sơ đồ BPMN 2.0 As-Is Quy trình Quản lý kho và xuất vật tư](./assets/diagrams/quan_ly_kho/SoDo.jpg)
@@ -528,26 +523,20 @@ Mô hình quy trình đáp ứng chuẩn mực phân tầng độ phức tạp n
    * *Nhánh Không vượt ($\le$ 50tr):* Chuyển thẳng đơn đề xuất sang Bộ phận Mua hàng.
 3. **Bộ phận Mua hàng:** Lập đơn đặt hàng (PO) và gửi sang Nhà cung cấp $\rightarrow$ Hệ thống đi vào **Gateway 4 (Event-Driven Gateway)** để chờ phản hồi:
    * *Nhánh Sự kiện A (Timer Event 48h):* Nếu quá 48 giờ Nhà cung cấp chưa giao hàng $\rightarrow$ Phát cảnh báo trễ hạn SLA, điều chuyển gấp từ chi nhánh lân cận.
-   * *Nhánh Sự kiện B (Message Event nhận hàng):* Nhà cung cấp giao hàng đến kho FPT $\rightarrow$ Kích hoạt tiếp nhận hàng.
+   * *Nhánh Sự kiện B (Message Event nhận hàng):* Nhà cung cấp giao hàng đến kho FPT (truyền thông điệp qua Message Flow nét đứt) $\rightarrow$ Kích hoạt tiếp nhận hàng.
 4. **Kho & Vật tư:** Tiếp nhận lô hàng $\rightarrow$ Thực hiện kiểm định chất lượng đầu vào (QC) $\rightarrow$ **Gateway 5 (XOR):** Đạt tiêu chuẩn QC?
-   * *Nhánh Không đạt (Lỗi):* Lập biên bản từ chối $\rightarrow$ Trả hàng lại cho Nhà cung cấp $\rightarrow$ Yêu cầu giao bù khẩn cấp.
+   * *Nhánh Không đạt (Lỗi):* Thủ kho lập biên bản từ chối, gửi thông báo trả hàng lại cho Nhà cung cấp $\rightarrow$ Kết thúc ngay bằng **Terminate End Event** (Hủy tiếp nhận lô hàng lỗi để xử lý dứt điểm trong cùng instance, triệt tiêu hoàn toàn lỗi vòng lặp).
    * *Nhánh Đạt:* Xác nhận nhập kho trên WMS $\rightarrow$ Cập nhật lại số lượng tồn kho khả dụng $\rightarrow$ Chuyển sang Gateway 3 để chuẩn bị xuất kho cho KTV.
 
 ##### **c) Luồng phụ 2 - Kịch bản phát hiện thiết bị lỗi trong quá trình thi công:**
-1. **Kỹ thuật viên:** Tại Gateway 6, trong quá trình đấu nối tại nhà khách hàng, KTV phát hiện modem bị lỗi nguồn hoặc suy hao cổng quang $\rightarrow$ KTV gọi điện về hotline kho yêu cầu đổi thiết bị khẩn cấp.
-2. **Kho & Vật tư:** Thủ kho lấy thiết bị dự phòng mới $\rightarrow$ Quét Serial/MAC mới để đính chính Work Order $\rightarrow$ Bàn giao thiết bị mới cho KTV.
-3. **Kỹ thuật viên:** KTV nhận thiết bị mới $\rightarrow$ Tiếp tục lắp đặt và nghiệm thu hoàn tất với khách hàng $\rightarrow$ Mang thiết bị lỗi về kho cuối ngày.
+1. **Kỹ thuật viên:** Tại Gateway 6, trong quá trình đấu nối tại nhà khách hàng, KTV phát hiện modem bị lỗi nguồn hoặc suy hao cổng quang $\rightarrow$ KTV phát tín hiệu yêu cầu kho đổi thiết bị khẩn cấp.
+2. **Kho & Vật tư:** Thủ kho thực hiện tác vụ *Xuất đổi Modem mới từ kho dự phòng* $\rightarrow$ Luồng đầu ra của tác vụ này dẫn ngược về cổng XOR-join trước bước *Đo kiểm & Cài đặt Wi-Fi* để KTV thay thế và kiểm thử lại (giải quyết triệt để lỗi tác vụ cụt).
+3. **Kỹ thuật viên:** KTV nhận thiết bị mới $\rightarrow$ Kiểm thử đạt chuẩn và nghiệm thu hoàn tất với khách hàng $\rightarrow$ Mang thiết bị lỗi về kho bàn giao lại vào cuối ca.
 4. **Kho & Vật tư:** Tiếp nhận thiết bị hỏng $\rightarrow$ Dán tem "Hỏng – Chờ bảo hành" $\rightarrow$ Nhập dữ liệu lên WMS $\rightarrow$ Chuyển vào khu vực kho hàng lỗi chờ trả bảo hành.
 
 ##### **d) Luồng phụ 3 - Kịch bản hoàn trả và thu hồi vật tư dôi dư sau thi công:**
 1. **Kỹ thuật viên:** Tại Gateway 7, KTV kiểm tra thấy còn dư thừa cuộn cáp quang dã chiến hoặc phụ kiện đầu nối $\rightarrow$ Mang toàn bộ về kho lúc cuối ca.
 2. **Kho & Vật tư:** Thủ kho kiểm đếm thực tế $\rightarrow$ Lập Phiếu nhập trả vật tư trên WMS $\rightarrow$ Cập nhật lại thẻ kho tài sản $\rightarrow$ Chuyển sang bước đồng bộ hệ thống ERP và đóng Work Order.
-
----
-
----
-
-
 
 ---
 
