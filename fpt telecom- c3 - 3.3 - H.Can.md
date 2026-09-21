@@ -19,22 +19,40 @@
 **Quản lý doanh nghiệp:** Ban quản lý cần kết quả của quy trình để theo dõi hiệu quả sử dụng vốn đầu tư hạ tầng, kiểm soát CAPEX, tiến độ triển khai, chất lượng công trình và mức độ khai thác tài sản sau đầu tư. Qua đó, doanh nghiệp có cơ sở đánh giá liệu việc mở rộng hạ tầng có đáp ứng đúng nhu cầu thực tế và mang lại hiệu quả vận hành hay không.
 
 
-###### Bảng 3. : Luồng các bước thực hiện
+###### Bảng 3. : Luồng các bước thực hiện quy trình quản lý và mở rộng hạ tầng viễn thông
 
-| STT | Bước thực hiện | Actor chính | Nội dung |
-| ---: | --- | --- | --- |
-| 1 | Ghi nhận và xác minh cảnh báo thiếu Port | INF | Nhận ticket từ Sales/TNC hoặc cảnh báo công suất; đối chiếu GIS/Inventory và danh sách nhu cầu. |
-| 2 | Kiểm tra năng lực hiện hữu | INF | Xác định còn Port khả dụng có thể tái phân bổ hay thực sự phải mở rộng. |
-| 3 | Khảo sát hiện trường | INF / Kỹ thuật viên | Kiểm tra tuyến cáp, tủ/hộp phối quang, điểm đấu nối, khoảng cách, điều kiện kéo cáp và rủi ro thi công. |
-| 4 | Thiết kế phương án kỹ thuật | INF | Chọn tuyến, dung lượng, vị trí ODF/hộp, nhu cầu hàn nối và phương án đo kiểm. |
-| 5 | Kiểm kê và xác nhận vật tư | Kho | Kiểm tra cáp, ODF/hộp, splitter, closure, pigtail, adapter và phụ kiện. Bước này chạy song song với bước 4 trong mô hình. |
-| 6 | Lập dự toán và hồ sơ đầu tư | Kế hoạch & Đầu tư / INF | Tổng hợp khối lượng, chi phí, tiến độ, nhu cầu và rủi ro. |
-| 7 | Phê duyệt ngân sách | Ban Giám đốc / Cấp thẩm quyền | Quyết định đầu tư hoặc kết thúc instance nếu không được phê duyệt. |
-| 8 | Xin phép/quyền thi công | INF / Đơn vị bên ngoài | Hoàn thiện thủ tục liên quan tuyến, cột, mặt bằng, đào đường hoặc các quyền tiếp cận cần thiết. |
-| 9 | Xuất vật tư và chuẩn bị thi công | Kho / Nhà thầu | Xuất đúng BOM, điều phối nhân lực, thiết bị đo và lịch thi công. |
-| 10 | Thi công mở rộng | Nhà thầu / Kỹ thuật viên | Kéo cáp, lắp ODF/hộp, hàn nối, cố định tuyến và hoàn thiện hiện trường. |
-| 11 | Đo kiểm và nghiệm thu | INF / Nhà thầu | Kiểm tra tuyến, mối nối, suy hao, nhãn, hồ sơ hoàn công và chất lượng lắp đặt. |
-| 12 | Cập nhật GIS/Port và đóng yêu cầu | INF / GIS | Đồng bộ số Port/tài sản/tuyến mới; thông báo Sales/TNC và đóng hồ sơ. |
+| STT | Bước thực hiện | Bộ phận/Lane thực hiện | Loại phần tử BPMN | Mô tả chi tiết | Kết quả/nhánh tiếp theo |
+|---:|---|---|---|---|---|
+| 1 | Phát sinh nhu cầu mở rộng hạ tầng | Bộ phận Kinh doanh (Sales) | Start Event | Quy trình bắt đầu khi phát sinh nhu cầu mở rộng hạ tầng do tăng nhu cầu thuê bao, thiếu Port, cần mở rộng vùng phủ hoặc cần bổ sung năng lực mạng. | Chuyển sang tiếp nhận yêu cầu mở rộng hạ tầng. |
+| 2 | Tiếp nhận yêu cầu mở rộng hạ tầng | Bộ phận Kinh doanh (Sales) | User Task | Sales tiếp nhận và tổng hợp thông tin về khu vực cần mở rộng, nhu cầu phát triển thuê bao và tình trạng tài nguyên hạ tầng. | Chuyển sang ghi nhận yêu cầu trên hệ thống. |
+| 3 | Ghi nhận yêu cầu mở rộng trên hệ thống | Hệ thống GIS/CRM | Service Task | Hệ thống ghi nhận thông tin ban đầu của yêu cầu để phục vụ việc kiểm tra và đánh giá hạ tầng. | Chuyển sang kiểm tra hiện trạng hạ tầng. |
+| 4 | Kiểm tra hiện trạng hạ tầng | Bộ phận Kỹ thuật hạ tầng (INF) | User Task | INF kiểm tra dữ liệu hiện có như tuyến cáp, số lượng Port khả dụng, thiết bị truy cập và tài nguyên mạng tại khu vực. | Chuyển sang khảo sát thực tế. |
+| 5 | Khảo sát thực tế khu vực triển khai | Bộ phận Kỹ thuật hạ tầng (INF) | User Task | INF khảo sát thực địa để xác định điều kiện tuyến cáp, vị trí lắp đặt, khả năng thi công và các yếu tố ảnh hưởng đến phương án mở rộng. | Chuyển sang đánh giá khả năng đáp ứng hạ tầng. |
+| 6 | Đánh giá khả năng đáp ứng hạ tầng | Bộ phận Kỹ thuật hạ tầng (INF) | User Task | INF tổng hợp dữ liệu hệ thống và kết quả khảo sát để đánh giá khả năng đáp ứng của hạ tầng hiện hữu. | Chuyển sang GW1. |
+| 7 | GW1: Hạ tầng hiện tại đáp ứng? | Bộ phận Kỹ thuật hạ tầng (INF) | Exclusive Gateway | Xác định hạ tầng hiện tại có đủ khả năng đáp ứng nhu cầu hay không. | **Có:** kết thúc, không cần mở rộng. **Không:** lập phương án kỹ thuật và dự toán đầu tư. |
+| 8 | Lập phương án kỹ thuật và dự toán đầu tư | Bộ phận Kỹ thuật hạ tầng (INF) | User Task | INF xây dựng phương án mở rộng, xác định hạng mục kỹ thuật, vật tư, thiết bị, nhân lực và chi phí dự kiến. | Chuyển sang gửi hồ sơ phương án mở rộng. |
+| 9 | Gửi hồ sơ phương án mở rộng | Bộ phận Kỹ thuật hạ tầng (INF) | Send Task | Hồ sơ phương án được chuyển sang Bộ phận Kế hoạch & Đầu tư để thẩm định. | Chuyển sang thẩm định kế hoạch mở rộng. |
+| 10 | Thẩm định kế hoạch mở rộng | Kế hoạch & Đầu tư | User Task | Bộ phận Kế hoạch & Đầu tư đánh giá tính cần thiết, tính khả thi và ngân sách của phương án. | Chuyển sang GW2. |
+| 11 | GW2: Kế hoạch được phê duyệt? | Kế hoạch & Đầu tư | Exclusive Gateway | Xác định phương án mở rộng có được phê duyệt để triển khai hay không. | **Không:** kết thúc, không được phê duyệt đầu tư. **Có:** chuẩn bị vật tư và nguồn lực. |
+| 12 | Chuẩn bị vật tư và nguồn lực | Kho vật tư | User Task | Chuẩn bị các điều kiện cần thiết trước thi công, bao gồm vật tư, thiết bị và nguồn lực phục vụ triển khai. | Chuyển sang GW3. |
+| 13 | GW3: Phân tách chuẩn bị triển khai | Kho vật tư | Parallel Gateway – Split | Tách quá trình chuẩn bị thành hai luồng được thực hiện song song. | Luồng 1: Chuẩn bị thiết bị. Luồng 2: Phân công nhân lực. |
+| 14 | Chuẩn bị thiết bị | Kho vật tư | User Task | Kho chuẩn bị các vật tư và thiết bị cần thiết theo phương án đã được phê duyệt. | Chuyển vào GW4. |
+| 15 | Phân công nhân lực | Bộ phận phụ trách nguồn lực/đội kỹ thuật | User Task | Bố trí nhân sự và đội kỹ thuật thực hiện công việc tại hiện trường. | Chuyển vào GW4. |
+| 16 | GW4: Hoàn tất chuẩn bị triển khai | Khối triển khai | Parallel Gateway – Join | Đồng bộ hai luồng chuẩn bị, chỉ cho phép tiếp tục khi cả thiết bị và nhân lực đều sẵn sàng. | Chuyển sang thi công mở rộng hạ tầng. |
+| 17 | Thi công mở rộng hạ tầng | Đội thi công/Kỹ thuật viên | User Task | Thực hiện kéo cáp, đấu nối, lắp đặt thiết bị và bổ sung tài nguyên mạng theo phương án đã được phê duyệt. | Chuyển sang kiểm tra tín hiệu và chất lượng công trình. |
+| 18 | Kiểm tra tín hiệu và chất lượng công trình | Đội thi công/Kỹ thuật viên | User Task | Kiểm tra tín hiệu, chất lượng kết nối và mức độ đáp ứng các yêu cầu kỹ thuật sau thi công. | Chuyển sang GW5. |
+| 19 | GW5: Nghiệm thu đạt? | Đội thi công/Kỹ thuật viên | Exclusive Gateway | Xác định công trình có đạt yêu cầu nghiệm thu hay không. | **Đạt:** cập nhật dữ liệu GIS/CRM. **Không:** xử lý lỗi kỹ thuật. |
+| 20 | Xử lý lỗi kỹ thuật | Đội thi công/Kỹ thuật viên | User Task | Xác định nguyên nhân và xử lý các lỗi phát sinh trong quá trình kiểm tra, nghiệm thu. | Chuyển sang GW7. |
+| 21 | GW7: Tình trạng khắc phục lỗi? | Đội thi công/Kỹ thuật viên | Exclusive Gateway | Đánh giá kết quả xử lý lỗi kỹ thuật. | **Không thể khắc phục:** kết thúc không đạt nghiệm thu. **Đã khắc phục:** xác nhận kết quả khắc phục. |
+| 22 | Xác nhận kết quả khắc phục | Đội thi công/Kỹ thuật viên | User Task | Xác nhận tình trạng sau xử lý và ghi nhận kết quả khắc phục lỗi. | Kết thúc instance xử lý lỗi hiện tại. |
+| 23 | Cập nhật dữ liệu hạ tầng trên GIS/CRM | Hệ thống GIS/CRM | Service Task | Cập nhật thông tin tuyến cáp, thiết bị, Port và trạng thái khai thác của hạ tầng sau khi nghiệm thu đạt. | Chuyển sang GW6. |
+| 24 | GW6: Cập nhật dữ liệu thành công? | Hệ thống GIS/CRM | Exclusive Gateway | Kiểm tra kết quả cập nhật dữ liệu hạ tầng trên hệ thống. | **Có:** hoàn tất mở rộng hạ tầng. **Không:** xử lý lỗi dữ liệu. |
+| 25 | Xử lý lỗi dữ liệu | Hệ thống GIS/CRM | Service Task | Xử lý lỗi phát sinh trong quá trình ghi nhận hoặc cập nhật dữ liệu hạ tầng. | Nếu vẫn không thể hoàn tất, chuyển đến End Event cập nhật thất bại. |
+| 26 | Hoàn tất mở rộng hạ tầng | Hệ thống GIS/CRM | End Event | Quy trình kết thúc thành công khi công trình đạt nghiệm thu và dữ liệu được cập nhật thành công. | Kết thúc quy trình. |
+| 27 | Kết thúc - Không cần mở rộng hạ tầng | Bộ phận Kỹ thuật hạ tầng (INF) | End Event | Hạ tầng hiện hữu vẫn đáp ứng nhu cầu nên không cần thực hiện đầu tư mở rộng. | Kết thúc quy trình. |
+| 28 | Kết thúc - Không được phê duyệt đầu tư | Kế hoạch & Đầu tư | End Event | Phương án không được phê duyệt nên không tiếp tục triển khai. | Kết thúc quy trình. |
+| 29 | Kết thúc - Không đạt nghiệm thu | Đội thi công/Kỹ thuật viên | End Event | Công trình hoặc lỗi kỹ thuật không thể xử lý đạt yêu cầu nghiệm thu. | Kết thúc quy trình. |
+| 30 | END - Cập nhật thất bại | Hệ thống GIS/CRM | End Event | Dữ liệu hạ tầng không thể cập nhật thành công sau khi xử lý lỗi. | Kết thúc quy trình. |
 
 
 **Kịch bản thành công**
@@ -76,137 +94,6 @@ Quy trình tạo ra năm nhóm giá trị chính:
 
 ### 3.3.2. Mô hình hóa quy trình hiện tại BPMN As-is
 
-**Quy ước mô hình**
-
-BPMN cung cấp ký pháp đồ họa để biểu diễn quy trình nghiệp vụ và được OMG chuẩn hóa; phiên bản đặc tả chính thức hiện được công bố là BPMN 2.0.2. Mermaid bên dưới được sử dụng như **bản nháp trực quan có swimlane mô phỏng**. Khi chuyển sang DOC/DOCX cuối cùng, nên dựng lại bằng Camunda Modeler, Bizagi hoặc draw.io với ký hiệu BPMN 2.0 chính thức.
-
-Mô hình sử dụng **11 Gateway XOR** và **1 cặp AND Split/Join**, vượt yêu cầu “>7 Gateways”.
-
-**Actor/Customer được hiển thị trên sơ đồ:**
-
-- Customer nội bộ: Sales/TNC.
-- Customer ngoại bộ: người dùng Internet chờ triển khai.
-- Actor: INF.
-- Actor: Kế hoạch & Đầu tư/Tài chính.
-- Actor: Kho.
-- Actor: Ban Giám đốc.
-- Actor: Cơ quan/đơn vị quản lý hạ tầng ngoài.
-- Actor: Đối tác thi công/Kỹ thuật viên.
-- Actor: GIS/Inventory.
-
-**BPMN As-is – Mermaid code**
-
-```mermaid
-flowchart TB
-    classDef event fill:#ffffff,stroke:#333,stroke-width:2px;
-    classDef task fill:#ffffff,stroke:#333,stroke-width:1px;
-    classDef gateway fill:#ffffff,stroke:#333,stroke-width:2px;
-    classDef exception fill:#ffffff,stroke:#777,stroke-dasharray: 4 4;
-
-    subgraph CUS["CUSTOMER: Sales/TNC (nội bộ) & Người dùng Internet (ngoại bộ)"]
-        C0["Nhu cầu lắp mới / Ticket hết Port"]
-        C1["Nhận thông báo Port sẵn sàng"]
-    end
-
-    subgraph INF["ACTOR: Quản lý kỹ thuật hạ tầng (INF)"]
-        S([Start])
-        T1["1. Ghi nhận & xác minh cảnh báo"]
-        G1{"GW1: Cảnh báo / nhu cầu hợp lệ?"}
-        T2["2. Kiểm tra năng lực hiện hữu"]
-        G2{"GW2: Port hiện hữu còn đủ?"}
-        T2A["Phân bổ Port hiện hữu / đóng yêu cầu mở rộng"]
-        T3["3. Khảo sát hiện trường"]
-        G3{"GW3: Dữ liệu khảo sát đầy đủ?"}
-        X3["Ghi nhận thiếu dữ liệu"]
-        A1{"AND Split"}
-        T4["4. Thiết kế phương án kỹ thuật"]
-        G4{"GW4: Phương án khả thi kỹ thuật?"}
-        X4["Ghi nhận phương án không khả thi"]
-        A2{"AND Join"}
-    end
-
-    subgraph WH["ACTOR: Kho / Quản lý vật tư"]
-        T5["5. Kiểm kê vật tư"]
-        G5{"GW5: Vật tư đủ?"}
-        X5["Ghi nhận thiếu vật tư / yêu cầu điều chuyển"]
-        T9["9. Xuất vật tư & chuẩn bị thi công"]
-    end
-
-    subgraph PLAN["ACTOR: Kế hoạch & Đầu tư / Tài chính"]
-        T6["6. Lập dự toán & hồ sơ đầu tư"]
-        G6{"GW6: Chi phí trong ngưỡng / nguồn vốn phù hợp?"}
-        X6["Ghi nhận phương án vượt ngưỡng"]
-    end
-
-    subgraph BOD["ACTOR: Ban Giám đốc / Cấp phê duyệt"]
-        T7["7. Xem xét phê duyệt ngân sách"]
-        G7{"GW7: Được phê duyệt?"}
-        X7["Ghi nhận quyết định từ chối"]
-    end
-
-    subgraph EXT["ACTOR: Cơ quan / Đơn vị quản lý hạ tầng ngoài"]
-        T8["8. Xử lý giấy phép / quyền thi công"]
-        G8{"GW8: Quyền thi công được chấp thuận?"}
-        X8["Ghi nhận vướng phép / quyền tuyến"]
-    end
-
-    subgraph CON["ACTOR: Đối tác thi công / Kỹ thuật viên"]
-        G9{"GW9: Điều kiện thi công an toàn?"}
-        X9["Tạm dừng & ghi nhận rủi ro an toàn"]
-        T10["10. Thi công kéo cáp, lắp ODF/hộp, hàn nối"]
-        T11["11. Đo kiểm & nghiệm thu"]
-        G10{"GW10: Nghiệm thu đạt?"}
-        X10["Lập biên bản không đạt"]
-    end
-
-    subgraph GIS["ACTOR: GIS / Inventory"]
-        T12["12. Cập nhật GIS & số Port"]
-        G11{"GW11: Dữ liệu GIS khớp hoàn công?"}
-        X11["Ghi nhận sai lệch dữ liệu"]
-        EOK([End: Port sẵn sàng])
-        ENO([Terminate End: Không đạt])
-        ENE([End: Không cần mở rộng])
-    end
-
-    C0 --> S --> T1 --> G1
-    G1 -- "Có" --> T2
-    G1 -- "Không" --> ENO
-
-    T2 --> G2
-    G2 -- "Có" --> T2A --> ENE
-    G2 -- "Không" --> T3 --> G3
-    G3 -- "Có" --> A1
-    G3 -- "Không" --> X3 --> ENO
-
-    A1 --> T4 --> G4
-    G4 -- "Có" --> A2
-    G4 -- "Không" --> X4 --> ENO
-
-    A1 --> T5 --> G5
-    G5 -- "Có" --> A2
-    G5 -- "Không" --> X5 --> ENO
-
-    A2 --> T6 --> G6
-    G6 -- "Đạt" --> T7
-    G6 -- "Không đạt" --> X6 --> ENO
-
-    T7 --> G7
-    G7 -- "Duyệt" --> T8
-    G7 -- "Từ chối" --> X7 --> ENO
-
-    T8 --> G8
-    G8 -- "Có" --> T9 --> G9
-    G8 -- "Không" --> X8 --> ENO
-
-    G9 -- "An toàn" --> T10 --> T11 --> G10
-    G9 -- "Không an toàn" --> X9 --> ENO
-
-    G10 -- "Đạt" --> T12 --> G11
-    G10 -- "Không đạt" --> X10 --> ENO
-
-    G11 -- "Khớp" --> EOK --> C1
-    G11 -- "Không khớp" --> X11 --> ENO
-```
 
 **Danh sách Gateway và logic kiểm soát**
 
